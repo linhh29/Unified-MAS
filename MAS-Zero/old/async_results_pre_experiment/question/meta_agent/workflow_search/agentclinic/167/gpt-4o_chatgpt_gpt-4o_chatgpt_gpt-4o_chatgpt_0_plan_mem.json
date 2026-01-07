@@ -1,0 +1,17 @@
+[
+    {
+        "The diagnosis for the patient is neonatal cholestasis, likely due to biliary atresia. Further diagnostic imaging, such as an abdominal ultrasound or a HIDA scan, is recommended to confirm the diagnosis and assess the biliary tree.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The diagnosis is neonatal cholestasis, likely due to biliary atresia. Further evaluation with imaging studies such as an abdominal ultrasound and possibly a liver biopsy is necessary to confirm the diagnosis and assess the extent of the condition.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Neonatal cholestasis due to an obstructive or hepatobiliary condition. Further evaluation with imaging and possibly genetic testing is necessary to determine the exact cause. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Biliary atresia is the most likely diagnosis based on the symptoms and test results, but further testing is needed to confirm. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The diagnosis is neonatal cholestasis. Further evaluation with imaging studies and possibly a liver biopsy is necessary to determine the exact cause and assess the extent of the condition.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

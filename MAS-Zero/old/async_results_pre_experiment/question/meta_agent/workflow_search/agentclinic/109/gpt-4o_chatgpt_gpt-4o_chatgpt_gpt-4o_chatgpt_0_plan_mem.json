@@ -1,0 +1,17 @@
+[
+    {
+        "The diagnosis is actinic keratosis. This is based on the biopsy findings showing atypical keratinocytes confined to the epidermis, which is consistent with actinic keratosis, a precancerous condition that can progress to squamous cell carcinoma if untreated.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Bowen's disease (squamous cell carcinoma in situ) is the diagnosis. This condition is characterized by atypical keratinocytes confined to the epidermis, similar to actinic keratosis, but it is considered an early form of skin cancer rather than a precancerous lesion.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Seborrheic keratosis": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Basal cell carcinoma": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Squamous cell carcinoma in situ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

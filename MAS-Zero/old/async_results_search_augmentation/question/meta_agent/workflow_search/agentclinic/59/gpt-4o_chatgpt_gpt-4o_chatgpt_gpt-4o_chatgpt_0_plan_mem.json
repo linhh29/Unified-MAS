@@ -1,0 +1,17 @@
+[
+    {
+        "Final Diagnosis: Carbon monoxide poisoning.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis could be secondary polycythemia due to chronic hypoxia, polycythemia vera, or obstructive sleep apnea (OSA) with secondary polycythemia. Management should involve further diagnostic testing to confirm the underlying cause, such as serum erythropoietin levels, JAK2 mutation analysis, or a sleep study. Treatment options include therapeutic phlebotomy, optimizing management of existing conditions, and addressing environmental factors. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Conduct JAK2 mutation analysis and measure erythropoietin levels to confirm polycythemia vera. If confirmed, manage with regular phlebotomy to maintain hematocrit below 45%, low-dose aspirin for thrombosis prevention, and cytoreductive therapy with hydroxyurea for high-risk patients. Evaluate for obstructive sleep apnea with a sleep study if clinically indicated, and manage with CPAP therapy if confirmed. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "1. Conduct a sleep study to evaluate for obstructive sleep apnea (OSA). 2. If OSA is confirmed, initiate CPAP therapy and recommend lifestyle modifications such as weight loss and positional therapy. 3. Monitor hemoglobin and hematocrit levels regularly to assess response to treatment. 4. Evaluate for other causes of chronic hypoxia through pulmonary function tests or environmental assessments. 5. Consider further testing for polycythemia vera, such as JAK2 mutation analysis, if indicated. 6. Educate the patient on lifestyle modifications and follow-up care to manage underlying conditions like hypertension and diabetes. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

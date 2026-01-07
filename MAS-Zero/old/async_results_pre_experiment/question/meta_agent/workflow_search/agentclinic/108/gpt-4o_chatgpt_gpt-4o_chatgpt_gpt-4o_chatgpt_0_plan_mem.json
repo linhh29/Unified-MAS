@@ -1,0 +1,17 @@
+[
+    {
+        "The comprehensive diagnosis is endometrial cancer with a possible ovarian tumor, likely a granulosa cell tumor. Management should involve surgical intervention with a total hysterectomy and bilateral salpingo-oophorectomy, followed by staging and potential adjuvant therapy based on findings. Regular follow-up is necessary for monitoring.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Comprehensive diagnosis: The patient has confirmed endometrial cancer, as indicated by the biopsy findings of well-differentiated adenocarcinoma. The nature of the adnexal mass remains uncertain and requires further investigation. Management plan: Prioritize surgical intervention for the endometrial cancer, such as a hysterectomy, and conduct additional imaging or biopsy to evaluate the adnexal mass and determine the appropriate treatment.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Comprehensive diagnosis: The patient has confirmed endometrial cancer and a likely granulosa cell tumor of the ovary. Management plan: Perform a total hysterectomy with bilateral salpingo-oophorectomy, followed by consideration of chemotherapy or radiation based on staging and pathology results. Ensure regular follow-up for recurrence or metastasis.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Comprehensive diagnosis: The patient has confirmed endometrial cancer, as indicated by the biopsy findings of well-differentiated adenocarcinoma, and a likely granulosa cell tumor, as suggested by the adnexal mass and increased Inhibin B levels. Management plan: The patient should undergo surgical intervention to address both the endometrial cancer and the likely ovarian tumor, followed by further oncological assessment to determine the need for additional treatments such as chemotherapy or radiation therapy.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Comprehensive diagnosis: The patient has confirmed endometrial cancer, indicated by the biopsy findings of well-differentiated adenocarcinoma, and a likely granulosa cell tumor, as suggested by the adnexal mass and increased Inhibin B levels. Management plan: Surgical intervention with a total hysterectomy and bilateral salpingo-oophorectomy is recommended to treat both conditions. Post-surgical staging and potential adjuvant therapy may be necessary based on disease spread. Regular follow-up with imaging and tumor marker monitoring is essential.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

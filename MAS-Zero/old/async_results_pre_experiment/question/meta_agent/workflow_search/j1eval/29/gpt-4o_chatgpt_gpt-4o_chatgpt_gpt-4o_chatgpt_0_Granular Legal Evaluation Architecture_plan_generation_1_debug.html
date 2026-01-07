@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .message {
+                padding: 8px 16px;
+                margin-bottom: 8px;
+                border-radius: 4px;
+            }
+            .message.user {
+                background-color: #B2DFDB;
+                color: #00695C;
+            }
+            .message.assistant {
+                background-color: #B39DDB;
+                color: #4527A0;
+            }
+            .message.system {
+                background-color: #EEEEEE;
+                color: #212121;
+            }
+            .role {
+                font-weight: bold;
+                margin-bottom: 4px;
+            }
+            .variant {
+                color: #795548;
+            }
+            table, th, td {
+                border: 1px solid black;
+            }
+            pre {
+                white-space: pre-wrap;
+            }
+        </style>
+    </head>
+    <body>
+    
+    <h1>Metrics</h1>
+    <table>
+    <tr>
+        <th>Metric</th>
+        <th>Value</th>
+    </tr>
+    <tr>
+        <td><b>Score</b></td>
+        <td>0.0</td>
+    </tr>
+    
+    <tr>
+        <td>score:std</td>
+        <td>0.0</td>
+    </tr>
+    
+    </table>
+    
+    <h1>Examples</h1>
+    
+    
+<h3>Prompt conversation</h3>
+
+
+<div class="message system">
+    <div class="role">
+    system
+    
+    </div>
+    <div class="content">
+    <pre>You are a helpful assistant.
+
+Reply EXACTLY with the following JSON format.
+{&#34;reflection&#34;: &#34;Your reflection (if applicable).&#34;, &#34;thought&#34;: &#34;Your thought.&#34;, &#34;name&#34;: &#34;Your name.&#34;, &#34;code&#34;: &#34;Your code.&#34;}
+DO NOT MISS ANY REQUEST FIELDS and ensure that your response is a well-formed JSON object!</pre>
+    </div>
+</div>
+
+
+<div class="message user">
+    <div class="role">
+    user
+    
+    </div>
+    <div class="content">
+    <pre>Initial Round (Round 0):
+
+# Overview
+You are an expert machine learning researcher testing various agentic systems. Given a set of architectures in the archive and the question. Note that architecture can contain multiple agents, and agent means a LLM that is used for specifical objectives by specifclaied setting (instruction, tempreture...)
+
+Your objective is to 
+
+(1) Perform task decomposition. Specifically, decompose the give question significantly so that the sub-architecture (or node or block) can perform each of the sub-tasks. The output should be sub-task 1, sub-task 2, ... sub-task n. Do not solve the task for the sub-architecture and do not leak the expected answer in your sub-task description/instruction/question (a short-cut like &#39;output exactly the following...&#39; is also leakage and should be avoided). Instead, decompose the task that easy enough for the sub-architecture to solve. You need to justify how these sub-tasks can achieve the final answer to the orginal questions.
+
+Make sure 
+
+(a) Include sub-task ID  and &#39;Based on (task i)&#39; in the instruction of a sub-task. 
+For example, 
+Similarly, if sub-task 2 requires the output of task 1, then sub-task 2&#39;s instruction should be
+&#39;Sub-task 2: Based on the outputs from sub-task 1, ....(origin sub-task 1&#39;s instruction)&#39;
+
+Similarly, if sub-task 3 requires the output of task 1 and 2, then sub-task 3&#39;s instruction should be
+&#39;Sub-task 3: Based on the outputs from sub-task 1 and 2, ....(origin sub-task 3&#39;s instruction)&#39;
+This helps each sub-task connects to its prerequisite sub-tasks so that there is enough information to solve it.
+
+(b) Each sub-task should be specific and detailed enough to solve and to help achieve the final answer to the given question. The output should be helpful to solve the next sub-task. You need to include details steps (but not the answer) to the sub-task 
+For example,
+`Sub-task 3: Based on the output of sub-task 1 and 2....`
+You can see it clearly states &#39;based on what sub-tasks&#39;
+
+(c) The answer to the last sub-task should be the same as the answer to the final question, so that the architecture successfully solve the complex question by solving each of the sub-task. 
+
+(2) Given the resulting sub-task 1, sub-task 2, ... sub-task n, design connections between existing blocks to address each of them. 
+You should structure the architecture as a multi-layered network. Each existing architecture (or blocks) serves as a node, while connections between them act as edges, forming a structured hierarchy of interactions. Additionally, you must determine the number of layers in the network.
+
+For example, if the exising architectures are &#39;COT, COT_SC, Reflexion, LLM_debate&#39; and you determine that there can be 3 layers. There are 3 resulting sub-task from (1) sub-task 1, sub-task 2, sub-task 1, sub-task 3:
+
+Example Setup
+
+Resulting sub-tasks:
+sub-task 1, sub-task 2, sub-task 3, sub-task 4
+
+Available architectures:
+COT, COT_SC, Reflexion, LLM_debate
+
+Network with 3 Layers:
+
+Layer 1: COT  COT_SC  Reflexion  LLM_debate  
+Layer 2: COT  COT_SC  Reflexion  LLM_debate   
+Layer 3: COT  COT_SC  Reflexion  LLM_debate  
+
+Connection Strategies:
+
+1. Linear Connection: Directly link two block to pass information forward.
+Example: [COT] (address sub-task 1) -&gt; [LLM_debate] (address sub-task 2) (Single connection and exit)
+
+2. Multi-Layer Connection: An block can appear in multiple layers, forming deeper reasoning structures.
+Example: [COT] (address sub-task 1) -&gt; [LLM_debate] (address sub-task 2) -&gt; [COT -&gt; Reflexion] (address sub-task 3) (COT appears in both Layer 1 and Layer 3) (the whole [COT -&gt; Reflexion] is a sub-task architecture that aims to address sub-task 3)
+
+IMPORTANT:
+
+1. Decomposition itself should not be included in the architecture as the question has been decomposed at step (1). Do not assign one block to perform all the sub-tasks (if you put all decomposed sub-tasks into a single instruction for an block, it is very wrong). Instead, assign different block to address each of the sub-task instead.
+
+2. If your previous attempts in Discovered architecture archive are incorrect (fitness value equals to 0), it means the sub-tasks are still too difficult to the corresponidng blocka. Please further decompose the question to easier sub-tasks. 
+
+Your aim is to design an optimal block connection that can perform well on each of the sub-task.Your code should implement the exising blocks given in the archive (the &#39;code&#39; entry of blocks) as it-is without modication: Do not propose new blocks or modify existing ones and only change the connections between the given blocks, but block setting like instruction, temperature are allowed to modify
+
+
+
+# The utility code:
+
+```python
+from collections import namedtuple
+from typing import Union
+import numpy as np
+import json
+
+import openai
+import backoff
+from utils import random_id
+
+# Initialize the Async OpenAI client
+client = openai.AsyncOpenAI()
+
+# Named tuple for holding task information
+Info = namedtuple(&#39;Info&#39;, [&#39;name&#39;, &#39;author&#39;, &#39;content&#39;, &#39;prompt&#39;, &#39;sub_tasks&#39;, &#39;agents&#39;, &#39;iteration_idx&#39;])
+
+# Format instructions for LLM response
+FORMAT_INST = lambda request_keys: f&#34;Reply EXACTLY with the following JSON format.
+{str(request_keys)}
+DO NOT MISS ANY FIELDS AND MAKE SURE THE JSON FORMAT IS CORRECT!
+&#34;
+
+# Description of the role for the LLM
+ROLE_DESC = lambda role: f&#34;You are a {role}.&#34;
+
+@backoff.on_exception(backoff.expo, openai.RateLimitError)
+async def get_json_response_from_gpt(msg, model, system_message, temperature=0.5):
+    &#34;&#34;&#34;
+    Function to get JSON response from GPT model.
+    
+    Args:
+    - msg (str): The user message.
+    - model (str): The model to use.
+    - system_message (str): The system message.
+    - temperature (float): Sampling temperature.
+    
+    Returns:
+    - dict: The JSON response.
+    &#34;&#34;&#34;
+    response = await client.chat.completions.create(
+        model=model,
+        messages=[
+            {&#34;role&#34;: &#34;system&#34;, &#34;content&#34;: system_message},
+            {&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: msg},
+        ],
+        temperature=temperature,
+        max_tokens=1024,
+        stop=None,
+        response_format={&#34;type&#34;: &#34;json_object&#34;}
+    )
+    content = response.choices[0].message.content
+    json_dict = json.loads(content)
+    return json_dict
+
+class LLMAgentBase():
+    &#34;&#34;&#34;
+    Attributes:
+    &#34;&#34;&#34;
+
+    def __init__(self, output_fields: list, agent_name: str,
+                 role=&#39;helpful assistant&#39;, model=None, temperature=None) -&gt; None:
+        self.output_fields = output_fields
+        self.agent_name = agent_name
+
+        self.role = role
+        self.model = model
+        self.temperature = temperature
+        # give each instance a unique id
+        self.id = random_id()
+        
+
+    def generate_prompt(self, input_infos, instruction, is_sub_task=False) -&gt; str:
+
+        output_fields_and_description = {key: f&#34;Your {key}.&#34; if not &#39;answer&#39; in key else f&#34;Your {key}. {global_output_description}&#34; for key in self.output_fields}
+        system_prompt = ROLE_DESC(self.role) + &#34;
+
+&#34; + FORMAT_INST(output_fields_and_description)
+
+        # print(&#39;is_sub_task: &#39;,is_sub_task)
+        
+
+        # construct input infos text
+        input_infos_text = &#39;&#39;
+        prev_prompt = &#39;&#39;
+        for input_info in input_infos:
+            if isinstance(input_info, Info):
+                (field_name, author, content, prompt, _, _, iteration_idx) = input_info
+            else:
+                continue
+            if author == self.__repr__():
+                author += &#39; (yourself)&#39;
+            if field_name == &#39;task&#39;:
+                if is_sub_task: 
+                    # input_infos_text += f&#39;Giving the original question: 
+
+{content}
+
+, and below sub-task questions and answers, please solve the sub-task: {instruction}
+
+Sub-task questions and answers (if any):
+
+&#39;
+                    input_infos_text += f&#39;{instruction}
+
+Previous sub-task questions and answers (if any):
+
+&#39;
+                else:
+                    # continue # TODO: make sure it can deal with sub-tasks
+                    input_infos_text += f&#39;{content}
+
+&#39;
+            elif iteration_idx != -1:
+                if is_sub_task and prompt is not None and prompt != prev_prompt: 
+                    # print(&#39;prompt: &#39;,prompt)
+                    # pattern = r&#34;please solve the sub-task:\s*(.*?)\s*
+
+Sub-task questions and answers&#34;
+                    pattern = r&#34;\s*(.*?)\s*
+
+Previous sub-task questions&#34;
+
+                    sub_question = prompt[-1][&#39;content&#39;]
+                    match = re.search(pattern, sub_question, re.DOTALL)                                        
+                    input_infos_text += f&#39;### {match.group(1)} 
+
+ ### {field_name} #{iteration_idx + 1} by {author}:
+{content}
+
+&#39;
+                    prev_prompt = prompt
+                else:
+                    input_infos_text += f&#39;### {field_name} #{iteration_idx + 1} by {author}:
+{content}
+
+&#39;
+            else:
+                if is_sub_task and prompt is not None and prompt != prev_prompt: 
+                    # print(&#39;prompt: &#39;,prompt)
+                    pattern = r&#34;\s*(.*?)\s*
+
+Previous sub-task questions&#34;
+                    sub_question = prompt[-1][&#39;content&#39;]
+                    match = re.search(pattern, sub_question, re.DOTALL)
+                    input_infos_text += f&#39;### {match.group(1)} 
+
+ ### {field_name} by {author}:
+{content}
+
+&#39;
+                    prev_prompt = prompt # we do not want to duplicate the prompt
+                else:
+                    input_infos_text += f&#39;### {field_name} by {author}:
+{content}
+
+&#39;
+
+        if is_sub_task: 
+            prompt = input_infos_text # instruction (sub-task in above)
+        else:
+            prompt = input_infos_text + instruction
+        return system_prompt, prompt
+
+    async def query(self, input_infos: list, instruction, iteration_idx=-1, is_sub_task=False) -&gt; dict:
+
+        global COST_TOTAL
+
+        system_prompt, prompt = self.generate_prompt(input_infos, instruction, is_sub_task=is_sub_task)
+
+        prompt = [
+            _pack_message(content=system_prompt, role=&#34;system&#34;),
+            _pack_message(content=prompt, role=&#34;user&#34;)]
+        # use system prompt
+
+        response_json, cost = await get_json_response_from_gpt(prompt, self.model)
+        COST_TOTAL += cost
+
+        output_infos = []
+        for key, value in response_json.items():
+            info = Info(key, self.__repr__(), value, prompt, None, None, iteration_idx)
+            output_infos.append(info)
+        return output_infos
+
+    def __repr__(self):
+        return f&#34;{self.agent_name} {self.id}&#34;
+
+    async def __call__(self, input_infos: list, extra_info, instruction, iteration_idx=-1, is_sub_task=False):
+        return await self.query(input_infos, extra_info, instruction, iteration_idx=iteration_idx,  is_sub_task=is_sub_task)
+
+
+
+
+class AgentArchitecture:
+    &#34;&#34;&#34;
+    Fill in your code here.
+    &#34;&#34;&#34;
+    def forward(self, taskInfo, extra_info) -&gt; Union[Info, str]:
+        &#34;&#34;&#34;
+        Placeholder method for processing task information.
+        
+        Args:
+        - taskInfo (Info): Task information.
+        - extra_info (dict): Extra information to help solve the task.
+        
+        Returns:
+        - Answer (Info): Your FINAL Answer. Return namedtuple Info returned from self.make_final_answer.
+        &#34;&#34;&#34;
+        pass
+```
+# Discovered architecture archive
+Here is the archive of the discovered architectures:
+
+[{&#34;thought&#34;: &#34;By encouraging the LLM to think step by step rather than directly outputting an answer, chain-of-thought reasoning enables complex problem-solving through intermediate steps. This practice improves the model&#39;s ability to handle tasks that require deeper reasoning and provides insight into its decision-making process.&#34;, &#34;name&#34;: &#34;Chain-of-Thought&#34;, &#34;code&#34;: &#34;def forward(self, taskInfo):\n    # Instruction for the Chain-of-Thought (CoT) approach\n    # It is an important practice that allows the LLM to think step by step before solving the task.\n    cot_instruction = self.cot_instruction\n\n    # Instantiate a new LLM agent specifically for CoT\n    # To allow LLM thinking before answering, we need to set an additional output field &#39;thinking&#39;.\n    cot_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;,  model=self.node_model, temperature=0.0)\n\n    # Prepare the inputs for the CoT agent\n    # The input should be a list of Info, and the first one is often the taskInfo\n    cot_agent_inputs = [taskInfo]\n\n    # Get the response from the CoT agent\n    thinking, answer = cot_agent(cot_agent_inputs, cot_instruction)\n    final_answer = self.make_final_answer(thinking, answer)\n    \n    # Return only the final answer\n    return final_answer   \n&#34;},
+{&#34;thought&#34;: &#34;While an LLM can arrive at the correct answer, its reasoning may vary. By repeatedly asking the same question with high temperature settings, we can generate different reasoning paths. We then combine multiple answers from these Chain-of-Thought (CoT) agents to produce a more accurate final answer through ensembling.&#34;, &#34;name&#34;: &#34;Self-Consistency with Chain-of-Thought&#34;, &#34;code&#34;: &#34;def forward(self, taskInfo):\n    # Instruction for step-by-step reasoning\n    cot_instruction = self.cot_instruction\n    N = self.max_sc # Number of CoT agents\n\n    # Initialize multiple CoT agents with a higher temperature for varied reasoning\n    cot_agents = [LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;,  model=self.node_model, temperature=0.5) for _ in range(N)]\n\n    # Majority voting function to select the most common answer\n    from collections import Counter\n    def majority_voting(answers):\n        return Counter(answers).most_common(1)[0][0]\n    \n    thinking_mapping = {}\n    answer_mapping = {}\n    possible_answers = []\n    for i in range(N):\n        thinking, answer = cot_agents[i]([taskInfo], cot_instruction)\n        possible_answers.append(answer.content)\n        thinking_mapping[answer.content] = thinking\n        answer_mapping[answer.content] = answer\n\n    # Ensembling the answers from multiple CoT agents\n    answer = majority_voting(possible_answers)\n    print(&#39;possible_answers: &#39;,possible_answers)\n\n    thinking = thinking_mapping[answer]\n    answer = answer_mapping[answer]\n\n    final_answer = self.make_final_answer(thinking, answer)\n\n    return final_answer  \n&#34;},
+{&#34;thought&#34;: &#34;To enhance its performance, an LLM can iteratively improve its answer based on feedback. By reflecting on its previous attempts and incorporating feedback, the model can refine its reasoning and provide a more accurate solution.&#34;, &#34;name&#34;: &#34;Self-Refine (Reflexion)&#34;, &#34;code&#34;: &#34;def forward(self, taskInfo):\n    # Instruction for initial reasoning\n    cot_initial_instruction = self.cot_instruction\n\n    # Instruction for reflecting on previous attempts and feedback to improve\n    cot_reflect_instruction = \&#34;Given previous attempts and feedback, carefully consider where you could go wrong in your latest attempt. Using insights from previous attempts, try to solve the task better.\&#34;\n    cot_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)\n\n    # Instruction for providing feedback and correcting the answer\n    critic_instruction = \&#34;Please review the answer above and criticize on where might be wrong. If you are absolutely sure it is correct, output exactly &#39;True&#39; in &#39;correct&#39;.\&#34;\n    critic_agent = LLMAgentBase([&#39;feedback&#39;, &#39;correct&#39;], &#39;Critic Agent&#39;, model=self.node_model, temperature=0.0)\n    \n    N_max = self.max_round # Maximum number of attempts\n    \n    # Initial attempt\n    cot_inputs = [taskInfo]\n    thinking, answer = cot_agent(cot_inputs, cot_initial_instruction, 0)\n\n    for i in range(N_max):\n        # Get feedback and correct status from the critic\n        feedback, correct = critic_agent([taskInfo, thinking, answer], critic_instruction, i)\n        if correct.content == &#39;True&#39;:\n            break\n            \n        # Add feedback to the inputs for the next iteration\n        cot_inputs.extend([thinking, answer, feedback])\n\n        # Reflect on previous attempts and refine the answer\n        thinking, answer = cot_agent(cot_inputs, cot_reflect_instruction, i + 1)\n\n    final_answer = self.make_final_answer(thinking, answer)\n\n    return final_answer\n&#34;},
+{&#34;thought&#34;: &#34;By letting different LLMs debate with each other, we can leverage their diverse perspectives to find better solutions for tasks.&#34;, &#34;name&#34;: &#34;LLM Debate&#34;, &#34;code&#34;: &#34;def forward(self, taskInfo):\n    # Instruction for initial reasoning\n    debate_initial_instruction = self.cot_instruction\n\n    # Instruction for debating and updating the solution based on other agents&#39; solutions\n    debate_instruction = \&#34;Given solutions to the problem from other agents, consider their opinions as additional advice. Please think carefully and provide an updated answer. Put your thinking process in the &#39;thinking&#39; field and the updated answer in the &#39;answer&#39; field. \&#34;\n    \n    # Initialize debate agents with different roles and a moderate temperature for varied reasoning\n    debate_agents = [LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Debate Agent&#39;,  model=self.node_model, role=role, temperature=0.5) for role in self.debate_role]\n\n    # Instruction for final decision-making based on all debates and solutions\n    final_decision_instruction = \&#34;Given all the above thinking and answers, reason over them carefully and provide a final answer. Put your thinking process in the &#39;thinking&#39; field and the final answer in the &#39;answer&#39; field.\&#34;\n    final_decision_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Final Decision Agent&#39;,  model=self.node_model, temperature=0.0)\n\n    max_round = self.max_round # Maximum number of debate rounds\n    all_thinking = [[] for _ in range(max_round)]\n    all_answer = [[] for _ in range(max_round)]\n\n    # Perform debate rounds\n    for r in range(max_round):\n        for i in range(len(debate_agents)):\n            if r == 0:\n                thinking, answer = debate_agents[i]([taskInfo], debate_initial_instruction)\n            else:\n                input_infos = [taskInfo] + [all_thinking[r-1][i]] + all_thinking[r-1][:i] + all_thinking[r-1][i+1:]\n                thinking, answer = debate_agents[i](input_infos, debate_instruction)\n            all_thinking[r].append(thinking)\n            all_answer[r].append(answer)\n    \n    # Make the final decision based on all debate results and solutions\n    thinking, answer = final_decision_agent([taskInfo] + all_thinking[max_round-1] + all_answer[max_round-1], final_decision_instruction)\n    final_answer = self.make_final_answer(thinking, answer)\n\n    return final_answer\n&#34;}]
+
+The fitness value is the median and 95% Bootstrap Confidence Interval of the correct rate on the given question. Your GOAL is to maximize the &#34;fitness&#34;.
+
+
+# Output Instruction and Example:
+The first key should be (&#34;thought&#34;), and it should capture your thought process for and it should capture your thought process for reconnecting the existing blocks in archived. 
+
+In the &#34;(thought)&#34; section, include the following:
+
+(1) **Decomposition**: Given the new sub-task from (1). Form your final decomposition, which should include all of the new sub-task. Explain in details how do you decompose the question and how such decomposition is eaiser enough such that the subtask is solvable by the given agent, blocks and architecture 
+
+(2) **Overall Architecture**: 
+
+Given the resulting sub-task 1, sub-task 2, ... sub-task n, design connections between existing blocks to address each of them. describe your reasoning and the overall concept behind the connection design and finally detail the implementation steps. All connection must between exising blocks in the archive and no new blocks can be made. The format must strickly follow: 
+
+(a) Use &#39;-&gt;&#39; for connection. for example, &#39;CoT (address sub-task 1) (existing block name) -&gt; LLM debate (address sub-task 2) (another exising block name)&#39; means connect the CoT block and the LLM debate block to address sub-task 1 and sub-task 2 correspondingly.
+
+The second key (&#34;name&#34;) corresponds to the name of your block connection architecture. 
+Finally, the last key (&#34;code&#34;) corresponds to the exact “forward()” function in Python code that you would like to try. You must write a COMPLETE CODE in &#34;code&#34;: Your code will be part of the entire project (so do not implement any other part), so please implement complete, reliable, reusable code snippets. You cannot call the exising blocks (e.g., COT, COT-SC) by its name, but must implement them as it is in the achive. If the block is handling a sub-task, add &#39;sub_task=True&#39; when calling the block.
+
+Here is an example of the output format for the new connected block architecture:
+
+{&#34;thought&#34;: &#34;\n    **Insights:**\nProvide your reasoning for the next effective agent architecture (an architecture may contain multiple agents), along with an explanation of the overall concept behind the design. \n    **Decomposition:**\n Give the resulting new sub-task 1, sub-task 2, ..., sub-task n. Your final decomposition should include all the sub-tasks. \n    Please explain \n    (1) How do you make sure the sub-task is easier enough and thus solvable by the given or proposed blocks and agents; \n    (2) Justify how these sub-tasks can achieve the final answer to the original questions.\n\n    **Overall Architecture to solve each subquestion:**\n    You overall architecture and explain how this architecture can solve each of the resulting sub-task\n    \&#34;**Implementation:**describe the implementation step by step.\&#34;\n    &#34;, &#34;name&#34;: &#34;Name of your proposed architecture&#34;, &#34;code&#34;: &#34;async def forward(self, taskInfo, extra_info):\n    from collections import Counter # must have this and always make sure you import everything needed\n    # Your code here. IMPORTANT  \n    # (1) You cannot call the existing architecture from the archive but you have to implement it from the code in the Discovered architecture archive\n    # for example:\n    # you cannot call &#39;COT&#39; but you have to implement it exactly the same as the code in the Discovered architecture archive. \n    # name an agent &#39;reflexion&#39; or &#39;debate&#39; or &#39;cot_sc&#39; also do not implement the blocks. Make sure you ACTUALLY IMPLEMENT them\n    # for example, You need to implement the for-loop in COT-SC, LLM Debate and Reflexion\n    # You should only change how they connect but not the function inside (setting and instruction can be different)\n\n    # (2) To creat an agent, call the LLMAgentBase, must have &#39;model=self.node_model&#39; in the parameters\n    # the return of the call is always the same as the output fields,\n    # for example: \n    # reasoning_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Reasoning Agent&#39;, model=self.node_model)\n\n    # (3) Since the agent is handling with a sub_question made by question decomposition, use &#39;is_sub_task=True&#39; when calling the agent.\n\n    # (4) You need to specify the sub-task dependencies by specify the dependent sub-tasks in the instruction. You also need to give each sub-task an ID. This means you need to state clearly what the current sub-task is based on and also give all required information (thinking and answer) in the input task info\n    # for example:\n    # cot_instruction = (\&#34;Sub-task 3: Based on the output of sub-task 1 and sub-task 2.....\&#34;)\n    # thinking, answer = await reasoning_agent([taskInfo] + [thinking1, answer1, thinking2, answer2, ..., ], extra_info, cot_instruction, is_sub_task=True)\n\n\n    # (5) You need to keep tack of sub-task output, for each sub-task output, please append it to a list named `sub_tasks` (please initialize it as `sub_tasks = []` at the begining of your function) so that we can keep track of the performance of each sub-task. When you do self.make_final_answer, please also add `sub_tasks` as the second last parameterss \n    # for example: \n    # sub_tasks = []\n    # ...\n    # thinking, answer = await reasoning_agent([taskInfo] + [sub-task thinking, sub-task answer], reasoning_instruction, is_sub_task=True)\n    # sub_tasks.append(f&#39;the output of sub task n: thinking {thinking.content}; final answer: {answer.content}&#39;)\n\n    # (6) You need to keep track of agent, for each agent inside the sub-architecture (or block or node) output, please append it to a list named `agents` (please initialize it as `agents = []` at the beining of your function) so that we can keep track of the performance of each agents. It should contain the agent name (if setting is important to identify the agent, please include as well, e.g., round, ID), agent purpose, and the thinking and output of the agent. When you do self.make_final_answer, please also add `agents` as the last parameters\n    # Takes debate as an example: \n    # debate_instruction = (\&#34;Sub-task i: Based on the output of...\&#34;)\n    # max_round = ...(the max round you determine)\n    # debate_agents = [LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Debate Agent&#39;, model=self.node_model, role=role, temperature=0.5) for role in ...(the role you design)]\n    # all_thinking = []\n    # all_answer = []\n    # for r in range(max_round):\n    #     round_thinking = []\n    #     round_answer = []\n    #     for i, agent in enumerate(debate_agents):\n    #         if r == 0:\n    #             t, a = await agent([taskInfo, thinking1, answer1], extra_info, cot_instruction, is_sub_task=True)\n    #             agents.append(f&#39;Debate agent {agent.id}, round {r}, on the purpose of..., thinking: {t.content}; answer: {a.content}&#39;)\n    #         else:\n    #             t, a = await agent([taskInfo, thinking1, answer1] + all_thinking[r-1], extra_info, debate_instruction, is_sub_task=True)\n    #             agents.append(f&#39;Debate agent {agent.id}, round {r}, on the purpose of..., thinking: {t.content}; answer: {a.content}&#39;)\n    #         round_thinking.append(t)\n    #         round_answer.append(a)\n    #     all_thinking.append(round_thinking)\n    #     all_answer.append(round_answer)\n    # final_decision_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Final Decision Agent&#39;, model=self.node_model, temperature=0.0)\n    # thinking2, answer2 = await final_decision_agent(\n    #     [taskInfo] + all_thinking[-1] + all_answer[-1],\n    #     extra_info,\n    #     \&#34;Sub-task i: Based on the output of...\&#34;,\n    #     is_sub_task=True\n    # )\n    # agents.append(f&#39;Final Decision agent, on the purpose of..., thinking: {thinking2.content}; answer: {answer2.content}&#39;)\n    # sub_tasks.append(f\&#34;Sub-task 2 output: thinking - {thinking2.content}; answer - {answer2.content}\&#34;)\n\n    # Take reflexion as another example:\n    # cot_reflect_instruction = \&#34;Sub-task i: Based on the output of...\&#34;\n    # cot_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)\n\n    # # Instruction for providing feedback and correcting the answer\n    # critic_instruction = \&#34;Sub-task i: Based on the output of...,\&#34;\n    # critic_agent = LLMAgentBase([&#39;feedback&#39;, &#39;correct&#39;], &#39;Critic Agent&#39;, model=self.node_model, temperature=0.0)\n    # N_max = ...(the max round you determine) # Maximum number of attempts\n    # # Initial attempt\n    # cot_inputs = [taskInfo]\n    # thinking, answer = await cot_agent(cot_inputs, extra_info, cot_initial_instruction, 0, is_sub_task=True)\n    # agents.append(f&#39;CoT agent {cot_agent.id}, on the purpose of..., thinking: {thinking.content}; answer: {answer.content}&#39;)\n\n    # for i in range(N_max):\n    #     # Get feedback and correct status from the critic\n    #     feedback, correct = await critic_agent([taskInfo, thinking, answer], extra_info, critic_instruction, i, is_sub_task=True)\n    #     agents.append(f&#39;Critic agent {critic_agent.id}, on the purpose of..., thinking: {feedback.content}; answer: {correct.content}&#39;)\n    #     if correct.content == &#39;True&#39;:\n    #         break\n            \n    #     # Add feedback to the inputs for the next iteration\n    #     cot_inputs.extend([thinking, answer, feedback])\n\n    #     # Reflect on previous attempts and refine the answer\n    #     thinking, answer = await cot_agent(cot_inputs, extra_info, cot_reflect_instruction, i + 1, is_sub_task=True)\n    #     agents.append(f&#39;CoT agent {cot_agent.id}, on the purpose of..., thinking: {thinking.content}; answer: {answer.content}&#39;)\n    # sub_tasks.append(f\&#34;Sub-task i output: thinking - {thinking.content}; answer - {answer.content}\&#34;)\n\n    # Take self-consistency as another example:\n    # cot_instruction = &#39;Sub-task i: Based on the output of...&#39;\n    # # Initialize multiple CoT agents with a higher temperature for varied reasoning\n    # cot_agents = [LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;,  model=self.node_model, temperature=0.5) for _ in range(N)]\n    \n    # thinking_mapping = {}\n    # answer_mapping = {}\n    # possible_answers = []\n    # for i in range(N):\n    #     thinking, answer = await cot_agents[i]([taskInfo], extra_info, cot_instruction, is_sub_task=True)\n    #     agents.append(f&#39;CoT agent {cot_agents.id}, on the purpose of..., thinking: {thinking.content}; answer: {answer.content}&#39;)\n    #     possible_answers.append(answer.content)\n    #     thinking_mapping[answer.content] = thinking\n    #     answer_mapping[answer.content] = answer\n    # answer = majority_voting(possible_answers)\n\n    # thinking = thinking_mapping[answer]\n    # answer = answer_mapping[answer]\n    # sub_tasks.append(f\&#34;Sub-task i output: thinking - {thinking.content}; answer - {answer.content}\&#34;)\n\n    # (7) Put the saved sub_tasks and agents to the final elf.make_final_answer. Make sure you have `is_sub_task=True` when calling an agent, and keep track of `sub_task`, `agents`, include `sub_task` dependency and detailed steps for the sub-task (&#39;Sub-task i: based on sub-task,&#39;) in the sub-task instruction, and actually implmenet the blocks by yourself (for-loop if COT-SC, Debate and Reflextion).\n\n    final_answer = self.make_final_answer(thinking, answer, sub_tasks, agents)\n    # Return only the final answer\n    return final_answer\n&#34;}
+
+You must use the exact function interface used above. You need to specify the instruction, input information, and the required output fields for various LLM agents to do their specific part of the architecture. DON&#39;T try to use some function that doesn&#39;t exisit.
+Also, it could be helpful to set the LLM’s role and temperature to further control the LLM’s response. Note that the LLMAgentBase() will automatically parse the output and return a list of “Infos”. You can get the content by Infos.content. 
+DO NOT FORGET the taskInfo input to LLM if you think it is needed, otherwise LLM will not know about the task.
+
+
+## WRONG Implementation examples:
+Here are some mistakes you may make:
+
+1. This is WRONG: ```
+feedback, correct = await critic_agent([taskInfo, thinking, answer], extra_info, critic_instruction, i)
+feedback_info = await verifier_agent([taskInfo, Info(&#39;feedback&#39;, &#39;Critic Agent&#39;, thinking, 0)], verification_instruction)
+```
+It is wrong to use &#34;Info(&#39;feedback&#39;, &#39;Critic Agent&#39;, thinking, 0)&#34;. The returned &#34;feedback&#34; from LLMAgentBase is already Info.
+
+2. This is WRONG: ```
+# Debugging: Log the generated answer
+print(&#39;Generated Answer:&#39;, ...)
+feedback_info = await verifier_agent([taskInfo, Info(&#39;feedback&#39;, &#39;Critic Agent&#39;, thinking, 0)], extra_info, verification_instruction)
+if len(feedback_info) &lt; 3:  # Check if feedback_info has enough elements
+    return &#39;Error: Feedback info incomplete&#39;
+```
+First, the len(feedback_info) will not work.
+Second, you should never return an error message. You should always return the best answer you can get.
+Third, you should never print anything in the code.
+Lastly, again, DO NOT CREATE Info object by yourself.
+
+3. This is WRONG: ```
+all_thinking = []
+all_answers = []
+for agent, role in zip(agents, roles):
+    outputs = await agent([taskInfo], extra_info, independent_reasoning_instruction.format(role=role))
+    all_thinking.append(outputs[0].content)
+    all_answers.append(outputs[1].content)
+
+# Aggregate the reasoning paths and answers
+aggregated_thinking = &#39;
+&#39;.join(all_thinking)
+aggregated_answers = &#39;
+&#39;.join(all_answers)
+```
+You SHOULD NOT extract the content from the Info object by yourself. You should use the Info object directly. If you want to aggregate the content, you should just put those Info objects into a list and then use the list as input to the next LLM agent.
+
+4. This is WRONG: ```
+reasoning_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Reasoning Agent&#39;)
+response_infos = await reasoning_agent([taskInfo] + ..., extra_info, reasoning_instruction)
+    
+# Extract the final answer from the response_infos
+for info in response_infos:
+    if info.name == &#39;final_answer&#39;:
+        return info
+# Fallback if no answer is found
+return Info(&#39;answer&#39;, &#39;Final Decision Agent&#39;, &#39;No answer generated.&#39;, 0)
+```
+
+5. This is WRONG: ```
+reasoning_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Reasoning Agent&#39;)
+thinking, answer = await reasoning_agent([taskInfo] + ..., extra_info, reasoning_instruction)
+return answer   
+```
+You MUST return final_answer returned by ```final_answer = self.make_final_answer(thinking, answer)```, instead of answer only.
+
+6. This is WRONG when handling sub-tasks: ```
+thinking, answer = await reasoning_agent([taskInfo] + ..., extra_info, reasoning_instruction)
+```
+You MUST add sub_task=True, when handling a sub question made by question decomposition
+
+7. This is WRONG when handling sub-tasks: ```
+reasoning_instruction = &#39;...&#39;
+```
+You MUST clearly states what sub task it is, it can be solved based on the output of what sub-tasks and what are the steps to solve the sub-tasks
+
+8. This is WRONG: ```
+cot_sc_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Self-Consistency Agent&#39;, model=self.node_model, temperature=0.5)
+thinking3, answer3 = await cot_sc_agent([taskInfo, thinking1, answer1, thinking2, answer2], extra_info, cot_instruction, is_sub_task=True)
+```
+You MUST ACTUALLY IMPLEMENT the achitecture (here self-consistency). Name an agent to &#39;sc&#39; does not implment the structure (e.g. you will need to actually implmemnt the for-loop).
+CORRECT example: ```
+    from collections import Counter
+    def majority_voting(answers):
+        return Counter(answers).most_common(1)[0][0]
+    
+    thinking_mapping = {}
+    answer_mapping = {}
+    possible_answers = []
+    for i in range(N):
+        thinking, answer = await cot_agents[i]([taskInfo], extra_info, cot_instruction)
+        possible_answers.append(answer.content)
+        thinking_mapping[answer.content] = thinking
+        answer_mapping[answer.content] = answer
+
+    # Ensembling the answers from multiple CoT agents
+    answer = majority_voting(possible_answers)
+```
+
+9. This is WRONG: ```
+reflexion_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Reflexion Agent&#39;, model=self.node_model, temperature=0.5)
+thinking3, answer3 = await reflexion_agent([taskInfo, thinking1, answer1, thinking2, answer2], extra_info, reflexion_instruction, is_sub_task=True)
+```
+You MUST ACTUALLY IMPLEMENT the achitecture (here reflexion). Name an agent to &#39;reflexion&#39; does not implment the structure (e.g. you will need to actually implmemnt the for-loop).
+CORRECT example: ```
+    N_max = self.max_round # Maximum number of attempts
+    
+    # Initial attempt
+    cot_inputs = [taskInfo]
+    thinking, answer = await cot_agent(cot_inputs, extra_info, cot_initial_instruction, 0)
+
+    for i in range(N_max):
+        # Get feedback and correct status from the critic
+        feedback, correct = await critic_agent([taskInfo, thinking, answer], extra_info, critic_instruction, i)
+        if correct.content == &#39;True&#39;:
+            break
+            
+        # Add feedback to the inputs for the next iteration
+        cot_inputs.extend([thinking, answer, feedback])
+
+        # Reflect on previous attempts and refine the answer
+        thinking, answer = await cot_agent(cot_inputs, extra_info, cot_reflect_instruction, i + 1)
+```
+
+10. This is WRONG: ```
+debate_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Debate Agent&#39;, model=self.node_model, temperature=0.5)
+thinking3, answer3 = debate_agent([taskInfo, thinking1, answer1, thinking2, answer2], debate_instruction, is_sub_task=True)
+```
+You MUST ACTUALLY IMPLEMENT the achitecture (here debate). Name an agent to &#39;debate&#39; does not implment the structure (e.g. you will need to actually implmemnt the for-loop).
+CORRECT example: ```
+for r in range(max_round):
+    for i in range(len(debate_agents)):
+        if r == 0:
+            thinking, answer = await debate_agents[i]([taskInfo], extra_info, debate_initial_instruction)
+        else:
+            input_infos = [taskInfo] + [all_thinking[r-1][i]] + all_thinking[r-1][:i] + all_thinking[r-1][i+1:]
+            thinking, answer = await debate_agents[i](input_infos, extra_info, debate_instruction)
+        all_thinking[r].append(thinking)
+        all_answer[r].append(answer)
+```
+You should not extract the final answer by yourself. You SHOULD directly return the answer Info. Also, you should always return the best answer you can get.
+CORRECT example: ```
+reasoning_instruction = &#39;Sub-task i: Based on the output of sub-task i and j, ....&#39;
+reasoning_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Reasoning Agent&#39;)
+thinking, answer = await reasoning_agent([taskInfo] + ..., extra_info, reasoning_instruction)
+final_answer = self.make_final_answer(thinking, answer)
+
+# Return only the final answer
+return final_answer   
+```
+
+
+
+# Your task
+You are deeply familiar with LLM prompting techniques and LLM agent works from the literature. Your goal is to maximize the specified performance metrics by reconnecting the exisitng block in archived. Do not try to propose new block or modify the exising block, and only change the connection but block setting like instruction, tempreture are allowed to modify
+Observe the discovered blocks carefully and think about what insights, lessons, or stepping stones can be learned from them.
+You are encouraged to draw inspiration from related agent papers or academic papers from other research areas.
+Use the knowledge from the archive and inspiration from academic literature to propose the new connection.
+
+Below is the question to solve:
+
+你是一名严谨、公正的审判长，你的任务是：根据原告和被告的陈述以及一些额外的信息，生成相应的说理内容，给出最终判决。请你始终保持中立、专业、公正的审判风格，不得偏袒任何一方。请用中文输出你的内容。
+你可以获得到的信息：{&#34;category&#34;: &#34;物权纠纷&#34;, &#34;specific_characters&#34;: {&#34;plaintiff&#34;: {&#34;name&#34;: &#34;李某某&#34;, &#34;address&#34;: &#34;陕西省兴平市&#34;, &#34;representative&#34;: null, &#34;gender&#34;: &#34;男&#34;, &#34;ethnicity&#34;: &#34;汉族&#34;, &#34;birth_date&#34;: &#34;1986年1月20日&#34;}, &#34;defendant&#34;: {&#34;name&#34;: &#34;陕西省咸阳市兴平市西吴街道某某第十四村民小组&#34;, &#34;address&#34;: &#34;陕西省兴平市&#34;, &#34;representative&#34;: &#34;许某某&#34;, &#34;gender&#34;: null, &#34;ethnicity&#34;: null, &#34;birth_date&#34;: null}}, &#34;plaintiff_claim&#34;: [&#34;请求依法判令被告给付原告李某某征地补偿款20000元&#34;, &#34;诉讼费由被告承担&#34;], &#34;plaintiff_case_details&#34;: &#34;原告出生登记在兴平市××镇××村，2021年随母改嫁到被告村组，且一直随母亲和继父一家生活在一起，但户籍一直未迁入。2021年6月，因父母子女相互投靠，将户籍迁入被告村组。2023年7月，原告所在村组承包地被征用，人均分配40000元，只给原告分配五成，少分20000元，侵害了原告的合法权益。&#34;, &#34;defendant_defence&#34;: &#34;某某村14组村民对原告一家三口户口真实性提出质疑，我村组群众代表将此事已反映到兴平市西吴街道办事处及西吴派出所。2017年兴平市政府、西吴街道办事处、西吴街道派出所，向村民公告咸阳市装备制造产业园西吴户口冻结，外地外村户口一律不准迁入。原告长期居住生活在兴平市××街道××村，时间长达35年，且户口一直登记在生父李某名下。2021年6月，原告与妻子邵庆丽、女儿李静姝转入我村组。据我村知情群众反映，李某某父母在离婚时，李某某判给生父，所以属阜寨街道宏安村人。原告母亲于2001年改嫁到我村组，2005年9月登记本组分地人口时，其母杨联联没有提出李某某在14组。2023年7月，某某村14组分配征地补偿款时，经代表会研究决定，出于人性化分配每人50%，即20000元。李某某户口迁入本村组时村组签过字，其妻子邵庆丽、女儿李静姝户口迁转时村上并未签字确认。&#34;, &#34;evidence&#34;: {&#34;plaintiff_evidence&#34;: {&#34;evidence_1&#34;: {&#34;evidence&#34;: &#34;户口本&#34;, &#34;dispute&#34;: &#34;被告对户口本真实性不认可，认为原告户籍一直登记在阜寨镇宏安村并在该村生活居住，2021年6月才转入某某村14组。&#34;}, &#34;evidence_2&#34;: {&#34;evidence&#34;: &#34;分配方案&#34;, &#34;dispute&#34;: &#34;被告对分配方案真实性认可，但认为少分款项是基于人性化的决定。&#34;}, &#34;evidence_3&#34;: {&#34;evidence&#34;: &#34;定期存单&#34;, &#34;dispute&#34;: &#34;被告对定期存单真实性认可。&#34;}, &#34;evidence_4&#34;: null, &#34;evidence_5&#34;: null, &#34;evidence_6&#34;: null, &#34;evidence_7&#34;: null, &#34;evidence_8&#34;: null, &#34;evidence_9&#34;: null, &#34;evidence_10&#34;: null}, &#34;defendant_evidence&#34;: {&#34;evidence_1&#34;: null, &#34;evidence_2&#34;: null, &#34;evidence_3&#34;: null, &#34;evidence_4&#34;: null, &#34;evidence_5&#34;: null, &#34;evidence_6&#34;: null, &#34;evidence_7&#34;: null, &#34;evidence_8&#34;: null, &#34;evidence_9&#34;: null}}, &#34;other_statement&#34;: {&#34;plaintiff&#34;: {&#34;plaintiff_1&#34;: &#34;&#34;}, &#34;defendant&#34;: {&#34;defendant_1&#34;: &#34;&#34;}}}
+
+
+
+IMPORTANT: You must follow all the requirements in the Initial Round (Round 0) (e.g., what is wrong and correct in code implementation; You need to ACTUALLY IMPLEMENT the structure for self-consistency, LLM Debate and Reflexion, by writing the for-loop, if you choose to use them).</pre>
+    </div>
+</div>
+
+
+<div class="message assistant">
+    <div class="role">
+    assistant
+    
+    </div>
+    <div class="content">
+    <pre>reflection: The task requires a systematic breakdown of legal reasoning to ensure each sub-task is manageable by the existing architectures, considering their strengths in reasoning, consensus building, and iterative refinement.
+
+thought: 
+    **Decomposition:**
+    To address the complex legal question, I propose the following sub-tasks:
+    
+    Sub-task 1: Analyze and summarize the claims and defenses of both parties based on the provided information.
+    Sub-task 2: Evaluate the evidence presented by both parties and determine its relevance and credibility.
+    Sub-task 3: Based on the outputs from sub-task 1 and 2, construct a logical reasoning path to reach a preliminary judgment.
+    Sub-task 4: Based on the preliminary judgment from sub-task 3, refine the decision through self-reflection and ensure it aligns with legal principles and fairness.
+    
+    This decomposition ensures that each sub-task is focused and can be effectively handled by the existing blocks. Sub-task 1 and 2 provide foundational understanding and evidence evaluation, respectively. Sub-task 3 synthesizes this information into a coherent judgment, while sub-task 4 refines it to ensure accuracy and fairness.
+
+    **Overall Architecture:**
+    The architecture leverages the strengths of each block:
+    
+    1. **Chain-of-Thought (CoT)** for sub-task 1 to ensure detailed analysis of claims and defenses.
+    2. **Self-Consistency with Chain-of-Thought (CoT-SC)** for sub-task 2 to evaluate evidence through multiple perspectives and achieve a consensus on its credibility.
+    3. **LLM Debate** for sub-task 3 to construct and debate the reasoning path, ensuring a robust preliminary judgment.
+    4. **Self-Refine (Reflexion)** for sub-task 4 to iteratively refine the judgment, ensuring alignment with legal standards and fairness.
+
+    **Implementation:**
+    - Implement CoT for sub-task 1 to analyze claims and defenses.
+    - Use CoT-SC for sub-task 2 to evaluate evidence credibility through multiple perspectives.
+    - Implement LLM Debate for sub-task 3 to construct and debate the reasoning path.
+    - Use Reflexion for sub-task 4 to refine the judgment iteratively.
+    - Ensure each sub-task output feeds into the next, culminating in a final judgment that is both fair and legally sound.
+    
+
+name: Legal Judgment Architecture
+
+code: async def forward(self, taskInfo, extra_info):
+    from collections import Counter  # Import necessary modules
+    
+    # Initialize lists to keep track of sub-task outputs and agents
+    sub_tasks = []
+    agents = []
+
+    # Sub-task 1: Analyze and summarize the claims and defenses
+    cot_instruction = &#34;Sub-task 1: Analyze and summarize the claims and defenses of both parties based on the provided information.&#34;
+    cot_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking1, answer1 = await cot_agent([taskInfo], extra_info, cot_instruction, is_sub_task=True)
+    sub_tasks.append(f&#39;Sub-task 1 output: thinking - {thinking1.content}; answer - {answer1.content}&#39;)
+    agents.append(f&#39;CoT agent {cot_agent.id}, on analyzing claims and defenses, thinking: {thinking1.content}; answer: {answer1.content}&#39;)
+
+    # Sub-task 2: Evaluate evidence
+    cot_sc_instruction = &#34;Sub-task 2: Based on the output from sub-task 1, evaluate the evidence presented by both parties and determine its relevance and credibility.&#34;
+    N = 3  # Number of CoT-SC agents
+    cot_sc_agents = [LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.5) for _ in range(N)]
+    thinking_mapping = {}
+    answer_mapping = {}
+    possible_answers = []
+    for i in range(N):
+        thinking, answer = await cot_sc_agents[i]([taskInfo, thinking1, answer1], extra_info, cot_sc_instruction, is_sub_task=True)
+        agents.append(f&#39;CoT-SC agent {cot_sc_agents[i].id}, on evaluating evidence, thinking: {thinking.content}; answer: {answer.content}&#39;)
+        possible_answers.append(answer.content)
+        thinking_mapping[answer.content] = thinking
+        answer_mapping[answer.content] = answer
+    answer2 = Counter(possible_answers).most_common(1)[0][0]
+    thinking2 = thinking_mapping[answer2]
+    answer2 = answer_mapping[answer2]
+    sub_tasks.append(f&#39;Sub-task 2 output: thinking - {thinking2.content}; answer - {answer2.content}&#39;)
+
+    # Sub-task 3: Construct reasoning path
+    debate_instruction = &#34;Sub-task 3: Based on the outputs from sub-task 1 and 2, construct a logical reasoning path to reach a preliminary judgment.&#34;
+    max_round = 2  # Number of debate rounds
+    debate_agents = [LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Debate Agent&#39;, model=self.node_model, role=role, temperature=0.5) for role in [&#39;Pro&#39;, &#39;Con&#39;]]
+    all_thinking = [[] for _ in range(max_round)]
+    all_answer = [[] for _ in range(max_round)]
+    for r in range(max_round):
+        for i, agent in enumerate(debate_agents):
+            if r == 0:
+                thinking, answer = await agent([taskInfo, thinking1, answer1, thinking2, answer2], extra_info, debate_instruction, is_sub_task=True)
+            else:
+                input_infos = [taskInfo] + [thinking1, answer1, thinking2, answer2] + all_thinking[r-1][:i] + all_thinking[r-1][i+1:]
+                thinking, answer = await agent(input_infos, extra_info, debate_instruction, is_sub_task=True)
+            agents.append(f&#39;Debate agent {agent.id}, round {r}, on constructing reasoning path, thinking: {thinking.content}; answer: {answer.content}&#39;)
+            all_thinking[r].append(thinking)
+            all_answer[r].append(answer)
+    final_decision_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Final Decision Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking3, answer3 = await final_decision_agent([taskInfo] + all_thinking[-1] + all_answer[-1], extra_info, &#34;Sub-task 3: Based on the debate results, finalize the preliminary judgment.&#34;, is_sub_task=True)
+    agents.append(f&#39;Final Decision agent, on finalizing preliminary judgment, thinking: {thinking3.content}; answer: {answer3.content}&#39;)
+    sub_tasks.append(f&#39;Sub-task 3 output: thinking - {thinking3.content}; answer - {answer3.content}&#39;)
+
+    # Sub-task 4: Refine judgment
+    reflexion_instruction = &#34;Sub-task 4: Based on the preliminary judgment from sub-task 3, refine the decision through self-reflection and ensure it aligns with legal principles and fairness.&#34;
+    cot_initial_instruction = &#34;Sub-task 4: Initial reflection on the judgment.&#34;
+    cot_reflect_instruction = &#34;Sub-task 4: Reflect on previous attempts and refine the judgment.&#34;
+    cot_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    critic_instruction = &#34;Sub-task 4: Review the judgment and criticize where it might be wrong. If correct, output &#39;True&#39;.&#34;
+    critic_agent = LLMAgentBase([&#39;feedback&#39;, &#39;correct&#39;], &#39;Critic Agent&#39;, model=self.node_model, temperature=0.0)
+    N_max = 2  # Maximum number of attempts
+    cot_inputs = [taskInfo, thinking3, answer3]
+    thinking4, answer4 = await cot_agent(cot_inputs, extra_info, cot_initial_instruction, 0, is_sub_task=True)
+    agents.append(f&#39;CoT agent {cot_agent.id}, initial reflection, thinking: {thinking4.content}; answer: {answer4.content}&#39;)
+    for i in range(N_max):
+        feedback, correct = await critic_agent([taskInfo, thinking4, answer4], extra_info, critic_instruction, i, is_sub_task=True)
+        agents.append(f&#39;Critic agent {critic_agent.id}, on reviewing judgment, thinking: {feedback.content}; answer: {correct.content}&#39;)
+        if correct.content == &#39;True&#39;:
+            break
+        cot_inputs.extend([thinking4, answer4, feedback])
+        thinking4, answer4 = await cot_agent(cot_inputs, extra_info, cot_reflect_instruction, i + 1, is_sub_task=True)
+        agents.append(f&#39;CoT agent {cot_agent.id}, reflection iteration {i+1}, thinking: {thinking4.content}; answer: {answer4.content}&#39;)
+    sub_tasks.append(f&#39;Sub-task 4 output: thinking - {thinking4.content}; answer - {answer4.content}&#39;)
+
+    final_answer = self.make_final_answer(thinking4, answer4, sub_tasks, agents)
+    return final_answer
+
+
+acc: [0.0]
+
+fitness: 95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%
+
+generation: 1
+
+total_cost: 0.11665
+
+sub_tasks: [None]
+
+agents: [&#39;CoT agent dpkH, on analyzing claims and defenses, thinking: 根据提供的信息，原告李某某的主张是要求被告村组支付其应得的征地补偿款20000元，并承担诉讼费用。原告认为其户籍已迁入被告村组，且应享有与其他村民同等的补偿款分配权利。被告村组的辩护是质疑原告及其家人的户口真实性，认为原告长期居住在其他村，且户口迁入时并未得到村组的完全确认，因此在分配补偿款时只给予50%的份额。被告认为此分配是基于人性化的考虑。; answer: 原告李某某请求被告村组支付其应得的征地补偿款20000元，并承担诉讼费用。原告认为其户籍已迁入被告村组，且应享有与其他村民同等的补偿款分配权利。被告村组质疑原告及其家人的户口真实性，认为原告长期居住在其他村，且户口迁入时并未得到村组的完全确认，因此在分配补偿款时只给予50%的份额。被告认为此分配是基于人性化的考虑。\nCoT-SC agent 5AFb, on evaluating evidence, thinking: 在评估双方提供的证据时，原告提供了户口本、分配方案和定期存单作为证据。被告对户口本的真实性提出质疑，认为原告的户籍一直登记在其他村，并且直到2021年6月才转入被告村组。被告对分配方案的真实性没有异议，但认为少分款项是基于人性化的决定。被告对定期存单的真实性也没有异议。被告没有提供任何实质性的证据来支持其对原告户籍真实性的质疑。因此，原告的证据在一定程度上是有说服力的，尤其是分配方案和定期存单。户口本的真实性由于被告的质疑而存在争议，但被告未能提供证据来反驳。; answer: 原告的证据在一定程度上具备说服力，特别是分配方案和定期存单。被告未能提供实质性证据来支持其对原告户籍真实性的质疑。\nCoT-SC agent W1IN, on evaluating evidence, thinking: 在分析证据时，我们需要评估其相关性和可信度。原告提供的证据包括户口本、分配方案和定期存单。被告对户口本的真实性提出质疑，认为原告的户籍问题影响其补偿资格。分配方案的真实性被被告认可，但他们认为少分款项是基于人性化的决定。定期存单的真实性被认可，但与案件核心问题相关性不大。被告没有提供任何证据来支持其主张。因此，原告的证据在真实性上存在争议，尤其是户口问题，而被告没有提供证据来支持其质疑。此外，户口问题的法律效力和影响需要进一步明确。; answer: [TOO_HARD]\nSuggestion: 需要进一步调查原告的户籍迁移过程的合法性和相关法律规定，以评估原告是否有权享受全额补偿。\nCoT-SC agent UrJ7, on evaluating evidence, thinking: 根据提供的信息，原告提供了户口本、分配方案和定期存单作为证据。被告对户口本的真实性提出质疑，认为原告的户籍迁入不符合规定。被告对分配方案和定期存单的真实性没有异议，但认为少分款项是基于人性化的决定。被告没有提供任何证据来支持其辩护。原告的证据在一定程度上支持了其主张，但户口本的真实性受到质疑，影响了其证据的可信度。被告的辩护缺乏证据支持，主要依赖于对原告证据的质疑。; answer: 原告的证据在一定程度上支持了其主张，但户口本的真实性受到质疑，影响了其证据的可信度。被告的辩护缺乏证据支持，主要依赖于对原告证据的质疑。\nDebate agent uwXN, round 0, on constructing reasoning path, thinking: 在分析双方的主张和证据后，可以得出以下初步判断逻辑路径：\n\n1. 原告李某某的主张是基于其户籍已迁入被告村组，因此应享有与其他村民同等的征地补偿款分配权利。\n\n2. 被告村组质疑原告的户籍真实性，认为其长期居住在其他村，且户口迁入时未得到完全确认，因此只给予50%的补偿款。\n\n3. 原告提供了户口本、分配方案和定期存单作为证据，其中分配方案和定期存单的真实性未被被告质疑，而户口本的真实性被质疑但未提供实质性反驳证据。\n\n4. 由于被告未能提供足够的证据来支持其对户籍真实性的质疑，原告的证据在一定程度上具备说服力。\n\n基于以上分析，初步判断倾向于支持原告的主张，因其提供的证据更具说服力，且被告未能提供反驳证据。; answer: 根据以上分析，初步判决应倾向于支持原告李某某的主张，被告需支付其应得的征地补偿款20000元，并承担诉讼费用。\nDebate agent b7po, round 0, on constructing reasoning path, thinking: 基于子任务1和子任务2的输出，原告李某某提供了户口本、分配方案和定期存单作为证据。虽然被告对户口本的真实性提出质疑，但未能提供实质性证据来支持其质疑。被告对分配方案和定期存单的真实性没有异议。原告的证据在一定程度上具备说服力，特别是分配方案和定期存单。被告的辩护主要基于对原告户籍真实性的质疑，但缺乏实质证据支持。因此，初步判断被告村组在分配征地补偿款时未给予原告应得的全额补偿款，侵害了原告的合法权益。; answer: 初步判决：被告村组应支付原告李某某征地补偿款20000元，诉讼费由被告承担。\nDebate agent uwXN, round 1, on constructing reasoning path, thinking: 根据子任务1和子任务2的分析，原告李某某提供了户口本、分配方案和定期存单作为证据。虽然被告对户口本的真实性提出质疑，但未能提供实质性证据来支持其质疑。被告对分配方案和定期存单的真实性没有异议。原告的证据在一定程度上具备说服力，特别是分配方案和定期存单。被告的辩护主要基于对原告户籍真实性的质疑，但缺乏实质证据支持。因此，初步判断被告村组在分配征地补偿款时未给予原告应得的全额补偿款，侵害了原告的合法权益。; answer: 初步判决：被告村组应支付原告李某某征地补偿款20000元，并承担相应的诉讼费用。\nDebate agent b7po, round 1, on constructing reasoning path, thinking: 在分析双方的主张和证据后，可以得出以下初步判断逻辑路径：1. 原告李某某的主张是基于其户籍已迁入被告村组，因此应享有与其他村民同等的征地补偿款分配权利。2. 被告村组质疑原告的户籍真实性，认为其长期居住在其他村，且户口迁入时未得到完全确认，因此只给予50%的补偿款。3. 原告提供了户口本、分配方案和定期存单作为证据，其中分配方案和定期存单的真实性未被被告质疑，而户口本的真实性被质疑但未提供实质性反驳证据。4. 由于被告未能提供足够的证据来支持其对户籍真实性的质疑，原告的证据在一定程度上具备说服力。基于以上分析，初步判断倾向于支持原告的主张，因其提供的证据更具说服力，且被告未能提供反驳证据。; answer: 初步判断倾向于支持原告的主张。\nFinal Decision agent, on finalizing preliminary judgment, thinking: 根据子任务3的分析，原告李某某提供的证据在一定程度上具备说服力，特别是分配方案和定期存单的真实性未被被告质疑。被告对原告户籍真实性的质疑缺乏实质证据支持。因此，初步判断倾向于支持原告的主张，认为被告村组在分配征地补偿款时未给予原告应得的全额补偿款，侵害了原告的合法权益。; answer: 初步判决：被告村组应支付原告李某某征地补偿款20000元，并承担相应的诉讼费用。\nCoT agent t4Yn, initial reflection, thinking: 在初步判决中，考虑了原告提供的证据和被告的辩护。原告的证据如分配方案和定期存单的真实性未被质疑，而被告对户籍的质疑缺乏实质证据支持。因此，初步判决支持原告的主张是合理的。; answer: 初步判决：被告村组应支付原告李某某征地补偿款20000元，并承担相应的诉讼费用。\nCritic agent akSZ, on reviewing judgment, thinking: The judgment seems to be correct as it considers the evidence provided by the plaintiff and the lack of substantial evidence from the defendant to support their claims.; answer: True&#39;]
+
+final_response: [&#39;在初步判决中，考虑了原告提供的证据和被告的辩护。原告的证据如分配方案和定期存单的真实性未被质疑，而被告对户籍的质疑缺乏实质证据支持。因此，初步判决支持原告的主张是合理的。\n\nAnswer:初步判决：被告村组应支付原告李某某征地补偿款20000元，并承担相应的诉讼费用。&#39;]
+
+memory: [{&#39;初步判决：被告村组应支付原告李某某征地补偿款20000元，并承担相应的诉讼费用。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}]</pre>
+    </div>
+</div>
+
+
+<div class="message user">
+    <div class="role">
+    user
+    
+    </div>
+    <div class="content">
+    <pre>Round 1: The entries (code, thoughts, agents, reflection, etc.) have been updated since last round (Round 0). Now Using insights from previous rounds, reflect again on the new outputs after round 0.
+
+&#34;
+Carefully review the proposed new architectures (&#34;code&#34; entry), the answer of each sub-tasks (&#34;sub_tasks&#34; entry) , the answer of each agnets (&#34;agents&#34; entry), the final response (&#34;final_reponse&#34; entry) and the fitness (&#34;fitness&#34; entry, i.e., the median and 95% Bootstrap Confidence Interval of the correct rate on the given question), and the &#39;memory&#39; (previous final answer extracted from their reponse and the corresponding fitness score, in the format of a list of dictionary final answer: fitness) in all the history user and assistant answers. Reflect on the following points:&#34;
+
+1. **Solvable**: Assess whether all sub-tasks are solvable by the corresponidng block via checking the output answer of each sub-task. 
+
+- if the answer of the sub-task explicitly contain [TOO_HARD]. This clearly state that task is too hard, what need to be further decomposed. Consider the suggestion given after the [TOO_HARD] (you can see the &#39;Suggestions:&#39; next to the [TOO_HARD] )and improve your decomposison accrodingly. See below (a) for what need to be make sure
+
+- If the sub-task answr is incoorect. That means it is not solvable, what need to be improved. It may beuase 
+
+(a) the task is still too difficult for the block, then the sub-task need to be further decomposed. 
+
+When proposing new sub-task, make sure 
+(i) it is specific and detailed enough to solve and to help achieve the final answer to the given question.
+(ii) all information required to answer the question is proveded by the previous answers or the instruction. 
+(iii) the related sub-tasks thinking and answers have correctly input to the current sub-task by adding it to the taskInfo list when calling the agent. 
+(iv) The output should be helpful to solve the next sub-task. Also make sure the sub-task connection is clearly by clealy state &#39;Based on the output of sub-task i..&#39; in the sub-task instruction
+
+(b) some agnets in the block is malfunctional or the underlying LLM is too weak to solve the sub-task alone. This can be detemined by checking the agents output to decide whether it works as expected. If this is the case, then we need to get rid of the block and use another block in the architecture. There are then two possibilities
+    (i) the agent in the block is not optimal to solve the sub-task, setting needed to be improved (instruction, tempreture...)
+    (ii) the agent architecutre in the block is not optimal, a new block that combine exisitng blocks in a different way or different settings need to be proposed
+Please jutify it is (a), the decomposition issue or (b) (and (i) or (ii)), the block and agent issue. It could also be both.
+
+2. **Completeness**: Are the sub-tasks include all neccessay information from the irginal query that can ensure the aggregation of sub-task responses can effectively yild a comprehensive answer to the user query? Note that while a sub-task might include only part of the neccessary information, it is not allowable for any particular piece of critical information to be omitted from all sub-tasks. Make sure the sub-task are connected to the prerequisite sub-tasks so that there is enough information to solve it.
+
+3. **Fitness**: Your final goal is to optimize the fitness score after updating the architectures and/or task decomposision based on (1) and (2). The fitness is computed based on the final reponse. If it is low, it indicates that your final answer is incorrect. In your updated architecture or task decomposition, you need to make sure they will update your final response accordingly. 
+
+And then, you need to improve or revise the implementation, or implement the new proposed architecture based on the reflection.
+
+Your response should add new entries to the previous answers:
+
+&#34;reflection&#34;: 
+(1) Provide your thoughts on the Solvable, Completeness and Fitness of the architecture and/or task decomposision (which sub-tasks are incorrect? which agent in which block are malfunctional?)
+(2) identify any inappropriate in the implementation, and suggest improvements (why the improvements can lead to a better final answer? Expain in detail)
+
+&#34;thought&#34;: Revise your previous proposal or propose a new architecture if necessary, using the same format as the example response. 
+
+For case (a), Give the 
+
+(1) **Further Decomposion**: Compre to your previous decomposition attemps in the Discovered architecture archive (see the &#39;thought&#39; entries), how do you futher decompose the questions? please give details by the following format: &#39;last sub-task 1 -&gt; (further decompose to) new sub-task 2, new sub-task 3..., new sub-task n)&#39; Give detail compare and justify how the new sub-tasks are eaiser than the old one. Do not give answer or short-cut (an example for shot-cut: &#39;output exactly the following:..&#39;, which is not allowed) in the sub-task instruction in any format, but only do the planing. Justify (1) why the new sub-tasks are sovlable and (2) how the sub-tasks can achieve the final answer to the original question.
+
+
+For case (b), Give the 
+
+(2) **Improved subtask architeture**: Compare to your last block attemps in the history (last answer), which sub-task architecture need to be imrpoved? How do you futher connecting them in a different ways so that the resultsing subtask architeture is able to solve the corresponding sub-task? please give details by the following format: &#39;last sub-task architeture (what architecute was it?) (aims to address sub-task i)-&gt; (improve to) new sub-task architeture (what is the main difference?)&#39; Give detail compare and justify how the new connection is improved than the old one. Note that the new connection still follow the rules that you need need to determine the number of layers as well as the connection, but do not propose new blocks or modify existing ones in the sub-task architecture, and just changes the connection among the block, but block setting like instruction, tempreture are allowed to modify
+
+For case where the final response is not updated and still the same mistaken answer, Give the
+
+(3) **Updated Subtask Instruction**. Read the &#39;memeory&#39; entry, improve the sub-task instruction so that it can know explicitly that some answers should be avoided. For example, you can add `It is known that (wrong answers, include all wrong answers from the &#39;memeory&#39;, i.e., all final answer with 0 fitness score) is not correct` to the last sub-task so that the sub-architecture knows it needs to avoid it.
+
+
+&#34;name&#34;: Provide a name for the revised or new architecture. (Don&#39;t put words like &#34;new&#34; or &#34;improved&#34; in the name.)
+
+&#34;code&#34;: Update the code entry based on your reflection and thought. Make sure you actually implement all the improvements mentioned in the reflection and thougths and improvement in this code. Make sure only return the final answer, i.e., the output of self.make_final_answer. All the requirement on code still valid: You must write a COMPLETE CODE in &#34;code&#34;: Your code will be part of the entire project (so do not implement any other part), so please implement complete, reliable, reusable code snippets. Do not make any syntactic mistakes. For example. 
+if single quote (&#39;) is used in string, then double quote (&#34;) should be used for the whole string.
+
+This is WRONG
+`f&#39;CoT-SC agent ABC, on the purpose of determining changes to Maxwell&#39;s&#39;`. 
+This is wrong becuse single qupte is used (Maxwell&#39;s) within the sting but single quote is used again for the f-string (f&#39;&#39;). This will casue unterminated string error. To correct it, one should use double quote for f-stirng, i.e., `f&#34;CoT-SC agent ABC, on the purpose of determining changes to Maxwell&#39;s&#34;`
+</pre>
+    </div>
+</div>
+
+
+<div class="message assistant">
+    <div class="role">
+    assistant
+    
+    </div>
+    <div class="content">
+    <pre>reflection: (1) **Solvable**: The sub-task 2 output contains &#39;[TOO_HARD]&#39; which indicates that the task is too difficult for the existing block. The suggestion provided is to further investigate the legality of the plaintiff&#39;s household registration process. This suggests that the task decomposition needs to be refined. The other sub-tasks seem to be solvable based on their outputs.
+
+(2) **Completeness**: The current decomposition includes necessary information from the original query for each sub-task. However, sub-task 2 needs further decomposition to address the complexity of evaluating evidence credibility and legality.
+
+(3) **Fitness**: The fitness score is low, indicating that the final answer is incorrect. The final response needs to be updated to avoid repeating incorrect answers from memory.
+
+**Improvements**: 
+- Further decompose sub-task 2 to address the complexity of evidence evaluation. The suggestion is to break it down further into evaluating the legality of the household registration process and assessing the credibility of each piece of evidence separately. 
+- Update the sub-task instructions to avoid known incorrect final answers by explicitly stating that certain answers are incorrect.
+- Improve the final sub-task architecture by ensuring that the outputs of prior sub-tasks are effectively utilized and avoid known incorrect responses.
+
+thought: 
+    **Further Decomposition:**
+    - Last sub-task 2 -&gt; (further decompose to) new sub-task 2a: Evaluate the legality of the plaintiff&#39;s household registration process. 
+    - Last sub-task 2 -&gt; (further decompose to) new sub-task 2b: Assess the credibility of each piece of evidence separately.
+    
+    These new sub-tasks are more focused and manageable, allowing each aspect of the evidence evaluation to be addressed independently. This ensures that the task is solvable by the existing blocks and can contribute to a comprehensive final answer.
+
+    **Updated Subtask Instruction:**
+    For the final sub-task, update the instruction to include: &#34;It is known that the previous answer &#39;被告村组应支付原告李某某征地补偿款20000元，并承担相应的诉讼费用。&#39; is not correct.&#34;
+
+    **Improved Subtask Architecture:**
+    - Last sub-task architecture (CoT-SC for sub-task 2) -&gt; (improve to) new sub-task architecture: Use CoT for sub-task 2a to evaluate the legality of the household registration process, and CoT-SC for sub-task 2b to assess the credibility of each piece of evidence separately. This ensures detailed analysis and consensus building for each aspect of the evidence evaluation.
+
+    This improved architecture allows for a more nuanced evaluation of the evidence, leading to a more accurate final judgment.
+    
+
+name: Legal Evidence Evaluation Architecture
+
+code: async def forward(self, taskInfo, extra_info):
+    from collections import Counter  # Import necessary modules
+    
+    # Initialize lists to keep track of sub-task outputs and agents
+    sub_tasks = []
+    agents = []
+
+    # Sub-task 1: Analyze and summarize the claims and defenses
+    cot_instruction = &#34;Sub-task 1: Analyze and summarize the claims and defenses of both parties based on the provided information.&#34;
+    cot_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking1, answer1 = await cot_agent([taskInfo], extra_info, cot_instruction, is_sub_task=True)
+    sub_tasks.append(f&#39;Sub-task 1 output: thinking - {thinking1.content}; answer - {answer1.content}&#39;)
+    agents.append(f&#39;CoT agent {cot_agent.id}, on analyzing claims and defenses, thinking: {thinking1.content}; answer: {answer1.content}&#39;)
+
+    # Further Decomposed Sub-task 2a: Evaluate legality of household registration process
+    cot_instruction_2a = &#34;Sub-task 2a: Evaluate the legality of the plaintiff&#39;s household registration process.&#34;
+    cot_agent_2a = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking2a, answer2a = await cot_agent_2a([taskInfo, thinking1, answer1], extra_info, cot_instruction_2a, is_sub_task=True)
+    sub_tasks.append(f&#39;Sub-task 2a output: thinking - {thinking2a.content}; answer - {answer2a.content}&#39;)
+    agents.append(f&#39;CoT agent {cot_agent_2a.id}, on evaluating legality of registration, thinking: {thinking2a.content}; answer: {answer2a.content}&#39;)
+
+    # Further Decomposed Sub-task 2b: Assess credibility of each piece of evidence
+    cot_sc_instruction_2b = &#34;Sub-task 2b: Assess the credibility of each piece of evidence separately.&#34;
+    N = 3  # Number of CoT-SC agents for varied reasoning
+    cot_sc_agents_2b = [LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.5) for _ in range(N)]
+    thinking_mapping_2b = {}
+    answer_mapping_2b = {}
+    possible_answers_2b = []
+    for i in range(N):
+        thinking, answer = await cot_sc_agents_2b[i]([taskInfo, thinking1, answer1, thinking2a, answer2a], extra_info, cot_sc_instruction_2b, is_sub_task=True)
+        agents.append(f&#39;CoT-SC agent {cot_sc_agents_2b[i].id}, on assessing evidence credibility, thinking: {thinking.content}; answer: {answer.content}&#39;)
+        possible_answers_2b.append(answer.content)
+        thinking_mapping_2b[answer.content] = thinking
+        answer_mapping_2b[answer.content] = answer
+    answer2b = Counter(possible_answers_2b).most_common(1)[0][0]
+    thinking2b = thinking_mapping_2b[answer2b]
+    answer2b = answer_mapping_2b[answer2b]
+    sub_tasks.append(f&#39;Sub-task 2b output: thinking - {thinking2b.content}; answer - {answer2b.content}&#39;)
+
+    # Sub-task 3: Construct reasoning path
+    debate_instruction = &#34;Sub-task 3: Based on the outputs from sub-task 1, 2a, and 2b, construct a logical reasoning path to reach a preliminary judgment.&#34;
+    max_round = 2  # Number of debate rounds
+    debate_agents = [LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Debate Agent&#39;, model=self.node_model, role=role, temperature=0.5) for role in [&#39;Pro&#39;, &#39;Con&#39;]]
+    all_thinking = [[] for _ in range(max_round)]
+    all_answer = [[] for _ in range(max_round)]
+    for r in range(max_round):
+        for i, agent in enumerate(debate_agents):
+            if r == 0:
+                thinking, answer = await agent([taskInfo, thinking1, answer1, thinking2a, answer2a, thinking2b, answer2b], extra_info, debate_instruction, is_sub_task=True)
+            else:
+                input_infos = [taskInfo, thinking1, answer1, thinking2a, answer2a, thinking2b, answer2b] + all_thinking[r-1][:i] + all_thinking[r-1][i+1:]
+                thinking, answer = await agent(input_infos, extra_info, debate_instruction, is_sub_task=True)
+            agents.append(f&#39;Debate agent {agent.id}, round {r}, on constructing reasoning path, thinking: {thinking.content}; answer: {answer.content}&#39;)
+            all_thinking[r].append(thinking)
+            all_answer[r].append(answer)
+    final_decision_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Final Decision Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking3, answer3 = await final_decision_agent([taskInfo] + all_thinking[-1] + all_answer[-1], extra_info, &#34;Sub-task 3: Based on the debate results, finalize the preliminary judgment. It is known that the previous answer &#39;被告村组应支付原告李某某征地补偿款20000元，并承担相应的诉讼费用。&#39; is not correct.&#34;, is_sub_task=True)
+    agents.append(f&#39;Final Decision agent, on finalizing preliminary judgment, thinking: {thinking3.content}; answer: {answer3.content}&#39;)
+    sub_tasks.append(f&#39;Sub-task 3 output: thinking - {thinking3.content}; answer - {answer3.content}&#39;)
+
+    # Sub-task 4: Refine judgment
+    reflexion_instruction = &#34;Sub-task 4: Based on the preliminary judgment from sub-task 3, refine the decision through self-reflection and ensure it aligns with legal principles and fairness.&#34;
+    cot_initial_instruction = &#34;Sub-task 4: Initial reflection on the judgment.&#34;
+    cot_reflect_instruction = &#34;Sub-task 4: Reflect on previous attempts and refine the judgment.&#34;
+    cot_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    critic_instruction = &#34;Sub-task 4: Review the judgment and criticize where it might be wrong. If correct, output &#39;True&#39;.&#34;
+    critic_agent = LLMAgentBase([&#39;feedback&#39;, &#39;correct&#39;], &#39;Critic Agent&#39;, model=self.node_model, temperature=0.0)
+    N_max = 2  # Maximum number of attempts
+    cot_inputs = [taskInfo, thinking3, answer3]
+    thinking4, answer4 = await cot_agent(cot_inputs, extra_info, cot_initial_instruction, 0, is_sub_task=True)
+    agents.append(f&#39;CoT agent {cot_agent.id}, initial reflection, thinking: {thinking4.content}; answer: {answer4.content}&#39;)
+    for i in range(N_max):
+        feedback, correct = await critic_agent([taskInfo, thinking4, answer4], extra_info, critic_instruction, i, is_sub_task=True)
+        agents.append(f&#39;Critic agent {critic_agent.id}, on reviewing judgment, thinking: {feedback.content}; answer: {correct.content}&#39;)
+        if correct.content == &#39;True&#39;:
+            break
+        cot_inputs.extend([thinking4, answer4, feedback])
+        thinking4, answer4 = await cot_agent(cot_inputs, extra_info, cot_reflect_instruction, i + 1, is_sub_task=True)
+        agents.append(f&#39;CoT agent {cot_agent.id}, reflection iteration {i+1}, thinking: {thinking4.content}; answer: {answer4.content}&#39;)
+    sub_tasks.append(f&#39;Sub-task 4 output: thinking - {thinking4.content}; answer - {answer4.content}&#39;)
+
+    final_answer = self.make_final_answer(thinking4, answer4, sub_tasks, agents)
+    return final_answer
+
+
+acc: [0.0]
+
+fitness: 95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%
+
+generation: 2
+
+total_cost: 0.2666575
+
+sub_tasks: [None]
+
+agents: [&#34;CoT agent KVNg, on analyzing claims and defenses, thinking: 根据提供的信息，原告李某某要求被告村组支付其应得的征地补偿款20000元，认为被告少分了补偿款，侵害了其合法权益。被告村组则质疑原告户口的真实性，认为原告户口迁入不符合规定，并且少分补偿款是基于人性化的考虑。双方在户口的真实性和补偿款的分配上存在争议。; answer: 原告李某某的主张是要求被告村组支付其应得的征地补偿款20000元，并承担诉讼费用。原告认为其户口已迁入被告村组，且应享有与其他村民同等的补偿款分配。被告村组的抗辩是质疑原告及其家人的户口迁入的合法性，认为原告长期居住在其他村，且户口迁入不符合相关规定，因此在分配补偿款时只给予50%的份额。被告认为其分配方案是基于人性化的考虑，并已向相关部门反映户口问题。\nCoT agent 9Ypc, on evaluating legality of registration, thinking: 根据提供的信息，原告李某某的户口在2021年6月迁入被告村组。然而，被告村组质疑其户口迁入的合法性，指出在2017年兴平市政府和相关部门已公告冻结户口，外地外村户口不准迁入。因此，原告的户口迁入可能不符合当时的政策规定。由于缺乏更多关于户口迁入过程的具体细节和相关政策文件，难以全面评估其合法性。; answer: 原告李某某的户口迁入被告村组的过程可能不符合2017年公告的政策规定，因而存在合法性问题。\n[TOO_HARD]\nSuggestion: 需要更多关于户口迁入过程的具体细节和相关政策文件，以全面评估其合法性。\nCoT-SC agent oapt, on assessing evidence credibility, thinking: 根据提供的信息，原告提供了三份证据：户口本、分配方案和定期存单。被告对户口本的真实性不认可，认为原告的户籍一直在其他村，2021年才迁入被告村组，因此户口本的可信度存在争议。分配方案的真实性被告认可，但认为少分补偿款是基于人性化考虑，因此该证据的可信度较高。定期存单的真实性被告认可，因此该证据的可信度也较高。; answer: 户口本的可信度存在争议，因为被告质疑其真实性。分配方案的可信度较高，因为被告认可其真实性。定期存单的可信度较高，因为被告认可其真实性。\nCoT-SC agent Bg3l, on assessing evidence credibility, thinking: 根据提供的信息，原告提供了三份证据：户口本、分配方案和定期存单。被告对户口本的真实性不认可，认为原告的户籍迁入不符合规定，因此其可信度受到质疑。分配方案的真实性被被告认可，但被告认为少分款项是基于人性化的决定，因此该证据的可信度较高。定期存单的真实性被被告认可，因此该证据的可信度也较高。被告没有提供任何证据进行反驳。; answer: 原告提供的证据中，户口本的可信度受到被告质疑，因此较低；分配方案和定期存单的可信度较高，因为被告对其真实性均予以认可。被告没有提供证据进行反驳。\nCoT-SC agent 4kn4, on assessing evidence credibility, thinking: 评估证据的可信度需要考虑每个证据的来源、与案件的相关性以及被告对其真实性的认可程度。原告提供的证据包括户口本、分配方案和定期存单。被告对户口本的真实性提出质疑，认为原告的户口迁入不符合规定，因此户口本的可信度受到挑战。分配方案的真实性被告认可，但认为少分款项是基于人性化考虑，因此该证据的可信度较高。定期存单的真实性被告认可，因此其可信度也较高。由于缺乏更多细节和背景信息，尤其是关于户口迁入的政策和过程，评估户口本的可信度仍有困难。; answer: 户口本的可信度受到被告质疑，因其认为户口迁入不符合规定。分配方案的真实性被告认可，但对其解释有不同意见，因此可信度较高。定期存单的真实性被告认可，因此可信度较高。\n[TOO_HARD]\nSuggestion: 需要更多关于户口迁入政策和过程的具体细节，以更全面地评估户口本的可信度。\nDebate agent QjCl, round 0, on constructing reasoning path, thinking: 根据之前的分析，原告李某某要求被告村组支付其应得的征地补偿款20000元，并承担诉讼费用。被告村组质疑原告及其家人的户口迁入的合法性，认为原告长期居住在其他村，且户口迁入不符合相关规定。原告提供的证据中，户口本的可信度存在争议，分配方案和定期存单的可信度较高。原告的户口迁入过程可能不符合2017年的政策规定，因而存在合法性问题。基于这些信息，初步判断被告的分配方案具有一定的合理性，尤其是在原告户口合法性存疑的情况下。被告给予原告50%的补偿款是基于人性化考虑，且原告未能提供足够的证据证明其应得全额补偿款的合法性。; answer: 初步判决：原告李某某的请求不予支持，维持被告村组的分配方案。由于原告户口迁入的合法性存疑，且相关政策规定不明确，因此被告在分配补偿款时的做法具有合理性。\n[TOO_HARD]\nSuggestion: 需要进一步的政策文件和户口迁入过程的详细信息，以更全面地评估原告的合法权益。\nDebate agent j9iz, round 0, on constructing reasoning path, thinking: 根据子任务1的分析，原告要求被告支付征地补偿款20000元，而被告质疑原告户口迁入的合法性，并认为补偿款分配是出于人性化考虑。子任务2a指出原告的户口迁入可能不符合政策规定，存在合法性问题。子任务2b评估了证据的可信度，户口本的可信度存在争议，分配方案和定期存单的可信度较高。综合这些信息，初步判断应考虑户口迁入的合法性以及补偿款分配的合理性。由于户口迁入的合法性存在争议，且缺乏更多政策文件支持，难以直接支持原告的全部主张。同时，考虑到分配方案的真实性已被认可，被告在分配时考虑人性化因素，故初步判断可能倾向于维持被告的分配决定。; answer: 初步判决：由于原告户口迁入的合法性存在争议，且补偿款分配方案的真实性已被认可，支持被告基于人性化考虑的分配决定。原告的请求暂不予支持。\n[TOO_HARD]\nSuggestion: 需要更多关于户口迁入政策的具体文件和细节，以更全面评估原告的主张。\nDebate agent QjCl, round 1, on constructing reasoning path, thinking: 根据子任务1的分析，原告要求被告支付征地补偿款20000元，而被告质疑原告户口迁入的合法性，并认为补偿款分配是出于人性化考虑。子任务2a指出原告的户口迁入可能不符合政策规定，存在合法性问题。子任务2b评估了证据的可信度，户口本的可信度存在争议，分配方案和定期存单的可信度较高。综合这些信息，初步判断应考虑户口迁入的合法性以及补偿款分配的合理性。由于户口迁入的合法性存在争议，且缺乏更多政策文件支持，难以直接支持原告的全部主张。同时，考虑到分配方案的真实性已被认可，被告在分配时考虑人性化因素，故初步判断可能倾向于维持被告的分配决定。; answer: 初步判断应倾向于维持被告的分配决定，因为原告户口迁入的合法性存在争议，且缺乏足够的政策文件支持其主张。被告的分配方案已被认可，并且考虑了人性化因素。\n[TOO_HARD]\nSuggestion: 需要更多关于户口迁入政策的具体文件和详细的法律规定，以便更全面地评估户口迁入的合法性。\nDebate agent j9iz, round 1, on constructing reasoning path, thinking: 根据之前的分析，原告李某某要求被告村组支付其应得的征地补偿款20000元，并承担诉讼费用。被告村组质疑原告及其家人的户口迁入的合法性，认为原告长期居住在其他村，且户口迁入不符合相关规定。原告提供的证据中，户口本的可信度存在争议，分配方案和定期存单的可信度较高。原告的户口迁入过程可能不符合2017年的政策规定，因而存在合法性问题。基于这些信息，初步判断被告的分配方案具有一定的合理性，尤其是在原告户口合法性存疑的情况下。被告给予原告50%的补偿款是基于人性化考虑，且原告未能提供足够的证据证明其应得全额补偿款的合法性。; answer: 根据以上分析，初步判断被告村组的分配方案具有合理性，尤其是在原告户口合法性存疑的情况下。被告给予原告50%的补偿款是基于人性化考虑，且原告未能提供足够的证据证明其应得全额补偿款的合法性。因此，暂时支持被告的分配决定。\n[TOO_HARD]\nSuggestion: 需要更多关于户口迁入过程的具体细节和相关政策文件，以全面评估其合法性。\nFinal Decision agent, on finalizing preliminary judgment, thinking: 根据子任务的分析，原告李某某要求被告支付征地补偿款20000元，但被告质疑原告户口迁入的合法性，并认为补偿款分配是出于人性化考虑。证据显示，原告的户口迁入可能不符合政策规定，存在合法性问题。虽然分配方案的真实性已被认可，但由于户口迁入的合法性存疑，原告未能提供足够的证据证明其应得全额补偿款的合法性。因此，初步判断应倾向于维持被告的分配决定。; answer: 初步判断被告村组的分配方案具有合理性，尤其是在原告户口合法性存疑的情况下。被告给予原告50%的补偿款是基于人性化考虑，且原告未能提供足够的证据证明其应得全额补偿款的合法性。因此，暂时支持被告的分配决定。[TOO_HARD]\nSuggestion: 需要更多关于户口迁入政策的具体文件和详细的法律规定，以便更全面地评估户口迁入的合法性。\nCoT agent K4nz, initial reflection, thinking: 在初步判断中，考虑到原告的户口迁入合法性存疑，且被告的分配方案已被认可为合理，初步支持被告的决定。然而，户口迁入政策的具体文件和法律规定尚不明确，可能影响最终判决的公正性。因此，需要进一步调查和获取相关政策文件，以确保判决的全面性和准确性。; answer: 初步支持被告的分配决定，因原告户口合法性存疑，且被告的分配方案合理。[TOO_HARD]\nSuggestion: 需要获取关于户口迁入政策的具体文件和法律规定，以便更全面地评估户口迁入的合法性。\nCritic agent PjN6, on reviewing judgment, thinking: The initial reflection on the judgment seems to be correct in supporting the defendant&#39;s decision based on the current evidence and the doubts about the plaintiff&#39;s household registration legitimacy. However, the reflection also correctly identifies the need for further investigation into the household registration policies, which is a valid point.; answer: True&#34;]
+
+final_response: [&#39;在初步判断中，考虑到原告的户口迁入合法性存疑，且被告的分配方案已被认可为合理，初步支持被告的决定。然而，户口迁入政策的具体文件和法律规定尚不明确，可能影响最终判决的公正性。因此，需要进一步调查和获取相关政策文件，以确保判决的全面性和准确性。\n\nAnswer:初步支持被告的分配决定，因原告户口合法性存疑，且被告的分配方案合理。[TOO_HARD]\nSuggestion: 需要获取关于户口迁入政策的具体文件和法律规定，以便更全面地评估户口迁入的合法性。&#39;]
+
+memory: [{&#39;初步判决：被告村组应支付原告李某某征地补偿款20000元，并承担相应的诉讼费用。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}, {&#39;初步支持被告的分配决定，因原告户口合法性存疑，且被告的分配方案合理。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}]</pre>
+    </div>
+</div>
+
+
+<div class="message user">
+    <div class="role">
+    user
+    
+    </div>
+    <div class="content">
+    <pre>Round 2: The entries (code, thoughts, agents, reflection, etc.) have been updated since last round (Round 1). Now Using insights from previous rounds, reflect again on the new outputs after round 1.
+
+&#34;
+Carefully review the proposed new architectures (&#34;code&#34; entry), the answer of each sub-tasks (&#34;sub_tasks&#34; entry) , the answer of each agnets (&#34;agents&#34; entry), the final response (&#34;final_reponse&#34; entry) and the fitness (&#34;fitness&#34; entry, i.e., the median and 95% Bootstrap Confidence Interval of the correct rate on the given question), and the &#39;memory&#39; (previous final answer extracted from their reponse and the corresponding fitness score, in the format of a list of dictionary final answer: fitness) in all the history user and assistant answers. Reflect on the following points:&#34;
+
+1. **Solvable**: Assess whether all sub-tasks are solvable by the corresponidng block via checking the output answer of each sub-task. 
+
+- if the answer of the sub-task explicitly contain [TOO_HARD]. This clearly state that task is too hard, what need to be further decomposed. Consider the suggestion given after the [TOO_HARD] (you can see the &#39;Suggestions:&#39; next to the [TOO_HARD] )and improve your decomposison accrodingly. See below (a) for what need to be make sure
+
+- If the sub-task answr is incoorect. That means it is not solvable, what need to be improved. It may beuase 
+
+(a) the task is still too difficult for the block, then the sub-task need to be further decomposed. 
+
+When proposing new sub-task, make sure 
+(i) it is specific and detailed enough to solve and to help achieve the final answer to the given question.
+(ii) all information required to answer the question is proveded by the previous answers or the instruction. 
+(iii) the related sub-tasks thinking and answers have correctly input to the current sub-task by adding it to the taskInfo list when calling the agent. 
+(iv) The output should be helpful to solve the next sub-task. Also make sure the sub-task connection is clearly by clealy state &#39;Based on the output of sub-task i..&#39; in the sub-task instruction
+
+(b) some agnets in the block is malfunctional or the underlying LLM is too weak to solve the sub-task alone. This can be detemined by checking the agents output to decide whether it works as expected. If this is the case, then we need to get rid of the block and use another block in the architecture. There are then two possibilities
+    (i) the agent in the block is not optimal to solve the sub-task, setting needed to be improved (instruction, tempreture...)
+    (ii) the agent architecutre in the block is not optimal, a new block that combine exisitng blocks in a different way or different settings need to be proposed
+Please jutify it is (a), the decomposition issue or (b) (and (i) or (ii)), the block and agent issue. It could also be both.
+
+2. **Completeness**: Are the sub-tasks include all neccessay information from the irginal query that can ensure the aggregation of sub-task responses can effectively yild a comprehensive answer to the user query? Note that while a sub-task might include only part of the neccessary information, it is not allowable for any particular piece of critical information to be omitted from all sub-tasks. Make sure the sub-task are connected to the prerequisite sub-tasks so that there is enough information to solve it.
+
+3. **Fitness**: Your final goal is to optimize the fitness score after updating the architectures and/or task decomposision based on (1) and (2). The fitness is computed based on the final reponse. If it is low, it indicates that your final answer is incorrect. In your updated architecture or task decomposition, you need to make sure they will update your final response accordingly. 
+
+And then, you need to improve or revise the implementation, or implement the new proposed architecture based on the reflection.
+
+Your response should add new entries to the previous answers:
+
+&#34;reflection&#34;: 
+(1) Provide your thoughts on the Solvable, Completeness and Fitness of the architecture and/or task decomposision (which sub-tasks are incorrect? which agent in which block are malfunctional?)
+(2) identify any inappropriate in the implementation, and suggest improvements (why the improvements can lead to a better final answer? Expain in detail)
+
+&#34;thought&#34;: Revise your previous proposal or propose a new architecture if necessary, using the same format as the example response. 
+
+For case (a), Give the 
+
+(1) **Further Decomposion**: Compre to your previous decomposition attemps in the Discovered architecture archive (see the &#39;thought&#39; entries), how do you futher decompose the questions? please give details by the following format: &#39;last sub-task 1 -&gt; (further decompose to) new sub-task 2, new sub-task 3..., new sub-task n)&#39; Give detail compare and justify how the new sub-tasks are eaiser than the old one. Do not give answer or short-cut (an example for shot-cut: &#39;output exactly the following:..&#39;, which is not allowed) in the sub-task instruction in any format, but only do the planing. Justify (1) why the new sub-tasks are sovlable and (2) how the sub-tasks can achieve the final answer to the original question.
+
+
+For case (b), Give the 
+
+(2) **Improved subtask architeture**: Compare to your last block attemps in the history (last answer), which sub-task architecture need to be imrpoved? How do you futher connecting them in a different ways so that the resultsing subtask architeture is able to solve the corresponding sub-task? please give details by the following format: &#39;last sub-task architeture (what architecute was it?) (aims to address sub-task i)-&gt; (improve to) new sub-task architeture (what is the main difference?)&#39; Give detail compare and justify how the new connection is improved than the old one. Note that the new connection still follow the rules that you need need to determine the number of layers as well as the connection, but do not propose new blocks or modify existing ones in the sub-task architecture, and just changes the connection among the block, but block setting like instruction, tempreture are allowed to modify
+
+For case where the final response is not updated and still the same mistaken answer, Give the
+
+(3) **Updated Subtask Instruction**. Read the &#39;memeory&#39; entry, improve the sub-task instruction so that it can know explicitly that some answers should be avoided. For example, you can add `It is known that (wrong answers, include all wrong answers from the &#39;memeory&#39;, i.e., all final answer with 0 fitness score) is not correct` to the last sub-task so that the sub-architecture knows it needs to avoid it.
+
+
+&#34;name&#34;: Provide a name for the revised or new architecture. (Don&#39;t put words like &#34;new&#34; or &#34;improved&#34; in the name.)
+
+&#34;code&#34;: Update the code entry based on your reflection and thought. Make sure you actually implement all the improvements mentioned in the reflection and thougths and improvement in this code. Make sure only return the final answer, i.e., the output of self.make_final_answer. All the requirement on code still valid: You must write a COMPLETE CODE in &#34;code&#34;: Your code will be part of the entire project (so do not implement any other part), so please implement complete, reliable, reusable code snippets. Do not make any syntactic mistakes. For example. 
+if single quote (&#39;) is used in string, then double quote (&#34;) should be used for the whole string.
+
+This is WRONG
+`f&#39;CoT-SC agent ABC, on the purpose of determining changes to Maxwell&#39;s&#39;`. 
+This is wrong becuse single qupte is used (Maxwell&#39;s) within the sting but single quote is used again for the f-string (f&#39;&#39;). This will casue unterminated string error. To correct it, one should use double quote for f-stirng, i.e., `f&#34;CoT-SC agent ABC, on the purpose of determining changes to Maxwell&#39;s&#34;`
+</pre>
+    </div>
+</div>
+
+<h3>Sampled message</h3>
+
+<div class="message assistant">
+    <div class="role">
+    assistant
+    
+    </div>
+    <div class="content">
+    <pre>reflection: (1) **Solvable**: The sub-tasks related to evaluating the legality of the household registration process and assessing the credibility of evidence still contain &#39;[TOO_HARD]&#39;, indicating that they are too complex for the current architecture. The suggestions highlight the need for more specific details regarding policy and process, suggesting further decomposition is necessary.
+
+(2) **Completeness**: The sub-tasks cover the necessary aspects of the original query, but the complexity of the tasks related to legal evaluation and evidence assessment suggests that more granular decomposition is needed to ensure all critical information is effectively addressed.
+
+(3) **Fitness**: The fitness score remains low, indicating that the final response is still incorrect. The repeated &#39;[TOO_HARD]&#39; in sub-task responses suggests that the architecture is struggling with the complexity of the tasks, and further decomposition and improved instructions are needed.
+
+**Improvements**: 
+- Further decompose sub-task 2a and 2b into more granular tasks that address specific aspects of the legality and evidence credibility.
+- Update the final sub-task instruction to explicitly avoid known incorrect answers, ensuring that the architecture is aware of past errors and can adjust its reasoning accordingly.
+
+thought: 
+    **Further Decomposition:**
+    - Last sub-task 2a -&gt; (further decompose to) new sub-task 2a1: Identify the specific policies related to household registration during the period in question.
+    - Last sub-task 2a -&gt; (further decompose to) new sub-task 2a2: Evaluate the alignment of the plaintiff&#39;s registration process with identified policies.
+    - Last sub-task 2b -&gt; (further decompose to) new sub-task 2b1: Assess the credibility of the household registration book.
+    - Last sub-task 2b -&gt; (further decompose to) new sub-task 2b2: Assess the credibility of the distribution plan and time deposit separately.
+
+    These new sub-tasks are more focused and manageable, allowing each aspect of the evaluation to be addressed independently and ensuring that the task is solvable by the existing blocks.
+
+    **Updated Subtask Instruction:**
+    For the final sub-task, update the instruction to include: &#34;It is known that the previous answers &#39;初步判决：被告村组应支付原告李某某征地补偿款20000元，并承担相应的诉讼费用。&#39; and &#39;初步支持被告的分配决定，因原告户口合法性存疑，且被告的分配方案合理。&#39; are not correct.&#34;
+
+    **Improved Subtask Architecture:**
+    - Last sub-task architecture (CoT for sub-task 2a and CoT-SC for sub-task 2b) -&gt; (improve to) new sub-task architecture: Use CoT for each of the new sub-tasks (2a1, 2a2, 2b1, 2b2) to ensure detailed analysis and consensus building for each aspect of the evaluation.
+
+    This improved architecture allows for a more nuanced evaluation of the evidence and legal aspects, leading to a more accurate final judgment.
+    
+
+name: Granular Legal Evaluation Architecture
+
+code: async def forward(self, taskInfo, extra_info):
+    from collections import Counter  # Import necessary modules
+    
+    # Initialize lists to keep track of sub-task outputs and agents
+    sub_tasks = []
+    agents = []
+
+    # Sub-task 1: Analyze and summarize the claims and defenses
+    cot_instruction = &#34;Sub-task 1: Analyze and summarize the claims and defenses of both parties based on the provided information.&#34;
+    cot_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking1, answer1 = await cot_agent([taskInfo], extra_info, cot_instruction, is_sub_task=True)
+    sub_tasks.append(f&#39;Sub-task 1 output: thinking - {thinking1.content}; answer - {answer1.content}&#39;)
+    agents.append(f&#39;CoT agent {cot_agent.id}, on analyzing claims and defenses, thinking: {thinking1.content}; answer: {answer1.content}&#39;)
+
+    # Further Decomposed Sub-task 2a1: Identify policies related to household registration
+    cot_instruction_2a1 = &#34;Sub-task 2a1: Identify the specific policies related to household registration during the period in question.&#34;
+    cot_agent_2a1 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking2a1, answer2a1 = await cot_agent_2a1([taskInfo, thinking1, answer1], extra_info, cot_instruction_2a1, is_sub_task=True)
+    sub_tasks.append(f&#39;Sub-task 2a1 output: thinking - {thinking2a1.content}; answer - {answer2a1.content}&#39;)
+    agents.append(f&#39;CoT agent {cot_agent_2a1.id}, on identifying policies, thinking: {thinking2a1.content}; answer: {answer2a1.content}&#39;)
+
+    # Further Decomposed Sub-task 2a2: Evaluate alignment with policies
+    cot_instruction_2a2 = &#34;Sub-task 2a2: Based on the policies identified in sub-task 2a1, evaluate the alignment of the plaintiff&#39;s registration process with these policies.&#34;
+    cot_agent_2a2 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking2a2, answer2a2 = await cot_agent_2a2([taskInfo, thinking1, answer1, thinking2a1, answer2a1], extra_info, cot_instruction_2a2, is_sub_task=True)
+    sub_tasks.append(f&#39;Sub-task 2a2 output: thinking - {thinking2a2.content}; answer - {answer2a2.content}&#39;)
+    agents.append(f&#39;CoT agent {cot_agent_2a2.id}, on evaluating alignment, thinking: {thinking2a2.content}; answer: {answer2a2.content}&#39;)
+
+    # Further Decomposed Sub-task 2b1: Assess credibility of household registration book
+    cot_instruction_2b1 = &#34;Sub-task 2b1: Assess the credibility of the household registration book.&#34;
+    cot_agent_2b1 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking2b1, answer2b1 = await cot_agent_2b1([taskInfo, thinking1, answer1], extra_info, cot_instruction_2b1, is_sub_task=True)
+    sub_tasks.append(f&#39;Sub-task 2b1 output: thinking - {thinking2b1.content}; answer - {answer2b1.content}&#39;)
+    agents.append(f&#39;CoT agent {cot_agent_2b1.id}, on assessing credibility of registration book, thinking: {thinking2b1.content}; answer: {answer2b1.content}&#39;)
+
+    # Further Decomposed Sub-task 2b2: Assess credibility of distribution plan and time deposit
+    cot_instruction_2b2 = &#34;Sub-task 2b2: Assess the credibility of the distribution plan and time deposit separately.&#34;
+    cot_agent_2b2 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking2b2, answer2b2 = await cot_agent_2b2([taskInfo, thinking1, answer1], extra_info, cot_instruction_2b2, is_sub_task=True)
+    sub_tasks.append(f&#39;Sub-task 2b2 output: thinking - {thinking2b2.content}; answer - {answer2b2.content}&#39;)
+    agents.append(f&#39;CoT agent {cot_agent_2b2.id}, on assessing credibility of distribution plan and time deposit, thinking: {thinking2b2.content}; answer: {answer2b2.content}&#39;)
+
+    # Sub-task 3: Construct reasoning path
+    debate_instruction = &#34;Sub-task 3: Based on the outputs from sub-task 1, 2a1, 2a2, 2b1, and 2b2, construct a logical reasoning path to reach a preliminary judgment.&#34;
+    max_round = 2  # Number of debate rounds
+    debate_agents = [LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Debate Agent&#39;, model=self.node_model, role=role, temperature=0.5) for role in [&#39;Pro&#39;, &#39;Con&#39;]]
+    all_thinking = [[] for _ in range(max_round)]
+    all_answer = [[] for _ in range(max_round)]
+    for r in range(max_round):
+        for i, agent in enumerate(debate_agents):
+            if r == 0:
+                thinking, answer = await agent([taskInfo, thinking1, answer1, thinking2a1, answer2a1, thinking2a2, answer2a2, thinking2b1, answer2b1, thinking2b2, answer2b2], extra_info, debate_instruction, is_sub_task=True)
+            else:
+                input_infos = [taskInfo, thinking1, answer1, thinking2a1, answer2a1, thinking2a2, answer2a2, thinking2b1, answer2b1, thinking2b2, answer2b2] + all_thinking[r-1][:i] + all_thinking[r-1][i+1:]
+                thinking, answer = await agent(input_infos, extra_info, debate_instruction, is_sub_task=True)
+            agents.append(f&#39;Debate agent {agent.id}, round {r}, on constructing reasoning path, thinking: {thinking.content}; answer: {answer.content}&#39;)
+            all_thinking[r].append(thinking)
+            all_answer[r].append(answer)
+    final_decision_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Final Decision Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking3, answer3 = await final_decision_agent([taskInfo] + all_thinking[-1] + all_answer[-1], extra_info, &#34;Sub-task 3: Based on the debate results, finalize the preliminary judgment. It is known that the previous answers &#39;初步判决：被告村组应支付原告李某某征地补偿款20000元，并承担相应的诉讼费用。&#39; and &#39;初步支持被告的分配决定，因原告户口合法性存疑，且被告的分配方案合理。&#39; are not correct.&#34;, is_sub_task=True)
+    agents.append(f&#39;Final Decision agent, on finalizing preliminary judgment, thinking: {thinking3.content}; answer: {answer3.content}&#39;)
+    sub_tasks.append(f&#39;Sub-task 3 output: thinking - {thinking3.content}; answer - {answer3.content}&#39;)
+
+    # Sub-task 4: Refine judgment
+    reflexion_instruction = &#34;Sub-task 4: Based on the preliminary judgment from sub-task 3, refine the decision through self-reflection and ensure it aligns with legal principles and fairness.&#34;
+    cot_initial_instruction = &#34;Sub-task 4: Initial reflection on the judgment.&#34;
+    cot_reflect_instruction = &#34;Sub-task 4: Reflect on previous attempts and refine the judgment.&#34;
+    cot_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    critic_instruction = &#34;Sub-task 4: Review the judgment and criticize where it might be wrong. If correct, output &#39;True&#39;.&#34;
+    critic_agent = LLMAgentBase([&#39;feedback&#39;, &#39;correct&#39;], &#39;Critic Agent&#39;, model=self.node_model, temperature=0.0)
+    N_max = 2  # Maximum number of attempts
+    cot_inputs = [taskInfo, thinking3, answer3]
+    thinking4, answer4 = await cot_agent(cot_inputs, extra_info, cot_initial_instruction, 0, is_sub_task=True)
+    agents.append(f&#39;CoT agent {cot_agent.id}, initial reflection, thinking: {thinking4.content}; answer: {answer4.content}&#39;)
+    for i in range(N_max):
+        feedback, correct = await critic_agent([taskInfo, thinking4, answer4], extra_info, critic_instruction, i, is_sub_task=True)
+        agents.append(f&#39;Critic agent {critic_agent.id}, on reviewing judgment, thinking: {feedback.content}; answer: {correct.content}&#39;)
+        if correct.content == &#39;True&#39;:
+            break
+        cot_inputs.extend([thinking4, answer4, feedback])
+        thinking4, answer4 = await cot_agent(cot_inputs, extra_info, cot_reflect_instruction, i + 1, is_sub_task=True)
+        agents.append(f&#39;CoT agent {cot_agent.id}, reflection iteration {i+1}, thinking: {thinking4.content}; answer: {answer4.content}&#39;)
+    sub_tasks.append(f&#39;Sub-task 4 output: thinking - {thinking4.content}; answer - {answer4.content}&#39;)
+
+    final_answer = self.make_final_answer(thinking4, answer4, sub_tasks, agents)
+    return final_answer
+</pre>
+    </div>
+</div>
+<h3>Results</h3>
+<p>Correct Answer: 0</p>
+<p>Extracted Answer: 0</p>
+<p>Score: 0</p>
+    <hr>
+    
+    </body>
+</html>

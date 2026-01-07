@@ -1,0 +1,17 @@
+[
+    {
+        "The newborn is diagnosed with congenital rubella syndrome, characterized by patent ductus arteriosus, congenital cataracts, and sensorineural hearing loss.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The newborn may have a congenital infection other than rubella, such as cytomegalovirus (CMV) infection, which can cause similar symptoms including sensorineural hearing loss, congenital cataracts, and skin findings. Alternatively, a genetic syndrome such as CHARGE syndrome could be considered, which includes heart defects, ear abnormalities, and eye issues. Further testing for other congenital infections and genetic testing may be needed to confirm the diagnosis. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "300": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Congenital rubella syndrome": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The newborn is diagnosed with congenital rubella syndrome.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

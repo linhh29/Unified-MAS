@@ -1,0 +1,17 @@
+[
+    {
+        "The diagnosis for the patient is a double aortic arch causing a vascular ring, leading to tracheal and esophageal compression and resulting in the observed symptoms.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Double aortic arch causing a vascular ring.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Double aortic arch causing a vascular ring is confirmed by test results, but the prompt suggests this is incorrect. Consider other vascular anomalies like a right aortic arch with an aberrant left subclavian artery or a left aortic arch with an aberrant right subclavian artery. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Other potential vascular anomalies such as a right aortic arch with an aberrant left subclavian artery or a pulmonary sling could be considered. Further imaging studies are needed to confirm the exact anomaly causing the symptoms.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

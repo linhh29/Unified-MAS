@@ -1,0 +1,73 @@
+Question: 
+        Patient Information: {'Demographics': '16-year-old male', 'History': 'The patient reports the sudden onset of abdominal pain while playing football two hours ago. He has a past medical history significant only for asthma. Additionally, his social history is notable for unprotected sex with four partners in the past month.', 'Symptoms': {'Primary_Symptom': 'Sudden-onset abdominal pain', 'Secondary_Symptoms': ['No history of similar episodes', 'Pain started while playing football']}, 'Past_Medical_History': 'Only significant for asthma, well-controlled on medication.', 'Social_History': 'Unprotected sex with multiple partners. No use of tobacco, alcohol, or illicit drugs reported.', 'Review_of_Systems': 'Denies fever, vomiting, diarrhea, dysuria, hematuria, or back pain.'}
+        Physical Examinations: {'Vital_Signs': {'Temperature': '37.4°C (99.3°F)', 'Blood_Pressure': '120/88 mmHg', 'Heart_Rate': '117 bpm', 'Respiratory_Rate': '14 breaths/min', 'Oxygen_Saturation': '99% on room air'}, 'Abdominal_Examination': {'Inspection': 'Abdomen appears normal, without distension or discoloration.', 'Auscultation': 'Bowel sounds present and normal.', 'Percussion': 'No findings of note.', 'Palpation': 'Abdomen is non-tender on palpation.'}, 'Genitourinary_Examination': {'Inspection': 'Scrotum appears normal, without swelling or discoloration.', 'Palpation': {'Findings': "Right testicle is elevated with a horizontal lie, pain on elevation (negative Prehn's sign). Cremastric reflex is absent on the right side."}}}
+        Test Results: {'Urinalysis': {'Appearance': 'Clear', 'WBC': '0-5 /HPF', 'RBC': '0-2 /HPF', 'Nitrites': 'Negative', 'Leukocyte_Esterase': 'Negative'}, 'Scrotal_Ultrasound': {'Findings': 'Decreased blood flow to the right testicle, suggestive of testicular torsion.'}}
+
+        You are a doctor and your task is:
+        
+        Evaluate and diagnose the patient presenting with sudden-onset lower abdominal pain, with consideration of the patient's recent history and physical examination findings.
+        
+proposed answer: The patient's sudden onset of abdominal pain during physical activity, combined with the specific genitourinary examination findings and the scrotal ultrasound results, consistently indicate testicular torsion. The elevated right testicle with a horizontal lie, negative Prehn's sign, and absent cremasteric reflex are classic signs of this condition. The ultrasound showing decreased blood flow to the right testicle further confirms the diagnosis. Testicular torsion is a surgical emergency requiring prompt intervention to prevent permanent testicular damage.
+
+Answer:Testicular torsion
+Extracted answer: Testicular torsion
+Correct answer: 
+Question: 
+        Patient Information: {'Demographics': '16-year-old male', 'History': 'The patient reports the sudden onset of abdominal pain while playing football two hours ago. He has a past medical history significant only for asthma. Additionally, his social history is notable for unprotected sex with four partners in the past month.', 'Symptoms': {'Primary_Symptom': 'Sudden-onset abdominal pain', 'Secondary_Symptoms': ['No history of similar episodes', 'Pain started while playing football']}, 'Past_Medical_History': 'Only significant for asthma, well-controlled on medication.', 'Social_History': 'Unprotected sex with multiple partners. No use of tobacco, alcohol, or illicit drugs reported.', 'Review_of_Systems': 'Denies fever, vomiting, diarrhea, dysuria, hematuria, or back pain.'}
+        Physical Examinations: {'Vital_Signs': {'Temperature': '37.4°C (99.3°F)', 'Blood_Pressure': '120/88 mmHg', 'Heart_Rate': '117 bpm', 'Respiratory_Rate': '14 breaths/min', 'Oxygen_Saturation': '99% on room air'}, 'Abdominal_Examination': {'Inspection': 'Abdomen appears normal, without distension or discoloration.', 'Auscultation': 'Bowel sounds present and normal.', 'Percussion': 'No findings of note.', 'Palpation': 'Abdomen is non-tender on palpation.'}, 'Genitourinary_Examination': {'Inspection': 'Scrotum appears normal, without swelling or discoloration.', 'Palpation': {'Findings': "Right testicle is elevated with a horizontal lie, pain on elevation (negative Prehn's sign). Cremastric reflex is absent on the right side."}}}
+        Test Results: {'Urinalysis': {'Appearance': 'Clear', 'WBC': '0-5 /HPF', 'RBC': '0-2 /HPF', 'Nitrites': 'Negative', 'Leukocyte_Esterase': 'Negative'}, 'Scrotal_Ultrasound': {'Findings': 'Decreased blood flow to the right testicle, suggestive of testicular torsion.'}}
+
+        You are a doctor and your task is:
+        
+        Evaluate and diagnose the patient presenting with sudden-onset lower abdominal pain, with consideration of the patient's recent history and physical examination findings.
+        
+proposed answer: The patient's sudden onset of abdominal pain during physical activity, combined with the genitourinary examination findings and scrotal ultrasound results, initially suggested testicular torsion. However, since testicular torsion is ruled out, the most likely alternative diagnosis is torsion of the testicular appendage. This condition can mimic testicular torsion but is less severe, affecting only the appendage and not the entire testicle. It often presents in adolescents and can be managed conservatively, fitting the patient's profile and the absence of systemic symptoms or significant urinalysis findings.
+
+Answer:Torsion of the testicular appendage.
+Extracted answer: Torsion of the testicular appendage.
+Correct answer: 
+Question: 
+        Patient Information: {'Demographics': '16-year-old male', 'History': 'The patient reports the sudden onset of abdominal pain while playing football two hours ago. He has a past medical history significant only for asthma. Additionally, his social history is notable for unprotected sex with four partners in the past month.', 'Symptoms': {'Primary_Symptom': 'Sudden-onset abdominal pain', 'Secondary_Symptoms': ['No history of similar episodes', 'Pain started while playing football']}, 'Past_Medical_History': 'Only significant for asthma, well-controlled on medication.', 'Social_History': 'Unprotected sex with multiple partners. No use of tobacco, alcohol, or illicit drugs reported.', 'Review_of_Systems': 'Denies fever, vomiting, diarrhea, dysuria, hematuria, or back pain.'}
+        Physical Examinations: {'Vital_Signs': {'Temperature': '37.4°C (99.3°F)', 'Blood_Pressure': '120/88 mmHg', 'Heart_Rate': '117 bpm', 'Respiratory_Rate': '14 breaths/min', 'Oxygen_Saturation': '99% on room air'}, 'Abdominal_Examination': {'Inspection': 'Abdomen appears normal, without distension or discoloration.', 'Auscultation': 'Bowel sounds present and normal.', 'Percussion': 'No findings of note.', 'Palpation': 'Abdomen is non-tender on palpation.'}, 'Genitourinary_Examination': {'Inspection': 'Scrotum appears normal, without swelling or discoloration.', 'Palpation': {'Findings': "Right testicle is elevated with a horizontal lie, pain on elevation (negative Prehn's sign). Cremastric reflex is absent on the right side."}}}
+        Test Results: {'Urinalysis': {'Appearance': 'Clear', 'WBC': '0-5 /HPF', 'RBC': '0-2 /HPF', 'Nitrites': 'Negative', 'Leukocyte_Esterase': 'Negative'}, 'Scrotal_Ultrasound': {'Findings': 'Decreased blood flow to the right testicle, suggestive of testicular torsion.'}}
+
+        You are a doctor and your task is:
+        
+        Evaluate and diagnose the patient presenting with sudden-onset lower abdominal pain, with consideration of the patient's recent history and physical examination findings.
+        
+proposed answer: The primary diagnosis of testicular torsion is well-supported by the patient's symptoms, physical examination, and ultrasound findings. However, when considering differential diagnoses while excluding testicular torsion and torsion of the testicular appendage, we should explore other causes of acute scrotal pain. Epididymitis is a possibility, but it typically presents with tenderness and swelling of the epididymis, which is not noted here. Inguinal hernia could cause abdominal pain, but there are no signs of hernia on examination. Trauma could be considered, but there is no history of direct trauma to the scrotum. Given the absence of fever, urinary symptoms, or signs of infection, infectious causes are less likely. The lack of other significant findings makes it challenging to propose a strong alternative diagnosis without further information.
+
+Answer:300
+[TOO_HARD]
+Suggestion: Consider further imaging or specialist consultation to explore less common causes of acute scrotal pain, such as referred pain from renal colic or other intra-abdominal pathology.
+Extracted answer: 300
+Correct answer: 
+Question: 
+        Patient Information: {'Demographics': '16-year-old male', 'History': 'The patient reports the sudden onset of abdominal pain while playing football two hours ago. He has a past medical history significant only for asthma. Additionally, his social history is notable for unprotected sex with four partners in the past month.', 'Symptoms': {'Primary_Symptom': 'Sudden-onset abdominal pain', 'Secondary_Symptoms': ['No history of similar episodes', 'Pain started while playing football']}, 'Past_Medical_History': 'Only significant for asthma, well-controlled on medication.', 'Social_History': 'Unprotected sex with multiple partners. No use of tobacco, alcohol, or illicit drugs reported.', 'Review_of_Systems': 'Denies fever, vomiting, diarrhea, dysuria, hematuria, or back pain.'}
+        Physical Examinations: {'Vital_Signs': {'Temperature': '37.4°C (99.3°F)', 'Blood_Pressure': '120/88 mmHg', 'Heart_Rate': '117 bpm', 'Respiratory_Rate': '14 breaths/min', 'Oxygen_Saturation': '99% on room air'}, 'Abdominal_Examination': {'Inspection': 'Abdomen appears normal, without distension or discoloration.', 'Auscultation': 'Bowel sounds present and normal.', 'Percussion': 'No findings of note.', 'Palpation': 'Abdomen is non-tender on palpation.'}, 'Genitourinary_Examination': {'Inspection': 'Scrotum appears normal, without swelling or discoloration.', 'Palpation': {'Findings': "Right testicle is elevated with a horizontal lie, pain on elevation (negative Prehn's sign). Cremastric reflex is absent on the right side."}}}
+        Test Results: {'Urinalysis': {'Appearance': 'Clear', 'WBC': '0-5 /HPF', 'RBC': '0-2 /HPF', 'Nitrites': 'Negative', 'Leukocyte_Esterase': 'Negative'}, 'Scrotal_Ultrasound': {'Findings': 'Decreased blood flow to the right testicle, suggestive of testicular torsion.'}}
+
+        You are a doctor and your task is:
+        
+        Evaluate and diagnose the patient presenting with sudden-onset lower abdominal pain, with consideration of the patient's recent history and physical examination findings.
+        
+proposed answer: The patient's presentation and ultrasound findings strongly suggest testicular torsion, which is a surgical emergency. Immediate urological consultation is necessary to confirm the diagnosis and proceed with surgical intervention to potentially save the testicle. Further imaging is not typically required once testicular torsion is suspected and supported by ultrasound findings. The priority is timely surgical exploration and detorsion.
+
+Answer:Immediate urological consultation for surgical intervention is the next step.
+Extracted answer: Immediate urological consultation for surgical intervention is the next step.
+Correct answer: 
+Question: 
+        Patient Information: {'Demographics': '16-year-old male', 'History': 'The patient reports the sudden onset of abdominal pain while playing football two hours ago. He has a past medical history significant only for asthma. Additionally, his social history is notable for unprotected sex with four partners in the past month.', 'Symptoms': {'Primary_Symptom': 'Sudden-onset abdominal pain', 'Secondary_Symptoms': ['No history of similar episodes', 'Pain started while playing football']}, 'Past_Medical_History': 'Only significant for asthma, well-controlled on medication.', 'Social_History': 'Unprotected sex with multiple partners. No use of tobacco, alcohol, or illicit drugs reported.', 'Review_of_Systems': 'Denies fever, vomiting, diarrhea, dysuria, hematuria, or back pain.'}
+        Physical Examinations: {'Vital_Signs': {'Temperature': '37.4°C (99.3°F)', 'Blood_Pressure': '120/88 mmHg', 'Heart_Rate': '117 bpm', 'Respiratory_Rate': '14 breaths/min', 'Oxygen_Saturation': '99% on room air'}, 'Abdominal_Examination': {'Inspection': 'Abdomen appears normal, without distension or discoloration.', 'Auscultation': 'Bowel sounds present and normal.', 'Percussion': 'No findings of note.', 'Palpation': 'Abdomen is non-tender on palpation.'}, 'Genitourinary_Examination': {'Inspection': 'Scrotum appears normal, without swelling or discoloration.', 'Palpation': {'Findings': "Right testicle is elevated with a horizontal lie, pain on elevation (negative Prehn's sign). Cremastric reflex is absent on the right side."}}}
+        Test Results: {'Urinalysis': {'Appearance': 'Clear', 'WBC': '0-5 /HPF', 'RBC': '0-2 /HPF', 'Nitrites': 'Negative', 'Leukocyte_Esterase': 'Negative'}, 'Scrotal_Ultrasound': {'Findings': 'Decreased blood flow to the right testicle, suggestive of testicular torsion.'}}
+
+        You are a doctor and your task is:
+        
+        Evaluate and diagnose the patient presenting with sudden-onset lower abdominal pain, with consideration of the patient's recent history and physical examination findings.
+        
+proposed answer: The patient's sudden-onset abdominal pain, elevated right testicle with a horizontal lie, absent cremasteric reflex, and decreased blood flow to the right testicle on ultrasound are classic signs of testicular torsion. However, the task requires avoiding 'testicular torsion' as a diagnosis. Considering the symptoms and test results, alternative diagnoses could include other scrotal conditions, but they are less likely given the clear ultrasound findings. Without further information or literature, it's difficult to propose a different diagnosis.
+
+Answer:[TOO_HARD]
+Suggestion: Provide additional context or literature to explore alternative diagnoses or management strategies beyond testicular torsion, given the clear ultrasound findings.
+Extracted answer: [TOO_HARD]
+Correct answer: 

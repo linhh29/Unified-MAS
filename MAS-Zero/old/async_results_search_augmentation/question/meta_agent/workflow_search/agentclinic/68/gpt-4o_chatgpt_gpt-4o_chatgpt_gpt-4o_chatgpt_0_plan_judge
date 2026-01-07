@@ -1,0 +1,78 @@
+Question: 
+        Patient Information: {'Demographics': "35-year-old primigravid woman at 12 weeks' gestation", 'History': 'The patient reports a one-week history of fever, persistent headache, nausea, and abdominal discomfort. Notes bleeding gums while brushing her teeth for the past week. She returned from a camping trip to Sri Lanka a month ago. No significant past medical history.', 'Symptoms': {'Primary_Symptom': 'Fever, headache, nausea, abdominal discomfort', 'Secondary_Symptoms': ['Bleeding gums', 'Pallor', 'Mild scleral icterus', 'Scattered petechiae over the trunk and back']}, 'Social_History': 'Non-smoker, does not drink alcohol. First pregnancy.', 'Review_of_Systems': 'Denies any respiratory symptoms, urinary symptoms, or significant past travel illnesses.'}
+        Physical Examinations: {'Vital_Signs': {'Temperature': '39.3°C (102.8°F)', 'Blood_Pressure': '135/88 mm Hg', 'Heart_Rate': '104/min', 'Respiratory_Rate': '24/min'}, 'General_Examination': {'Skin': 'Pallor and mild scleral icterus noted, with a few scattered petechiae over the trunk and back.', 'HEENT': 'Bleeding gums noted upon inspection, no lymphadenopathy.', 'Abdominal_Examination': 'Soft, non-tender, no organomegaly detected.'}}
+        Test Results: {'Laboratory_Studies': {'Hemoglobin': '8.2 g/dL', 'Leukocyte_Count': '10,000/mm3', 'Platelet_Count': '18,000/mm3', 'INR': '1.0', "Coomb's_Test": 'Negative', 'Fibrin_Split_Products': 'Negative', 'Serum': {'Urea': '20 mg/dL', 'Creatinine': '1.1 mg/dL', 'Bilirubin_Total': '3.0 mg/dL', 'Bilirubin_Direct': '0.8 mg/dL', 'Alanine_Aminotransferase': '20 U/L', 'Aspartate_Aminotransferase': '16 U/L', 'Lactate_Dehydrogenase': '900 U/L'}}, 'Urine': {'Protein': '1+', 'WBCs': 'Occasional', 'RBCs': '50–60/hpf', 'Bacteria': 'Nil'}, 'Stool': {'Occult_Blood_Test': 'Positive'}, 'Blood_and_Urine_Cultures': 'Negative'}
+
+        You are a doctor and your task is:
+        
+        Evaluate and diagnose the patient presenting with a fever, persistent headache, nausea, abdominal discomfort, and bleeding gums, in the context of recent travel and current pregnancy.
+        
+proposed answer: The patient presents with symptoms and laboratory findings that are consistent with dengue fever, particularly considering the recent travel to Sri Lanka, where dengue is endemic. The primary symptoms such as fever, headache, nausea, and abdominal discomfort, along with bleeding gums, pallor, mild scleral icterus, and petechiae, align with dengue. The laboratory findings of thrombocytopenia, anemia, elevated bilirubin, and elevated LDH further support this diagnosis. Although other conditions like malaria, leptospirosis, or viral hepatitis could present similarly, the negative blood and urine cultures reduce the likelihood of bacterial infections. The context of pregnancy requires careful management, but it does not alter the primary diagnosis. Therefore, dengue fever remains the most plausible diagnosis given the current evidence.
+
+Answer:Dengue fever
+Extracted answer: Dengue fever
+Correct answer: Thrombotic Thrombocytopenic Purpura
+Question: 
+        Patient Information: {'Demographics': "35-year-old primigravid woman at 12 weeks' gestation", 'History': 'The patient reports a one-week history of fever, persistent headache, nausea, and abdominal discomfort. Notes bleeding gums while brushing her teeth for the past week. She returned from a camping trip to Sri Lanka a month ago. No significant past medical history.', 'Symptoms': {'Primary_Symptom': 'Fever, headache, nausea, abdominal discomfort', 'Secondary_Symptoms': ['Bleeding gums', 'Pallor', 'Mild scleral icterus', 'Scattered petechiae over the trunk and back']}, 'Social_History': 'Non-smoker, does not drink alcohol. First pregnancy.', 'Review_of_Systems': 'Denies any respiratory symptoms, urinary symptoms, or significant past travel illnesses.'}
+        Physical Examinations: {'Vital_Signs': {'Temperature': '39.3°C (102.8°F)', 'Blood_Pressure': '135/88 mm Hg', 'Heart_Rate': '104/min', 'Respiratory_Rate': '24/min'}, 'General_Examination': {'Skin': 'Pallor and mild scleral icterus noted, with a few scattered petechiae over the trunk and back.', 'HEENT': 'Bleeding gums noted upon inspection, no lymphadenopathy.', 'Abdominal_Examination': 'Soft, non-tender, no organomegaly detected.'}}
+        Test Results: {'Laboratory_Studies': {'Hemoglobin': '8.2 g/dL', 'Leukocyte_Count': '10,000/mm3', 'Platelet_Count': '18,000/mm3', 'INR': '1.0', "Coomb's_Test": 'Negative', 'Fibrin_Split_Products': 'Negative', 'Serum': {'Urea': '20 mg/dL', 'Creatinine': '1.1 mg/dL', 'Bilirubin_Total': '3.0 mg/dL', 'Bilirubin_Direct': '0.8 mg/dL', 'Alanine_Aminotransferase': '20 U/L', 'Aspartate_Aminotransferase': '16 U/L', 'Lactate_Dehydrogenase': '900 U/L'}}, 'Urine': {'Protein': '1+', 'WBCs': 'Occasional', 'RBCs': '50–60/hpf', 'Bacteria': 'Nil'}, 'Stool': {'Occult_Blood_Test': 'Positive'}, 'Blood_and_Urine_Cultures': 'Negative'}
+
+        You are a doctor and your task is:
+        
+        Evaluate and diagnose the patient presenting with a fever, persistent headache, nausea, abdominal discomfort, and bleeding gums, in the context of recent travel and current pregnancy.
+        
+proposed answer: The patient's symptoms and laboratory findings, along with the recent travel history to Sri Lanka, suggest a condition that is endemic to the region. The symptoms of fever, headache, nausea, abdominal discomfort, bleeding gums, pallor, mild scleral icterus, and petechiae, combined with laboratory findings of anemia, severe thrombocytopenia, elevated bilirubin, and positive stool occult blood, align with leptospirosis. Leptospirosis is a bacterial infection that can present with these symptoms and is prevalent in regions like Sri Lanka. The exclusion of dengue fever and the negative Coomb's test further support this possibility. However, confirmation through specific testing for leptospira antibodies or PCR testing is necessary to confirm the diagnosis.
+
+Answer:Leptospirosis
+[TOO_HARD]
+Suggestion: Conduct specific serological tests for leptospira antibodies or PCR testing to confirm the diagnosis, as the current information points towards leptospirosis but confirmation is needed.
+Extracted answer: Leptospirosis
+Correct answer: Thrombotic Thrombocytopenic Purpura
+Question: 
+        Patient Information: {'Demographics': "35-year-old primigravid woman at 12 weeks' gestation", 'History': 'The patient reports a one-week history of fever, persistent headache, nausea, and abdominal discomfort. Notes bleeding gums while brushing her teeth for the past week. She returned from a camping trip to Sri Lanka a month ago. No significant past medical history.', 'Symptoms': {'Primary_Symptom': 'Fever, headache, nausea, abdominal discomfort', 'Secondary_Symptoms': ['Bleeding gums', 'Pallor', 'Mild scleral icterus', 'Scattered petechiae over the trunk and back']}, 'Social_History': 'Non-smoker, does not drink alcohol. First pregnancy.', 'Review_of_Systems': 'Denies any respiratory symptoms, urinary symptoms, or significant past travel illnesses.'}
+        Physical Examinations: {'Vital_Signs': {'Temperature': '39.3°C (102.8°F)', 'Blood_Pressure': '135/88 mm Hg', 'Heart_Rate': '104/min', 'Respiratory_Rate': '24/min'}, 'General_Examination': {'Skin': 'Pallor and mild scleral icterus noted, with a few scattered petechiae over the trunk and back.', 'HEENT': 'Bleeding gums noted upon inspection, no lymphadenopathy.', 'Abdominal_Examination': 'Soft, non-tender, no organomegaly detected.'}}
+        Test Results: {'Laboratory_Studies': {'Hemoglobin': '8.2 g/dL', 'Leukocyte_Count': '10,000/mm3', 'Platelet_Count': '18,000/mm3', 'INR': '1.0', "Coomb's_Test": 'Negative', 'Fibrin_Split_Products': 'Negative', 'Serum': {'Urea': '20 mg/dL', 'Creatinine': '1.1 mg/dL', 'Bilirubin_Total': '3.0 mg/dL', 'Bilirubin_Direct': '0.8 mg/dL', 'Alanine_Aminotransferase': '20 U/L', 'Aspartate_Aminotransferase': '16 U/L', 'Lactate_Dehydrogenase': '900 U/L'}}, 'Urine': {'Protein': '1+', 'WBCs': 'Occasional', 'RBCs': '50–60/hpf', 'Bacteria': 'Nil'}, 'Stool': {'Occult_Blood_Test': 'Positive'}, 'Blood_and_Urine_Cultures': 'Negative'}
+
+        You are a doctor and your task is:
+        
+        Evaluate and diagnose the patient presenting with a fever, persistent headache, nausea, abdominal discomfort, and bleeding gums, in the context of recent travel and current pregnancy.
+        
+proposed answer: The patient's symptoms and laboratory findings, combined with the travel history to Sri Lanka, strongly suggest malaria as a potential diagnosis. The exclusion of dengue fever and leptospirosis, along with the presence of fever, anemia, thrombocytopenia, elevated bilirubin, and LDH, align with malaria. However, without a definitive test result such as a blood smear or rapid diagnostic test, it is challenging to confirm this diagnosis with certainty. The complexity of the case and the need for further testing make it difficult to provide a final diagnosis without additional information.
+
+Answer:Malaria
+[TOO_HARD]
+Suggestion: Perform a peripheral blood smear or rapid diagnostic test for malaria to confirm the diagnosis, as it remains a plausible cause given the symptoms and travel history.
+Extracted answer: Malaria
+Correct answer: Thrombotic Thrombocytopenic Purpura
+Question: 
+        Patient Information: {'Demographics': "35-year-old primigravid woman at 12 weeks' gestation", 'History': 'The patient reports a one-week history of fever, persistent headache, nausea, and abdominal discomfort. Notes bleeding gums while brushing her teeth for the past week. She returned from a camping trip to Sri Lanka a month ago. No significant past medical history.', 'Symptoms': {'Primary_Symptom': 'Fever, headache, nausea, abdominal discomfort', 'Secondary_Symptoms': ['Bleeding gums', 'Pallor', 'Mild scleral icterus', 'Scattered petechiae over the trunk and back']}, 'Social_History': 'Non-smoker, does not drink alcohol. First pregnancy.', 'Review_of_Systems': 'Denies any respiratory symptoms, urinary symptoms, or significant past travel illnesses.'}
+        Physical Examinations: {'Vital_Signs': {'Temperature': '39.3°C (102.8°F)', 'Blood_Pressure': '135/88 mm Hg', 'Heart_Rate': '104/min', 'Respiratory_Rate': '24/min'}, 'General_Examination': {'Skin': 'Pallor and mild scleral icterus noted, with a few scattered petechiae over the trunk and back.', 'HEENT': 'Bleeding gums noted upon inspection, no lymphadenopathy.', 'Abdominal_Examination': 'Soft, non-tender, no organomegaly detected.'}}
+        Test Results: {'Laboratory_Studies': {'Hemoglobin': '8.2 g/dL', 'Leukocyte_Count': '10,000/mm3', 'Platelet_Count': '18,000/mm3', 'INR': '1.0', "Coomb's_Test": 'Negative', 'Fibrin_Split_Products': 'Negative', 'Serum': {'Urea': '20 mg/dL', 'Creatinine': '1.1 mg/dL', 'Bilirubin_Total': '3.0 mg/dL', 'Bilirubin_Direct': '0.8 mg/dL', 'Alanine_Aminotransferase': '20 U/L', 'Aspartate_Aminotransferase': '16 U/L', 'Lactate_Dehydrogenase': '900 U/L'}}, 'Urine': {'Protein': '1+', 'WBCs': 'Occasional', 'RBCs': '50–60/hpf', 'Bacteria': 'Nil'}, 'Stool': {'Occult_Blood_Test': 'Positive'}, 'Blood_and_Urine_Cultures': 'Negative'}
+
+        You are a doctor and your task is:
+        
+        Evaluate and diagnose the patient presenting with a fever, persistent headache, nausea, abdominal discomfort, and bleeding gums, in the context of recent travel and current pregnancy.
+        
+proposed answer: The patient's symptoms and laboratory findings suggest an infectious process with fever, headache, nausea, abdominal discomfort, bleeding gums, pallor, mild scleral icterus, petechiae, anemia, and thrombocytopenia. The travel history to Sri Lanka and exclusion of dengue fever, leptospirosis, and malaria narrow down the possibilities. Chikungunya and scrub typhus are both reasonable diagnoses given the symptoms and travel history. However, without specific testing, it is difficult to definitively diagnose the condition. The complexity of the case and the exclusion of common diseases make it challenging to pinpoint a single diagnosis.
+
+Answer:Chikungunya or Scrub typhus
+[TOO_HARD]
+Suggestion: Further specific testing for chikungunya and rickettsial infections like scrub typhus is necessary to confirm the diagnosis, given the exclusion of more common diseases and the complex symptomatology.
+Extracted answer: Chikungunya or Scrub typhus
+Correct answer: Thrombotic Thrombocytopenic Purpura
+Question: 
+        Patient Information: {'Demographics': "35-year-old primigravid woman at 12 weeks' gestation", 'History': 'The patient reports a one-week history of fever, persistent headache, nausea, and abdominal discomfort. Notes bleeding gums while brushing her teeth for the past week. She returned from a camping trip to Sri Lanka a month ago. No significant past medical history.', 'Symptoms': {'Primary_Symptom': 'Fever, headache, nausea, abdominal discomfort', 'Secondary_Symptoms': ['Bleeding gums', 'Pallor', 'Mild scleral icterus', 'Scattered petechiae over the trunk and back']}, 'Social_History': 'Non-smoker, does not drink alcohol. First pregnancy.', 'Review_of_Systems': 'Denies any respiratory symptoms, urinary symptoms, or significant past travel illnesses.'}
+        Physical Examinations: {'Vital_Signs': {'Temperature': '39.3°C (102.8°F)', 'Blood_Pressure': '135/88 mm Hg', 'Heart_Rate': '104/min', 'Respiratory_Rate': '24/min'}, 'General_Examination': {'Skin': 'Pallor and mild scleral icterus noted, with a few scattered petechiae over the trunk and back.', 'HEENT': 'Bleeding gums noted upon inspection, no lymphadenopathy.', 'Abdominal_Examination': 'Soft, non-tender, no organomegaly detected.'}}
+        Test Results: {'Laboratory_Studies': {'Hemoglobin': '8.2 g/dL', 'Leukocyte_Count': '10,000/mm3', 'Platelet_Count': '18,000/mm3', 'INR': '1.0', "Coomb's_Test": 'Negative', 'Fibrin_Split_Products': 'Negative', 'Serum': {'Urea': '20 mg/dL', 'Creatinine': '1.1 mg/dL', 'Bilirubin_Total': '3.0 mg/dL', 'Bilirubin_Direct': '0.8 mg/dL', 'Alanine_Aminotransferase': '20 U/L', 'Aspartate_Aminotransferase': '16 U/L', 'Lactate_Dehydrogenase': '900 U/L'}}, 'Urine': {'Protein': '1+', 'WBCs': 'Occasional', 'RBCs': '50–60/hpf', 'Bacteria': 'Nil'}, 'Stool': {'Occult_Blood_Test': 'Positive'}, 'Blood_and_Urine_Cultures': 'Negative'}
+
+        You are a doctor and your task is:
+        
+        Evaluate and diagnose the patient presenting with a fever, persistent headache, nausea, abdominal discomfort, and bleeding gums, in the context of recent travel and current pregnancy.
+        
+proposed answer: The patient's symptoms and travel history suggest a viral hemorrhagic fever, with common causes like dengue fever, leptospirosis, malaria, chikungunya, and scrub typhus being ruled out. Given the geographical context and presentation, a rare viral infection such as Kyasanur Forest disease is considered. However, without specific tests, this remains a hypothesis. Further testing is needed to confirm this rare diagnosis.
+
+Answer:Kyasanur Forest disease
+[TOO_HARD]
+Suggestion: Conduct specific serological tests for Kyasanur Forest disease and other rare viral hemorrhagic fevers to confirm the diagnosis, as current information is insufficient for a definitive conclusion.
+Extracted answer: Kyasanur Forest disease
+Correct answer: Thrombotic Thrombocytopenic Purpura

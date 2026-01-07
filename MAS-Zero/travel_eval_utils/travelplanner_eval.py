@@ -57,7 +57,7 @@ def eval_score(tested_plan: str, instance_id: str, set_type='validation'):
     if set_type == 'train':
         query_data_list  = load_dataset('osunlp/TravelPlanner','train')['train']
     elif set_type == 'validation':
-        test_path = Path("/data/qin/lhh/Unified-MAS/MAS-Zero/data/src/travelplanner_test.jsonl")
+        test_path = Path("/data/qin/lhh/Unified-MAS/MAS-Zero/data/src/travelplanner_test_16.jsonl")
         if not test_path.exists():
             raise FileNotFoundError(f"TravelPlanner test file not found: {test_path}")
 

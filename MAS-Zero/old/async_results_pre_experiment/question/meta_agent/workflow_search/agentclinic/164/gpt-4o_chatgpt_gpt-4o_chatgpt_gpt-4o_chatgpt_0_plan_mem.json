@@ -1,0 +1,17 @@
+[
+    {
+        "Most likely diagnosis: Pneumonia. Management plan: 1. Initiate antibiotic therapy targeting common pathogens causing post-operative pneumonia, such as Streptococcus pneumoniae and Haemophilus influenzae. 2. Provide supportive care, including hydration and antipyretics for fever. 3. Monitor the patient's respiratory status and oxygen saturation. 4. Encourage smoking cessation to improve lung health and recovery.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Most likely diagnosis: Postoperative atelectasis or pulmonary embolism. Management plan: Conduct further diagnostic testing such as a CT pulmonary angiogram to rule out pulmonary embolism. Provide supportive care with oxygen therapy and monitor the patient's condition. Consider antibiotics if another infection is suspected. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Refined diagnosis: Consider pleural effusion or empyema. Management plan: 1. Analyze CT scan results for pleural effusion. 2. Perform thoracentesis if effusion is present. 3. Administer antibiotics based on culture results. 4. Consider drainage if empyema is confirmed.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Refined diagnosis: Bacterial bronchitis or respiratory infection. Management plan: Targeted antibiotic therapy based on culture results, supportive care, and monitoring for complications. Follow-up imaging may be necessary to assess treatment response.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Refined diagnosis: Consider a subphrenic abscess. Management plan: Obtain a CT scan to confirm the presence of an abscess and adjust antibiotic therapy based on culture results. Surgical intervention may be necessary if an abscess is present. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

@@ -1,0 +1,8 @@
+[
+    {
+        "Flight Number: F3608417, from Dallas to Manhattan, Departure Time: 17:04, Arrival Time: 18:35": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Flight Number: F3804930, from Dallas to Manhattan, Departure Time: 08:41, Arrival Time: 10:05": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

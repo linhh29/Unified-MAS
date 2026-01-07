@@ -1,0 +1,17 @@
+[
+    {
+        "Acute myeloid leukemia (AML)": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Myelodysplastic syndrome (MDS) with excess blasts or chronic myelomonocytic leukemia (CMML) ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Acute promyelocytic leukemia (APL) is the most likely diagnosis. Additional tests needed for confirmation include cytogenetic analysis for the t(15;17) translocation or molecular testing for the PML-RARA fusion gene.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Chronic myeloid leukemia (CML) in blast crisis is a possible diagnosis. Additional tests such as cytogenetic analysis for the Philadelphia chromosome (BCR-ABL1 fusion gene) and a bone marrow biopsy are needed for confirmation.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Hairy cell leukemia is a possible diagnosis. Additional tests such as flow cytometry, bone marrow biopsy, and genetic testing are needed for confirmation.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

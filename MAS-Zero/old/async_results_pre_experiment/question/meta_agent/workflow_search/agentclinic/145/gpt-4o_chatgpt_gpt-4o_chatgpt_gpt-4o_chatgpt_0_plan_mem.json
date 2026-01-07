@@ -1,0 +1,17 @@
+[
+    {
+        "The diagnosis for the patient is hemophilia, a genetic bleeding disorder characterized by a deficiency in clotting factors, leading to prolonged bleeding times and joint bleeding, as evidenced by the hemarthrosis, prolonged ACT, and family history of similar problems.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The diagnosis could be a rare bleeding disorder other than hemophilia, possibly a rare factor deficiency or another inherited coagulopathy. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Recommend tests for von Willebrand factor levels and activity to confirm the diagnosis. Consider exploring other potential causes of joint bleeding if von Willebrand disease is ruled out.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "1. Conduct a detailed family history assessment to identify any other relatives with similar symptoms or known diagnoses.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "1. Refer the patient to a pediatric hematologist for further evaluation of rare coagulopathies. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

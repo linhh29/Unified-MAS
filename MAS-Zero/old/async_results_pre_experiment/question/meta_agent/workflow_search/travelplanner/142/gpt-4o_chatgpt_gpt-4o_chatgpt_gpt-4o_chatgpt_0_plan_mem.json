@@ -1,0 +1,14 @@
+[
+    {
+        "": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The total budget for accommodations should not exceed $8,100. We need to select private rooms that are child-friendly (allow children under 10) in each city. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The total budget for accommodations should be calculated based on the available options in each city. In Belleville, the 'Cozy' private room costs $184 per night and is child-friendly. In Chicago, the 'Big bedroom in Astoria' costs $110 per night and is child-friendly. In Rockford, the 'Private Room in a two bedroom apt.' costs $210 per night and is child-friendly. Calculating the total cost for 7 nights: Belleville (2 nights) = $368, Chicago (3 nights) = $330, Rockford (2 nights) = $420. Total accommodation cost = $368 + $330 + $420 = $1,118, which is within the budget. 1118": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

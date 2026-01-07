@@ -1,0 +1,11 @@
+[
+    {
+        "The consensus on the management plan for the patient with lichen sclerosus includes: 1. Prescribing a high-potency topical corticosteroid, such as clobetasol propionate, to manage symptoms. 2. Educating the patient about the chronic nature of the condition and the importance of adherence to treatment and follow-up. 3. Monitoring for potential complications, such as squamous cell carcinoma, through regular follow-up visits. 4. Managing the patient's diabetes and hypertension concurrently to prevent any worsening of symptoms or complications. 5. Addressing pain during intercourse with appropriate interventions, considering the patient's sexual activity.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "1. Prescribe a high-potency topical corticosteroid, such as clobetasol propionate, to manage symptoms. 2. Educate the patient about the chronic nature of the condition and the importance of adherence to treatment and follow-up. 3. Monitor for potential complications, such as squamous cell carcinoma, through regular follow-up visits. 4. Manage the patient's diabetes and hypertension concurrently to prevent any worsening of symptoms or complications. 5. Address pain during intercourse with appropriate interventions, considering the patient's sexual activity is not correct. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The management plan for lichen sclerosus includes the use of high-potency topical corticosteroids, such as clobetasol propionate, to reduce inflammation and improve symptoms. Patient education on the chronic nature of the condition, adherence to treatment, and avoidance of irritants is important. Regular follow-up is necessary to monitor treatment response.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

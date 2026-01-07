@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .message {
+                padding: 8px 16px;
+                margin-bottom: 8px;
+                border-radius: 4px;
+            }
+            .message.user {
+                background-color: #B2DFDB;
+                color: #00695C;
+            }
+            .message.assistant {
+                background-color: #B39DDB;
+                color: #4527A0;
+            }
+            .message.system {
+                background-color: #EEEEEE;
+                color: #212121;
+            }
+            .role {
+                font-weight: bold;
+                margin-bottom: 4px;
+            }
+            .variant {
+                color: #795548;
+            }
+            table, th, td {
+                border: 1px solid black;
+            }
+            pre {
+                white-space: pre-wrap;
+            }
+        </style>
+    </head>
+    <body>
+    
+    <h1>Metrics</h1>
+    <table>
+    <tr>
+        <th>Metric</th>
+        <th>Value</th>
+    </tr>
+    <tr>
+        <td><b>Score</b></td>
+        <td>0.0</td>
+    </tr>
+    
+    <tr>
+        <td>score:std</td>
+        <td>0.0</td>
+    </tr>
+    
+    </table>
+    
+    <h1>Examples</h1>
+    
+    
+<h3>Prompt conversation</h3>
+
+
+<div class="message system">
+    <div class="role">
+    system
+    
+    </div>
+    <div class="content">
+    <pre>You are a helpful assistant.
+
+Reply EXACTLY with the following JSON format.
+{&#34;reflection&#34;: &#34;Your reflection (if applicable).&#34;, &#34;thought&#34;: &#34;Your thought.&#34;, &#34;name&#34;: &#34;Your name.&#34;, &#34;code&#34;: &#34;Your code.&#34;}
+DO NOT MISS ANY REQUEST FIELDS and ensure that your response is a well-formed JSON object!</pre>
+    </div>
+</div>
+
+
+<div class="message user">
+    <div class="role">
+    user
+    
+    </div>
+    <div class="content">
+    <pre>Initial Round (Round 0):
+
+###The task background: 
+To address the task of analyzing legal case data related to personality rights disputes, contract disputes, and marriage and family issues, it&#39;s essential to understand the relevant legal concepts and the typical process for analyzing such cases.
+
+### Key Background Knowledge and Concepts
+
+1. **Personality Rights**:
+   - **Definition**: Personality rights, also known as the right of publicity, allow individuals to control the commercial use of their identity, including their name, image, and likeness (Source 4).
+   - **Legal Framework**: These rights are often considered property rights and can extend beyond an individual&#39;s death, depending on jurisdiction. They are divided into the right of publicity (preventing unauthorized commercial exploitation) and the right to privacy (protecting individuals from unauthorized public representation) (Source 4, 6).
+   - **Jurisdictional Variations**: Different jurisdictions have varying approaches to personality rights, with common law jurisdictions focusing on torts like passing off, and civil law jurisdictions having specific legal provisions (Source 4).
+
+2. **Contract Disputes**:
+   - **Definition**: Contract disputes arise when there is a disagreement over the terms, execution, or validity of a contract. These disputes often involve issues like breach of contract, misrepresentation, or non-performance.
+   - **Legal Principles**: Key principles include offer, acceptance, consideration, and mutual consent. Courts often look at the intent of the parties and the terms of the contract to resolve disputes.
+
+3. **Marriage and Family Issues**:
+   - **Definition**: These disputes involve legal issues related to marriage, divorce, child custody, and other family matters.
+   - **Legal Considerations**: Family law often involves considerations of the best interests of children, equitable distribution of assets, and spousal support.
+
+### Typical Solution Process / Workflow
+
+1. **Understanding Legal Context**:
+   - Familiarize yourself with the specific legal terminology and principles relevant to the type of dispute (personality rights, contract law, family law).
+   - Review applicable laws and precedents that may influence the case outcome.
+
+2. **Analyzing Evidence**:
+   - Examine the evidence provided by both parties, including documents, receipts, and other materials.
+   - Assess the validity and relevance of the evidence, considering any disputes over its authenticity.
+
+3. **Assessing Claims and Defenses**:
+   - Evaluate the plaintiff&#39;s claims and the defendant&#39;s defenses, focusing on the credibility and consistency of each party&#39;s narrative.
+   - Consider any counterarguments or alternative narratives presented by the defendant.
+
+4. **Applying Legal Principles**:
+   - Apply relevant legal principles and precedents to the facts of the case.
+   - Consider how courts have previously ruled in similar cases and the reasoning behind those decisions.
+
+5. **Judgment Prediction**:
+   - Based on the analysis, predict the likely judgment, including any compensation awarded or actions mandated.
+   - Consider the balance between protecting individual rights and upholding public interest, especially in personality rights cases (Source 2, 3).
+
+By following this structured approach, one can systematically analyze legal case data and make informed predictions about potential judgments. Understanding the nuances of each type of dispute and the legal frameworks involved is crucial for accurate analysis and prediction.
+
+
+# Overview
+You are an expert machine learning researcher testing various agentic systems. Given a set of architectures in the archive and the question. Note that architecture can contain multiple agents, and agent means a LLM that is used for specifical objectives by specifclaied setting (instruction, tempreture...)
+
+Your objective is to 
+
+(1) Perform task decomposition. Specifically, decompose the give question significantly so that the sub-architecture (or node or block) can perform each of the sub-tasks. The output should be sub-task 1, sub-task 2, ... sub-task n. Do not solve the task for the sub-architecture and do not leak the expected answer in your sub-task description/instruction/question (a short-cut like &#39;output exactly the following...&#39; is also leakage and should be avoided). Instead, decompose the task that easy enough for the sub-architecture to solve. You need to justify how these sub-tasks can achieve the final answer to the orginal questions.
+
+Make sure 
+
+(a) Include sub-task ID  and &#39;Based on (task i)&#39; in the instruction of a sub-task. 
+For example, 
+Similarly, if sub-task 2 requires the output of task 1, then sub-task 2&#39;s instruction should be
+&#39;Sub-task 2: Based on the outputs from sub-task 1, ....(origin sub-task 1&#39;s instruction)&#39;
+
+Similarly, if sub-task 3 requires the output of task 1 and 2, then sub-task 3&#39;s instruction should be
+&#39;Sub-task 3: Based on the outputs from sub-task 1 and 2, ....(origin sub-task 3&#39;s instruction)&#39;
+This helps each sub-task connects to its prerequisite sub-tasks so that there is enough information to solve it.
+
+(b) Each sub-task should be specific and detailed enough to solve and to help achieve the final answer to the given question. The output should be helpful to solve the next sub-task. You need to include details steps (but not the answer) to the sub-task 
+For example,
+`Sub-task 3: Based on the output of sub-task 1 and 2....`
+You can see it clearly states &#39;based on what sub-tasks&#39;
+
+(c) The answer to the last sub-task should be the same as the answer to the final question, so that the architecture successfully solve the complex question by solving each of the sub-task. 
+
+(2) Given the resulting sub-task 1, sub-task 2, ... sub-task n, design connections between existing blocks to address each of them. 
+You should structure the architecture as a multi-layered network. Each existing architecture (or blocks) serves as a node, while connections between them act as edges, forming a structured hierarchy of interactions. Additionally, you must determine the number of layers in the network.
+
+For example, if the exising architectures are &#39;COT, COT_SC, Reflexion, LLM_debate&#39; and you determine that there can be 3 layers. There are 3 resulting sub-task from (1) sub-task 1, sub-task 2, sub-task 1, sub-task 3:
+
+Example Setup
+
+Resulting sub-tasks:
+sub-task 1, sub-task 2, sub-task 3, sub-task 4
+
+Available architectures:
+COT, COT_SC, Reflexion, LLM_debate
+
+Network with 3 Layers:
+
+Layer 1: COT  COT_SC  Reflexion  LLM_debate  
+Layer 2: COT  COT_SC  Reflexion  LLM_debate   
+Layer 3: COT  COT_SC  Reflexion  LLM_debate  
+
+Connection Strategies:
+
+1. Linear Connection: Directly link two block to pass information forward.
+Example: [COT] (address sub-task 1) -&gt; [LLM_debate] (address sub-task 2) (Single connection and exit)
+
+2. Multi-Layer Connection: An block can appear in multiple layers, forming deeper reasoning structures.
+Example: [COT] (address sub-task 1) -&gt; [LLM_debate] (address sub-task 2) -&gt; [COT -&gt; Reflexion] (address sub-task 3) (COT appears in both Layer 1 and Layer 3) (the whole [COT -&gt; Reflexion] is a sub-task architecture that aims to address sub-task 3)
+
+IMPORTANT:
+
+1. Decomposition itself should not be included in the architecture as the question has been decomposed at step (1). Do not assign one block to perform all the sub-tasks (if you put all decomposed sub-tasks into a single instruction for an block, it is very wrong). Instead, assign different block to address each of the sub-task instead.
+
+2. If your previous attempts in Discovered architecture archive are incorrect (fitness value equals to 0), it means the sub-tasks are still too difficult to the corresponidng blocka. Please further decompose the question to easier sub-tasks. 
+
+Your aim is to design an optimal block connection that can perform well on each of the sub-task.Your code should implement the exising blocks given in the archive (the &#39;code&#39; entry of blocks) as it-is without modication: Do not propose new blocks or modify existing ones and only change the connections between the given blocks, but block setting like instruction, temperature are allowed to modify
+
+
+
+# The utility code:
+
+```python
+from collections import namedtuple
+from typing import Union
+import numpy as np
+import json
+
+import openai
+import backoff
+from utils import random_id
+
+# Initialize the Async OpenAI client
+client = openai.AsyncOpenAI()
+
+# Named tuple for holding task information
+Info = namedtuple(&#39;Info&#39;, [&#39;name&#39;, &#39;author&#39;, &#39;content&#39;, &#39;prompt&#39;, &#39;sub_tasks&#39;, &#39;agents&#39;, &#39;iteration_idx&#39;])
+
+# Format instructions for LLM response
+FORMAT_INST = lambda request_keys: f&#34;Reply EXACTLY with the following JSON format.
+{str(request_keys)}
+DO NOT MISS ANY FIELDS AND MAKE SURE THE JSON FORMAT IS CORRECT!
+&#34;
+
+# Description of the role for the LLM
+ROLE_DESC = lambda role: f&#34;You are a {role}.&#34;
+
+@backoff.on_exception(backoff.expo, openai.RateLimitError)
+async def get_json_response_from_gpt(msg, model, system_message, temperature=0.5):
+    &#34;&#34;&#34;
+    Function to get JSON response from GPT model.
+    
+    Args:
+    - msg (str): The user message.
+    - model (str): The model to use.
+    - system_message (str): The system message.
+    - temperature (float): Sampling temperature.
+    
+    Returns:
+    - dict: The JSON response.
+    &#34;&#34;&#34;
+    response = await client.chat.completions.create(
+        model=model,
+        messages=[
+            {&#34;role&#34;: &#34;system&#34;, &#34;content&#34;: system_message},
+            {&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: msg},
+        ],
+        temperature=temperature,
+        max_tokens=1024,
+        stop=None,
+        response_format={&#34;type&#34;: &#34;json_object&#34;}
+    )
+    content = response.choices[0].message.content
+    json_dict = json.loads(content)
+    return json_dict
+
+class LLMAgentBase():
+    &#34;&#34;&#34;
+    Attributes:
+    &#34;&#34;&#34;
+
+    def __init__(self, output_fields: list, agent_name: str,
+                 role=&#39;helpful assistant&#39;, model=None, temperature=None) -&gt; None:
+        self.output_fields = output_fields
+        self.agent_name = agent_name
+
+        self.role = role
+        self.model = model
+        self.temperature = temperature
+        # give each instance a unique id
+        self.id = random_id()
+        
+
+    def generate_prompt(self, input_infos, instruction, is_sub_task=False) -&gt; str:
+
+        output_fields_and_description = {key: f&#34;Your {key}.&#34; if not &#39;answer&#39; in key else f&#34;Your {key}. {global_output_description}&#34; for key in self.output_fields}
+        system_prompt = ROLE_DESC(self.role) + &#34;
+
+&#34; + FORMAT_INST(output_fields_and_description)
+
+        # print(&#39;is_sub_task: &#39;,is_sub_task)
+        
+
+        # construct input infos text
+        input_infos_text = &#39;&#39;
+        prev_prompt = &#39;&#39;
+        for input_info in input_infos:
+            if isinstance(input_info, Info):
+                (field_name, author, content, prompt, _, _, iteration_idx) = input_info
+            else:
+                continue
+            if author == self.__repr__():
+                author += &#39; (yourself)&#39;
+            if field_name == &#39;task&#39;:
+                if is_sub_task: 
+                    # input_infos_text += f&#39;Giving the original question: 
+
+{content}
+
+, and below sub-task questions and answers, please solve the sub-task: {instruction}
+
+Sub-task questions and answers (if any):
+
+&#39;
+                    input_infos_text += f&#39;{instruction}
+
+Previous sub-task questions and answers (if any):
+
+&#39;
+                else:
+                    # continue # TODO: make sure it can deal with sub-tasks
+                    input_infos_text += f&#39;{content}
+
+&#39;
+            elif iteration_idx != -1:
+                if is_sub_task and prompt is not None and prompt != prev_prompt: 
+                    # print(&#39;prompt: &#39;,prompt)
+                    # pattern = r&#34;please solve the sub-task:\s*(.*?)\s*
+
+Sub-task questions and answers&#34;
+                    pattern = r&#34;\s*(.*?)\s*
+
+Previous sub-task questions&#34;
+
+                    sub_question = prompt[-1][&#39;content&#39;]
+                    match = re.search(pattern, sub_question, re.DOTALL)                                        
+                    input_infos_text += f&#39;### {match.group(1)} 
+
+ ### {field_name} #{iteration_idx + 1} by {author}:
+{content}
+
+&#39;
+                    prev_prompt = prompt
+                else:
+                    input_infos_text += f&#39;### {field_name} #{iteration_idx + 1} by {author}:
+{content}
+
+&#39;
+            else:
+                if is_sub_task and prompt is not None and prompt != prev_prompt: 
+                    # print(&#39;prompt: &#39;,prompt)
+                    pattern = r&#34;\s*(.*?)\s*
+
+Previous sub-task questions&#34;
+                    sub_question = prompt[-1][&#39;content&#39;]
+                    match = re.search(pattern, sub_question, re.DOTALL)
+                    input_infos_text += f&#39;### {match.group(1)} 
+
+ ### {field_name} by {author}:
+{content}
+
+&#39;
+                    prev_prompt = prompt # we do not want to duplicate the prompt
+                else:
+                    input_infos_text += f&#39;### {field_name} by {author}:
+{content}
+
+&#39;
+
+        if is_sub_task: 
+            prompt = input_infos_text # instruction (sub-task in above)
+        else:
+            prompt = input_infos_text + instruction
+        return system_prompt, prompt
+
+    async def query(self, input_infos: list, instruction, iteration_idx=-1, is_sub_task=False) -&gt; dict:
+
+        global COST_TOTAL
+
+        system_prompt, prompt = self.generate_prompt(input_infos, instruction, is_sub_task=is_sub_task)
+
+        prompt = [
+            _pack_message(content=system_prompt, role=&#34;system&#34;),
+            _pack_message(content=prompt, role=&#34;user&#34;)]
+        # use system prompt
+
+        response_json, cost = await get_json_response_from_gpt(prompt, self.model)
+        COST_TOTAL += cost
+
+        output_infos = []
+        for key, value in response_json.items():
+            info = Info(key, self.__repr__(), value, prompt, None, None, iteration_idx)
+            output_infos.append(info)
+        return output_infos
+
+    def __repr__(self):
+        return f&#34;{self.agent_name} {self.id}&#34;
+
+    async def __call__(self, input_infos: list, extra_info, instruction, iteration_idx=-1, is_sub_task=False):
+        return await self.query(input_infos, extra_info, instruction, iteration_idx=iteration_idx,  is_sub_task=is_sub_task)
+
+
+
+
+class AgentArchitecture:
+    &#34;&#34;&#34;
+    Fill in your code here.
+    &#34;&#34;&#34;
+    def forward(self, taskInfo, extra_info) -&gt; Union[Info, str]:
+        &#34;&#34;&#34;
+        Placeholder method for processing task information.
+        
+        Args:
+        - taskInfo (Info): Task information.
+        - extra_info (dict): Extra information to help solve the task.
+        
+        Returns:
+        - Answer (Info): Your FINAL Answer. Return namedtuple Info returned from self.make_final_answer.
+        &#34;&#34;&#34;
+        pass
+```
+# Discovered architecture archive
+Here is the archive of the discovered architectures:
+
+[{&#34;thought&#34;: &#34;By encouraging the LLM to think step by step rather than directly outputting an answer, chain-of-thought reasoning enables complex problem-solving through intermediate steps. This practice improves the model&#39;s ability to handle tasks that require deeper reasoning and provides insight into its decision-making process.&#34;, &#34;name&#34;: &#34;Chain-of-Thought&#34;, &#34;code&#34;: &#34;def forward(self, taskInfo):\n    # Instruction for the Chain-of-Thought (CoT) approach\n    # It is an important practice that allows the LLM to think step by step before solving the task.\n    cot_instruction = self.cot_instruction\n\n    # Instantiate a new LLM agent specifically for CoT\n    # To allow LLM thinking before answering, we need to set an additional output field &#39;thinking&#39;.\n    cot_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;,  model=self.node_model, temperature=0.0)\n\n    # Prepare the inputs for the CoT agent\n    # The input should be a list of Info, and the first one is often the taskInfo\n    cot_agent_inputs = [taskInfo]\n\n    # Get the response from the CoT agent\n    thinking, answer = cot_agent(cot_agent_inputs, cot_instruction)\n    final_answer = self.make_final_answer(thinking, answer)\n    \n    # Return only the final answer\n    return final_answer   \n&#34;},
+{&#34;thought&#34;: &#34;While an LLM can arrive at the correct answer, its reasoning may vary. By repeatedly asking the same question with high temperature settings, we can generate different reasoning paths. We then combine multiple answers from these Chain-of-Thought (CoT) agents to produce a more accurate final answer through ensembling.&#34;, &#34;name&#34;: &#34;Self-Consistency with Chain-of-Thought&#34;, &#34;code&#34;: &#34;def forward(self, taskInfo):\n    # Instruction for step-by-step reasoning\n    cot_instruction = self.cot_instruction\n    N = self.max_sc # Number of CoT agents\n\n    # Initialize multiple CoT agents with a higher temperature for varied reasoning\n    cot_agents = [LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;,  model=self.node_model, temperature=0.5) for _ in range(N)]\n\n    # Majority voting function to select the most common answer\n    from collections import Counter\n    def majority_voting(answers):\n        return Counter(answers).most_common(1)[0][0]\n    \n    thinking_mapping = {}\n    answer_mapping = {}\n    possible_answers = []\n    for i in range(N):\n        thinking, answer = cot_agents[i]([taskInfo], cot_instruction)\n        possible_answers.append(answer.content)\n        thinking_mapping[answer.content] = thinking\n        answer_mapping[answer.content] = answer\n\n    # Ensembling the answers from multiple CoT agents\n    answer = majority_voting(possible_answers)\n    print(&#39;possible_answers: &#39;,possible_answers)\n\n    thinking = thinking_mapping[answer]\n    answer = answer_mapping[answer]\n\n    final_answer = self.make_final_answer(thinking, answer)\n\n    return final_answer  \n&#34;},
+{&#34;thought&#34;: &#34;To enhance its performance, an LLM can iteratively improve its answer based on feedback. By reflecting on its previous attempts and incorporating feedback, the model can refine its reasoning and provide a more accurate solution.&#34;, &#34;name&#34;: &#34;Self-Refine (Reflexion)&#34;, &#34;code&#34;: &#34;def forward(self, taskInfo):\n    # Instruction for initial reasoning\n    cot_initial_instruction = self.cot_instruction\n\n    # Instruction for reflecting on previous attempts and feedback to improve\n    cot_reflect_instruction = \&#34;Given previous attempts and feedback, carefully consider where you could go wrong in your latest attempt. Using insights from previous attempts, try to solve the task better.\&#34;\n    cot_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)\n\n    # Instruction for providing feedback and correcting the answer\n    critic_instruction = \&#34;Please review the answer above and criticize on where might be wrong. If you are absolutely sure it is correct, output exactly &#39;True&#39; in &#39;correct&#39;.\&#34;\n    critic_agent = LLMAgentBase([&#39;feedback&#39;, &#39;correct&#39;], &#39;Critic Agent&#39;, model=self.node_model, temperature=0.0)\n    \n    N_max = self.max_round # Maximum number of attempts\n    \n    # Initial attempt\n    cot_inputs = [taskInfo]\n    thinking, answer = cot_agent(cot_inputs, cot_initial_instruction, 0)\n\n    for i in range(N_max):\n        # Get feedback and correct status from the critic\n        feedback, correct = critic_agent([taskInfo, thinking, answer], critic_instruction, i)\n        if correct.content == &#39;True&#39;:\n            break\n            \n        # Add feedback to the inputs for the next iteration\n        cot_inputs.extend([thinking, answer, feedback])\n\n        # Reflect on previous attempts and refine the answer\n        thinking, answer = cot_agent(cot_inputs, cot_reflect_instruction, i + 1)\n\n    final_answer = self.make_final_answer(thinking, answer)\n\n    return final_answer\n&#34;},
+{&#34;thought&#34;: &#34;By letting different LLMs debate with each other, we can leverage their diverse perspectives to find better solutions for tasks.&#34;, &#34;name&#34;: &#34;LLM Debate&#34;, &#34;code&#34;: &#34;def forward(self, taskInfo):\n    # Instruction for initial reasoning\n    debate_initial_instruction = self.cot_instruction\n\n    # Instruction for debating and updating the solution based on other agents&#39; solutions\n    debate_instruction = \&#34;Given solutions to the problem from other agents, consider their opinions as additional advice. Please think carefully and provide an updated answer. Put your thinking process in the &#39;thinking&#39; field and the updated answer in the &#39;answer&#39; field. \&#34;\n    \n    # Initialize debate agents with different roles and a moderate temperature for varied reasoning\n    debate_agents = [LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Debate Agent&#39;,  model=self.node_model, role=role, temperature=0.5) for role in self.debate_role]\n\n    # Instruction for final decision-making based on all debates and solutions\n    final_decision_instruction = \&#34;Given all the above thinking and answers, reason over them carefully and provide a final answer. Put your thinking process in the &#39;thinking&#39; field and the final answer in the &#39;answer&#39; field.\&#34;\n    final_decision_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Final Decision Agent&#39;,  model=self.node_model, temperature=0.0)\n\n    max_round = self.max_round # Maximum number of debate rounds\n    all_thinking = [[] for _ in range(max_round)]\n    all_answer = [[] for _ in range(max_round)]\n\n    # Perform debate rounds\n    for r in range(max_round):\n        for i in range(len(debate_agents)):\n            if r == 0:\n                thinking, answer = debate_agents[i]([taskInfo], debate_initial_instruction)\n            else:\n                input_infos = [taskInfo] + [all_thinking[r-1][i]] + all_thinking[r-1][:i] + all_thinking[r-1][i+1:]\n                thinking, answer = debate_agents[i](input_infos, debate_instruction)\n            all_thinking[r].append(thinking)\n            all_answer[r].append(answer)\n    \n    # Make the final decision based on all debate results and solutions\n    thinking, answer = final_decision_agent([taskInfo] + all_thinking[max_round-1] + all_answer[max_round-1], final_decision_instruction)\n    final_answer = self.make_final_answer(thinking, answer)\n\n    return final_answer\n&#34;}]
+
+The fitness value is the median and 95% Bootstrap Confidence Interval of the correct rate on the given question. Your GOAL is to maximize the &#34;fitness&#34;.
+
+
+# Output Instruction and Example:
+The first key should be (&#34;thought&#34;), and it should capture your thought process for and it should capture your thought process for reconnecting the existing blocks in archived. 
+
+In the &#34;(thought)&#34; section, include the following:
+
+(1) **Decomposition**: Given the new sub-task from (1). Form your final decomposition, which should include all of the new sub-task. Explain in details how do you decompose the question and how such decomposition is eaiser enough such that the subtask is solvable by the given agent, blocks and architecture 
+
+(2) **Overall Architecture**: 
+
+Given the resulting sub-task 1, sub-task 2, ... sub-task n, design connections between existing blocks to address each of them. describe your reasoning and the overall concept behind the connection design and finally detail the implementation steps. All connection must between exising blocks in the archive and no new blocks can be made. The format must strickly follow: 
+
+(a) Use &#39;-&gt;&#39; for connection. for example, &#39;CoT (address sub-task 1) (existing block name) -&gt; LLM debate (address sub-task 2) (another exising block name)&#39; means connect the CoT block and the LLM debate block to address sub-task 1 and sub-task 2 correspondingly.
+
+The second key (&#34;name&#34;) corresponds to the name of your block connection architecture. 
+Finally, the last key (&#34;code&#34;) corresponds to the exact “forward()” function in Python code that you would like to try. You must write a COMPLETE CODE in &#34;code&#34;: Your code will be part of the entire project (so do not implement any other part), so please implement complete, reliable, reusable code snippets. You cannot call the exising blocks (e.g., COT, COT-SC) by its name, but must implement them as it is in the achive. If the block is handling a sub-task, add &#39;sub_task=True&#39; when calling the block.
+
+Here is an example of the output format for the new connected block architecture:
+
+{&#34;thought&#34;: &#34;\n    **Insights:**\nProvide your reasoning for the next effective agent architecture (an architecture may contain multiple agents), along with an explanation of the overall concept behind the design. \n    **Decomposition:**\n Give the resulting new sub-task 1, sub-task 2, ..., sub-task n. Your final decomposition should include all the sub-tasks. \n    Please explain \n    (1) How do you make sure the sub-task is easier enough and thus solvable by the given or proposed blocks and agents; \n    (2) Justify how these sub-tasks can achieve the final answer to the original questions.\n\n    **Overall Architecture to solve each subquestion:**\n    You overall architecture and explain how this architecture can solve each of the resulting sub-task\n    \&#34;**Implementation:**describe the implementation step by step.\&#34;\n    &#34;, &#34;name&#34;: &#34;Name of your proposed architecture&#34;, &#34;code&#34;: &#34;async def forward(self, taskInfo, extra_info):\n    from collections import Counter # must have this and always make sure you import everything needed\n    # Your code here. IMPORTANT  \n    # (1) You cannot call the existing architecture from the archive but you have to implement it from the code in the Discovered architecture archive\n    # for example:\n    # you cannot call &#39;COT&#39; but you have to implement it exactly the same as the code in the Discovered architecture archive. \n    # name an agent &#39;reflexion&#39; or &#39;debate&#39; or &#39;cot_sc&#39; also do not implement the blocks. Make sure you ACTUALLY IMPLEMENT them\n    # for example, You need to implement the for-loop in COT-SC, LLM Debate and Reflexion\n    # You should only change how they connect but not the function inside (setting and instruction can be different)\n\n    # (2) To creat an agent, call the LLMAgentBase, must have &#39;model=self.node_model&#39; in the parameters\n    # the return of the call is always the same as the output fields,\n    # for example: \n    # reasoning_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Reasoning Agent&#39;, model=self.node_model)\n\n    # (3) Since the agent is handling with a sub_question made by question decomposition, use &#39;is_sub_task=True&#39; when calling the agent.\n\n    # (4) You need to specify the sub-task dependencies by specify the dependent sub-tasks in the instruction. You also need to give each sub-task an ID. This means you need to state clearly what the current sub-task is based on and also give all required information (thinking and answer) in the input task info\n    # for example:\n    # cot_instruction = (\&#34;Sub-task 3: Based on the output of sub-task 1 and sub-task 2.....\&#34;)\n    # thinking, answer = await reasoning_agent([taskInfo] + [thinking1, answer1, thinking2, answer2, ..., ], extra_info, cot_instruction, is_sub_task=True)\n\n\n    # (5) You need to keep tack of sub-task output, for each sub-task output, please append it to a list named `sub_tasks` (please initialize it as `sub_tasks = []` at the begining of your function) so that we can keep track of the performance of each sub-task. When you do self.make_final_answer, please also add `sub_tasks` as the second last parameterss \n    # for example: \n    # sub_tasks = []\n    # ...\n    # thinking, answer = await reasoning_agent([taskInfo] + [sub-task thinking, sub-task answer], reasoning_instruction, is_sub_task=True)\n    # sub_tasks.append(f&#39;the output of sub task n: thinking {thinking.content}; final answer: {answer.content}&#39;)\n\n    # (6) You need to keep track of agent, for each agent inside the sub-architecture (or block or node) output, please append it to a list named `agents` (please initialize it as `agents = []` at the beining of your function) so that we can keep track of the performance of each agents. It should contain the agent name (if setting is important to identify the agent, please include as well, e.g., round, ID), agent purpose, and the thinking and output of the agent. When you do self.make_final_answer, please also add `agents` as the last parameters\n    # Takes debate as an example: \n    # debate_instruction = (\&#34;Sub-task i: Based on the output of...\&#34;)\n    # max_round = ...(the max round you determine)\n    # debate_agents = [LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Debate Agent&#39;, model=self.node_model, role=role, temperature=0.5) for role in ...(the role you design)]\n    # all_thinking = []\n    # all_answer = []\n    # for r in range(max_round):\n    #     round_thinking = []\n    #     round_answer = []\n    #     for i, agent in enumerate(debate_agents):\n    #         if r == 0:\n    #             t, a = await agent([taskInfo, thinking1, answer1], extra_info, cot_instruction, is_sub_task=True)\n    #             agents.append(f&#39;Debate agent {agent.id}, round {r}, on the purpose of..., thinking: {t.content}; answer: {a.content}&#39;)\n    #         else:\n    #             t, a = await agent([taskInfo, thinking1, answer1] + all_thinking[r-1], extra_info, debate_instruction, is_sub_task=True)\n    #             agents.append(f&#39;Debate agent {agent.id}, round {r}, on the purpose of..., thinking: {t.content}; answer: {a.content}&#39;)\n    #         round_thinking.append(t)\n    #         round_answer.append(a)\n    #     all_thinking.append(round_thinking)\n    #     all_answer.append(round_answer)\n    # final_decision_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Final Decision Agent&#39;, model=self.node_model, temperature=0.0)\n    # thinking2, answer2 = await final_decision_agent(\n    #     [taskInfo] + all_thinking[-1] + all_answer[-1],\n    #     extra_info,\n    #     \&#34;Sub-task i: Based on the output of...\&#34;,\n    #     is_sub_task=True\n    # )\n    # agents.append(f&#39;Final Decision agent, on the purpose of..., thinking: {thinking2.content}; answer: {answer2.content}&#39;)\n    # sub_tasks.append(f\&#34;Sub-task 2 output: thinking - {thinking2.content}; answer - {answer2.content}\&#34;)\n\n    # Take reflexion as another example:\n    # cot_reflect_instruction = \&#34;Sub-task i: Based on the output of...\&#34;\n    # cot_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)\n\n    # # Instruction for providing feedback and correcting the answer\n    # critic_instruction = \&#34;Sub-task i: Based on the output of...,\&#34;\n    # critic_agent = LLMAgentBase([&#39;feedback&#39;, &#39;correct&#39;], &#39;Critic Agent&#39;, model=self.node_model, temperature=0.0)\n    # N_max = ...(the max round you determine) # Maximum number of attempts\n    # # Initial attempt\n    # cot_inputs = [taskInfo]\n    # thinking, answer = await cot_agent(cot_inputs, extra_info, cot_initial_instruction, 0, is_sub_task=True)\n    # agents.append(f&#39;CoT agent {cot_agent.id}, on the purpose of..., thinking: {thinking.content}; answer: {answer.content}&#39;)\n\n    # for i in range(N_max):\n    #     # Get feedback and correct status from the critic\n    #     feedback, correct = await critic_agent([taskInfo, thinking, answer], extra_info, critic_instruction, i, is_sub_task=True)\n    #     agents.append(f&#39;Critic agent {critic_agent.id}, on the purpose of..., thinking: {feedback.content}; answer: {correct.content}&#39;)\n    #     if correct.content == &#39;True&#39;:\n    #         break\n            \n    #     # Add feedback to the inputs for the next iteration\n    #     cot_inputs.extend([thinking, answer, feedback])\n\n    #     # Reflect on previous attempts and refine the answer\n    #     thinking, answer = await cot_agent(cot_inputs, extra_info, cot_reflect_instruction, i + 1, is_sub_task=True)\n    #     agents.append(f&#39;CoT agent {cot_agent.id}, on the purpose of..., thinking: {thinking.content}; answer: {answer.content}&#39;)\n    # sub_tasks.append(f\&#34;Sub-task i output: thinking - {thinking.content}; answer - {answer.content}\&#34;)\n\n    # Take self-consistency as another example:\n    # cot_instruction = &#39;Sub-task i: Based on the output of...&#39;\n    # # Initialize multiple CoT agents with a higher temperature for varied reasoning\n    # cot_agents = [LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;,  model=self.node_model, temperature=0.5) for _ in range(N)]\n    \n    # thinking_mapping = {}\n    # answer_mapping = {}\n    # possible_answers = []\n    # for i in range(N):\n    #     thinking, answer = await cot_agents[i]([taskInfo], extra_info, cot_instruction, is_sub_task=True)\n    #     agents.append(f&#39;CoT agent {cot_agents.id}, on the purpose of..., thinking: {thinking.content}; answer: {answer.content}&#39;)\n    #     possible_answers.append(answer.content)\n    #     thinking_mapping[answer.content] = thinking\n    #     answer_mapping[answer.content] = answer\n    # answer = majority_voting(possible_answers)\n\n    # thinking = thinking_mapping[answer]\n    # answer = answer_mapping[answer]\n    # sub_tasks.append(f\&#34;Sub-task i output: thinking - {thinking.content}; answer - {answer.content}\&#34;)\n\n    # (7) Put the saved sub_tasks and agents to the final elf.make_final_answer. Make sure you have `is_sub_task=True` when calling an agent, and keep track of `sub_task`, `agents`, include `sub_task` dependency and detailed steps for the sub-task (&#39;Sub-task i: based on sub-task,&#39;) in the sub-task instruction, and actually implmenet the blocks by yourself (for-loop if COT-SC, Debate and Reflextion).\n\n    final_answer = self.make_final_answer(thinking, answer, sub_tasks, agents)\n    # Return only the final answer\n    return final_answer\n&#34;}
+
+You must use the exact function interface used above. You need to specify the instruction, input information, and the required output fields for various LLM agents to do their specific part of the architecture. DON&#39;T try to use some function that doesn&#39;t exisit.
+Also, it could be helpful to set the LLM’s role and temperature to further control the LLM’s response. Note that the LLMAgentBase() will automatically parse the output and return a list of “Infos”. You can get the content by Infos.content. 
+DO NOT FORGET the taskInfo input to LLM if you think it is needed, otherwise LLM will not know about the task.
+
+
+## WRONG Implementation examples:
+Here are some mistakes you may make:
+
+1. This is WRONG: ```
+feedback, correct = await critic_agent([taskInfo, thinking, answer], extra_info, critic_instruction, i)
+feedback_info = await verifier_agent([taskInfo, Info(&#39;feedback&#39;, &#39;Critic Agent&#39;, thinking, 0)], verification_instruction)
+```
+It is wrong to use &#34;Info(&#39;feedback&#39;, &#39;Critic Agent&#39;, thinking, 0)&#34;. The returned &#34;feedback&#34; from LLMAgentBase is already Info.
+
+2. This is WRONG: ```
+# Debugging: Log the generated answer
+print(&#39;Generated Answer:&#39;, ...)
+feedback_info = await verifier_agent([taskInfo, Info(&#39;feedback&#39;, &#39;Critic Agent&#39;, thinking, 0)], extra_info, verification_instruction)
+if len(feedback_info) &lt; 3:  # Check if feedback_info has enough elements
+    return &#39;Error: Feedback info incomplete&#39;
+```
+First, the len(feedback_info) will not work.
+Second, you should never return an error message. You should always return the best answer you can get.
+Third, you should never print anything in the code.
+Lastly, again, DO NOT CREATE Info object by yourself.
+
+3. This is WRONG: ```
+all_thinking = []
+all_answers = []
+for agent, role in zip(agents, roles):
+    outputs = await agent([taskInfo], extra_info, independent_reasoning_instruction.format(role=role))
+    all_thinking.append(outputs[0].content)
+    all_answers.append(outputs[1].content)
+
+# Aggregate the reasoning paths and answers
+aggregated_thinking = &#39;
+&#39;.join(all_thinking)
+aggregated_answers = &#39;
+&#39;.join(all_answers)
+```
+You SHOULD NOT extract the content from the Info object by yourself. You should use the Info object directly. If you want to aggregate the content, you should just put those Info objects into a list and then use the list as input to the next LLM agent.
+
+4. This is WRONG: ```
+reasoning_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Reasoning Agent&#39;)
+response_infos = await reasoning_agent([taskInfo] + ..., extra_info, reasoning_instruction)
+    
+# Extract the final answer from the response_infos
+for info in response_infos:
+    if info.name == &#39;final_answer&#39;:
+        return info
+# Fallback if no answer is found
+return Info(&#39;answer&#39;, &#39;Final Decision Agent&#39;, &#39;No answer generated.&#39;, 0)
+```
+
+5. This is WRONG: ```
+reasoning_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Reasoning Agent&#39;)
+thinking, answer = await reasoning_agent([taskInfo] + ..., extra_info, reasoning_instruction)
+return answer   
+```
+You MUST return final_answer returned by ```final_answer = self.make_final_answer(thinking, answer)```, instead of answer only.
+
+6. This is WRONG when handling sub-tasks: ```
+thinking, answer = await reasoning_agent([taskInfo] + ..., extra_info, reasoning_instruction)
+```
+You MUST add sub_task=True, when handling a sub question made by question decomposition
+
+7. This is WRONG when handling sub-tasks: ```
+reasoning_instruction = &#39;...&#39;
+```
+You MUST clearly states what sub task it is, it can be solved based on the output of what sub-tasks and what are the steps to solve the sub-tasks
+
+8. This is WRONG: ```
+cot_sc_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Self-Consistency Agent&#39;, model=self.node_model, temperature=0.5)
+thinking3, answer3 = await cot_sc_agent([taskInfo, thinking1, answer1, thinking2, answer2], extra_info, cot_instruction, is_sub_task=True)
+```
+You MUST ACTUALLY IMPLEMENT the achitecture (here self-consistency). Name an agent to &#39;sc&#39; does not implment the structure (e.g. you will need to actually implmemnt the for-loop).
+CORRECT example: ```
+    from collections import Counter
+    def majority_voting(answers):
+        return Counter(answers).most_common(1)[0][0]
+    
+    thinking_mapping = {}
+    answer_mapping = {}
+    possible_answers = []
+    for i in range(N):
+        thinking, answer = await cot_agents[i]([taskInfo], extra_info, cot_instruction)
+        possible_answers.append(answer.content)
+        thinking_mapping[answer.content] = thinking
+        answer_mapping[answer.content] = answer
+
+    # Ensembling the answers from multiple CoT agents
+    answer = majority_voting(possible_answers)
+```
+
+9. This is WRONG: ```
+reflexion_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Reflexion Agent&#39;, model=self.node_model, temperature=0.5)
+thinking3, answer3 = await reflexion_agent([taskInfo, thinking1, answer1, thinking2, answer2], extra_info, reflexion_instruction, is_sub_task=True)
+```
+You MUST ACTUALLY IMPLEMENT the achitecture (here reflexion). Name an agent to &#39;reflexion&#39; does not implment the structure (e.g. you will need to actually implmemnt the for-loop).
+CORRECT example: ```
+    N_max = self.max_round # Maximum number of attempts
+    
+    # Initial attempt
+    cot_inputs = [taskInfo]
+    thinking, answer = await cot_agent(cot_inputs, extra_info, cot_initial_instruction, 0)
+
+    for i in range(N_max):
+        # Get feedback and correct status from the critic
+        feedback, correct = await critic_agent([taskInfo, thinking, answer], extra_info, critic_instruction, i)
+        if correct.content == &#39;True&#39;:
+            break
+            
+        # Add feedback to the inputs for the next iteration
+        cot_inputs.extend([thinking, answer, feedback])
+
+        # Reflect on previous attempts and refine the answer
+        thinking, answer = await cot_agent(cot_inputs, extra_info, cot_reflect_instruction, i + 1)
+```
+
+10. This is WRONG: ```
+debate_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Debate Agent&#39;, model=self.node_model, temperature=0.5)
+thinking3, answer3 = debate_agent([taskInfo, thinking1, answer1, thinking2, answer2], debate_instruction, is_sub_task=True)
+```
+You MUST ACTUALLY IMPLEMENT the achitecture (here debate). Name an agent to &#39;debate&#39; does not implment the structure (e.g. you will need to actually implmemnt the for-loop).
+CORRECT example: ```
+for r in range(max_round):
+    for i in range(len(debate_agents)):
+        if r == 0:
+            thinking, answer = await debate_agents[i]([taskInfo], extra_info, debate_initial_instruction)
+        else:
+            input_infos = [taskInfo] + [all_thinking[r-1][i]] + all_thinking[r-1][:i] + all_thinking[r-1][i+1:]
+            thinking, answer = await debate_agents[i](input_infos, extra_info, debate_instruction)
+        all_thinking[r].append(thinking)
+        all_answer[r].append(answer)
+```
+You should not extract the final answer by yourself. You SHOULD directly return the answer Info. Also, you should always return the best answer you can get.
+CORRECT example: ```
+reasoning_instruction = &#39;Sub-task i: Based on the output of sub-task i and j, ....&#39;
+reasoning_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Reasoning Agent&#39;)
+thinking, answer = await reasoning_agent([taskInfo] + ..., extra_info, reasoning_instruction)
+final_answer = self.make_final_answer(thinking, answer)
+
+# Return only the final answer
+return final_answer   
+```
+
+
+
+# Your task
+You are deeply familiar with LLM prompting techniques and LLM agent works from the literature. Your goal is to maximize the specified performance metrics by reconnecting the exisitng block in archived. Do not try to propose new block or modify the exising block, and only change the connection but block setting like instruction, tempreture are allowed to modify
+Observe the discovered blocks carefully and think about what insights, lessons, or stepping stones can be learned from them.
+You are encouraged to draw inspiration from related agent papers or academic papers from other research areas.
+Use the knowledge from the archive and inspiration from academic literature to propose the new connection.
+
+Below is the question to solve:
+
+你是一名严谨、公正的审判长，你的任务是：根据原告和被告的陈述以及一些额外的信息，生成相应的说理内容，给出最终判决。请你始终保持中立、专业、公正的审判风格，不得偏袒任何一方。请用中文输出你的内容。
+你可以获得到的信息：{&#34;category&#34;: &#34;物权纠纷&#34;, &#34;specific_characters&#34;: {&#34;plaintiff&#34;: {&#34;name&#34;: &#34;辽宁省沈阳市法库县孟家镇某村民委员会&#34;, &#34;address&#34;: &#34;辽宁省沈阳市法库县孟家镇&#34;, &#34;representative&#34;: &#34;武凤英&#34;, &#34;gender&#34;: null, &#34;ethnicity&#34;: null, &#34;birth_date&#34;: null}, &#34;defendant&#34;: {&#34;name&#34;: &#34;孙某&#34;, &#34;address&#34;: &#34;辽宁省法库县&#34;, &#34;representative&#34;: null, &#34;gender&#34;: &#34;男&#34;, &#34;ethnicity&#34;: &#34;汉族&#34;, &#34;birth_date&#34;: &#34;1968年11月21日&#34;}}, &#34;plaintiff_claim&#34;: [&#34;孙某原承包合同到期，村里要求孙某将林地恢复原状，以方便下一轮发包。&#34;, &#34;如果孙某不能将林地恢复原状，必须按每年每亩200.00元缴纳承包费。&#34;, &#34;案件受理费用由被告承担。&#34;], &#34;plaintiff_case_details&#34;: &#34;孙某承包的林地已经到期，按镇经营管理站要求，要按现在市场形势提高承包价格，否则不能上平台进行交易，要求孙某按照要求缴纳承包费。&#34;, &#34;defendant_defence&#34;: &#34;应当按照原先承包合同执行，续包应当给付每亩每年50.00元。&#34;, &#34;evidence&#34;: {&#34;plaintiff_evidence&#34;: {&#34;evidence_1&#34;: {&#34;evidence&#34;: &#34;2008年2月28日村民代表大会记录&#34;, &#34;dispute&#34;: &#34;无争议&#34;}, &#34;evidence_2&#34;: {&#34;evidence&#34;: &#34;2008年3月6日签订的《林地转让承包合同》&#34;, &#34;dispute&#34;: &#34;无争议&#34;}, &#34;evidence_3&#34;: {&#34;evidence&#34;: &#34;2024年5月27日股东代表会议记录&#34;, &#34;dispute&#34;: &#34;无争议&#34;}, &#34;evidence_4&#34;: null, &#34;evidence_5&#34;: null, &#34;evidence_6&#34;: null, &#34;evidence_7&#34;: null, &#34;evidence_8&#34;: null, &#34;evidence_9&#34;: null, &#34;evidence_10&#34;: null}, &#34;defendant_evidence&#34;: {&#34;evidence_1&#34;: {&#34;evidence&#34;: &#34;2008年3月6日签订的《林地转让承包合同》&#34;, &#34;dispute&#34;: &#34;无争议&#34;, &#34;name&#34;: null}, &#34;evidence_2&#34;: null, &#34;evidence_3&#34;: null, &#34;evidence_4&#34;: null, &#34;evidence_5&#34;: null, &#34;evidence_6&#34;: null, &#34;evidence_7&#34;: null, &#34;evidence_8&#34;: null, &#34;evidence_9&#34;: null}}, &#34;other_statement&#34;: {&#34;plaintiff&#34;: {&#34;plaintiff_1&#34;: &#34;&#34;}, &#34;defendant&#34;: {&#34;defendant_1&#34;: &#34;&#34;}}}
+
+
+
+IMPORTANT: You must follow all the requirements in the Initial Round (Round 0) (e.g., what is wrong and correct in code implementation; You need to ACTUALLY IMPLEMENT the structure for self-consistency, LLM Debate and Reflexion, by writing the for-loop, if you choose to use them).</pre>
+    </div>
+</div>
+
+
+<div class="message assistant">
+    <div class="role">
+    assistant
+    
+    </div>
+    <div class="content">
+    <pre>reflection: The task involves legal reasoning and judgment prediction based on given information about a property rights dispute. The challenge is to ensure that the LLM can handle each part of the analysis effectively.
+
+thought: 
+    **Decomposition:**
+    To solve the task of generating a legal judgment based on the provided case information, I will decompose it into the following sub-tasks:
+    
+    1. **Sub-task 1: Analyze the Plaintiff&#39;s Claims**
+       - Instruction: Analyze the plaintiff&#39;s claims and evidence. Summarize the key points and assess the strength of their case.
+       - This sub-task ensures we understand the plaintiff&#39;s position clearly and evaluate the evidence supporting their claims.
+    
+    2. **Sub-task 2: Analyze the Defendant&#39;s Defense**
+       - Instruction: Based on sub-task 1, analyze the defendant&#39;s defense and evidence. Summarize the key points and assess the strength of their case.
+       - This sub-task focuses on understanding the defendant&#39;s arguments and evidence, allowing us to compare both sides.
+    
+    3. **Sub-task 3: Evaluate Legal Context and Precedents**
+       - Instruction: Based on sub-task 1 and 2, evaluate the legal context and any relevant precedents that might influence the judgment.
+       - This sub-task involves applying legal principles and understanding precedents that could guide the decision.
+    
+    4. **Sub-task 4: Generate Final Judgment**
+       - Instruction: Based on sub-task 1, 2, and 3, generate a final judgment, including reasoning and any compensation or actions mandated.
+       - This sub-task synthesizes the analysis into a coherent judgment.
+    
+    **Overall Architecture:**
+    I will use a combination of Chain-of-Thought (CoT) and Reflexion architectures to address the sub-tasks. CoT will help in systematically analyzing each side&#39;s arguments and evidence, while Reflexion will allow iterative improvement and refinement of the judgment.
+    
+    **Implementation:**
+    - **Layer 1:**
+      - Use CoT to handle Sub-task 1 and Sub-task 2, analyzing the plaintiff&#39;s and defendant&#39;s positions separately.
+    - **Layer 2:**
+      - Use Reflexion to handle Sub-task 3, evaluating the legal context and refining the understanding based on feedback.
+    - **Layer 3:**
+      - Use CoT again to synthesize the findings and generate the final judgment in Sub-task 4.
+    
+    This architecture ensures a detailed and iterative analysis of the case, leading to a well-reasoned judgment.
+    
+
+name: Legal Judgment Architecture
+
+code: async def forward(self, taskInfo, extra_info):
+    from collections import Counter
+    sub_tasks = []
+    agents = []
+    
+    # Sub-task 1: Analyze the Plaintiff&#39;s Claims
+    cot_instruction_1 = &#34;Sub-task 1: Analyze the plaintiff&#39;s claims and evidence. Summarize the key points and assess the strength of their case.&#34;
+    cot_agent_1 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking1, answer1 = await cot_agent_1([taskInfo], extra_info, cot_instruction_1, is_sub_task=True)
+    agents.append(f&#39;CoT agent {cot_agent_1.id}, on the purpose of analyzing plaintiff claims, thinking: {thinking1.content}; answer: {answer1.content}&#39;)
+    sub_tasks.append(f&#39;Sub-task 1 output: thinking - {thinking1.content}; answer - {answer1.content}&#39;)
+
+    # Sub-task 2: Analyze the Defendant&#39;s Defense
+    cot_instruction_2 = &#34;Sub-task 2: Based on the output of sub-task 1, analyze the defendant&#39;s defense and evidence. Summarize the key points and assess the strength of their case.&#34;
+    cot_agent_2 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking2, answer2 = await cot_agent_2([taskInfo, thinking1, answer1], extra_info, cot_instruction_2, is_sub_task=True)
+    agents.append(f&#39;CoT agent {cot_agent_2.id}, on the purpose of analyzing defendant defense, thinking: {thinking2.content}; answer: {answer2.content}&#39;)
+    sub_tasks.append(f&#39;Sub-task 2 output: thinking - {thinking2.content}; answer - {answer2.content}&#39;)
+
+    # Sub-task 3: Evaluate Legal Context and Precedents
+    cot_initial_instruction_3 = &#34;Sub-task 3: Based on the output of sub-task 1 and 2, evaluate the legal context and any relevant precedents.&#34;
+    cot_reflect_instruction_3 = &#34;Sub-task 3: Based on previous attempts and feedback, refine the evaluation of legal context and precedents.&#34;
+    cot_agent_3 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    critic_instruction_3 = &#34;Sub-task 3: Review the answer above and provide feedback on any errors or omissions.&#34;
+    critic_agent_3 = LLMAgentBase([&#39;feedback&#39;, &#39;correct&#39;], &#39;Critic Agent&#39;, model=self.node_model, temperature=0.0)
+    N_max_3 = self.max_round
+    cot_inputs_3 = [taskInfo, thinking1, answer1, thinking2, answer2]
+    thinking3, answer3 = await cot_agent_3(cot_inputs_3, extra_info, cot_initial_instruction_3, 0, is_sub_task=True)
+    agents.append(f&#39;CoT agent {cot_agent_3.id}, on the purpose of evaluating legal context, thinking: {thinking3.content}; answer: {answer3.content}&#39;)
+
+    for i in range(N_max_3):
+        feedback3, correct3 = await critic_agent_3([taskInfo, thinking3, answer3], extra_info, critic_instruction_3, i, is_sub_task=True)
+        agents.append(f&#39;Critic agent {critic_agent_3.id}, on the purpose of reviewing legal context evaluation, feedback: {feedback3.content}; correct: {correct3.content}&#39;)
+        if correct3.content == &#39;True&#39;:
+            break
+        cot_inputs_3.extend([thinking3, answer3, feedback3])
+        thinking3, answer3 = await cot_agent_3(cot_inputs_3, extra_info, cot_reflect_instruction_3, i + 1, is_sub_task=True)
+        agents.append(f&#39;CoT agent {cot_agent_3.id}, on the purpose of refining legal context evaluation, thinking: {thinking3.content}; answer: {answer3.content}&#39;)
+    sub_tasks.append(f&#39;Sub-task 3 output: thinking - {thinking3.content}; answer - {answer3.content}&#39;)
+
+    # Sub-task 4: Generate Final Judgment
+    cot_instruction_4 = &#34;Sub-task 4: Based on the output of sub-task 1, 2, and 3, generate a final judgment, including reasoning and any compensation or actions mandated.&#34;
+    cot_agent_4 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking4, answer4 = await cot_agent_4([taskInfo, thinking1, answer1, thinking2, answer2, thinking3, answer3], extra_info, cot_instruction_4, is_sub_task=True)
+    agents.append(f&#39;CoT agent {cot_agent_4.id}, on the purpose of generating final judgment, thinking: {thinking4.content}; answer: {answer4.content}&#39;)
+    sub_tasks.append(f&#39;Sub-task 4 output: thinking - {thinking4.content}; answer - {answer4.content}&#39;)
+
+    final_answer = self.make_final_answer(thinking4, answer4, sub_tasks, agents)
+    return final_answer
+
+
+acc: [0.0]
+
+fitness: 95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%
+
+generation: 1
+
+total_cost: 0.1328525
+
+sub_tasks: [None]
+
+agents: [&#34;CoT agent jkdi, on the purpose of analyzing plaintiff claims, thinking: 原告的主要诉求是要求被告孙某在承包合同到期后将林地恢复原状，或者按照新的市场价格缴纳承包费。原告提供的证据包括2008年村民代表大会记录、2008年签订的林地转让承包合同以及2024年股东代表会议记录，这些证据没有争议，表明原告的主张有一定的事实基础。原告的案件强度在于其证据的无争议性和合同到期的事实，但需要进一步分析合同条款和市场价格的合理性。; answer: 原告的关键点在于合同到期后要求恢复原状或提高承包费。证据显示合同到期的事实，但需进一步分析市场价格合理性。\nCoT agent tb0g, on the purpose of analyzing defendant defense, thinking: 被告孙某的主要抗辩是要求按照原先的承包合同执行，并且续包的价格应为每亩每年50.00元。被告提供的证据是2008年签订的《林地转让承包合同》，该证据与原告提供的证据一致且无争议。被告的抗辩重点在于合同的延续性和价格的稳定性。被告的案件强度在于合同的存在和无争议性，但需要进一步分析合同条款中是否有关于续包价格的明确规定，以及市场价格的变化是否影响合同的执行。; answer: 被告的关键点在于合同的延续性和价格的稳定性。证据显示合同的存在且无争议，但需分析续包价格条款和市场价格影响。\nCoT agent T0kU, on the purpose of evaluating legal context, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的续包价格和市场价格的合理性。法律上，合同到期后，双方应协商续包条件，若无明确条款，市场价格可能成为参考依据。相关判例可能涉及合同到期后续包条件的协商和市场价格的影响。; answer: 在法律背景下，合同到期后，双方应就续包条件进行协商，若合同中无明确续包价格条款，市场价格可能成为参考依据。相关判例可能涉及合同到期后续包条件的协商和市场价格的影响。\nCritic agent mOVS, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key issue of the renewal price after the contract expiration and the role of market prices. It also appropriately suggests that in the absence of explicit terms, market prices may be used as a reference. However, it could be improved by mentioning the importance of the original contract terms and any legal obligations for renewal or restoration of the land.; correct: The answer is correct in its identification of the legal context and relevant precedents regarding contract renewal and market prices.\nCoT agent T0kU, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的续包价格和市场价格的合理性。法律上，合同到期后，双方应协商续包条件，若无明确条款，市场价格可能成为参考依据。原合同条款的明确性和法律义务对于续包或恢复原状的要求也很重要。相关判例可能涉及合同到期后续包条件的协商、市场价格的影响以及合同条款的解释。; answer: 在法律背景下，合同到期后，双方应就续包条件进行协商，若合同中无明确续包价格条款，市场价格可能成为参考依据。原合同条款的明确性和法律义务对于续包或恢复原状的要求也很重要。相关判例可能涉及合同到期后续包条件的协商、市场价格的影响以及合同条款的解释。\nCritic agent mOVS, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key legal issues related to contract renewal and market price considerations. It also appropriately highlights the importance of the original contract terms and legal obligations. However, it could be improved by referencing specific legal principles or precedents that apply to such cases, which would strengthen the argument.; correct: The answer is correct in its analysis of the legal context and the need for negotiation of renewal terms based on market conditions if the contract lacks specific provisions.\nCoT agent T0kU, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的续包价格和市场价格的合理性。法律上，合同到期后，双方应协商续包条件，若无明确条款，市场价格可能成为参考依据。原合同条款的明确性和法律义务对于续包或恢复原状的要求也很重要。相关判例可能涉及合同到期后续包条件的协商、市场价格的影响以及合同条款的解释。虽然之前的回答已经涵盖了这些要点，但可以通过引用具体的法律原则或判例来加强论证。然而，由于缺乏具体的法律条文或判例信息，无法进一步细化。; answer: 在法律背景下，合同到期后，双方应就续包条件进行协商，若合同中无明确续包价格条款，市场价格可能成为参考依据。原合同条款的明确性和法律义务对于续包或恢复原状的要求也很重要。相关判例可能涉及合同到期后续包条件的协商、市场价格的影响以及合同条款的解释。\nCritic agent mOVS, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key legal issues related to contract renewal and market price considerations. However, it could be improved by explicitly mentioning the need for mutual agreement on new terms and the potential role of mediation or arbitration in resolving disputes. Additionally, referencing specific legal principles or precedents would strengthen the argument.; correct: The answer is correct in its identification of the legal context and issues surrounding contract renewal and market price considerations.\nCoT agent T0kU, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的续包价格和市场价格的合理性。法律上，合同到期后，双方应协商续包条件，若无明确条款，市场价格可能成为参考依据。原合同条款的明确性和法律义务对于续包或恢复原状的要求也很重要。相关判例可能涉及合同到期后续包条件的协商、市场价格的影响以及合同条款的解释。虽然之前的回答已经涵盖了这些要点，但可以通过引用具体的法律原则或判例来加强论证。然而，由于缺乏具体的法律条文或判例信息，无法进一步细化。需要明确的是，双方在合同到期后应就新的条款达成一致，若无法达成一致，可能需要通过调解或仲裁来解决争议。; answer: 在法律背景下，合同到期后，双方应就续包条件进行协商，若合同中无明确续包价格条款，市场价格可能成为参考依据。原合同条款的明确性和法律义务对于续包或恢复原状的要求也很重要。相关判例可能涉及合同到期后续包条件的协商、市场价格的影响以及合同条款的解释。双方在合同到期后应就新的条款达成一致，若无法达成一致，可能需要通过调解或仲裁来解决争议。\nCritic agent mOVS, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key legal issues related to contract renewal and market price considerations. It also appropriately suggests that both parties should negotiate new terms upon contract expiration and that mediation or arbitration may be necessary if an agreement cannot be reached. However, the answer could be improved by explicitly mentioning the importance of the original contract&#39;s terms regarding renewal and the potential role of any existing legal precedents or statutory provisions that might guide the resolution of such disputes.; correct: The answer is correct in its identification of the legal context and the need for negotiation or alternative dispute resolution mechanisms when parties cannot agree on new terms after a contract expires.\nCoT agent T0kU, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的续包价格和市场价格的合理性。法律上，合同到期后，双方应协商续包条件，若无明确条款，市场价格可能成为参考依据。原合同条款的明确性和法律义务对于续包或恢复原状的要求也很重要。相关判例可能涉及合同到期后续包条件的协商、市场价格的影响以及合同条款的解释。双方在合同到期后应就新的条款达成一致，若无法达成一致，可能需要通过调解或仲裁来解决争议。虽然之前的回答已经涵盖了这些要点，但可以通过引用具体的法律原则或判例来加强论证。然而，由于缺乏具体的法律条文或判例信息，无法进一步细化。需要明确的是，双方在合同到期后应就新的条款达成一致，若无法达成一致，可能需要通过调解或仲裁来解决争议。; answer: 在法律背景下，合同到期后，双方应就续包条件进行协商，若合同中无明确续包价格条款，市场价格可能成为参考依据。原合同条款的明确性和法律义务对于续包或恢复原状的要求也很重要。相关判例可能涉及合同到期后续包条件的协商、市场价格的影响以及合同条款的解释。双方在合同到期后应就新的条款达成一致，若无法达成一致，可能需要通过调解或仲裁来解决争议。\nCritic agent mOVS, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key legal issue of negotiating renewal terms after contract expiration and the potential role of market prices. It also mentions the importance of original contract terms and legal obligations. However, it could be improved by explicitly stating that the plaintiff&#39;s demand for increased fees or restoration of the land is contingent on the absence of a new agreement. Additionally, the answer could benefit from a more detailed discussion of potential legal principles or precedents that might apply, even if they are not explicitly cited.; correct: The answer is correct in its general assessment of the legal context and the need for negotiation or alternative dispute resolution if no agreement is reached.\nCoT agent T0kU, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的续包价格和市场价格的合理性。法律上，合同到期后，双方应协商续包条件，若无明确条款，市场价格可能成为参考依据。原合同条款的明确性和法律义务对于续包或恢复原状的要求也很重要。相关判例可能涉及合同到期后续包条件的协商、市场价格的影响以及合同条款的解释。双方在合同到期后应就新的条款达成一致，若无法达成一致，可能需要通过调解或仲裁来解决争议。原告要求增加费用或恢复土地的要求取决于是否达成新的协议。虽然缺乏具体的法律条文或判例信息，但可以通过引用具体的法律原则或判例来加强论证。; answer: 在法律背景下，合同到期后，双方应就续包条件进行协商，若合同中无明确续包价格条款，市场价格可能成为参考依据。原合同条款的明确性和法律义务对于续包或恢复原状的要求也很重要。相关判例可能涉及合同到期后续包条件的协商、市场价格的影响以及合同条款的解释。双方在合同到期后应就新的条款达成一致，若无法达成一致，可能需要通过调解或仲裁来解决争议。原告要求增加费用或恢复土地的要求取决于是否达成新的协议。\nCoT agent MxCT, on the purpose of generating final judgment, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的续包价格和市场价格的合理性。原告要求被告恢复林地原状或按新的市场价格缴纳承包费，而被告坚持按照原合同的价格续包。合同到期后，双方应协商续包条件，若无明确条款，市场价格可能成为参考依据。由于双方未能达成一致，法院需要根据现有证据和法律原则作出裁决。; answer: 根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#34;]
+
+final_response: [&#39;在分析原告和被告的陈述及证据后，关键问题在于合同到期后的续包价格和市场价格的合理性。原告要求被告恢复林地原状或按新的市场价格缴纳承包费，而被告坚持按照原合同的价格续包。合同到期后，双方应协商续包条件，若无明确条款，市场价格可能成为参考依据。由于双方未能达成一致，法院需要根据现有证据和法律原则作出裁决。\n\nAnswer:根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;]
+
+memory: [{&#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}]</pre>
+    </div>
+</div>
+
+
+<div class="message user">
+    <div class="role">
+    user
+    
+    </div>
+    <div class="content">
+    <pre>Round 1: The entries (code, thoughts, agents, reflection, etc.) have been updated since last round (Round 0). Now Using insights from previous rounds, reflect again on the new outputs after round 0.
+
+&#34;
+Carefully review the proposed new architectures (&#34;code&#34; entry), the answer of each sub-tasks (&#34;sub_tasks&#34; entry) , the answer of each agnets (&#34;agents&#34; entry), the final response (&#34;final_reponse&#34; entry) and the fitness (&#34;fitness&#34; entry, i.e., the median and 95% Bootstrap Confidence Interval of the correct rate on the given question), and the &#39;memory&#39; (previous final answer extracted from their reponse and the corresponding fitness score, in the format of a list of dictionary final answer: fitness) in all the history user and assistant answers. Reflect on the following points:&#34;
+
+1. **Solvable**: Assess whether all sub-tasks are solvable by the corresponidng block via checking the output answer of each sub-task. 
+
+- if the answer of the sub-task explicitly contain [TOO_HARD]. This clearly state that task is too hard, what need to be further decomposed. Consider the suggestion given after the [TOO_HARD] (you can see the &#39;Suggestions:&#39; next to the [TOO_HARD] )and improve your decomposison accrodingly. See below (a) for what need to be make sure
+
+- If the sub-task answr is incoorect. That means it is not solvable, what need to be improved. It may beuase 
+
+(a) the task is still too difficult for the block, then the sub-task need to be further decomposed. 
+
+When proposing new sub-task, make sure 
+(i) it is specific and detailed enough to solve and to help achieve the final answer to the given question.
+(ii) all information required to answer the question is proveded by the previous answers or the instruction. 
+(iii) the related sub-tasks thinking and answers have correctly input to the current sub-task by adding it to the taskInfo list when calling the agent. 
+(iv) The output should be helpful to solve the next sub-task. Also make sure the sub-task connection is clearly by clealy state &#39;Based on the output of sub-task i..&#39; in the sub-task instruction
+
+(b) some agnets in the block is malfunctional or the underlying LLM is too weak to solve the sub-task alone. This can be detemined by checking the agents output to decide whether it works as expected. If this is the case, then we need to get rid of the block and use another block in the architecture. There are then two possibilities
+    (i) the agent in the block is not optimal to solve the sub-task, setting needed to be improved (instruction, tempreture...)
+    (ii) the agent architecutre in the block is not optimal, a new block that combine exisitng blocks in a different way or different settings need to be proposed
+Please jutify it is (a), the decomposition issue or (b) (and (i) or (ii)), the block and agent issue. It could also be both.
+
+2. **Completeness**: Are the sub-tasks include all neccessay information from the irginal query that can ensure the aggregation of sub-task responses can effectively yild a comprehensive answer to the user query? Note that while a sub-task might include only part of the neccessary information, it is not allowable for any particular piece of critical information to be omitted from all sub-tasks. Make sure the sub-task are connected to the prerequisite sub-tasks so that there is enough information to solve it.
+
+3. **Fitness**: Your final goal is to optimize the fitness score after updating the architectures and/or task decomposision based on (1) and (2). The fitness is computed based on the final reponse. If it is low, it indicates that your final answer is incorrect. In your updated architecture or task decomposition, you need to make sure they will update your final response accordingly. 
+
+And then, you need to improve or revise the implementation, or implement the new proposed architecture based on the reflection.
+
+Your response should add new entries to the previous answers:
+
+&#34;reflection&#34;: 
+(1) Provide your thoughts on the Solvable, Completeness and Fitness of the architecture and/or task decomposision (which sub-tasks are incorrect? which agent in which block are malfunctional?)
+(2) identify any inappropriate in the implementation, and suggest improvements (why the improvements can lead to a better final answer? Expain in detail)
+
+&#34;thought&#34;: Revise your previous proposal or propose a new architecture if necessary, using the same format as the example response. 
+
+For case (a), Give the 
+
+(1) **Further Decomposion**: Compre to your previous decomposition attemps in the Discovered architecture archive (see the &#39;thought&#39; entries), how do you futher decompose the questions? please give details by the following format: &#39;last sub-task 1 -&gt; (further decompose to) new sub-task 2, new sub-task 3..., new sub-task n)&#39; Give detail compare and justify how the new sub-tasks are eaiser than the old one. Do not give answer or short-cut (an example for shot-cut: &#39;output exactly the following:..&#39;, which is not allowed) in the sub-task instruction in any format, but only do the planing. Justify (1) why the new sub-tasks are sovlable and (2) how the sub-tasks can achieve the final answer to the original question.
+
+
+For case (b), Give the 
+
+(2) **Improved subtask architeture**: Compare to your last block attemps in the history (last answer), which sub-task architecture need to be imrpoved? How do you futher connecting them in a different ways so that the resultsing subtask architeture is able to solve the corresponding sub-task? please give details by the following format: &#39;last sub-task architeture (what architecute was it?) (aims to address sub-task i)-&gt; (improve to) new sub-task architeture (what is the main difference?)&#39; Give detail compare and justify how the new connection is improved than the old one. Note that the new connection still follow the rules that you need need to determine the number of layers as well as the connection, but do not propose new blocks or modify existing ones in the sub-task architecture, and just changes the connection among the block, but block setting like instruction, tempreture are allowed to modify
+
+For case where the final response is not updated and still the same mistaken answer, Give the
+
+(3) **Updated Subtask Instruction**. Read the &#39;memeory&#39; entry, improve the sub-task instruction so that it can know explicitly that some answers should be avoided. For example, you can add `It is known that (wrong answers, include all wrong answers from the &#39;memeory&#39;, i.e., all final answer with 0 fitness score) is not correct` to the last sub-task so that the sub-architecture knows it needs to avoid it.
+
+
+&#34;name&#34;: Provide a name for the revised or new architecture. (Don&#39;t put words like &#34;new&#34; or &#34;improved&#34; in the name.)
+
+&#34;code&#34;: Update the code entry based on your reflection and thought. Make sure you actually implement all the improvements mentioned in the reflection and thougths and improvement in this code. Make sure only return the final answer, i.e., the output of self.make_final_answer. All the requirement on code still valid: You must write a COMPLETE CODE in &#34;code&#34;: Your code will be part of the entire project (so do not implement any other part), so please implement complete, reliable, reusable code snippets. Do not make any syntactic mistakes. For example. 
+if single quote (&#39;) is used in string, then double quote (&#34;) should be used for the whole string.
+
+This is WRONG
+`f&#39;CoT-SC agent ABC, on the purpose of determining changes to Maxwell&#39;s&#39;`. 
+This is wrong becuse single qupte is used (Maxwell&#39;s) within the sting but single quote is used again for the f-string (f&#39;&#39;). This will casue unterminated string error. To correct it, one should use double quote for f-stirng, i.e., `f&#34;CoT-SC agent ABC, on the purpose of determining changes to Maxwell&#39;s&#34;`
+</pre>
+    </div>
+</div>
+
+
+<div class="message assistant">
+    <div class="role">
+    assistant
+    
+    </div>
+    <div class="content">
+    <pre>reflection: 
+(1) **Solvable**: Upon reviewing the sub-tasks, it appears that the sub-tasks are generally solvable by the corresponding blocks, but the final response indicates an incorrect judgment. The sub-task outputs do not explicitly contain [TOO_HARD], so the issue is likely not with decomposition but with the reasoning or synthesis in the final step. The individual sub-tasks seem to be handled correctly, but the final judgment does not align with the expected legal reasoning, suggesting that the synthesis of the sub-tasks into a final decision is flawed.
+
+(2) **Completeness**: The sub-tasks include necessary information from the original query, and the connections between them ensure that the outputs from one are used in the next. However, the final synthesis might be missing some key legal reasoning or context that would lead to a correct judgment.
+
+(3) **Fitness**: The fitness score is low, indicating that the final response is not correct. The final judgment does not adequately address the legal principles or provide a satisfactory resolution to the dispute. The architecture needs to ensure that the legal context and reasoning are correctly applied to generate a valid judgment.
+
+**Improvements**: The architecture needs to improve the synthesis of the sub-task outputs into a coherent final judgment. This can be achieved by refining the final sub-task to ensure that it considers all relevant legal principles and avoids previously incorrect conclusions. Adding explicit instructions to avoid known incorrect answers could help guide the final judgment process.
+
+thought: 
+**Updated Subtask Instruction**:
+
+To improve the final judgment and avoid previous mistakes, I will update the final sub-task instruction to explicitly instruct the model to avoid known incorrect conclusions. This will help guide the synthesis of the sub-task outputs into a correct judgment.
+
+Sub-task 4: Generate Final Judgment
+- Instruction: Based on the output of sub-task 1, 2, and 3, generate a final judgment, including reasoning and any compensation or actions mandated. It is known that &#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39; is not correct. Ensure that the judgment aligns with legal principles and provides a clear resolution to the dispute.
+
+This updated instruction should help the architecture produce a more accurate final response by explicitly avoiding previous incorrect answers.
+
+name: Legal Judgment Architecture with Guidance
+
+code: async def forward(self, taskInfo, extra_info):
+    from collections import Counter
+    sub_tasks = []
+    agents = []
+    
+    # Sub-task 1: Analyze the Plaintiff&#39;s Claims
+    cot_instruction_1 = &#34;Sub-task 1: Analyze the plaintiff&#39;s claims and evidence. Summarize the key points and assess the strength of their case.&#34;
+    cot_agent_1 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking1, answer1 = await cot_agent_1([taskInfo], extra_info, cot_instruction_1, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_1.id}, on the purpose of analyzing plaintiff claims, thinking: {thinking1.content}; answer: {answer1.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 1 output: thinking - {thinking1.content}; answer - {answer1.content}&#34;)
+
+    # Sub-task 2: Analyze the Defendant&#39;s Defense
+    cot_instruction_2 = &#34;Sub-task 2: Based on the output of sub-task 1, analyze the defendant&#39;s defense and evidence. Summarize the key points and assess the strength of their case.&#34;
+    cot_agent_2 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking2, answer2 = await cot_agent_2([taskInfo, thinking1, answer1], extra_info, cot_instruction_2, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_2.id}, on the purpose of analyzing defendant defense, thinking: {thinking2.content}; answer: {answer2.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 2 output: thinking - {thinking2.content}; answer - {answer2.content}&#34;)
+
+    # Sub-task 3: Evaluate Legal Context and Precedents
+    cot_initial_instruction_3 = &#34;Sub-task 3: Based on the output of sub-task 1 and 2, evaluate the legal context and any relevant precedents.&#34;
+    cot_reflect_instruction_3 = &#34;Sub-task 3: Based on previous attempts and feedback, refine the evaluation of legal context and precedents.&#34;
+    cot_agent_3 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    critic_instruction_3 = &#34;Sub-task 3: Review the answer above and provide feedback on any errors or omissions.&#34;
+    critic_agent_3 = LLMAgentBase([&#39;feedback&#39;, &#39;correct&#39;], &#39;Critic Agent&#39;, model=self.node_model, temperature=0.0)
+    N_max_3 = self.max_round
+    cot_inputs_3 = [taskInfo, thinking1, answer1, thinking2, answer2]
+    thinking3, answer3 = await cot_agent_3(cot_inputs_3, extra_info, cot_initial_instruction_3, 0, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_3.id}, on the purpose of evaluating legal context, thinking: {thinking3.content}; answer: {answer3.content}&#34;)
+
+    for i in range(N_max_3):
+        feedback3, correct3 = await critic_agent_3([taskInfo, thinking3, answer3], extra_info, critic_instruction_3, i, is_sub_task=True)
+        agents.append(f&#34;Critic agent {critic_agent_3.id}, on the purpose of reviewing legal context evaluation, feedback: {feedback3.content}; correct: {correct3.content}&#34;)
+        if correct3.content == &#39;True&#39;:
+            break
+        cot_inputs_3.extend([thinking3, answer3, feedback3])
+        thinking3, answer3 = await cot_agent_3(cot_inputs_3, extra_info, cot_reflect_instruction_3, i + 1, is_sub_task=True)
+        agents.append(f&#34;CoT agent {cot_agent_3.id}, on the purpose of refining legal context evaluation, thinking: {thinking3.content}; answer: {answer3.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 3 output: thinking - {thinking3.content}; answer - {answer3.content}&#34;)
+
+    # Sub-task 4: Generate Final Judgment
+    cot_instruction_4 = &#34;Sub-task 4: Based on the output of sub-task 1, 2, and 3, generate a final judgment, including reasoning and any compensation or actions mandated. It is known that &#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39; is not correct. Ensure that the judgment aligns with legal principles and provides a clear resolution to the dispute.&#34;
+    cot_agent_4 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking4, answer4 = await cot_agent_4([taskInfo, thinking1, answer1, thinking2, answer2, thinking3, answer3], extra_info, cot_instruction_4, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_4.id}, on the purpose of generating final judgment, thinking: {thinking4.content}; answer: {answer4.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 4 output: thinking - {thinking4.content}; answer - {answer4.content}&#34;)
+
+    final_answer = self.make_final_answer(thinking4, answer4, sub_tasks, agents)
+    return final_answer
+
+
+acc: [0.0]
+
+fitness: 95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%
+
+generation: 2
+
+total_cost: 0.30117250000000007
+
+sub_tasks: [None]
+
+agents: [&#34;CoT agent LZil, on the purpose of analyzing plaintiff claims, thinking: 原告的主要诉求是要求被告孙某在承包合同到期后将林地恢复原状，或者按照新的市场价格缴纳承包费。原告提供的证据包括2008年村民代表大会记录、2008年签订的林地转让承包合同以及2024年股东代表会议记录，这些证据没有争议，表明原告的主张有一定的事实基础。原告的案件强度在于其证据的无争议性和合同到期的事实，但需要进一步分析合同条款和市场价格的合理性。; answer: 原告的关键点在于合同到期后要求恢复原状或提高承包费。证据显示合同到期的事实，但需进一步分析市场价格合理性。\nCoT agent 4xEw, on the purpose of analyzing defendant defense, thinking: 被告孙某的主要抗辩是要求按照原先的承包合同执行，并且续包的价格应为每亩每年50.00元。被告提供的证据是2008年签订的《林地转让承包合同》，该证据与原告提供的证据一致且无争议。被告的抗辩重点在于合同的延续性和价格的稳定性。被告的案件强度在于合同的存在和无争议性，但需要进一步分析合同条款中是否有关于续包价格的明确规定，以及市场价格的变化是否合理影响续包价格。; answer: 被告的关键点在于合同的延续性和价格稳定性。证据显示合同存在且无争议，但需分析续包价格条款和市场价格变化的合理性。\nCoT agent 7ARa, on the purpose of evaluating legal context, thinking: 在分析原告和被告的主张及证据后，需要考虑法律背景和相关判例。物权纠纷中，合同的有效性和条款的明确性是关键。根据合同法，合同到期后，若无续约条款，承包方应按合同约定恢复原状或协商续约。市场价格的变化可能影响续约价格，但需有明确的合同条款或双方协商一致。相关判例中，法院通常会考虑合同条款的明确性、市场价格的合理性以及双方的协商情况。; answer: 在本案中，合同到期后，若无明确的续约条款，原告要求恢复原状或按市场价格续约是合理的。但被告若能证明合同中有续约价格的明确规定，或市场价格变化不合理，则其抗辩可能成立。法院需综合考虑合同条款、市场价格变化及双方协商情况。\nCritic agent 845V, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key legal issues in the case, such as the importance of contract terms and the impact of market price changes. It also appropriately considers the need for clear renewal terms or mutual agreement for renewal. However, it could have further elaborated on the specific legal principles or statutes that apply to such cases, such as specific articles from the Contract Law of the People&#39;s Republic of China. Additionally, it could have mentioned the potential role of good faith in contract negotiations and renewals.; correct: The answer is correct in its analysis of the legal context and the factors that the court would consider, such as the clarity of contract terms, market price changes, and the parties&#39; negotiations.\nCoT agent 7ARa, on the purpose of refining legal context evaluation, thinking: 在物权纠纷中，合同的有效性和条款的明确性是关键。根据《中华人民共和国合同法》，合同到期后，若无续约条款，承包方应按合同约定恢复原状或协商续约。市场价格的变化可能影响续约价格，但需有明确的合同条款或双方协商一致。相关判例中，法院通常会考虑合同条款的明确性、市场价格的合理性以及双方的协商情况。需要进一步考虑《合同法》中关于合同续约和价格调整的具体条款，以及诚信原则在合同谈判和续约中的作用。; answer: 在本案中，合同到期后，若无明确的续约条款，原告要求恢复原状或按市场价格续约是合理的。但被告若能证明合同中有续约价格的明确规定，或市场价格变化不合理，则其抗辩可能成立。法院需综合考虑合同条款、市场价格变化及双方协商情况，并依据《中华人民共和国合同法》的相关条款进行裁决。\nCritic agent 845V, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key issues in the case, such as the importance of contract terms and market price changes. However, it could be improved by explicitly referencing specific articles from the Contract Law that apply to contract renewal and price adjustments. Additionally, the answer should consider the role of good faith in negotiations more explicitly.; correct: The answer is correct in its analysis of the situation, considering the lack of a renewal clause and the reasonableness of market price adjustments. It appropriately suggests that the court should consider the contract terms, market changes, and negotiations.\nCoT agent 7ARa, on the purpose of refining legal context evaluation, thinking: 在物权纠纷中，合同的有效性和条款的明确性是关键。根据《中华人民共和国合同法》，合同到期后，若无续约条款，承包方应按合同约定恢复原状或协商续约。市场价格的变化可能影响续约价格，但需有明确的合同条款或双方协商一致。相关判例中，法院通常会考虑合同条款的明确性、市场价格的合理性以及双方的协商情况。需要进一步考虑《合同法》中关于合同续约和价格调整的具体条款，以及诚信原则在合同谈判和续约中的作用。具体来说，《合同法》第六十条规定合同当事人应当按照约定全面履行自己的义务，并且应当遵循诚实信用原则。第七十七条规定合同变更应当由双方协商一致。第七十九条规定合同解除后，尚未履行的，终止履行；已经履行的，根据履行情况和合同性质，合理确定恢复原状、赔偿损失等补救措施。因此，在本案中，法院需综合考虑合同条款、市场价格变化及双方协商情况，并依据《中华人民共和国合同法》的相关条款进行裁决。; answer: 在本案中，合同到期后，若无明确的续约条款，原告要求恢复原状或按市场价格续约是合理的。但被告若能证明合同中有续约价格的明确规定，或市场价格变化不合理，则其抗辩可能成立。法院需综合考虑合同条款、市场价格变化及双方协商情况，并依据《中华人民共和国合同法》的相关条款进行裁决。\nCritic agent 845V, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key legal principles involved in the case, such as the importance of contract terms, market price changes, and the need for mutual agreement for contract renewal. It also appropriately references relevant articles from the Contract Law of the People&#39;s Republic of China. However, it could be improved by explicitly stating that the court should also consider the evidence presented by both parties, as this is crucial in determining the facts of the case.; correct: The answer is correct in its legal analysis and application of the Contract Law to the case at hand.\nCoT agent 7ARa, on the purpose of refining legal context evaluation, thinking: 在物权纠纷中，合同的有效性和条款的明确性是关键。根据《中华人民共和国合同法》，合同到期后，若无续约条款，承包方应按合同约定恢复原状或协商续约。市场价格的变化可能影响续约价格，但需有明确的合同条款或双方协商一致。相关判例中，法院通常会考虑合同条款的明确性、市场价格的合理性以及双方的协商情况。需要进一步考虑《合同法》中关于合同续约和价格调整的具体条款，以及诚信原则在合同谈判和续约中的作用。具体来说，《合同法》第六十条规定合同当事人应当按照约定全面履行自己的义务，并且应当遵循诚实信用原则。第七十七条规定合同变更应当由双方协商一致。第七十九条规定合同解除后，尚未履行的，终止履行；已经履行的，根据履行情况和合同性质，合理确定恢复原状、赔偿损失等补救措施。因此，在本案中，法院需综合考虑合同条款、市场价格变化及双方协商情况，并依据《中华人民共和国合同法》的相关条款进行裁决。同时，法院还应考虑双方提供的证据，以确定案件事实。; answer: 在本案中，合同到期后，若无明确的续约条款，原告要求恢复原状或按市场价格续约是合理的。但被告若能证明合同中有续约价格的明确规定，或市场价格变化不合理，则其抗辩可能成立。法院需综合考虑合同条款、市场价格变化及双方协商情况，并依据《中华人民共和国合同法》的相关条款进行裁决。同时，法院还应考虑双方提供的证据，以确定案件事实。\nCritic agent 845V, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key legal principles involved in the case, such as the importance of contract terms, market price changes, and the need for mutual agreement for contract renewal. It also appropriately references relevant articles from the Contract Law of the People&#39;s Republic of China. However, it could be improved by explicitly addressing the specific evidence presented by both parties and how it might influence the court&#39;s decision. Additionally, the answer could benefit from a more detailed analysis of how the principles of good faith and fairness apply in this context.; correct: The answer is generally correct in its legal analysis and application of the Contract Law, but it could be more comprehensive in considering the specific evidence and its impact on the case.\nCoT agent 7ARa, on the purpose of refining legal context evaluation, thinking: 在物权纠纷中，合同的有效性和条款的明确性是关键。根据《中华人民共和国合同法》，合同到期后，若无续约条款，承包方应按合同约定恢复原状或协商续约。市场价格的变化可能影响续约价格，但需有明确的合同条款或双方协商一致。相关判例中，法院通常会考虑合同条款的明确性、市场价格的合理性以及双方的协商情况。需要进一步考虑《合同法》中关于合同续约和价格调整的具体条款，以及诚信原则在合同谈判和续约中的作用。具体来说，《合同法》第六十条规定合同当事人应当按照约定全面履行自己的义务，并且应当遵循诚实信用原则。第七十七条规定合同变更应当由双方协商一致。第七十九条规定合同解除后，尚未履行的，终止履行；已经履行的，根据履行情况和合同性质，合理确定恢复原状、赔偿损失等补救措施。因此，在本案中，法院需综合考虑合同条款、市场价格变化及双方协商情况，并依据《中华人民共和国合同法》的相关条款进行裁决。同时，法院还应考虑双方提供的证据，以确定案件事实。具体证据如2008年签订的《林地转让承包合同》及相关会议记录，均无争议，表明合同到期的事实。法院需评估这些证据对合同续约条款的影响，以及市场价格变化的合理性。诚信原则和公平原则在合同续约谈判中也应被考虑，以确保双方的合法权益得到保护。; answer: 在本案中，合同到期后，若无明确的续约条款，原告要求恢复原状或按市场价格续约是合理的。但被告若能证明合同中有续约价格的明确规定，或市场价格变化不合理，则其抗辩可能成立。法院需综合考虑合同条款、市场价格变化及双方协商情况，并依据《中华人民共和国合同法》的相关条款进行裁决。同时，法院还应考虑双方提供的证据，以确定案件事实。具体证据如2008年签订的《林地转让承包合同》及相关会议记录，均无争议，表明合同到期的事实。法院需评估这些证据对合同续约条款的影响，以及市场价格变化的合理性。诚信原则和公平原则在合同续约谈判中也应被考虑，以确保双方的合法权益得到保护。\nCritic agent 845V, on the purpose of reviewing legal context evaluation, feedback: The answer provides a comprehensive evaluation of the legal context and precedents relevant to the case. It correctly identifies the importance of contract terms, market price changes, and the need for mutual agreement in contract renewal. The answer also appropriately references relevant articles from the Contract Law of the People&#39;s Republic of China, such as Articles 60, 77, and 79, which are pertinent to the case. Additionally, it emphasizes the importance of good faith and fairness principles in contract negotiations. However, the answer could be improved by explicitly addressing the specific claims and defenses presented by the plaintiff and defendant, such as the plaintiff&#39;s claim for restoration of the land or payment of a higher fee, and the defendant&#39;s claim for a lower renewal fee based on the original contract. This would provide a more direct connection between the legal analysis and the specific facts of the case.; correct: The answer is correct in its legal analysis and application of relevant legal principles to the case.\nCoT agent 7ARa, on the purpose of refining legal context evaluation, thinking: 在物权纠纷中，合同的有效性和条款的明确性是关键。根据《中华人民共和国合同法》，合同到期后，若无续约条款，承包方应按合同约定恢复原状或协商续约。市场价格的变化可能影响续约价格，但需有明确的合同条款或双方协商一致。相关判例中，法院通常会考虑合同条款的明确性、市场价格的合理性以及双方的协商情况。需要进一步考虑《合同法》中关于合同续约和价格调整的具体条款，以及诚信原则在合同谈判和续约中的作用。具体来说，《合同法》第六十条规定合同当事人应当按照约定全面履行自己的义务，并且应当遵循诚实信用原则。第七十七条规定合同变更应当由双方协商一致。第七十九条规定合同解除后，尚未履行的，终止履行；已经履行的，根据履行情况和合同性质，合理确定恢复原状、赔偿损失等补救措施。因此，在本案中，法院需综合考虑合同条款、市场价格变化及双方协商情况，并依据《中华人民共和国合同法》的相关条款进行裁决。同时，法院还应考虑双方提供的证据，以确定案件事实。具体证据如2008年签订的《林地转让承包合同》及相关会议记录，均无争议，表明合同到期的事实。法院需评估这些证据对合同续约条款的影响，以及市场价格变化的合理性。诚信原则和公平原则在合同续约谈判中也应被考虑，以确保双方的合法权益得到保护。原告要求恢复原状或按市场价格续约是合理的，但被告若能证明合同中有续约价格的明确规定，或市场价格变化不合理，则其抗辩可能成立。; answer: 在本案中，合同到期后，若无明确的续约条款，原告要求恢复原状或按市场价格续约是合理的。但被告若能证明合同中有续约价格的明确规定，或市场价格变化不合理，则其抗辩可能成立。法院需综合考虑合同条款、市场价格变化及双方协商情况，并依据《中华人民共和国合同法》的相关条款进行裁决。同时，法院还应考虑双方提供的证据，以确定案件事实。具体证据如2008年签订的《林地转让承包合同》及相关会议记录，均无争议，表明合同到期的事实。法院需评估这些证据对合同续约条款的影响，以及市场价格变化的合理性。诚信原则和公平原则在合同续约谈判中也应被考虑，以确保双方的合法权益得到保护。\nCoT agent 5Cuu, on the purpose of generating final judgment, thinking: 在本案中，合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。被告主张按照原合同价格续包，但合同中并无明确续包价格条款，且市场价格变化是合理的考量因素。根据《中华人民共和国合同法》，合同变更应由双方协商一致，且应遵循诚实信用原则。法院认为，双方应在合同到期后进行协商，若无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。; answer: 根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。被告主张按照原合同价格续包，但合同中并无明确续包价格条款，且市场价格变化是合理的考量因素。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#34;]
+
+final_response: [&#39;在本案中，合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。被告主张按照原合同价格续包，但合同中并无明确续包价格条款，且市场价格变化是合理的考量因素。根据《中华人民共和国合同法》，合同变更应由双方协商一致，且应遵循诚实信用原则。法院认为，双方应在合同到期后进行协商，若无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。\n\nAnswer:根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。被告主张按照原合同价格续包，但合同中并无明确续包价格条款，且市场价格变化是合理的考量因素。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;]
+
+memory: [{&#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}, {&#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。被告主张按照原合同价格续包，但合同中并无明确续包价格条款，且市场价格变化是合理的考量因素。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}]</pre>
+    </div>
+</div>
+
+
+<div class="message user">
+    <div class="role">
+    user
+    
+    </div>
+    <div class="content">
+    <pre>Round 2: The entries (code, thoughts, agents, reflection, etc.) have been updated since last round (Round 1). Now Using insights from previous rounds, reflect again on the new outputs after round 1.
+
+&#34;
+Carefully review the proposed new architectures (&#34;code&#34; entry), the answer of each sub-tasks (&#34;sub_tasks&#34; entry) , the answer of each agnets (&#34;agents&#34; entry), the final response (&#34;final_reponse&#34; entry) and the fitness (&#34;fitness&#34; entry, i.e., the median and 95% Bootstrap Confidence Interval of the correct rate on the given question), and the &#39;memory&#39; (previous final answer extracted from their reponse and the corresponding fitness score, in the format of a list of dictionary final answer: fitness) in all the history user and assistant answers. Reflect on the following points:&#34;
+
+1. **Solvable**: Assess whether all sub-tasks are solvable by the corresponidng block via checking the output answer of each sub-task. 
+
+- if the answer of the sub-task explicitly contain [TOO_HARD]. This clearly state that task is too hard, what need to be further decomposed. Consider the suggestion given after the [TOO_HARD] (you can see the &#39;Suggestions:&#39; next to the [TOO_HARD] )and improve your decomposison accrodingly. See below (a) for what need to be make sure
+
+- If the sub-task answr is incoorect. That means it is not solvable, what need to be improved. It may beuase 
+
+(a) the task is still too difficult for the block, then the sub-task need to be further decomposed. 
+
+When proposing new sub-task, make sure 
+(i) it is specific and detailed enough to solve and to help achieve the final answer to the given question.
+(ii) all information required to answer the question is proveded by the previous answers or the instruction. 
+(iii) the related sub-tasks thinking and answers have correctly input to the current sub-task by adding it to the taskInfo list when calling the agent. 
+(iv) The output should be helpful to solve the next sub-task. Also make sure the sub-task connection is clearly by clealy state &#39;Based on the output of sub-task i..&#39; in the sub-task instruction
+
+(b) some agnets in the block is malfunctional or the underlying LLM is too weak to solve the sub-task alone. This can be detemined by checking the agents output to decide whether it works as expected. If this is the case, then we need to get rid of the block and use another block in the architecture. There are then two possibilities
+    (i) the agent in the block is not optimal to solve the sub-task, setting needed to be improved (instruction, tempreture...)
+    (ii) the agent architecutre in the block is not optimal, a new block that combine exisitng blocks in a different way or different settings need to be proposed
+Please jutify it is (a), the decomposition issue or (b) (and (i) or (ii)), the block and agent issue. It could also be both.
+
+2. **Completeness**: Are the sub-tasks include all neccessay information from the irginal query that can ensure the aggregation of sub-task responses can effectively yild a comprehensive answer to the user query? Note that while a sub-task might include only part of the neccessary information, it is not allowable for any particular piece of critical information to be omitted from all sub-tasks. Make sure the sub-task are connected to the prerequisite sub-tasks so that there is enough information to solve it.
+
+3. **Fitness**: Your final goal is to optimize the fitness score after updating the architectures and/or task decomposision based on (1) and (2). The fitness is computed based on the final reponse. If it is low, it indicates that your final answer is incorrect. In your updated architecture or task decomposition, you need to make sure they will update your final response accordingly. 
+
+And then, you need to improve or revise the implementation, or implement the new proposed architecture based on the reflection.
+
+Your response should add new entries to the previous answers:
+
+&#34;reflection&#34;: 
+(1) Provide your thoughts on the Solvable, Completeness and Fitness of the architecture and/or task decomposision (which sub-tasks are incorrect? which agent in which block are malfunctional?)
+(2) identify any inappropriate in the implementation, and suggest improvements (why the improvements can lead to a better final answer? Expain in detail)
+
+&#34;thought&#34;: Revise your previous proposal or propose a new architecture if necessary, using the same format as the example response. 
+
+For case (a), Give the 
+
+(1) **Further Decomposion**: Compre to your previous decomposition attemps in the Discovered architecture archive (see the &#39;thought&#39; entries), how do you futher decompose the questions? please give details by the following format: &#39;last sub-task 1 -&gt; (further decompose to) new sub-task 2, new sub-task 3..., new sub-task n)&#39; Give detail compare and justify how the new sub-tasks are eaiser than the old one. Do not give answer or short-cut (an example for shot-cut: &#39;output exactly the following:..&#39;, which is not allowed) in the sub-task instruction in any format, but only do the planing. Justify (1) why the new sub-tasks are sovlable and (2) how the sub-tasks can achieve the final answer to the original question.
+
+
+For case (b), Give the 
+
+(2) **Improved subtask architeture**: Compare to your last block attemps in the history (last answer), which sub-task architecture need to be imrpoved? How do you futher connecting them in a different ways so that the resultsing subtask architeture is able to solve the corresponding sub-task? please give details by the following format: &#39;last sub-task architeture (what architecute was it?) (aims to address sub-task i)-&gt; (improve to) new sub-task architeture (what is the main difference?)&#39; Give detail compare and justify how the new connection is improved than the old one. Note that the new connection still follow the rules that you need need to determine the number of layers as well as the connection, but do not propose new blocks or modify existing ones in the sub-task architecture, and just changes the connection among the block, but block setting like instruction, tempreture are allowed to modify
+
+For case where the final response is not updated and still the same mistaken answer, Give the
+
+(3) **Updated Subtask Instruction**. Read the &#39;memeory&#39; entry, improve the sub-task instruction so that it can know explicitly that some answers should be avoided. For example, you can add `It is known that (wrong answers, include all wrong answers from the &#39;memeory&#39;, i.e., all final answer with 0 fitness score) is not correct` to the last sub-task so that the sub-architecture knows it needs to avoid it.
+
+
+&#34;name&#34;: Provide a name for the revised or new architecture. (Don&#39;t put words like &#34;new&#34; or &#34;improved&#34; in the name.)
+
+&#34;code&#34;: Update the code entry based on your reflection and thought. Make sure you actually implement all the improvements mentioned in the reflection and thougths and improvement in this code. Make sure only return the final answer, i.e., the output of self.make_final_answer. All the requirement on code still valid: You must write a COMPLETE CODE in &#34;code&#34;: Your code will be part of the entire project (so do not implement any other part), so please implement complete, reliable, reusable code snippets. Do not make any syntactic mistakes. For example. 
+if single quote (&#39;) is used in string, then double quote (&#34;) should be used for the whole string.
+
+This is WRONG
+`f&#39;CoT-SC agent ABC, on the purpose of determining changes to Maxwell&#39;s&#39;`. 
+This is wrong becuse single qupte is used (Maxwell&#39;s) within the sting but single quote is used again for the f-string (f&#39;&#39;). This will casue unterminated string error. To correct it, one should use double quote for f-stirng, i.e., `f&#34;CoT-SC agent ABC, on the purpose of determining changes to Maxwell&#39;s&#34;`
+</pre>
+    </div>
+</div>
+
+
+<div class="message assistant">
+    <div class="role">
+    assistant
+    
+    </div>
+    <div class="content">
+    <pre>reflection: 
+(1) **Solvable**: Upon reviewing the sub-tasks and their outputs, it seems that the tasks are generally solvable by the corresponding blocks. However, the final response still does not align with the expected judgment, indicating that the synthesis of sub-task outputs into the final decision is flawed. The sub-tasks themselves seem to be handled correctly, but the transition to the final judgment needs improvement.
+
+(2) **Completeness**: The sub-tasks include necessary information from the original query, and the connections between them ensure that the outputs from one are used in the next. However, the final synthesis might be missing some key legal reasoning or context that would lead to a correct judgment.
+
+(3) **Fitness**: The fitness score remains low, indicating that the final response is incorrect. The architecture needs to ensure that the legal context and reasoning are correctly applied to generate a valid judgment. The updates to the sub-task instructions to avoid known incorrect answers did not lead to an improved outcome.
+
+**Improvements**: The architecture needs to improve the synthesis of the sub-task outputs into a coherent final judgment. This can be achieved by refining the final sub-task to ensure that it considers all relevant legal principles and avoids previously incorrect conclusions. Adding explicit instructions to avoid known incorrect answers could help guide the final judgment process.
+
+thought: 
+**Updated Subtask Instruction**:
+
+To improve the final judgment and avoid previous mistakes, I will update the final sub-task instruction to explicitly instruct the model to avoid known incorrect conclusions. This will help guide the synthesis of the sub-task outputs into a correct judgment.
+
+Sub-task 4: Generate Final Judgment
+- Instruction: Based on the output of sub-task 1, 2, and 3, generate a final judgment, including reasoning and any compensation or actions mandated. It is known that &#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39; and &#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。被告主张按照原合同价格续包，但合同中并无明确续包价格条款，且市场价格变化是合理的考量因素。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39; are not correct. Ensure that the judgment aligns with legal principles and provides a clear resolution to the dispute.
+
+This updated instruction should help the architecture produce a more accurate final response by explicitly avoiding previous incorrect answers.
+
+name: Legal Judgment Architecture with Enhanced Guidance
+
+code: async def forward(self, taskInfo, extra_info):
+    from collections import Counter
+    sub_tasks = []
+    agents = []
+    
+    # Sub-task 1: Analyze the Plaintiff&#39;s Claims
+    cot_instruction_1 = &#34;Sub-task 1: Analyze the plaintiff&#39;s claims and evidence. Summarize the key points and assess the strength of their case.&#34;
+    cot_agent_1 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking1, answer1 = await cot_agent_1([taskInfo], extra_info, cot_instruction_1, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_1.id}, on the purpose of analyzing plaintiff claims, thinking: {thinking1.content}; answer: {answer1.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 1 output: thinking - {thinking1.content}; answer - {answer1.content}&#34;)
+
+    # Sub-task 2: Analyze the Defendant&#39;s Defense
+    cot_instruction_2 = &#34;Sub-task 2: Based on the output of sub-task 1, analyze the defendant&#39;s defense and evidence. Summarize the key points and assess the strength of their case.&#34;
+    cot_agent_2 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking2, answer2 = await cot_agent_2([taskInfo, thinking1, answer1], extra_info, cot_instruction_2, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_2.id}, on the purpose of analyzing defendant defense, thinking: {thinking2.content}; answer: {answer2.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 2 output: thinking - {thinking2.content}; answer - {answer2.content}&#34;)
+
+    # Sub-task 3: Evaluate Legal Context and Precedents
+    cot_initial_instruction_3 = &#34;Sub-task 3: Based on the output of sub-task 1 and 2, evaluate the legal context and any relevant precedents.&#34;
+    cot_reflect_instruction_3 = &#34;Sub-task 3: Based on previous attempts and feedback, refine the evaluation of legal context and precedents.&#34;
+    cot_agent_3 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    critic_instruction_3 = &#34;Sub-task 3: Review the answer above and provide feedback on any errors or omissions.&#34;
+    critic_agent_3 = LLMAgentBase([&#39;feedback&#39;, &#39;correct&#39;], &#39;Critic Agent&#39;, model=self.node_model, temperature=0.0)
+    N_max_3 = self.max_round
+    cot_inputs_3 = [taskInfo, thinking1, answer1, thinking2, answer2]
+    thinking3, answer3 = await cot_agent_3(cot_inputs_3, extra_info, cot_initial_instruction_3, 0, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_3.id}, on the purpose of evaluating legal context, thinking: {thinking3.content}; answer: {answer3.content}&#34;)
+
+    for i in range(N_max_3):
+        feedback3, correct3 = await critic_agent_3([taskInfo, thinking3, answer3], extra_info, critic_instruction_3, i, is_sub_task=True)
+        agents.append(f&#34;Critic agent {critic_agent_3.id}, on the purpose of reviewing legal context evaluation, feedback: {feedback3.content}; correct: {correct3.content}&#34;)
+        if correct3.content == &#39;True&#39;:
+            break
+        cot_inputs_3.extend([thinking3, answer3, feedback3])
+        thinking3, answer3 = await cot_agent_3(cot_inputs_3, extra_info, cot_reflect_instruction_3, i + 1, is_sub_task=True)
+        agents.append(f&#34;CoT agent {cot_agent_3.id}, on the purpose of refining legal context evaluation, thinking: {thinking3.content}; answer: {answer3.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 3 output: thinking - {thinking3.content}; answer - {answer3.content}&#34;)
+
+    # Sub-task 4: Generate Final Judgment
+    cot_instruction_4 = (&#34;Sub-task 4: Based on the output of sub-task 1, 2, and 3, generate a final judgment, including reasoning and any compensation or actions mandated. &#34;
+                        &#34;It is known that &#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39; &#34;
+                        &#34;and &#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。被告主张按照原合同价格续包，但合同中并无明确续包价格条款，且市场价格变化是合理的考量因素。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39; are not correct. Ensure that the judgment aligns with legal principles and provides a clear resolution to the dispute.&#34;)
+    cot_agent_4 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking4, answer4 = await cot_agent_4([taskInfo, thinking1, answer1, thinking2, answer2, thinking3, answer3], extra_info, cot_instruction_4, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_4.id}, on the purpose of generating final judgment, thinking: {thinking4.content}; answer: {answer4.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 4 output: thinking - {thinking4.content}; answer - {answer4.content}&#34;)
+
+    final_answer = self.make_final_answer(thinking4, answer4, sub_tasks, agents)
+    return final_answer
+
+
+acc: [0.0]
+
+fitness: 95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%
+
+generation: 3
+
+total_cost: 0.4894975
+
+sub_tasks: [None]
+
+agents: [&#34;CoT agent Qace, on the purpose of analyzing plaintiff claims, thinking: 原告的主要诉求是要求被告孙某在承包合同到期后将林地恢复原状，或者按照新的市场价格缴纳承包费。原告提供的证据包括2008年村民代表大会记录、2008年签订的林地转让承包合同以及2024年股东代表会议记录，这些证据没有争议，表明原告的主张有一定的事实基础。原告的案件强度在于其证据的无争议性和合同到期的事实，但需要进一步分析合同条款和市场价格的合理性。; answer: 原告的关键点在于合同到期后对林地的处置权以及市场价格的调整要求。原告的证据显示合同到期的事实和村民代表大会的决议，但需要进一步分析市场价格调整的合理性和合同条款的具体约定。\nCoT agent 83FJ, on the purpose of analyzing defendant defense, thinking: 被告孙某的主要抗辩是要求按照原先的承包合同执行，续包的价格应为每亩每年50.00元。被告提供的证据是2008年签订的《林地转让承包合同》，该证据与原告提供的证据一致且无争议。被告的抗辩重点在于合同的续约条款和价格的约定。被告的案件强度在于合同的存在和无争议性，但需要进一步分析合同中是否有关于续约价格的明确条款，以及市场价格变化是否影响合同的执行。; answer: 被告的关键点在于合同的续约条款和价格的约定。被告的证据与原告一致且无争议，但需要进一步分析合同中是否有关于续约价格的明确条款，以及市场价格变化是否影响合同的执行。\nCoT agent KJaU, on the purpose of evaluating legal context, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的续约条款和价格调整的合理性。根据合同法的基本原则，合同到期后，双方可以协商续约条款。如果合同中没有明确的续约价格条款，则需要考虑市场价格的变化和双方的合理预期。原告要求按照市场价格调整承包费，而被告坚持原合同价格。法律上，市场价格的变化可以作为调整合同条款的依据，但需要双方协商一致或通过法律程序解决。相关的法律先例可能涉及合同到期后的续约条款解释和市场价格调整的合理性。; answer: 在此类物权纠纷中，法院通常会考虑合同条款的明确性、市场价格的变化以及双方的合理预期。如果合同中没有明确的续约价格条款，法院可能会参考市场价格和双方的协商情况来做出判决。\nCritic agent GCJ8, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key issue of contract renewal terms and price adjustment after the contract expiration. It appropriately references the principles of contract law regarding negotiation of renewal terms and market price considerations. However, it could be improved by explicitly mentioning the need for evidence of market price changes and any legal precedents that might guide the decision.; correct: The answer is correct in its analysis of the legal context and the factors that a court might consider in such a case.\nCoT agent KJaU, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的续约条款和价格调整的合理性。根据合同法的基本原则，合同到期后，双方可以协商续约条款。如果合同中没有明确的续约价格条款，则需要考虑市场价格的变化和双方的合理预期。原告要求按照市场价格调整承包费，而被告坚持原合同价格。法律上，市场价格的变化可以作为调整合同条款的依据，但需要双方协商一致或通过法律程序解决。相关的法律先例可能涉及合同到期后的续约条款解释和市场价格调整的合理性。需要进一步的市场价格变化证据和法律先例来指导判决。; answer: 在此类物权纠纷中，法院通常会考虑合同条款的明确性、市场价格的变化以及双方的合理预期。如果合同中没有明确的续约价格条款，法院可能会参考市场价格和双方的协商情况来做出判决。需要提供市场价格变化的证据和相关法律先例以支持判决。\nCritic agent GCJ8, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key issue of contract renewal terms and price adjustment after the contract expiration. It appropriately references the need for negotiation or legal resolution if the contract does not specify renewal terms. However, it could be improved by explicitly stating that the court may also consider the principle of fairness and reasonableness in determining the new terms, especially if there is a significant change in market conditions. Additionally, the answer could benefit from mentioning the importance of both parties&#39; willingness to negotiate in good faith.; correct: The answer is correct in its analysis of the legal context and the consideration of market price changes and negotiation for contract renewal terms.\nCoT agent KJaU, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的续约条款和价格调整的合理性。根据合同法的基本原则，合同到期后，双方可以协商续约条款。如果合同中没有明确的续约价格条款，则需要考虑市场价格的变化和双方的合理预期。原告要求按照市场价格调整承包费，而被告坚持原合同价格。法律上，市场价格的变化可以作为调整合同条款的依据，但需要双方协商一致或通过法律程序解决。法院在判决时通常会考虑合同条款的明确性、市场价格的变化、双方的合理预期以及公平合理的原则。相关的法律先例可能涉及合同到期后的续约条款解释和市场价格调整的合理性。需要进一步的市场价格变化证据和法律先例来指导判决。此外，法院可能会考虑双方是否有诚意进行协商。; answer: 在此类物权纠纷中，法院通常会考虑合同条款的明确性、市场价格的变化、双方的合理预期以及公平合理的原则。如果合同中没有明确的续约价格条款，法院可能会参考市场价格和双方的协商情况来做出判决。需要提供市场价格变化的证据和相关法律先例以支持判决。法院也会考虑双方是否有诚意进行协商。\nCritic agent GCJ8, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key issues in the case, such as the contract expiration and the need for renegotiation of terms. It also appropriately highlights the importance of market price changes and the need for evidence to support claims. However, it could be improved by explicitly mentioning the specific legal principles or articles that might apply, such as those from the Contract Law of the People&#39;s Republic of China, which governs contract renewals and price adjustments. Additionally, the answer could benefit from a more detailed discussion of potential legal precedents that might guide the court&#39;s decision.; correct: The answer is correct in its general approach to evaluating the legal context and the factors a court might consider in such a dispute. It appropriately suggests that the court will look at the clarity of contract terms, market price changes, and the parties&#39; willingness to negotiate.\nCoT agent KJaU, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的续约条款和价格调整的合理性。根据《中华人民共和国合同法》的基本原则，合同到期后，双方可以协商续约条款。如果合同中没有明确的续约价格条款，则需要考虑市场价格的变化和双方的合理预期。原告要求按照市场价格调整承包费，而被告坚持原合同价格。法律上，市场价格的变化可以作为调整合同条款的依据，但需要双方协商一致或通过法律程序解决。法院在判决时通常会考虑合同条款的明确性、市场价格的变化、双方的合理预期以及公平合理的原则。相关的法律先例可能涉及合同到期后的续约条款解释和市场价格调整的合理性。需要进一步的市场价格变化证据和法律先例来指导判决。此外，法院可能会考虑双方是否有诚意进行协商。具体的法律条款可能包括《合同法》第六十条关于合同履行的原则，以及第七十七条关于合同变更的规定。; answer: 在此类物权纠纷中，法院通常会考虑合同条款的明确性、市场价格的变化、双方的合理预期以及公平合理的原则。如果合同中没有明确的续约价格条款，法院可能会参考市场价格和双方的协商情况来做出判决。需要提供市场价格变化的证据和相关法律先例以支持判决。法院也会考虑双方是否有诚意进行协商。具体的法律条款可能包括《合同法》第六十条关于合同履行的原则，以及第七十七条关于合同变更的规定。\nCritic agent GCJ8, on the purpose of reviewing legal context evaluation, feedback: The answer provides a reasonable evaluation of the legal context and precedents, focusing on the key issues of contract renewal terms and price adjustments. It correctly identifies the need for market price evidence and legal precedents to guide the judgment. However, it could be improved by explicitly mentioning the importance of the original contract terms and any specific clauses related to renewal or price adjustments. Additionally, the answer could benefit from a more detailed discussion of how the court might weigh the evidence presented by both parties.; correct: The answer is correct in its identification of the relevant legal principles and the need for evidence of market price changes. It appropriately references the relevant articles of the Contract Law and considers the factors a court would likely evaluate in such a case.\nCoT agent KJaU, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的续约条款和价格调整的合理性。根据《中华人民共和国合同法》的基本原则，合同到期后，双方可以协商续约条款。如果合同中没有明确的续约价格条款，则需要考虑市场价格的变化和双方的合理预期。原告要求按照市场价格调整承包费，而被告坚持原合同价格。法律上，市场价格的变化可以作为调整合同条款的依据，但需要双方协商一致或通过法律程序解决。法院在判决时通常会考虑合同条款的明确性、市场价格的变化、双方的合理预期以及公平合理的原则。相关的法律先例可能涉及合同到期后的续约条款解释和市场价格调整的合理性。需要进一步的市场价格变化证据和法律先例来指导判决。此外，法院可能会考虑双方是否有诚意进行协商。具体的法律条款可能包括《合同法》第六十条关于合同履行的原则，以及第七十七条关于合同变更的规定。法院还会权衡双方提供的证据，尤其是合同中是否有关于续约或价格调整的具体条款。; answer: 在此类物权纠纷中，法院通常会考虑合同条款的明确性、市场价格的变化、双方的合理预期以及公平合理的原则。如果合同中没有明确的续约价格条款，法院可能会参考市场价格和双方的协商情况来做出判决。需要提供市场价格变化的证据和相关法律先例以支持判决。法院也会考虑双方是否有诚意进行协商。具体的法律条款可能包括《合同法》第六十条关于合同履行的原则，以及第七十七条关于合同变更的规定。法院还会权衡双方提供的证据，尤其是合同中是否有关于续约或价格调整的具体条款。\nCritic agent GCJ8, on the purpose of reviewing legal context evaluation, feedback: The answer provides a reasonable analysis of the legal context and considerations for the case, including the importance of contract terms, market price changes, and negotiation between parties. However, it could be improved by explicitly mentioning the need for evidence of current market prices and any legal precedents that might guide the decision. Additionally, the answer could benefit from a more detailed discussion of the specific legal articles mentioned and how they apply to the case.; correct: The answer correctly identifies the key legal principles and considerations, such as the importance of contract terms, market price changes, and negotiation between parties. It also correctly references relevant articles of the Contract Law.\nCoT agent KJaU, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的续约条款和价格调整的合理性。根据《中华人民共和国合同法》的基本原则，合同到期后，双方可以协商续约条款。如果合同中没有明确的续约价格条款，则需要考虑市场价格的变化和双方的合理预期。原告要求按照市场价格调整承包费，而被告坚持原合同价格。法律上，市场价格的变化可以作为调整合同条款的依据，但需要双方协商一致或通过法律程序解决。法院在判决时通常会考虑合同条款的明确性、市场价格的变化、双方的合理预期以及公平合理的原则。相关的法律先例可能涉及合同到期后的续约条款解释和市场价格调整的合理性。需要进一步的市场价格变化证据和法律先例来指导判决。此外，法院可能会考虑双方是否有诚意进行协商。具体的法律条款可能包括《合同法》第六十条关于合同履行的原则，以及第七十七条关于合同变更的规定。法院还会权衡双方提供的证据，尤其是合同中是否有关于续约或价格调整的具体条款。; answer: 在此类物权纠纷中，法院通常会考虑合同条款的明确性、市场价格的变化、双方的合理预期以及公平合理的原则。如果合同中没有明确的续约价格条款，法院可能会参考市场价格和双方的协商情况来做出判决。需要提供市场价格变化的证据和相关法律先例以支持判决。法院也会考虑双方是否有诚意进行协商。具体的法律条款可能包括《合同法》第六十条关于合同履行的原则，以及第七十七条关于合同变更的规定。法院还会权衡双方提供的证据，尤其是合同中是否有关于续约或价格调整的具体条款。\nCoT agent rHB7, on the purpose of generating final judgment, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的续约条款和价格调整的合理性。根据《中华人民共和国合同法》的基本原则，合同到期后，双方可以协商续约条款。如果合同中没有明确的续约价格条款，则需要考虑市场价格的变化和双方的合理预期。原告要求按照市场价格调整承包费，而被告坚持原合同价格。法律上，市场价格的变化可以作为调整合同条款的依据，但需要双方协商一致或通过法律程序解决。法院在判决时通常会考虑合同条款的明确性、市场价格的变化、双方的合理预期以及公平合理的原则。相关的法律先例可能涉及合同到期后的续约条款解释和市场价格调整的合理性。需要进一步的市场价格变化证据和法律先例来指导判决。此外，法院可能会考虑双方是否有诚意进行协商。具体的法律条款可能包括《合同法》第六十条关于合同履行的原则，以及第七十七条关于合同变更的规定。法院还会权衡双方提供的证据，尤其是合同中是否有关于续约或价格调整的具体条款。; answer: 根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。被告主张按照原合同价格续包，但合同中并无明确续包价格条款，且市场价格变化是合理的考量因素。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#34;]
+
+final_response: [&#39;在分析原告和被告的陈述及证据后，关键问题在于合同到期后的续约条款和价格调整的合理性。根据《中华人民共和国合同法》的基本原则，合同到期后，双方可以协商续约条款。如果合同中没有明确的续约价格条款，则需要考虑市场价格的变化和双方的合理预期。原告要求按照市场价格调整承包费，而被告坚持原合同价格。法律上，市场价格的变化可以作为调整合同条款的依据，但需要双方协商一致或通过法律程序解决。法院在判决时通常会考虑合同条款的明确性、市场价格的变化、双方的合理预期以及公平合理的原则。相关的法律先例可能涉及合同到期后的续约条款解释和市场价格调整的合理性。需要进一步的市场价格变化证据和法律先例来指导判决。此外，法院可能会考虑双方是否有诚意进行协商。具体的法律条款可能包括《合同法》第六十条关于合同履行的原则，以及第七十七条关于合同变更的规定。法院还会权衡双方提供的证据，尤其是合同中是否有关于续约或价格调整的具体条款。\n\nAnswer:根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。被告主张按照原合同价格续包，但合同中并无明确续包价格条款，且市场价格变化是合理的考量因素。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;]
+
+memory: [{&#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}, {&#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。被告主张按照原合同价格续包，但合同中并无明确续包价格条款，且市场价格变化是合理的考量因素。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}, {&#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。被告主张按照原合同价格续包，但合同中并无明确续包价格条款，且市场价格变化是合理的考量因素。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}]</pre>
+    </div>
+</div>
+
+
+<div class="message user">
+    <div class="role">
+    user
+    
+    </div>
+    <div class="content">
+    <pre>Round 3: The entries (code, thoughts, agents, reflection, etc.) have been updated since last round (Round 2). Now Using insights from previous rounds, reflect again on the new outputs after round 2.
+
+&#34;
+Carefully review the proposed new architectures (&#34;code&#34; entry), the answer of each sub-tasks (&#34;sub_tasks&#34; entry) , the answer of each agnets (&#34;agents&#34; entry), the final response (&#34;final_reponse&#34; entry) and the fitness (&#34;fitness&#34; entry, i.e., the median and 95% Bootstrap Confidence Interval of the correct rate on the given question), and the &#39;memory&#39; (previous final answer extracted from their reponse and the corresponding fitness score, in the format of a list of dictionary final answer: fitness) in all the history user and assistant answers. Reflect on the following points:&#34;
+
+1. **Solvable**: Assess whether all sub-tasks are solvable by the corresponidng block via checking the output answer of each sub-task. 
+
+- if the answer of the sub-task explicitly contain [TOO_HARD]. This clearly state that task is too hard, what need to be further decomposed. Consider the suggestion given after the [TOO_HARD] (you can see the &#39;Suggestions:&#39; next to the [TOO_HARD] )and improve your decomposison accrodingly. See below (a) for what need to be make sure
+
+- If the sub-task answr is incoorect. That means it is not solvable, what need to be improved. It may beuase 
+
+(a) the task is still too difficult for the block, then the sub-task need to be further decomposed. 
+
+When proposing new sub-task, make sure 
+(i) it is specific and detailed enough to solve and to help achieve the final answer to the given question.
+(ii) all information required to answer the question is proveded by the previous answers or the instruction. 
+(iii) the related sub-tasks thinking and answers have correctly input to the current sub-task by adding it to the taskInfo list when calling the agent. 
+(iv) The output should be helpful to solve the next sub-task. Also make sure the sub-task connection is clearly by clealy state &#39;Based on the output of sub-task i..&#39; in the sub-task instruction
+
+(b) some agnets in the block is malfunctional or the underlying LLM is too weak to solve the sub-task alone. This can be detemined by checking the agents output to decide whether it works as expected. If this is the case, then we need to get rid of the block and use another block in the architecture. There are then two possibilities
+    (i) the agent in the block is not optimal to solve the sub-task, setting needed to be improved (instruction, tempreture...)
+    (ii) the agent architecutre in the block is not optimal, a new block that combine exisitng blocks in a different way or different settings need to be proposed
+Please jutify it is (a), the decomposition issue or (b) (and (i) or (ii)), the block and agent issue. It could also be both.
+
+2. **Completeness**: Are the sub-tasks include all neccessay information from the irginal query that can ensure the aggregation of sub-task responses can effectively yild a comprehensive answer to the user query? Note that while a sub-task might include only part of the neccessary information, it is not allowable for any particular piece of critical information to be omitted from all sub-tasks. Make sure the sub-task are connected to the prerequisite sub-tasks so that there is enough information to solve it.
+
+3. **Fitness**: Your final goal is to optimize the fitness score after updating the architectures and/or task decomposision based on (1) and (2). The fitness is computed based on the final reponse. If it is low, it indicates that your final answer is incorrect. In your updated architecture or task decomposition, you need to make sure they will update your final response accordingly. 
+
+And then, you need to improve or revise the implementation, or implement the new proposed architecture based on the reflection.
+
+Your response should add new entries to the previous answers:
+
+&#34;reflection&#34;: 
+(1) Provide your thoughts on the Solvable, Completeness and Fitness of the architecture and/or task decomposision (which sub-tasks are incorrect? which agent in which block are malfunctional?)
+(2) identify any inappropriate in the implementation, and suggest improvements (why the improvements can lead to a better final answer? Expain in detail)
+
+&#34;thought&#34;: Revise your previous proposal or propose a new architecture if necessary, using the same format as the example response. 
+
+For case (a), Give the 
+
+(1) **Further Decomposion**: Compre to your previous decomposition attemps in the Discovered architecture archive (see the &#39;thought&#39; entries), how do you futher decompose the questions? please give details by the following format: &#39;last sub-task 1 -&gt; (further decompose to) new sub-task 2, new sub-task 3..., new sub-task n)&#39; Give detail compare and justify how the new sub-tasks are eaiser than the old one. Do not give answer or short-cut (an example for shot-cut: &#39;output exactly the following:..&#39;, which is not allowed) in the sub-task instruction in any format, but only do the planing. Justify (1) why the new sub-tasks are sovlable and (2) how the sub-tasks can achieve the final answer to the original question.
+
+
+For case (b), Give the 
+
+(2) **Improved subtask architeture**: Compare to your last block attemps in the history (last answer), which sub-task architecture need to be imrpoved? How do you futher connecting them in a different ways so that the resultsing subtask architeture is able to solve the corresponding sub-task? please give details by the following format: &#39;last sub-task architeture (what architecute was it?) (aims to address sub-task i)-&gt; (improve to) new sub-task architeture (what is the main difference?)&#39; Give detail compare and justify how the new connection is improved than the old one. Note that the new connection still follow the rules that you need need to determine the number of layers as well as the connection, but do not propose new blocks or modify existing ones in the sub-task architecture, and just changes the connection among the block, but block setting like instruction, tempreture are allowed to modify
+
+For case where the final response is not updated and still the same mistaken answer, Give the
+
+(3) **Updated Subtask Instruction**. Read the &#39;memeory&#39; entry, improve the sub-task instruction so that it can know explicitly that some answers should be avoided. For example, you can add `It is known that (wrong answers, include all wrong answers from the &#39;memeory&#39;, i.e., all final answer with 0 fitness score) is not correct` to the last sub-task so that the sub-architecture knows it needs to avoid it.
+
+
+&#34;name&#34;: Provide a name for the revised or new architecture. (Don&#39;t put words like &#34;new&#34; or &#34;improved&#34; in the name.)
+
+&#34;code&#34;: Update the code entry based on your reflection and thought. Make sure you actually implement all the improvements mentioned in the reflection and thougths and improvement in this code. Make sure only return the final answer, i.e., the output of self.make_final_answer. All the requirement on code still valid: You must write a COMPLETE CODE in &#34;code&#34;: Your code will be part of the entire project (so do not implement any other part), so please implement complete, reliable, reusable code snippets. Do not make any syntactic mistakes. For example. 
+if single quote (&#39;) is used in string, then double quote (&#34;) should be used for the whole string.
+
+This is WRONG
+`f&#39;CoT-SC agent ABC, on the purpose of determining changes to Maxwell&#39;s&#39;`. 
+This is wrong becuse single qupte is used (Maxwell&#39;s) within the sting but single quote is used again for the f-string (f&#39;&#39;). This will casue unterminated string error. To correct it, one should use double quote for f-stirng, i.e., `f&#34;CoT-SC agent ABC, on the purpose of determining changes to Maxwell&#39;s&#34;`
+</pre>
+    </div>
+</div>
+
+
+<div class="message assistant">
+    <div class="role">
+    assistant
+    
+    </div>
+    <div class="content">
+    <pre>reflection: 
+(1) **Solvable**: The sub-tasks appear to be solvable by the corresponding blocks, as there are no explicit indicators that the tasks are too hard (e.g., [TOO_HARD]). However, the final judgment still seems to lack accuracy, suggesting that while the sub-tasks are individually solvable, the synthesis into a coherent final answer is problematic.
+
+(2) **Completeness**: The sub-tasks seem to include all necessary information from the original query, and the outputs from each sub-task are used in subsequent tasks. However, there might still be a gap in how these pieces are integrated to form a comprehensive judgment.
+
+(3) **Fitness**: The fitness score remains low, indicating that the final response is incorrect. The architecture needs to better integrate the legal reasoning and evidence to produce a valid judgment. The repeated failure of the final judgment suggests that the instruction to avoid incorrect answers is not being effectively applied.
+
+**Improvements**: The architecture needs to refine the final judgment synthesis. This can be achieved by ensuring that the final sub-task instruction explicitly guides the model to integrate the legal reasoning and evidence more effectively. Additionally, the instruction should emphasize avoiding known incorrect answers more strongly, possibly by providing a list of incorrect patterns to avoid.
+
+thought: 
+**Updated Subtask Instruction**:
+
+To improve the final judgment and avoid previous mistakes, I will update the final sub-task instruction to emphasize the integration of legal reasoning and evidence, and to explicitly instruct the model to avoid known incorrect conclusions. This will help guide the synthesis of the sub-task outputs into a correct judgment.
+
+Sub-task 4: Generate Final Judgment
+- Instruction: Based on the output of sub-task 1, 2, and 3, generate a final judgment, including reasoning and any compensation or actions mandated. It is known that the following conclusions are incorrect: &#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39; and similar patterns. Ensure that the judgment aligns with legal principles, integrates evidence effectively, and provides a clear resolution to the dispute.
+
+This updated instruction should help the architecture produce a more accurate final response by explicitly avoiding previous incorrect answers and ensuring a more thorough integration of legal reasoning.
+
+name: Legal Judgment Architecture with Integrated Guidance
+
+code: async def forward(self, taskInfo, extra_info):
+    from collections import Counter
+    sub_tasks = []
+    agents = []
+    
+    # Sub-task 1: Analyze the Plaintiff&#39;s Claims
+    cot_instruction_1 = &#34;Sub-task 1: Analyze the plaintiff&#39;s claims and evidence. Summarize the key points and assess the strength of their case.&#34;
+    cot_agent_1 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking1, answer1 = await cot_agent_1([taskInfo], extra_info, cot_instruction_1, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_1.id}, on the purpose of analyzing plaintiff claims, thinking: {thinking1.content}; answer: {answer1.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 1 output: thinking - {thinking1.content}; answer - {answer1.content}&#34;)
+
+    # Sub-task 2: Analyze the Defendant&#39;s Defense
+    cot_instruction_2 = &#34;Sub-task 2: Based on the output of sub-task 1, analyze the defendant&#39;s defense and evidence. Summarize the key points and assess the strength of their case.&#34;
+    cot_agent_2 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking2, answer2 = await cot_agent_2([taskInfo, thinking1, answer1], extra_info, cot_instruction_2, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_2.id}, on the purpose of analyzing defendant defense, thinking: {thinking2.content}; answer: {answer2.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 2 output: thinking - {thinking2.content}; answer - {answer2.content}&#34;)
+
+    # Sub-task 3: Evaluate Legal Context and Precedents
+    cot_initial_instruction_3 = &#34;Sub-task 3: Based on the output of sub-task 1 and 2, evaluate the legal context and any relevant precedents.&#34;
+    cot_reflect_instruction_3 = &#34;Sub-task 3: Based on previous attempts and feedback, refine the evaluation of legal context and precedents.&#34;
+    cot_agent_3 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    critic_instruction_3 = &#34;Sub-task 3: Review the answer above and provide feedback on any errors or omissions.&#34;
+    critic_agent_3 = LLMAgentBase([&#39;feedback&#39;, &#39;correct&#39;], &#39;Critic Agent&#39;, model=self.node_model, temperature=0.0)
+    N_max_3 = self.max_round
+    cot_inputs_3 = [taskInfo, thinking1, answer1, thinking2, answer2]
+    thinking3, answer3 = await cot_agent_3(cot_inputs_3, extra_info, cot_initial_instruction_3, 0, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_3.id}, on the purpose of evaluating legal context, thinking: {thinking3.content}; answer: {answer3.content}&#34;)
+
+    for i in range(N_max_3):
+        feedback3, correct3 = await critic_agent_3([taskInfo, thinking3, answer3], extra_info, critic_instruction_3, i, is_sub_task=True)
+        agents.append(f&#34;Critic agent {critic_agent_3.id}, on the purpose of reviewing legal context evaluation, feedback: {feedback3.content}; correct: {correct3.content}&#34;)
+        if correct3.content == &#39;True&#39;:
+            break
+        cot_inputs_3.extend([thinking3, answer3, feedback3])
+        thinking3, answer3 = await cot_agent_3(cot_inputs_3, extra_info, cot_reflect_instruction_3, i + 1, is_sub_task=True)
+        agents.append(f&#34;CoT agent {cot_agent_3.id}, on the purpose of refining legal context evaluation, thinking: {thinking3.content}; answer: {answer3.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 3 output: thinking - {thinking3.content}; answer - {answer3.content}&#34;)
+
+    # Sub-task 4: Generate Final Judgment
+    cot_instruction_4 = (&#34;Sub-task 4: Based on the output of sub-task 1, 2, and 3, generate a final judgment, including reasoning and any compensation or actions mandated. &#34;
+                        &#34;It is known that the following conclusions are incorrect: &#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39; and similar patterns. Ensure that the judgment aligns with legal principles, integrates evidence effectively, and provides a clear resolution to the dispute.&#34;)
+    cot_agent_4 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking4, answer4 = await cot_agent_4([taskInfo, thinking1, answer1, thinking2, answer2, thinking3, answer3], extra_info, cot_instruction_4, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_4.id}, on the purpose of generating final judgment, thinking: {thinking4.content}; answer: {answer4.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 4 output: thinking - {thinking4.content}; answer - {answer4.content}&#34;)
+
+    final_answer = self.make_final_answer(thinking4, answer4, sub_tasks, agents)
+    return final_answer
+
+
+acc: [0.0]
+
+fitness: 95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%
+
+generation: 4
+
+total_cost: 0.6943199999999999
+
+sub_tasks: [None]
+
+agents: [&#34;CoT agent iD5u, on the purpose of analyzing plaintiff claims, thinking: 原告的主要诉求是要求被告孙某在承包合同到期后将林地恢复原状，或者按照新的市场价格缴纳承包费。原告提供的证据包括2008年村民代表大会记录、2008年签订的林地转让承包合同以及2024年股东代表会议记录，这些证据没有争议。原告的证据显示合同到期的事实以及村里对承包费的调整要求。原告的案件强度在于合同到期的事实明确，但对承包费调整的合理性和法律依据需要进一步论证。; answer: 原告的关键点在于合同到期后要求恢复林地原状或按新价格缴纳承包费。证据显示合同到期的事实，但对承包费调整的合理性需要进一步论证。\nCoT agent nicN, on the purpose of analyzing defendant defense, thinking: 被告孙某的主要抗辩是要求按照原先的承包合同执行，续包的价格应为每亩每年50.00元。被告提供的证据是2008年签订的《林地转让承包合同》，该证据与原告提供的证据一致且无争议。被告的抗辩重点在于合同的延续性和原合同价格的合理性。被告的案件强度在于合同的存在和价格的确定性，但需要证明合同续约的合理性和法律支持。; answer: 被告的关键点在于合同的延续性和原合同价格的合理性。证据显示合同的存在和价格的确定性，但需要进一步证明合同续约的合理性和法律支持。\nCoT agent SVYL, on the purpose of evaluating legal context, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的处理方式以及承包费的调整是否合理。根据中国的合同法，合同到期后，双方可以协商续约或终止合同。原告要求按市场价格调整承包费，而被告坚持原合同价格。法律上，合同到期后，双方应协商新的合同条款，若无法达成一致，原合同不再适用。原告的要求有一定合理性，但需提供市场价格调整的法律依据和合理性证明。被告的抗辩基于原合同，但合同到期后需重新协商。法律上没有明确的先例支持一方的主张，因此需要根据具体情况进行判断。; answer: 在本案中，合同到期后，双方应协商新的承包条款。原告要求按市场价格调整承包费需提供合理性和法律依据。被告坚持原合同价格，但合同到期后需重新协商。法律上没有明确的先例支持一方的主张，需根据具体情况判断。\nCritic agent 32BW, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key issue of how to handle the contract expiration and the adjustment of the contract fee. It appropriately references the need for negotiation of new terms upon contract expiration and the lack of legal precedent supporting either party&#39;s position. However, it could be improved by explicitly mentioning the need for evidence of market price adjustments and the legal basis for such adjustments, as well as considering the implications of the plaintiff&#39;s evidence on the case.; correct: The answer is correct in its analysis of the legal context and the need for negotiation of new terms upon contract expiration. It correctly identifies the lack of legal precedent supporting either party&#39;s position.\nCoT agent SVYL, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的处理方式以及承包费的调整是否合理。根据中国的合同法，合同到期后，双方可以协商续约或终止合同。原告要求按市场价格调整承包费，而被告坚持原合同价格。法律上，合同到期后，双方应协商新的合同条款，若无法达成一致，原合同不再适用。原告的要求有一定合理性，但需提供市场价格调整的法律依据和合理性证明。被告的抗辩基于原合同，但合同到期后需重新协商。法律上没有明确的先例支持一方的主张，因此需要根据具体情况进行判断。需要进一步考虑原告提供的市场价格调整的证据和法律依据。; answer: 在本案中，合同到期后，双方应协商新的承包条款。原告要求按市场价格调整承包费需提供合理性和法律依据。被告坚持原合同价格，但合同到期后需重新协商。法律上没有明确的先例支持一方的主张，需根据具体情况判断。\nCritic agent 32BW, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the need for negotiation of new contract terms after the expiration of the original contract. It also highlights the requirement for the plaintiff to provide legal basis and evidence for market price adjustments. However, it could further elaborate on the implications of the lack of legal precedents and how the court might approach such a situation.; correct: The answer is mostly correct in its analysis of the legal context and the need for negotiation post-contract expiration. It appropriately notes the absence of clear legal precedents and the necessity for evidence to support claims of market price adjustments.\nCoT agent SVYL, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的处理方式以及承包费的调整是否合理。根据中国的合同法，合同到期后，双方可以协商续约或终止合同。原告要求按市场价格调整承包费，而被告坚持原合同价格。法律上，合同到期后，双方应协商新的合同条款，若无法达成一致，原合同不再适用。原告的要求有一定合理性，但需提供市场价格调整的法律依据和合理性证明。被告的抗辩基于原合同，但合同到期后需重新协商。法律上没有明确的先例支持一方的主张，因此需要根据具体情况进行判断。需要进一步考虑原告提供的市场价格调整的证据和法律依据。法院在处理此类案件时，可能会考虑双方的协商过程、市场价格的合理性以及合同到期后的实际情况，以作出公正的判决。; answer: 在本案中，合同到期后，双方应协商新的承包条款。原告要求按市场价格调整承包费需提供合理性和法律依据。被告坚持原合同价格，但合同到期后需重新协商。法律上没有明确的先例支持一方的主张，需根据具体情况判断。法院可能会考虑双方的协商过程、市场价格的合理性以及合同到期后的实际情况，以作出公正的判决。\nCritic agent 32BW, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key issue of how to handle the contract after its expiration and the reasonableness of adjusting the contract fee. It appropriately references Chinese contract law regarding the need for negotiation upon contract expiration. However, it could be improved by explicitly stating that the plaintiff&#39;s claim for market price adjustment lacks specific legal precedent and requires evidence of market conditions. Additionally, the answer could mention the importance of the evidence provided by both parties in determining the outcome.; correct: The answer is mostly correct in its analysis of the legal context and the need for negotiation after contract expiration. It correctly notes the lack of clear legal precedent supporting either party&#39;s claim and the need for a case-specific judgment.\nCoT agent SVYL, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的处理方式以及承包费的调整是否合理。根据中国的合同法，合同到期后，双方可以协商续约或终止合同。原告要求按市场价格调整承包费，而被告坚持原合同价格。法律上，合同到期后，双方应协商新的合同条款，若无法达成一致，原合同不再适用。原告的要求有一定合理性，但需提供市场价格调整的法律依据和合理性证明。被告的抗辩基于原合同，但合同到期后需重新协商。法律上没有明确的先例支持一方的主张，因此需要根据具体情况进行判断。法院在处理此类案件时，可能会考虑双方的协商过程、市场价格的合理性以及合同到期后的实际情况，以作出公正的判决。原告的市场价格调整要求缺乏具体的法律先例支持，需要提供市场条件的证据。双方提供的证据对于判决结果至关重要。; answer: 在本案中，合同到期后，双方应协商新的承包条款。原告要求按市场价格调整承包费需提供合理性和法律依据。被告坚持原合同价格，但合同到期后需重新协商。法律上没有明确的先例支持一方的主张，需根据具体情况判断。法院可能会考虑双方的协商过程、市场价格的合理性以及合同到期后的实际情况，以作出公正的判决。\nCritic agent 32BW, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key issue of contract renewal and the need for negotiation after the contract expires. It also highlights the lack of legal precedent supporting either party&#39;s claim and the importance of evidence in determining the outcome. However, it could be improved by explicitly mentioning the role of the court in facilitating negotiations or mediating disputes in such cases, as well as the potential for the court to set a temporary arrangement if negotiations fail.; correct: The answer is mostly correct in its analysis of the legal context and the need for negotiation after contract expiration. It appropriately notes the lack of clear legal precedent and the importance of evidence.\nCoT agent SVYL, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的处理方式以及承包费的调整是否合理。根据中国的合同法，合同到期后，双方可以协商续约或终止合同。原告要求按市场价格调整承包费，而被告坚持原合同价格。法律上，合同到期后，双方应协商新的合同条款，若无法达成一致，原合同不再适用。原告的要求有一定合理性，但需提供市场价格调整的法律依据和合理性证明。被告的抗辩基于原合同，但合同到期后需重新协商。法律上没有明确的先例支持一方的主张，因此需要根据具体情况进行判断。法院在处理此类案件时，可能会考虑双方的协商过程、市场价格的合理性以及合同到期后的实际情况，以作出公正的判决。原告的市场价格调整要求缺乏具体的法律先例支持，需要提供市场条件的证据。双方提供的证据对于判决结果至关重要。法院可能在双方无法达成协议时，介入调解或设定临时安排。; answer: 在本案中，合同到期后，双方应协商新的承包条款。原告要求按市场价格调整承包费需提供合理性和法律依据。被告坚持原合同价格，但合同到期后需重新协商。法律上没有明确的先例支持一方的主张，需根据具体情况判断。法院可能会考虑双方的协商过程、市场价格的合理性以及合同到期后的实际情况，以作出公正的判决。若双方无法达成协议，法院可能介入调解或设定临时安排。\nCritic agent 32BW, on the purpose of reviewing legal context evaluation, feedback: The answer provides a reasonable analysis of the legal context and the need for negotiation after contract expiration. However, it could be improved by explicitly mentioning the specific legal articles or principles that apply, such as the relevant sections of the Contract Law of the People&#39;s Republic of China. Additionally, the answer could benefit from a more detailed discussion of the evidence provided by both parties and how it might influence the court&#39;s decision.; correct: The answer correctly identifies the need for negotiation after contract expiration and the lack of a clear legal precedent favoring either party. It also correctly suggests that the court may consider the negotiation process and market conditions in its judgment.\nCoT agent SVYL, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的处理方式以及承包费的调整是否合理。根据《中华人民共和国合同法》，合同到期后，双方可以协商续约或终止合同。原告要求按市场价格调整承包费，而被告坚持原合同价格。法律上，合同到期后，双方应协商新的合同条款，若无法达成一致，原合同不再适用。原告的要求有一定合理性，但需提供市场价格调整的法律依据和合理性证明。被告的抗辩基于原合同，但合同到期后需重新协商。法律上没有明确的先例支持一方的主张，因此需要根据具体情况进行判断。法院在处理此类案件时，可能会考虑双方的协商过程、市场价格的合理性以及合同到期后的实际情况，以作出公正的判决。原告的市场价格调整要求缺乏具体的法律先例支持，需要提供市场条件的证据。双方提供的证据对于判决结果至关重要。法院可能在双方无法达成协议时，介入调解或设定临时安排。; answer: 在本案中，合同到期后，双方应协商新的承包条款。原告要求按市场价格调整承包费需提供合理性和法律依据。被告坚持原合同价格，但合同到期后需重新协商。法律上没有明确的先例支持一方的主张，需根据具体情况判断。法院可能会考虑双方的协商过程、市场价格的合理性以及合同到期后的实际情况，以作出公正的判决。若双方无法达成协议，法院可能介入调解或设定临时安排。\nCoT agent YeFs, on the purpose of generating final judgment, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后的处理方式以及承包费的调整是否合理。根据《中华人民共和国合同法》，合同到期后，双方可以协商续约或终止合同。原告要求按市场价格调整承包费，而被告坚持原合同价格。法律上，合同到期后，双方应协商新的合同条款，若无法达成一致，原合同不再适用。原告的要求有一定合理性，但需提供市场价格调整的法律依据和合理性证明。被告的抗辩基于原合同，但合同到期后需重新协商。法律上没有明确的先例支持一方的主张，因此需要根据具体情况进行判断。法院在处理此类案件时，可能会考虑双方的协商过程、市场价格的合理性以及合同到期后的实际情况，以作出公正的判决。原告的市场价格调整要求缺乏具体的法律先例支持，需要提供市场条件的证据。双方提供的证据对于判决结果至关重要。法院可能在双方无法达成协议时，介入调解或设定临时安排。; answer: 根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由被告承担。&#34;]
+
+final_response: [&#39;在分析原告和被告的陈述及证据后，关键问题在于合同到期后的处理方式以及承包费的调整是否合理。根据《中华人民共和国合同法》，合同到期后，双方可以协商续约或终止合同。原告要求按市场价格调整承包费，而被告坚持原合同价格。法律上，合同到期后，双方应协商新的合同条款，若无法达成一致，原合同不再适用。原告的要求有一定合理性，但需提供市场价格调整的法律依据和合理性证明。被告的抗辩基于原合同，但合同到期后需重新协商。法律上没有明确的先例支持一方的主张，因此需要根据具体情况进行判断。法院在处理此类案件时，可能会考虑双方的协商过程、市场价格的合理性以及合同到期后的实际情况，以作出公正的判决。原告的市场价格调整要求缺乏具体的法律先例支持，需要提供市场条件的证据。双方提供的证据对于判决结果至关重要。法院可能在双方无法达成协议时，介入调解或设定临时安排。\n\nAnswer:根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由被告承担。&#39;]
+
+memory: [{&#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}, {&#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。被告主张按照原合同价格续包，但合同中并无明确续包价格条款，且市场价格变化是合理的考量因素。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}, {&#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。被告主张按照原合同价格续包，但合同中并无明确续包价格条款，且市场价格变化是合理的考量因素。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}, {&#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由被告承担。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}]</pre>
+    </div>
+</div>
+
+
+<div class="message user">
+    <div class="role">
+    user
+    
+    </div>
+    <div class="content">
+    <pre>Round 4: The entries (code, thoughts, agents, reflection, etc.) have been updated since last round (Round 3). Now Using insights from previous rounds, reflect again on the new outputs after round 3.
+
+&#34;
+Carefully review the proposed new architectures (&#34;code&#34; entry), the answer of each sub-tasks (&#34;sub_tasks&#34; entry) , the answer of each agnets (&#34;agents&#34; entry), the final response (&#34;final_reponse&#34; entry) and the fitness (&#34;fitness&#34; entry, i.e., the median and 95% Bootstrap Confidence Interval of the correct rate on the given question), and the &#39;memory&#39; (previous final answer extracted from their reponse and the corresponding fitness score, in the format of a list of dictionary final answer: fitness) in all the history user and assistant answers. Reflect on the following points:&#34;
+
+1. **Solvable**: Assess whether all sub-tasks are solvable by the corresponidng block via checking the output answer of each sub-task. 
+
+- if the answer of the sub-task explicitly contain [TOO_HARD]. This clearly state that task is too hard, what need to be further decomposed. Consider the suggestion given after the [TOO_HARD] (you can see the &#39;Suggestions:&#39; next to the [TOO_HARD] )and improve your decomposison accrodingly. See below (a) for what need to be make sure
+
+- If the sub-task answr is incoorect. That means it is not solvable, what need to be improved. It may beuase 
+
+(a) the task is still too difficult for the block, then the sub-task need to be further decomposed. 
+
+When proposing new sub-task, make sure 
+(i) it is specific and detailed enough to solve and to help achieve the final answer to the given question.
+(ii) all information required to answer the question is proveded by the previous answers or the instruction. 
+(iii) the related sub-tasks thinking and answers have correctly input to the current sub-task by adding it to the taskInfo list when calling the agent. 
+(iv) The output should be helpful to solve the next sub-task. Also make sure the sub-task connection is clearly by clealy state &#39;Based on the output of sub-task i..&#39; in the sub-task instruction
+
+(b) some agnets in the block is malfunctional or the underlying LLM is too weak to solve the sub-task alone. This can be detemined by checking the agents output to decide whether it works as expected. If this is the case, then we need to get rid of the block and use another block in the architecture. There are then two possibilities
+    (i) the agent in the block is not optimal to solve the sub-task, setting needed to be improved (instruction, tempreture...)
+    (ii) the agent architecutre in the block is not optimal, a new block that combine exisitng blocks in a different way or different settings need to be proposed
+Please jutify it is (a), the decomposition issue or (b) (and (i) or (ii)), the block and agent issue. It could also be both.
+
+2. **Completeness**: Are the sub-tasks include all neccessay information from the irginal query that can ensure the aggregation of sub-task responses can effectively yild a comprehensive answer to the user query? Note that while a sub-task might include only part of the neccessary information, it is not allowable for any particular piece of critical information to be omitted from all sub-tasks. Make sure the sub-task are connected to the prerequisite sub-tasks so that there is enough information to solve it.
+
+3. **Fitness**: Your final goal is to optimize the fitness score after updating the architectures and/or task decomposision based on (1) and (2). The fitness is computed based on the final reponse. If it is low, it indicates that your final answer is incorrect. In your updated architecture or task decomposition, you need to make sure they will update your final response accordingly. 
+
+And then, you need to improve or revise the implementation, or implement the new proposed architecture based on the reflection.
+
+Your response should add new entries to the previous answers:
+
+&#34;reflection&#34;: 
+(1) Provide your thoughts on the Solvable, Completeness and Fitness of the architecture and/or task decomposision (which sub-tasks are incorrect? which agent in which block are malfunctional?)
+(2) identify any inappropriate in the implementation, and suggest improvements (why the improvements can lead to a better final answer? Expain in detail)
+
+&#34;thought&#34;: Revise your previous proposal or propose a new architecture if necessary, using the same format as the example response. 
+
+For case (a), Give the 
+
+(1) **Further Decomposion**: Compre to your previous decomposition attemps in the Discovered architecture archive (see the &#39;thought&#39; entries), how do you futher decompose the questions? please give details by the following format: &#39;last sub-task 1 -&gt; (further decompose to) new sub-task 2, new sub-task 3..., new sub-task n)&#39; Give detail compare and justify how the new sub-tasks are eaiser than the old one. Do not give answer or short-cut (an example for shot-cut: &#39;output exactly the following:..&#39;, which is not allowed) in the sub-task instruction in any format, but only do the planing. Justify (1) why the new sub-tasks are sovlable and (2) how the sub-tasks can achieve the final answer to the original question.
+
+
+For case (b), Give the 
+
+(2) **Improved subtask architeture**: Compare to your last block attemps in the history (last answer), which sub-task architecture need to be imrpoved? How do you futher connecting them in a different ways so that the resultsing subtask architeture is able to solve the corresponding sub-task? please give details by the following format: &#39;last sub-task architeture (what architecute was it?) (aims to address sub-task i)-&gt; (improve to) new sub-task architeture (what is the main difference?)&#39; Give detail compare and justify how the new connection is improved than the old one. Note that the new connection still follow the rules that you need need to determine the number of layers as well as the connection, but do not propose new blocks or modify existing ones in the sub-task architecture, and just changes the connection among the block, but block setting like instruction, tempreture are allowed to modify
+
+For case where the final response is not updated and still the same mistaken answer, Give the
+
+(3) **Updated Subtask Instruction**. Read the &#39;memeory&#39; entry, improve the sub-task instruction so that it can know explicitly that some answers should be avoided. For example, you can add `It is known that (wrong answers, include all wrong answers from the &#39;memeory&#39;, i.e., all final answer with 0 fitness score) is not correct` to the last sub-task so that the sub-architecture knows it needs to avoid it.
+
+
+&#34;name&#34;: Provide a name for the revised or new architecture. (Don&#39;t put words like &#34;new&#34; or &#34;improved&#34; in the name.)
+
+&#34;code&#34;: Update the code entry based on your reflection and thought. Make sure you actually implement all the improvements mentioned in the reflection and thougths and improvement in this code. Make sure only return the final answer, i.e., the output of self.make_final_answer. All the requirement on code still valid: You must write a COMPLETE CODE in &#34;code&#34;: Your code will be part of the entire project (so do not implement any other part), so please implement complete, reliable, reusable code snippets. Do not make any syntactic mistakes. For example. 
+if single quote (&#39;) is used in string, then double quote (&#34;) should be used for the whole string.
+
+This is WRONG
+`f&#39;CoT-SC agent ABC, on the purpose of determining changes to Maxwell&#39;s&#39;`. 
+This is wrong becuse single qupte is used (Maxwell&#39;s) within the sting but single quote is used again for the f-string (f&#39;&#39;). This will casue unterminated string error. To correct it, one should use double quote for f-stirng, i.e., `f&#34;CoT-SC agent ABC, on the purpose of determining changes to Maxwell&#39;s&#34;`
+</pre>
+    </div>
+</div>
+
+
+<div class="message assistant">
+    <div class="role">
+    assistant
+    
+    </div>
+    <div class="content">
+    <pre>reflection: 
+(1) **Solvable**: The sub-tasks appear to be solvable by the corresponding blocks, as there are no explicit indicators that the tasks are too hard (e.g., [TOO_HARD]). However, the final judgment still seems to lack accuracy, suggesting that while the sub-tasks are individually solvable, the synthesis into a coherent final answer is problematic. The repeated incorrect final responses suggest that the integration of sub-task outputs is not being handled effectively.
+
+(2) **Completeness**: The sub-tasks include necessary information from the original query, and the outputs from each sub-task are used in subsequent tasks. However, there might still be a gap in how these pieces are integrated to form a comprehensive judgment. The final judgment is not considering all aspects of the evidence and legal principles effectively.
+
+(3) **Fitness**: The fitness score remains low, indicating that the final response is incorrect. The architecture needs to better integrate the legal reasoning and evidence to produce a valid judgment. The repeated failure of the final judgment suggests that the instruction to avoid incorrect answers is not being effectively applied.
+
+**Improvements**: The architecture needs to refine the final judgment synthesis. This can be achieved by ensuring that the final sub-task instruction explicitly guides the model to integrate the legal reasoning and evidence more effectively. Additionally, the instruction should emphasize avoiding known incorrect answers more strongly, possibly by providing a list of incorrect patterns to avoid.
+
+thought: 
+**Updated Subtask Instruction**:
+
+To improve the final judgment and avoid previous mistakes, I will update the final sub-task instruction to emphasize the integration of legal reasoning and evidence, and to explicitly instruct the model to avoid known incorrect conclusions. This will help guide the synthesis of the sub-task outputs into a correct judgment.
+
+Sub-task 4: Generate Final Judgment
+- Instruction: Based on the output of sub-task 1, 2, and 3, generate a final judgment, including reasoning and any compensation or actions mandated. It is known that the following conclusions are incorrect: &#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39; and similar patterns. Ensure that the judgment aligns with legal principles, integrates evidence effectively, and provides a clear resolution to the dispute.
+
+This updated instruction should help the architecture produce a more accurate final response by explicitly avoiding previous incorrect answers and ensuring a more thorough integration of legal reasoning.
+
+name: Legal Judgment Architecture with Integrated Guidance
+
+code: async def forward(self, taskInfo, extra_info):
+    from collections import Counter
+    sub_tasks = []
+    agents = []
+    
+    # Sub-task 1: Analyze the Plaintiff&#39;s Claims
+    cot_instruction_1 = &#34;Sub-task 1: Analyze the plaintiff&#39;s claims and evidence. Summarize the key points and assess the strength of their case.&#34;
+    cot_agent_1 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking1, answer1 = await cot_agent_1([taskInfo], extra_info, cot_instruction_1, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_1.id}, on the purpose of analyzing plaintiff claims, thinking: {thinking1.content}; answer: {answer1.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 1 output: thinking - {thinking1.content}; answer - {answer1.content}&#34;)
+
+    # Sub-task 2: Analyze the Defendant&#39;s Defense
+    cot_instruction_2 = &#34;Sub-task 2: Based on the output of sub-task 1, analyze the defendant&#39;s defense and evidence. Summarize the key points and assess the strength of their case.&#34;
+    cot_agent_2 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking2, answer2 = await cot_agent_2([taskInfo, thinking1, answer1], extra_info, cot_instruction_2, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_2.id}, on the purpose of analyzing defendant defense, thinking: {thinking2.content}; answer: {answer2.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 2 output: thinking - {thinking2.content}; answer - {answer2.content}&#34;)
+
+    # Sub-task 3: Evaluate Legal Context and Precedents
+    cot_initial_instruction_3 = &#34;Sub-task 3: Based on the output of sub-task 1 and 2, evaluate the legal context and any relevant precedents.&#34;
+    cot_reflect_instruction_3 = &#34;Sub-task 3: Based on previous attempts and feedback, refine the evaluation of legal context and precedents.&#34;
+    cot_agent_3 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    critic_instruction_3 = &#34;Sub-task 3: Review the answer above and provide feedback on any errors or omissions.&#34;
+    critic_agent_3 = LLMAgentBase([&#39;feedback&#39;, &#39;correct&#39;], &#39;Critic Agent&#39;, model=self.node_model, temperature=0.0)
+    N_max_3 = self.max_round
+    cot_inputs_3 = [taskInfo, thinking1, answer1, thinking2, answer2]
+    thinking3, answer3 = await cot_agent_3(cot_inputs_3, extra_info, cot_initial_instruction_3, 0, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_3.id}, on the purpose of evaluating legal context, thinking: {thinking3.content}; answer: {answer3.content}&#34;)
+
+    for i in range(N_max_3):
+        feedback3, correct3 = await critic_agent_3([taskInfo, thinking3, answer3], extra_info, critic_instruction_3, i, is_sub_task=True)
+        agents.append(f&#34;Critic agent {critic_agent_3.id}, on the purpose of reviewing legal context evaluation, feedback: {feedback3.content}; correct: {correct3.content}&#34;)
+        if correct3.content == &#39;True&#39;:
+            break
+        cot_inputs_3.extend([thinking3, answer3, feedback3])
+        thinking3, answer3 = await cot_agent_3(cot_inputs_3, extra_info, cot_reflect_instruction_3, i + 1, is_sub_task=True)
+        agents.append(f&#34;CoT agent {cot_agent_3.id}, on the purpose of refining legal context evaluation, thinking: {thinking3.content}; answer: {answer3.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 3 output: thinking - {thinking3.content}; answer - {answer3.content}&#34;)
+
+    # Sub-task 4: Generate Final Judgment
+    cot_instruction_4 = (&#34;Sub-task 4: Based on the output of sub-task 1, 2, and 3, generate a final judgment, including reasoning and any compensation or actions mandated. &#34;
+                        &#34;It is known that the following conclusions are incorrect: &#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39; and similar patterns. Ensure that the judgment aligns with legal principles, integrates evidence effectively, and provides a clear resolution to the dispute.&#34;)
+    cot_agent_4 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking4, answer4 = await cot_agent_4([taskInfo, thinking1, answer1, thinking2, answer2, thinking3, answer3], extra_info, cot_instruction_4, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_4.id}, on the purpose of generating final judgment, thinking: {thinking4.content}; answer: {answer4.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 4 output: thinking - {thinking4.content}; answer - {answer4.content}&#34;)
+
+    final_answer = self.make_final_answer(thinking4, answer4, sub_tasks, agents)
+    return final_answer
+
+
+acc: [0.0]
+
+fitness: 95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%
+
+generation: 5
+
+total_cost: 0.9081399999999998
+
+sub_tasks: [None]
+
+agents: [&#34;CoT agent oner, on the purpose of analyzing plaintiff claims, thinking: 原告的主要诉求是要求被告孙某在承包合同到期后将林地恢复原状，或者按照新的市场价格缴纳承包费。原告提供的证据包括2008年村民代表大会记录、2008年签订的林地转让承包合同以及2024年股东代表会议记录，这些证据没有争议，表明原告的主张有一定的事实基础。原告的案件强度在于其证据的无争议性和合同到期的事实，但需要进一步分析合同条款和市场价格的合理性。; answer: 原告的关键点在于合同到期后对林地的处置权以及市场价格的调整要求。原告的证据显示合同到期的事实和村民代表大会的决议，但需要进一步分析市场价格调整的合理性和合同条款的具体内容。\nCoT agent 1Xsb, on the purpose of analyzing defendant defense, thinking: 被告孙某的主要抗辩是要求按照原先的承包合同执行，续包价格应为每亩每年50.00元。被告提供的证据是2008年签订的《林地转让承包合同》，该证据与原告提供的证据一致且无争议。被告的抗辩强度在于合同的存在和其对合同条款的解释，但需要进一步分析合同中是否有关于续包价格的明确规定，以及市场价格变化对合同执行的影响。; answer: 被告的关键点在于合同的执行和续包价格的争议。被告的证据与原告一致，表明合同的存在，但需要进一步分析合同条款中是否有续包价格的规定，以及市场价格变化是否影响合同的执行。\nCoT agent aBbh, on the purpose of evaluating legal context, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后林地的处置权以及续包价格的合理性。原告要求按照市场价格调整承包费，而被告坚持按照原合同的价格续包。法律上，合同到期后，双方应协商续约条件，若合同中无明确续包条款，则需参考市场价格和当地惯例。相关法律可能涉及《合同法》中关于合同履行和变更的规定，以及《物权法》中关于土地承包经营权的规定。若无明确续包条款，法院可能会考虑市场价格和公平原则来裁定。; answer: 在此法律背景下，法院可能会要求双方协商新的承包条件，若无法达成一致，可能会参考市场价格和公平原则进行裁定。\nCritic agent cMXa, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key legal issues regarding the contract expiration and the renewal terms. It appropriately references relevant legal principles from the Contract Law and Property Law. However, it could be improved by explicitly mentioning the need for evidence of market prices and local customs to support the court&#39;s decision.; correct: The answer is correct in its analysis of the legal context and the potential court decision based on market prices and fairness principles.\nCoT agent aBbh, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后林地的处置权以及续包价格的合理性。原告要求按照市场价格调整承包费，而被告坚持按照原合同的价格续包。法律上，合同到期后，双方应协商续约条件，若合同中无明确续包条款，则需参考市场价格和当地惯例。相关法律可能涉及《合同法》中关于合同履行和变更的规定，以及《物权法》中关于土地承包经营权的规定。若无明确续包条款，法院可能会考虑市场价格和公平原则来裁定。需要进一步的市场价格和当地惯例的证据来支持法院的决定。; answer: 在此法律背景下，法院可能会要求双方协商新的承包条件，若无法达成一致，可能会参考市场价格和公平原则进行裁定。\nCritic agent cMXa, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key legal issues regarding the renewal of the contract and the determination of the new contract price. It appropriately references relevant legal principles from the Contract Law and Property Law. However, it could be improved by explicitly stating that the court may also consider the original contract terms and any evidence of local customary practices in determining the outcome.; correct: The answer is mostly correct, but it could be more comprehensive by including a mention of the original contract terms and local customs as factors in the court&#39;s decision.\nCoT agent aBbh, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后林地的处置权以及续包价格的合理性。原告要求按照市场价格调整承包费，而被告坚持按照原合同的价格续包。法律上，合同到期后，双方应协商续约条件，若合同中无明确续包条款，则需参考市场价格和当地惯例。相关法律可能涉及《合同法》中关于合同履行和变更的规定，以及《物权法》中关于土地承包经营权的规定。若无明确续包条款，法院可能会考虑市场价格和公平原则来裁定。需要进一步的市场价格和当地惯例的证据来支持法院的决定。此外，法院可能还会考虑原合同条款和任何当地习惯做法的证据来决定结果。; answer: 在此法律背景下，法院可能会要求双方协商新的承包条件，若无法达成一致，可能会参考市场价格、公平原则、原合同条款以及当地习惯做法的证据进行裁定。\nCritic agent cMXa, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key legal issues and suggests that the court may consider market prices, fairness, original contract terms, and local customs. However, it could be improved by explicitly mentioning the need for evidence of current market prices and local customs, as well as any legal precedents that might guide the decision.; correct: The answer is mostly correct in its analysis of the legal context and potential court considerations.\nCoT agent aBbh, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后林地的处置权以及续包价格的合理性。原告要求按照市场价格调整承包费，而被告坚持按照原合同的价格续包。法律上，合同到期后，双方应协商续约条件，若合同中无明确续包条款，则需参考市场价格和当地惯例。相关法律可能涉及《合同法》中关于合同履行和变更的规定，以及《物权法》中关于土地承包经营权的规定。若无明确续包条款，法院可能会考虑市场价格和公平原则来裁定。需要进一步的市场价格和当地惯例的证据来支持法院的决定。此外，法院可能还会考虑原合同条款和任何当地习惯做法的证据来决定结果。需要明确当前市场价格和当地习惯的证据，以及任何可能指导决定的法律先例。; answer: 在此法律背景下，法院可能会要求双方协商新的承包条件，若无法达成一致，可能会参考市场价格、公平原则、原合同条款以及当地习惯做法的证据进行裁定。\nCritic agent cMXa, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key legal issues and suggests that the court may require negotiation or use market prices and fairness principles to decide. However, it could be improved by explicitly mentioning the need for evidence of current market prices and local customs, as well as any legal precedents that might guide the decision.; correct: The answer is mostly correct in its analysis of the legal context and potential court actions.\nCoT agent aBbh, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后林地的处置权以及续包价格的合理性。原告要求按照市场价格调整承包费，而被告坚持按照原合同的价格续包。法律上，合同到期后，双方应协商续约条件，若合同中无明确续包条款，则需参考市场价格和当地惯例。相关法律可能涉及《合同法》中关于合同履行和变更的规定，以及《物权法》中关于土地承包经营权的规定。若无明确续包条款，法院可能会考虑市场价格和公平原则来裁定。需要进一步的市场价格和当地惯例的证据来支持法院的决定。此外，法院可能还会考虑原合同条款和任何当地习惯做法的证据来决定结果。需要明确当前市场价格和当地习惯的证据，以及任何可能指导决定的法律先例。; answer: 在此法律背景下，法院可能会要求双方协商新的承包条件，若无法达成一致，可能会参考市场价格、公平原则、原合同条款以及当地习惯做法的证据进行裁定。\nCritic agent cMXa, on the purpose of reviewing legal context evaluation, feedback: The answer correctly identifies the key legal issues and suggests that the court may require negotiation or use market prices and fairness principles to decide. However, it could be improved by explicitly mentioning the need for evidence of current market prices and local customs, as well as any legal precedents that might guide the decision.; correct: The answer is mostly correct, but it could be more detailed in terms of the evidence required and the legal principles involved.\nCoT agent aBbh, on the purpose of refining legal context evaluation, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后林地的处置权以及续包价格的合理性。原告要求按照市场价格调整承包费，而被告坚持按照原合同的价格续包。法律上，合同到期后，双方应协商续约条件，若合同中无明确续包条款，则需参考市场价格和当地惯例。相关法律可能涉及《合同法》中关于合同履行和变更的规定，以及《物权法》中关于土地承包经营权的规定。若无明确续包条款，法院可能会考虑市场价格和公平原则来裁定。需要进一步的市场价格和当地惯例的证据来支持法院的决定。此外，法院可能还会考虑原合同条款和任何当地习惯做法的证据来决定结果。需要明确当前市场价格和当地习惯的证据，以及任何可能指导决定的法律先例。; answer: 在此法律背景下，法院可能会要求双方协商新的承包条件，若无法达成一致，可能会参考市场价格、公平原则、原合同条款以及当地习惯做法的证据进行裁定。\nCoT agent 0vfl, on the purpose of generating final judgment, thinking: 在分析原告和被告的陈述及证据后，关键问题在于合同到期后林地的处置权以及续包价格的合理性。原告要求按照市场价格调整承包费，而被告坚持按照原合同的价格续包。法律上，合同到期后，双方应协商续约条件，若合同中无明确续包条款，则需参考市场价格和当地惯例。相关法律可能涉及《合同法》中关于合同履行和变更的规定，以及《物权法》中关于土地承包经营权的规定。若无明确续包条款，法院可能会考虑市场价格和公平原则来裁定。需要进一步的市场价格和当地惯例的证据来支持法院的决定。此外，法院可能还会考虑原合同条款和任何当地习惯做法的证据来决定结果。需要明确当前市场价格和当地习惯的证据，以及任何可能指导决定的法律先例。; answer: 根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#34;]
+
+final_response: [&#39;在分析原告和被告的陈述及证据后，关键问题在于合同到期后林地的处置权以及续包价格的合理性。原告要求按照市场价格调整承包费，而被告坚持按照原合同的价格续包。法律上，合同到期后，双方应协商续约条件，若合同中无明确续包条款，则需参考市场价格和当地惯例。相关法律可能涉及《合同法》中关于合同履行和变更的规定，以及《物权法》中关于土地承包经营权的规定。若无明确续包条款，法院可能会考虑市场价格和公平原则来裁定。需要进一步的市场价格和当地惯例的证据来支持法院的决定。此外，法院可能还会考虑原合同条款和任何当地习惯做法的证据来决定结果。需要明确当前市场价格和当地习惯的证据，以及任何可能指导决定的法律先例。\n\nAnswer:根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;]
+
+memory: [{&#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}, {&#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。被告主张按照原合同价格续包，但合同中并无明确续包价格条款，且市场价格变化是合理的考量因素。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}, {&#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。被告主张按照原合同价格续包，但合同中并无明确续包价格条款，且市场价格变化是合理的考量因素。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}, {&#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由被告承担。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}, {&#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}]</pre>
+    </div>
+</div>
+
+
+<div class="message user">
+    <div class="role">
+    user
+    
+    </div>
+    <div class="content">
+    <pre>Round 5: The entries (code, thoughts, agents, reflection, etc.) have been updated since last round (Round 4). Now Using insights from previous rounds, reflect again on the new outputs after round 4.
+
+&#34;
+Carefully review the proposed new architectures (&#34;code&#34; entry), the answer of each sub-tasks (&#34;sub_tasks&#34; entry) , the answer of each agnets (&#34;agents&#34; entry), the final response (&#34;final_reponse&#34; entry) and the fitness (&#34;fitness&#34; entry, i.e., the median and 95% Bootstrap Confidence Interval of the correct rate on the given question), and the &#39;memory&#39; (previous final answer extracted from their reponse and the corresponding fitness score, in the format of a list of dictionary final answer: fitness) in all the history user and assistant answers. Reflect on the following points:&#34;
+
+1. **Solvable**: Assess whether all sub-tasks are solvable by the corresponidng block via checking the output answer of each sub-task. 
+
+- if the answer of the sub-task explicitly contain [TOO_HARD]. This clearly state that task is too hard, what need to be further decomposed. Consider the suggestion given after the [TOO_HARD] (you can see the &#39;Suggestions:&#39; next to the [TOO_HARD] )and improve your decomposison accrodingly. See below (a) for what need to be make sure
+
+- If the sub-task answr is incoorect. That means it is not solvable, what need to be improved. It may beuase 
+
+(a) the task is still too difficult for the block, then the sub-task need to be further decomposed. 
+
+When proposing new sub-task, make sure 
+(i) it is specific and detailed enough to solve and to help achieve the final answer to the given question.
+(ii) all information required to answer the question is proveded by the previous answers or the instruction. 
+(iii) the related sub-tasks thinking and answers have correctly input to the current sub-task by adding it to the taskInfo list when calling the agent. 
+(iv) The output should be helpful to solve the next sub-task. Also make sure the sub-task connection is clearly by clealy state &#39;Based on the output of sub-task i..&#39; in the sub-task instruction
+
+(b) some agnets in the block is malfunctional or the underlying LLM is too weak to solve the sub-task alone. This can be detemined by checking the agents output to decide whether it works as expected. If this is the case, then we need to get rid of the block and use another block in the architecture. There are then two possibilities
+    (i) the agent in the block is not optimal to solve the sub-task, setting needed to be improved (instruction, tempreture...)
+    (ii) the agent architecutre in the block is not optimal, a new block that combine exisitng blocks in a different way or different settings need to be proposed
+Please jutify it is (a), the decomposition issue or (b) (and (i) or (ii)), the block and agent issue. It could also be both.
+
+2. **Completeness**: Are the sub-tasks include all neccessay information from the irginal query that can ensure the aggregation of sub-task responses can effectively yild a comprehensive answer to the user query? Note that while a sub-task might include only part of the neccessary information, it is not allowable for any particular piece of critical information to be omitted from all sub-tasks. Make sure the sub-task are connected to the prerequisite sub-tasks so that there is enough information to solve it.
+
+3. **Fitness**: Your final goal is to optimize the fitness score after updating the architectures and/or task decomposision based on (1) and (2). The fitness is computed based on the final reponse. If it is low, it indicates that your final answer is incorrect. In your updated architecture or task decomposition, you need to make sure they will update your final response accordingly. 
+
+And then, you need to improve or revise the implementation, or implement the new proposed architecture based on the reflection.
+
+Your response should add new entries to the previous answers:
+
+&#34;reflection&#34;: 
+(1) Provide your thoughts on the Solvable, Completeness and Fitness of the architecture and/or task decomposision (which sub-tasks are incorrect? which agent in which block are malfunctional?)
+(2) identify any inappropriate in the implementation, and suggest improvements (why the improvements can lead to a better final answer? Expain in detail)
+
+&#34;thought&#34;: Revise your previous proposal or propose a new architecture if necessary, using the same format as the example response. 
+
+For case (a), Give the 
+
+(1) **Further Decomposion**: Compre to your previous decomposition attemps in the Discovered architecture archive (see the &#39;thought&#39; entries), how do you futher decompose the questions? please give details by the following format: &#39;last sub-task 1 -&gt; (further decompose to) new sub-task 2, new sub-task 3..., new sub-task n)&#39; Give detail compare and justify how the new sub-tasks are eaiser than the old one. Do not give answer or short-cut (an example for shot-cut: &#39;output exactly the following:..&#39;, which is not allowed) in the sub-task instruction in any format, but only do the planing. Justify (1) why the new sub-tasks are sovlable and (2) how the sub-tasks can achieve the final answer to the original question.
+
+
+For case (b), Give the 
+
+(2) **Improved subtask architeture**: Compare to your last block attemps in the history (last answer), which sub-task architecture need to be imrpoved? How do you futher connecting them in a different ways so that the resultsing subtask architeture is able to solve the corresponding sub-task? please give details by the following format: &#39;last sub-task architeture (what architecute was it?) (aims to address sub-task i)-&gt; (improve to) new sub-task architeture (what is the main difference?)&#39; Give detail compare and justify how the new connection is improved than the old one. Note that the new connection still follow the rules that you need need to determine the number of layers as well as the connection, but do not propose new blocks or modify existing ones in the sub-task architecture, and just changes the connection among the block, but block setting like instruction, tempreture are allowed to modify
+
+For case where the final response is not updated and still the same mistaken answer, Give the
+
+(3) **Updated Subtask Instruction**. Read the &#39;memeory&#39; entry, improve the sub-task instruction so that it can know explicitly that some answers should be avoided. For example, you can add `It is known that (wrong answers, include all wrong answers from the &#39;memeory&#39;, i.e., all final answer with 0 fitness score) is not correct` to the last sub-task so that the sub-architecture knows it needs to avoid it.
+
+
+&#34;name&#34;: Provide a name for the revised or new architecture. (Don&#39;t put words like &#34;new&#34; or &#34;improved&#34; in the name.)
+
+&#34;code&#34;: Update the code entry based on your reflection and thought. Make sure you actually implement all the improvements mentioned in the reflection and thougths and improvement in this code. Make sure only return the final answer, i.e., the output of self.make_final_answer. All the requirement on code still valid: You must write a COMPLETE CODE in &#34;code&#34;: Your code will be part of the entire project (so do not implement any other part), so please implement complete, reliable, reusable code snippets. Do not make any syntactic mistakes. For example. 
+if single quote (&#39;) is used in string, then double quote (&#34;) should be used for the whole string.
+
+This is WRONG
+`f&#39;CoT-SC agent ABC, on the purpose of determining changes to Maxwell&#39;s&#39;`. 
+This is wrong becuse single qupte is used (Maxwell&#39;s) within the sting but single quote is used again for the f-string (f&#39;&#39;). This will casue unterminated string error. To correct it, one should use double quote for f-stirng, i.e., `f&#34;CoT-SC agent ABC, on the purpose of determining changes to Maxwell&#39;s&#34;`
+</pre>
+    </div>
+</div>
+
+<h3>Sampled message</h3>
+
+<div class="message assistant">
+    <div class="role">
+    assistant
+    
+    </div>
+    <div class="content">
+    <pre>reflection: 
+(1) **Solvable**: The sub-tasks appear to be solvable by the corresponding blocks, as there are no explicit indicators that the tasks are too hard (e.g., [TOO_HARD]). However, the final judgment still seems to lack accuracy, suggesting that while the sub-tasks are individually solvable, the synthesis into a coherent final answer is problematic. The repeated incorrect final responses suggest that the integration of sub-task outputs is not being handled effectively.
+
+(2) **Completeness**: The sub-tasks include necessary information from the original query, and the outputs from each sub-task are used in subsequent tasks. However, there might still be a gap in how these pieces are integrated to form a comprehensive judgment. The final judgment is not considering all aspects of the evidence and legal principles effectively.
+
+(3) **Fitness**: The fitness score remains low, indicating that the final response is incorrect. The architecture needs to better integrate the legal reasoning and evidence to produce a valid judgment. The repeated failure of the final judgment suggests that the instruction to avoid incorrect answers is not being effectively applied.
+
+**Improvements**: The architecture needs to refine the final judgment synthesis. This can be achieved by ensuring that the final sub-task instruction explicitly guides the model to integrate the legal reasoning and evidence more effectively. Additionally, the instruction should emphasize avoiding known incorrect answers more strongly, possibly by providing a list of incorrect patterns to avoid.
+
+thought: 
+**Updated Subtask Instruction**:
+
+To improve the final judgment and avoid previous mistakes, I will update the final sub-task instruction to emphasize the integration of legal reasoning and evidence, and to explicitly instruct the model to avoid known incorrect conclusions. This will help guide the synthesis of the sub-task outputs into a correct judgment.
+
+Sub-task 4: Generate Final Judgment
+- Instruction: Based on the output of sub-task 1, 2, and 3, generate a final judgment, including reasoning and any compensation or actions mandated. It is known that the following conclusions are incorrect: &#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39; and similar patterns. Ensure that the judgment aligns with legal principles, integrates evidence effectively, and provides a clear resolution to the dispute.
+
+This updated instruction should help the architecture produce a more accurate final response by explicitly avoiding previous incorrect answers and ensuring a more thorough integration of legal reasoning.
+
+name: Legal Judgment Architecture with Integrated Guidance
+
+code: async def forward(self, taskInfo, extra_info):
+    from collections import Counter
+    sub_tasks = []
+    agents = []
+    
+    # Sub-task 1: Analyze the Plaintiff&#39;s Claims
+    cot_instruction_1 = &#34;Sub-task 1: Analyze the plaintiff&#39;s claims and evidence. Summarize the key points and assess the strength of their case.&#34;
+    cot_agent_1 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking1, answer1 = await cot_agent_1([taskInfo], extra_info, cot_instruction_1, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_1.id}, on the purpose of analyzing plaintiff claims, thinking: {thinking1.content}; answer: {answer1.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 1 output: thinking - {thinking1.content}; answer - {answer1.content}&#34;)
+
+    # Sub-task 2: Analyze the Defendant&#39;s Defense
+    cot_instruction_2 = &#34;Sub-task 2: Based on the output of sub-task 1, analyze the defendant&#39;s defense and evidence. Summarize the key points and assess the strength of their case.&#34;
+    cot_agent_2 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking2, answer2 = await cot_agent_2([taskInfo, thinking1, answer1], extra_info, cot_instruction_2, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_2.id}, on the purpose of analyzing defendant defense, thinking: {thinking2.content}; answer: {answer2.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 2 output: thinking - {thinking2.content}; answer - {answer2.content}&#34;)
+
+    # Sub-task 3: Evaluate Legal Context and Precedents
+    cot_initial_instruction_3 = &#34;Sub-task 3: Based on the output of sub-task 1 and 2, evaluate the legal context and any relevant precedents.&#34;
+    cot_reflect_instruction_3 = &#34;Sub-task 3: Based on previous attempts and feedback, refine the evaluation of legal context and precedents.&#34;
+    cot_agent_3 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    critic_instruction_3 = &#34;Sub-task 3: Review the answer above and provide feedback on any errors or omissions.&#34;
+    critic_agent_3 = LLMAgentBase([&#39;feedback&#39;, &#39;correct&#39;], &#39;Critic Agent&#39;, model=self.node_model, temperature=0.0)
+    N_max_3 = self.max_round
+    cot_inputs_3 = [taskInfo, thinking1, answer1, thinking2, answer2]
+    thinking3, answer3 = await cot_agent_3(cot_inputs_3, extra_info, cot_initial_instruction_3, 0, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_3.id}, on the purpose of evaluating legal context, thinking: {thinking3.content}; answer: {answer3.content}&#34;)
+
+    for i in range(N_max_3):
+        feedback3, correct3 = await critic_agent_3([taskInfo, thinking3, answer3], extra_info, critic_instruction_3, i, is_sub_task=True)
+        agents.append(f&#34;Critic agent {critic_agent_3.id}, on the purpose of reviewing legal context evaluation, feedback: {feedback3.content}; correct: {correct3.content}&#34;)
+        if correct3.content == &#39;True&#39;:
+            break
+        cot_inputs_3.extend([thinking3, answer3, feedback3])
+        thinking3, answer3 = await cot_agent_3(cot_inputs_3, extra_info, cot_reflect_instruction_3, i + 1, is_sub_task=True)
+        agents.append(f&#34;CoT agent {cot_agent_3.id}, on the purpose of refining legal context evaluation, thinking: {thinking3.content}; answer: {answer3.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 3 output: thinking - {thinking3.content}; answer - {answer3.content}&#34;)
+
+    # Sub-task 4: Generate Final Judgment
+    cot_instruction_4 = (&#34;Sub-task 4: Based on the output of sub-task 1, 2, and 3, generate a final judgment, including reasoning and any compensation or actions mandated. &#34;
+                        &#34;It is known that the following conclusions are incorrect: &#39;根据现有证据和法律原则，法院认为合同到期后，双方应就续包条件进行协商。由于合同中没有明确的续包价格条款，市场价格可以作为参考依据。原告要求被告恢复林地原状或按每年每亩200.00元缴纳承包费的要求，需基于双方协商达成一致。若双方无法达成一致，建议通过调解或仲裁解决争议。案件受理费用由双方各自承担。&#39; and similar patterns. Ensure that the judgment aligns with legal principles, integrates evidence effectively, and provides a clear resolution to the dispute.&#34;)
+    cot_agent_4 = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)
+    thinking4, answer4 = await cot_agent_4([taskInfo, thinking1, answer1, thinking2, answer2, thinking3, answer3], extra_info, cot_instruction_4, is_sub_task=True)
+    agents.append(f&#34;CoT agent {cot_agent_4.id}, on the purpose of generating final judgment, thinking: {thinking4.content}; answer: {answer4.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 4 output: thinking - {thinking4.content}; answer - {answer4.content}&#34;)
+
+    final_answer = self.make_final_answer(thinking4, answer4, sub_tasks, agents)
+    return final_answer
+</pre>
+    </div>
+</div>
+<h3>Results</h3>
+<p>Correct Answer: 0</p>
+<p>Extracted Answer: 0</p>
+<p>Score: 0</p>
+    <hr>
+    
+    </body>
+</html>

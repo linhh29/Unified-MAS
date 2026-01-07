@@ -1,0 +1,17 @@
+[
+    {
+        "Self-driving": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Taxi": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "There is no transportation option from Decatur to Syracuse based on the provided data. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Explore flights from Atlanta to Syracuse as an alternative transportation option, considering the proximity of Atlanta to Decatur and the potential for more flight options from a major airport. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Travel Plan:": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

@@ -1,0 +1,106 @@
+================================================================================
+EVALUATION SCORE
+================================================================================
+
+Final Score: 0
+
+Concrete Dict:
+{
+  "Commonsense Constraint": {
+    "easy": {
+      "3": {},
+      "5": {
+        "Reasonable City Route": {
+          "true": 1,
+          "false": 0,
+          "total": 1
+        },
+        "Diverse Restaurants": {
+          "true": 1,
+          "false": 0,
+          "total": 1
+        },
+        "Diverse Attractions": {
+          "true": 1,
+          "false": 0,
+          "total": 1
+        },
+        "Minimum Nights Stay": {
+          "true": 1,
+          "false": 0,
+          "total": 1
+        },
+        "Non-conf. Transportation": {
+          "true": 0,
+          "false": 1,
+          "total": 1
+        },
+        "Within Current City": {
+          "true": 1,
+          "false": 0,
+          "total": 1
+        },
+        "Within Sandbox": {
+          "true": 1,
+          "false": 0,
+          "total": 1
+        },
+        "Complete Information": {
+          "true": 1,
+          "false": 0,
+          "total": 1
+        }
+      },
+      "7": {}
+    },
+    "medium": {
+      "3": {},
+      "5": {},
+      "7": {}
+    },
+    "hard": {
+      "3": {},
+      "5": {},
+      "7": {}
+    }
+  },
+  "Hard Constraint": {
+    "easy": {
+      "3": {},
+      "5": {
+        "Cuisine": {
+          "true": 0,
+          "false": 0
+        },
+        "Room Rule": {
+          "true": 0,
+          "false": 0
+        },
+        "Transportation": {
+          "true": 0,
+          "false": 0
+        },
+        "Room Type": {
+          "true": 0,
+          "false": 0
+        },
+        "Budget": {
+          "true": 1,
+          "false": 0,
+          "total": 1
+        }
+      },
+      "7": {}
+    },
+    "medium": {
+      "3": {},
+      "5": {},
+      "7": {}
+    },
+    "hard": {
+      "3": {},
+      "5": {},
+      "7": {}
+    }
+  }
+}

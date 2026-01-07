@@ -1,0 +1,333 @@
+experiemnt 12: 1 (0); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Devils Lake to Alamosa",
+        "transportation": "Self-driving, from Devils Lake to Alamosa, duration: 17 hours 26 mins, distance: 1,811 km, Cost: 90",
+        "breakfast": "-",
+        "attraction": "-",
+        "lunch": "-",
+        "dinner": "-",
+        "accommodation": "Prime Location of Flushing Queens 豪华卧室 旅途中的家 E, Alamosa"
+    },
+    {
+        "days": 2,
+        "current_city": "Alamosa",
+        "transportation": "-",
+        "breakfast": "Cafe LazyMojo, Alamosa",
+        "attraction": "San Luis Valley Museum, Alamosa",
+        "lunch": "Street Foods by Punjab Grill, Alamosa",
+        "dinner": "Urban Crave Express, Alamosa",
+        "accommodation": "Prime Location of Flushing Queens 豪华卧室 旅途中的家 E, Alamosa"
+    },
+    {
+        "days": 3,
+        "current_city": "from Alamosa to Grand Junction",
+        "transportation": "Self-driving, from Alamosa to Grand Junction, duration: 4 hours 29 mins, distance: 396 km, Cost: 19",
+        "breakfast": "-",
+        "attraction": "-",
+        "lunch": "-",
+        "dinner": "-",
+        "accommodation": "Cool room Manhattan - Sleeps up to 3 guests, Grand Junction"
+    },
+    {
+        "days": 4,
+        "current_city": "Grand Junction",
+        "transportation": "-",
+        "breakfast": "Cocoa Tree, Grand Junction",
+        "attraction": "Museum of the West, Museums of Western Colorado, Grand Junction",
+        "lunch": "Austin's BBQ and Oyster Bar, Grand Junction",
+        "dinner": "Om Ji Bhature Wale, Grand Junction",
+        "accommodation": "Cool room Manhattan - Sleeps up to 3 guests, Grand Junction"
+    },
+    {
+        "days": 5,
+        "current_city": "from Grand Junction to Gunnison",
+        "transportation": "Self-driving, from Grand Junction to Gunnison, duration: 2 hours 27 mins, distance: 200 km, Cost: 10",
+        "breakfast": "-",
+        "attraction": "-",
+        "lunch": "-",
+        "dinner": "-",
+        "accommodation": "Full-size loft bed in East Village, Gunnison"
+    },
+    {
+        "days": 6,
+        "current_city": "Gunnison",
+        "transportation": "-",
+        "breakfast": "SALT, Gunnison",
+        "attraction": "Gunnison Pioneer Museum, Gunnison",
+        "lunch": "Mocha, Gunnison",
+        "dinner": "Cyber Hub Social, Gunnison",
+        "accommodation": "Full-size loft bed in East Village, Gunnison"
+    },
+    {
+        "days": 7,
+        "current_city": "from Gunnison to Devils Lake",
+        "transportation": "Self-driving, from Gunnison to Devils Lake, duration: 17 hours 30 mins, distance: 1,881 km, Cost: 94",
+        "breakfast": "-",
+        "attraction": "-",
+        "lunch": "-",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]; SCORE: 1
+experiemnt 14: 1 (0); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Palm Springs to Houston",
+        "transportation": "Flight Number: F3839339, from Palm Springs to Houston, Departure Time: 06:07, Arrival Time: 10:59",
+        "breakfast": "-",
+        "attraction": "Space Center Houston, Houston",
+        "lunch": "Jalapenos, Houston",
+        "dinner": "Matchbox, Houston",
+        "accommodation": "Superhost 3 bedroom DISCOUNT, Houston"
+    },
+    {
+        "days": 2,
+        "current_city": "Houston",
+        "transportation": "-",
+        "breakfast": "Vinayaka Mylari, Houston",
+        "attraction": "Houston Museum of Natural Science, Houston",
+        "lunch": "The BrewMaster - The Mix Fine Dine, Houston",
+        "dinner": "Pebble Street, Houston",
+        "accommodation": "Superhost 3 bedroom DISCOUNT, Houston"
+    },
+    {
+        "days": 3,
+        "current_city": "from Houston to Austin",
+        "transportation": "Flight Number: F3913763, from Houston to Austin, Departure Time: 16:27, Arrival Time: 17:17",
+        "breakfast": "Royal Mart, Houston",
+        "attraction": "Hermann Park, Houston",
+        "lunch": "Cyber Adda 24, Houston",
+        "dinner": "Wildflour Cafe + Bakery, Austin",
+        "accommodation": "Spacious Williamsburg 1 bedroom!, Austin"
+    },
+    {
+        "days": 4,
+        "current_city": "Austin",
+        "transportation": "-",
+        "breakfast": "Moksha, Austin",
+        "attraction": "Texas Capitol, Austin",
+        "lunch": "Chili's, Austin",
+        "dinner": "The Kasbah, Austin",
+        "accommodation": "Spacious Williamsburg 1 bedroom!, Austin"
+    },
+    {
+        "days": 5,
+        "current_city": "from Austin to Dallas",
+        "transportation": "Flight Number: F4007287, from Austin to Dallas, Departure Time: 16:20, Arrival Time: 17:12",
+        "breakfast": "Cafe Coffee Day, Austin",
+        "attraction": "Zilker Metropolitan Park, Austin",
+        "lunch": "Tandoori Nights, Austin",
+        "dinner": "Coconuts Fish Cafe, Dallas",
+        "accommodation": "1BR, elevator, kitchen, doorman!, Dallas"
+    },
+    {
+        "days": 6,
+        "current_city": "Dallas",
+        "transportation": "-",
+        "breakfast": "Drifters Cafe, Dallas",
+        "attraction": "The Dallas World Aquarium, Dallas",
+        "lunch": "1918 Bistro & Grill, Dallas",
+        "dinner": "Yanki Sizzlers, Dallas",
+        "accommodation": "1BR, elevator, kitchen, doorman!, Dallas"
+    },
+    {
+        "days": 7,
+        "current_city": "from Dallas to Palm Springs",
+        "transportation": "Flight Number: F3675114, from Dallas to Palm Springs, Departure Time: 18:55, Arrival Time: 20:19",
+        "breakfast": "Cafe Gatherings, Dallas",
+        "attraction": "Dallas Museum of Art, Dallas",
+        "lunch": "L'Opera, Dallas",
+        "dinner": "Delhicacy, Dallas",
+        "accommodation": "-"
+    }
+]; SCORE: 1
+experiemnt 46: 1 (0); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Eugene to Los Angeles",
+        "transportation": "Flight Number: F3818922, from Eugene to Los Angeles, Departure Time: 16:33, Arrival Time: 18:47",
+        "breakfast": "-",
+        "attraction": "Santa Monica Pier, Los Angeles",
+        "lunch": "Palmshore, Los Angeles",
+        "dinner": "Punjabi Zaika, Los Angeles",
+        "accommodation": "Lovely studio, Los Angeles"
+    },
+    {
+        "days": 2,
+        "current_city": "Los Angeles",
+        "transportation": "-",
+        "breakfast": "Choco Kraft, Los Angeles",
+        "attraction": "Hollywood Walk of Fame, Los Angeles; Griffith Observatory, Los Angeles",
+        "lunch": "The Hangout by 1861, Los Angeles",
+        "dinner": "Elan - The Lodhi, Los Angeles",
+        "accommodation": "Lovely studio, Los Angeles"
+    },
+    {
+        "days": 3,
+        "current_city": "from Los Angeles to Eugene",
+        "transportation": "Flight Number: F3819973, from Los Angeles to Eugene, Departure Time: 13:35, Arrival Time: 16:03",
+        "breakfast": "Shree Manakamna Fast Food, Los Angeles",
+        "attraction": "The Getty, Los Angeles",
+        "lunch": "Onokabe, Los Angeles",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]; SCORE: 1
+experiemnt 58: 1 (0); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Omaha to Traverse City",
+        "transportation": "Self-driving, from Omaha to Traverse City, Duration: 11 hours 25 mins, Cost: 62",
+        "breakfast": "-",
+        "attraction": "-",
+        "lunch": "-",
+        "dinner": "Famous Dave's, Traverse City",
+        "accommodation": "Beautiful Room close to JFK, La Guardia, LIR, Traverse City"
+    },
+    {
+        "days": 2,
+        "current_city": "Traverse City",
+        "transportation": "-",
+        "breakfast": "Daily Eats, Traverse City",
+        "attraction": "Clinch Park, Traverse City;Great Lakes Children's Museum, Traverse City",
+        "lunch": "Arigato Sushi, Traverse City",
+        "dinner": "Whipped, Traverse City",
+        "accommodation": "Beautiful Room close to JFK, La Guardia, LIR, Traverse City"
+    },
+    {
+        "days": 3,
+        "current_city": "from Traverse City to Alpena",
+        "transportation": "Self-driving, from Traverse City to Alpena, Duration: 2 hours 29 mins, Cost: 10",
+        "breakfast": "French Toast, Traverse City",
+        "attraction": "Mission Point Lighthouse, Traverse City",
+        "lunch": "Tasty Bites, Traverse City",
+        "dinner": "A & A Pagliai's Pizza, Alpena",
+        "accommodation": "SINGLE ROOM AVAILABLE IN JAMAICA NEAR JFK & LGA, Alpena"
+    },
+    {
+        "days": 4,
+        "current_city": "Alpena",
+        "transportation": "-",
+        "breakfast": "@Mango, Alpena",
+        "attraction": "Great Lakes Maritime Heritage Center, Alpena;Besser Museum for Northeast Michigan, Alpena",
+        "lunch": "Maplai, Alpena",
+        "dinner": "Shudh Restaurant, Alpena",
+        "accommodation": "SINGLE ROOM AVAILABLE IN JAMAICA NEAR JFK & LGA, Alpena"
+    },
+    {
+        "days": 5,
+        "current_city": "from Alpena to Omaha",
+        "transportation": "Self-driving, from Alpena to Omaha, Duration: 12 hours 59 mins, Cost: 69",
+        "breakfast": "Jain Chawal Wale, Alpena",
+        "attraction": "Mich-e-ke-wis Park, Alpena",
+        "lunch": "Kylin Express, Alpena",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]; SCORE: 1
+experiemnt 66: 1 (2); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Lake Charles to Houston",
+        "transportation": "Flight Number: F3932451, from Lake Charles to Houston, Departure Time: 07:02, Arrival Time: 08:27",
+        "breakfast": "Jalapenos, Houston",
+        "attraction": "Space Center Houston, Houston;Houston Museum of Natural Science, Houston;",
+        "lunch": "Matchbox, Houston",
+        "dinner": "The BrewMaster - The Mix Fine Dine, Houston",
+        "accommodation": "Superhost 3 bedroom DISCOUNT, Houston"
+    },
+    {
+        "days": 2,
+        "current_city": "Houston",
+        "transportation": "-",
+        "breakfast": "Vinayaka Mylari, Houston",
+        "attraction": "Downtown Aquarium, Houston;Water Wall, Houston;",
+        "lunch": "Pebble Street, Houston",
+        "dinner": "Al Arabian Express, Houston",
+        "accommodation": "Superhost 3 bedroom DISCOUNT, Houston"
+    },
+    {
+        "days": 3,
+        "current_city": "from Houston to Dallas",
+        "transportation": "Flight Number: F3726137, from Houston to Dallas, Departure Time: 06:06, Arrival Time: 07:29",
+        "breakfast": "Coconuts Fish Cafe, Dallas",
+        "attraction": "The Dallas World Aquarium, Dallas;Reunion Tower, Dallas;",
+        "lunch": "1918 Bistro & Grill, Dallas",
+        "dinner": "Yanki Sizzlers, Dallas",
+        "accommodation": "Take it now you won't find better, Dallas"
+    },
+    {
+        "days": 4,
+        "current_city": "Dallas",
+        "transportation": "-",
+        "breakfast": "Cafe Gatherings, Dallas",
+        "attraction": "Dallas Museum of Art, Dallas;The Sixth Floor Museum at Dealey Plaza, Dallas;",
+        "lunch": "Delhicacy, Dallas",
+        "dinner": "L'Opera, Dallas",
+        "accommodation": "Take it now you won't find better, Dallas"
+    },
+    {
+        "days": 5,
+        "current_city": "from Dallas to Lake Charles",
+        "transportation": "Flight Number: F3592512, from Dallas to Lake Charles, Departure Time: 16:41, Arrival Time: 17:52",
+        "breakfast": "Drifters Cafe, Dallas",
+        "attraction": "Klyde Warren Park, Dallas;",
+        "lunch": "Bikaner Sweets, Dallas",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]; SCORE: 1
+experiemnt 113: 1 (0); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Evansville to Texarkana",
+        "transportation": "Self-driving, from Evansville to Texarkana, duration: 8 hours 45 mins, distance: 889 km, Cost: 44",
+        "breakfast": "-",
+        "attraction": "-",
+        "lunch": "-",
+        "dinner": "Big City Bread Cafe, Texarkana",
+        "accommodation": "Large 2.5 BR Apt In Park Slope, Texarkana"
+    },
+    {
+        "days": 2,
+        "current_city": "Texarkana",
+        "transportation": "-",
+        "breakfast": "Poets Cafe, Texarkana",
+        "attraction": "Museum of Regional History, Texarkana",
+        "lunch": "Columbia Restaurant, Texarkana",
+        "dinner": "Club Mojo, Texarkana",
+        "accommodation": "Large 2.5 BR Apt In Park Slope, Texarkana"
+    },
+    {
+        "days": 3,
+        "current_city": "from Texarkana to Longview",
+        "transportation": "Self-driving, from Texarkana to Longview, duration: 1 hour 36 mins, distance: 142 km, Cost: 7",
+        "breakfast": "Blackout, Texarkana",
+        "attraction": "Texarkana Museums System, Texarkana",
+        "lunch": "Purani Dilli Foods, Texarkana",
+        "dinner": "The Beer Cafe - BIGGIE, Texarkana",
+        "accommodation": "Luxury STUDIO * PVT Entrance * WOW, Longview"
+    },
+    {
+        "days": 4,
+        "current_city": "Longview",
+        "transportation": "-",
+        "breakfast": "Barbeque Nation, Longview",
+        "attraction": "Longview World of Wonders, Longview",
+        "lunch": "Apna Restaurant, Longview",
+        "dinner": "Monster's Cafe, Longview",
+        "accommodation": "Luxury STUDIO * PVT Entrance * WOW, Longview"
+    },
+    {
+        "days": 5,
+        "current_city": "from Longview to Evansville",
+        "transportation": "Self-driving, from Longview to Evansville, duration: 10 hours 8 mins, distance: 1,045 km, Cost: 52",
+        "breakfast": "Apni Rasoi, Longview",
+        "attraction": "Gregg County Historical Museum, Longview",
+        "lunch": "Momo Mia, Longview",
+        "dinner": "Not Just Paranthas, Longview",
+        "accommodation": "-"
+    }
+]; SCORE: 1
+coorect 6; Total: 148; Acc: 0.04054054054054054

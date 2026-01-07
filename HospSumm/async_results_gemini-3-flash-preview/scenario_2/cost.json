@@ -1,0 +1,202 @@
+{
+  "scenario_id": 2,
+  "doctor": {
+    "input_tokens": 44102,
+    "output_tokens": 9528,
+    "total_tokens": 53630,
+    "input_cost": 0.022051,
+    "output_cost": 0.028584,
+    "total_cost": 0.050635,
+    "num_calls": 11
+  },
+  "patient": {
+    "input_tokens": 17340,
+    "output_tokens": 2111,
+    "total_tokens": 19451,
+    "input_cost": 0.00867,
+    "output_cost": 0.006333,
+    "total_cost": 0.015003,
+    "num_calls": 5
+  },
+  "measurement": {
+    "input_tokens": 17931,
+    "output_tokens": 5418,
+    "total_tokens": 23349,
+    "input_cost": 0.008965,
+    "output_cost": 0.016254,
+    "total_cost": 0.025219,
+    "num_calls": 5
+  },
+  "judge": {
+    "input_tokens": 962,
+    "output_tokens": 133,
+    "total_tokens": 1095,
+    "input_cost": 0.002405,
+    "output_cost": 0.00133,
+    "total_cost": 0.003735,
+    "num_calls": 1
+  },
+  "total": {
+    "total_cost": 0.094593,
+    "total_tokens": 97525
+  },
+  "detailed_calls": {
+    "doctor": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3305,
+        "output_tokens": 246,
+        "cost": 0.0023905000000000003,
+        "inference_num": 1
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3418,
+        "output_tokens": 421,
+        "cost": 0.002972,
+        "inference_num": 2
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3704,
+        "output_tokens": 210,
+        "cost": 0.0024820000000000003,
+        "inference_num": 3
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3815,
+        "output_tokens": 470,
+        "cost": 0.0033175,
+        "inference_num": 4
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3938,
+        "output_tokens": 759,
+        "cost": 0.004246,
+        "inference_num": 5
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4013,
+        "output_tokens": 522,
+        "cost": 0.0035725,
+        "inference_num": 6
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4093,
+        "output_tokens": 693,
+        "cost": 0.0041255,
+        "inference_num": 7
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4239,
+        "output_tokens": 699,
+        "cost": 0.0042165,
+        "inference_num": 8
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4331,
+        "output_tokens": 885,
+        "cost": 0.0048205,
+        "inference_num": 9
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4561,
+        "output_tokens": 1276,
+        "cost": 0.0061085,
+        "inference_num": 10
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4685,
+        "output_tokens": 3347,
+        "cost": 0.012383499999999999,
+        "inference_num": 11
+      }
+    ],
+    "patient": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3004,
+        "output_tokens": 301,
+        "cost": 0.002405
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3348,
+        "output_tokens": 423,
+        "cost": 0.002943
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3546,
+        "output_tokens": 382,
+        "cost": 0.002919
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3624,
+        "output_tokens": 524,
+        "cost": 0.003384
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3818,
+        "output_tokens": 481,
+        "cost": 0.003352
+      }
+    ],
+    "measurement": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3040,
+        "output_tokens": 1138,
+        "cost": 0.004934
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3413,
+        "output_tokens": 1035,
+        "cost": 0.0048115
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3621,
+        "output_tokens": 663,
+        "cost": 0.0037995000000000004
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3812,
+        "output_tokens": 1914,
+        "cost": 0.007647999999999999
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4045,
+        "output_tokens": 668,
+        "cost": 0.0040265000000000006
+      }
+    ],
+    "judge": [
+      {
+        "model": "gpt-4o",
+        "input_tokens": 962,
+        "output_tokens": 133,
+        "cost": 0.003735
+      }
+    ]
+  },
+  "diagnosis_result": {
+    "diagnosis_made": true,
+    "is_correct": false,
+    "doctor_diagnosis": "This 49-year-old male with a history of hypertension, asthma, and diabetes was admitted for acute throat swelling and respiratory distress diagnosed as lisinopril-induced angioedema. Following stabilization with racemic epinephrine, corticosteroids, and antihistamines, fiberoptic laryngoscopy confirmed resolving hypopharyngeal and epiglottal edema during his observation in the intensive care unit. His hospital course also addressed a concurrent asthma flare with nebulized albuterol. At the time of discharge, the patient's airway was stable, his lungs were clear, and he was tolerating oral intake well. He was instructed to permanently avoid all ACE inhibitors and was discharged on his home medications along with a four-day course of prednisone, with instructions to follow up with his primary care physician for alternative blood pressure management and an allergy consultation.",
+    "correct_diagnosis": "The patient is a 49-year-old male who presented to the hospital with a chief complaint of throat swelling. He has a history of asthma, diabetes, and hypertension. He was taking lisinopril for hypertension, but it was discontinued during his hospital stay due to concerns about its potential contribution to his angioedema. The patient's symptoms included a sensation of throat swelling, rhinorrhea, and a cough productive of whitish sputum. He was treated with steroids, benadryl, and famotidine, and his angioedema resolved. He was also diagnosed with asthma and treated with albuterol nebulizers as needed. The patient was discharged home with a diagnosis of angioedema and asthma, and was prescribed medications including diphenhydramine, famotidine, prednisone, albuterol inhaler, fluticasone propionate, and metformin."
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "scenario_id": 14,
+  "dialogue_history": [
+    {
+      "round": 1,
+      "type": "doctor",
+      "content": "To start, I'd like to coordinate with the team to ensure a comprehensive summary. Nursing agent, could you please provide details on the patient's nursing care during the stay, specifically their mobility/activity level, any skin care concerns, and how they tolerated the nocturnal jejunal tube feeds?",
+      "progress": 2
+    },
+    {
+      "round": 1,
+      "type": "patient",
+      "content": "The patient remained independently ambulatory throughout her stay and was independent at the time of discharge. No skin lesions or breakdown were noted, and the GJ tube site remained intact and non-tender. While she tolerated the nocturnal jejunal feeds, she occasionally stopped them earlier than scheduled, which contributed to some hypoglycemic episodes during the hospitalization.",
+      "progress": 2
+    },
+    {
+      "round": 2,
+      "type": "doctor",
+      "content": "REQUEST TEST: Please provide the full list of discharge medications, highlighting any changes from the admission regimen, specifically regarding the insulin glargine dosing and the switch from omeprazole to lansoprazole.",
+      "progress": 5
+    },
+    {
+      "round": 2,
+      "type": "measurement",
+      "content": "RESULTS: 1. Amlodipine 10 mg PO DAILY 2. Carvedilol 12.5 mg PO BID 3. Fluoxetine 40 mg PO DAILY 4. HYDROmorphone (Dilaudid) ___ mg PO Q4H:PRN pain 5. Lorazepam 0.5 mg PO Q6H:PRN nausea 6. Ondansetron 4 mg PO Q8H:PRN nausea 7. Rosuvastatin Calcium 40 mg PO DAILY 8. Glargine: 2 Units Breakfast and 14 Units Bedtime (Note: Bedtime dose decreased from 16 Units on admission to prevent hypoglycemia) 9. Lansoprazole Oral Disintegrating Tab 30 mg J TUBE DAILY (Note: This replaces home omeprazole, which was noted to be clogging the tube) 10. Tube Feeds: Nepro Full strength; Goal rate: 60 ml/hr x 12 hours/day 11. Insulin SC Sliding Scale using HUM Insulin 12. Insulin SC Sliding Scale using REG Insulin 13. Arava (leflunomide) 20 mg ORAL DAILY",
+      "progress": 5
+    },
+    {
+      "round": 3,
+      "type": "doctor",
+      "content": "Nursing agent, could you elaborate on the patient's bowel habits and the management of her diarrhea during the stay, particularly given her history of C. diff and the negative repeat test results?",
+      "progress": 7
+    },
+    {
+      "round": 3,
+      "type": "patient",
+      "content": "The patient's reported diarrhea resolved quickly, with a formed bowel movement documented as early as her time in the Emergency Department. We continued to monitor her stool consistency and frequency due to her history of C. diff, but she remained stable with no further diarrheal episodes once DKA management was initiated. Care focused on monitoring for gastrointestinal distress and ensuring the GJ tube site remained clean and patent.",
+      "progress": 7
+    },
+    {
+      "round": 4,
+      "type": "doctor",
+      "content": "Medication Agent, REQUEST TEST: Please clarify the instructions for the two different insulin sliding scales (Humulin and Regular) provided at discharge, and were there any specific instructions for the patient regarding how to use these when her tube feeds are interrupted?",
+      "progress": 10
+    },
+    {
+      "round": 4,
+      "type": "measurement",
+      "content": "RESULTS: The discharge medication list includes two insulin sliding scales: 1. Insulin SC Sliding Scale using HUM Insulin and 2. Insulin SC Sliding Scale using REG Insulin. Regarding instructions for use during interruptions, the record indicates the patient was instructed to lower her sliding scale insulin when not getting tube feeds. No further specific dosing increments for the sliding scales were detailed in the provided record beyond the instruction to continue them as she had been doing at home.",
+      "progress": 10
+    },
+    {
+      "round": 5,
+      "type": "doctor",
+      "content": "Nursing agent, could you provide more detail on the blood pressure readings during the floor stay? I see the SBP was in the 160s at discharge; were there any specific nursing interventions or symptoms reported by the patient during these episodes of elevated blood pressure?",
+      "progress": 12
+    },
+    {
+      "round": 5,
+      "type": "patient",
+      "content": "Blood pressure readings reached the 160s, but the patient remained asymptomatic and reported that her blood pressure typically improves once she is discharged. Nursing care focused on routine monitoring and symptom assessment, with the patient remaining in no acute distress.",
+      "progress": 12
+    },
+    {
+      "round": 6,
+      "type": "doctor",
+      "content": "Nursing agent, could you provide information on the patient's pain management throughout the stay, specifically her response to the PRN hydromorphone and if there were any concerns or discussions regarding her existing narcotic contract during the hospitalization?",
+      "progress": 15
+    },
+    {
+      "round": 6,
+      "type": "patient",
+      "content": "The patient's abdominal pain improved significantly following hydration and DKA management, and she continued to manage chronic symptoms using her established PRN regimen. Nursing care adhered to the existing narcotic contract with her PCP, and no specific concerns or changes to this agreement were noted during her stay.",
+      "progress": 15
+    },
+    {
+      "round": 7,
+      "type": "doctor",
+      "content": "Medication Agent, REQUEST TEST: Regarding the gastroparesis management, please clarify the discharge frequency and specific use instructions for lorazepam and ondansetron, and were there any other GI medications like prokinetics (e.g., metoclopramide) considered or continued?",
+      "progress": 17
+    },
+    {
+      "round": 7,
+      "type": "measurement",
+      "content": "RESULTS: 1. Lorazepam 0.5 mg PO Q6H:PRN nausea (Instruction: Use caution while taking this medication as it may cause drowsiness). 2. Ondansetron 4 mg PO Q8H:PRN nausea. 3. Lansoprazole 30 mg J-tube daily (Note: This was started at discharge to replace home omeprazole, which was clogging the tube). Regarding prokinetics: There is no mention of metoclopramide (Reglan) or other prokinetic medications in the admission or discharge medication lists, nor in the hospital course. The record specifies that gastroparesis symptoms were managed with antiemetics (lorazepam/ativan and ondansetron) and tube feeds via jejunostomy.",
+      "progress": 17
+    },
+    {
+      "round": 8,
+      "type": "doctor",
+      "content": "Nursing agent, could you provide details on the diabetes education provided to the patient before discharge? Specifically, was there a focused discussion on managing her insulin and maintaining glucose intake during gastroparesis flares to prevent future DKA episodes?",
+      "progress": 20
+    },
+    {
+      "round": 8,
+      "type": "patient",
+      "content": "The patient was educated on the necessity of continuing basal insulin (Lantus) and maintaining a daily glucose source even during gastroparesis flares to prevent future DKA episodes. She was also instructed to lower her sliding scale insulin if tube feeds are interrupted and to prioritize consistent nocturnal feeding as scheduled.",
+      "progress": 20
+    },
+    {
+      "round": 9,
+      "type": "doctor",
+      "content": "Medication Agent, REQUEST TEST: Please confirm if any new medications or dose adjustments were made for her chronic conditions, specifically her rheumatoid arthritis (leflunomide) or anemia (e.g., iron or Aranesp), and if any specific lab monitoring was requested for these upon discharge?",
+      "progress": 22
+    },
+    {
+      "round": 9,
+      "type": "measurement",
+      "content": "RESULTS: 1. Arava (leflunomide) 20 mg PO daily: No dose adjustment was made; the dosage remains the same as her admission regimen for rheumatoid arthritis. 2. Anemia Management: No medications for anemia, such as iron or Aranesp, were prescribed at discharge. The hospital record notes that she no longer receives weekly Aranesp and her hematocrit remained stable during the admission. 3. Other Chronic Condition Adjustments: The bedtime dose of Glargine was decreased from 16 units to 14 units to prevent hypoglycemia, and Lansoprazole 30 mg J-tube daily was initiated to replace her home omeprazole. 4. Lab Monitoring: The discharge record does not specify any required lab monitoring for her rheumatoid arthritis or anemia.",
+      "progress": 22
+    },
+    {
+      "round": 10,
+      "type": "doctor",
+      "content": "Nursing agent, could you please clarify the details regarding the \"Home With Service\" disposition, specifically what services were arranged and if there were any specific follow-up appointments scheduled for the patient upon discharge?",
+      "progress": 25
+    },
+    {
+      "round": 10,
+      "type": "patient",
+      "content": "The patient was discharged home with services to assist with her GJ tube management and diabetes care, though specific agency details are not listed in the record. No specific follow-up appointments or scheduled dates were documented in the available discharge instructions.",
+      "progress": 25
+    },
+    {
+      "round": 11,
+      "type": "doctor",
+      "content": "SUMMARY READY: Ms. ___ is a 43-year-old female with a history of Type 1 diabetes and gastroparesis who was admitted for diabetic ketoacidosis (DKA) precipitated by a gastroparesis flare and insulin noncompliance. She was successfully treated with an insulin infusion and intravenous hydration, resulting in the closure of her anion gap and improvement of her acute-on-chronic kidney injury. Her gastroparesis symptoms were managed with antiemetics and her home nocturnal jejunal tube feeding regimen; however, her bedtime glargine was reduced to 14 units prior to discharge to prevent further episodes of hypoglycemia. The patient was also transitioned from omeprazole to lansoprazole to maintain GJ-tube patency and was educated on the critical importance of continuing basal insulin and maintaining glucose intake during illness. She was discharged in stable condition, independently ambulatory, with home health services arranged to support her diabetes management and tube care. No further evidence of infection was found, as her admission leukocytosis resolved with DKA treatment and repeat C. difficile testing was negative.",
+      "progress": 27
+    }
+  ],
+  "total_rounds": 21
+}

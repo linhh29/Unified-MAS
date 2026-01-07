@@ -1,0 +1,17 @@
+[
+    {
+        "The final diagnosis for the patient is central retinal artery occlusion (CRAO) in the right eye.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Ophthalmic artery occlusion is a plausible alternative diagnosis, but branch retinal artery occlusion (BRAO) should also be considered. Further investigation is needed to confirm the diagnosis. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "300": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Given the exclusion of CRAO and ophthalmic artery occlusion, and considering the specific fundoscopic findings, synthesizing a final diagnosis is challenging without additional information. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

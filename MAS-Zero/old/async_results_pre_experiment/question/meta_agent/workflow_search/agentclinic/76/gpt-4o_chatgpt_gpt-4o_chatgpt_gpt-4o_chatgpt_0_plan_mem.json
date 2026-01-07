@@ -1,0 +1,17 @@
+[
+    {
+        "The final assessment and diagnosis for the patient is chronic lymphocytic leukemia (CLL) with possible autoimmune hemolytic anemia.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final assessment and diagnosis for the patient is chronic lymphocytic leukemia (CLL). The positive direct antiglobulin test suggests a possibility of autoimmune hemolytic anemia, but further evidence is needed to confirm this.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final assessment and diagnosis for the patient is chronic lymphocytic leukemia (CLL) with autoimmune hemolytic anemia.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final assessment and diagnosis for the patient is chronic lymphocytic leukemia (CLL). The presence of a positive direct antiglobulin test warrants further investigation to explore other potential hematologic conditions.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final assessment and diagnosis for the patient is chronic lymphocytic leukemia (CLL). The positive direct antiglobulin test is noted, but no definitive diagnosis of autoimmune hemolytic anemia is made without additional evidence.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

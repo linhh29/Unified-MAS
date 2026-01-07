@@ -1,0 +1,993 @@
+experiemnt 12: 1 (0); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Devils Lake to Alamosa",
+        "transportation": "self-driving, from Devils Lake to Alamosa",
+        "breakfast": "-",
+        "attraction": "San Luis Valley Museum, Alamosa",
+        "lunch": "Atlanta Highway Seafood Market, Alamosa",
+        "dinner": "Riverwalk Cafe, Alamosa",
+        "accommodation": "Prime Location of Flushing Queens 豪华卧室 旅途中的家 E, Alamosa"
+    },
+    {
+        "days": 2,
+        "current_city": "Alamosa",
+        "transportation": "-",
+        "breakfast": "Cafe LazyMojo, Alamosa",
+        "attraction": "Rio Grande Farm Park, Alamosa;Cole Park, Alamosa",
+        "lunch": "Burger Singh, Alamosa",
+        "dinner": "Cafe Dalal Street, Alamosa",
+        "accommodation": "Prime Location of Flushing Queens 豪华卧室 旅途中的家 E, Alamosa"
+    },
+    {
+        "days": 3,
+        "current_city": "from Alamosa to Grand Junction",
+        "transportation": "self-driving, from Alamosa to Grand Junction",
+        "breakfast": "Urban Crave Express, Alamosa",
+        "attraction": "Museum of the West, Museums of Western Colorado, Grand Junction",
+        "lunch": "Austin's BBQ and Oyster Bar, Grand Junction",
+        "dinner": "Cocoa Tree, Grand Junction",
+        "accommodation": "Cool room Manhattan - Sleeps up to 3 guests, Grand Junction"
+    },
+    {
+        "days": 4,
+        "current_city": "Grand Junction",
+        "transportation": "-",
+        "breakfast": "2 Dog, Grand Junction",
+        "attraction": "Eureka! McConnell Science Museum, Grand Junction;Western Colorado Botanical Gardens, Grand Junction",
+        "lunch": "Coffee Culture, Grand Junction",
+        "dinner": "Nukkadwala, Grand Junction",
+        "accommodation": "Cool room Manhattan - Sleeps up to 3 guests, Grand Junction"
+    },
+    {
+        "days": 5,
+        "current_city": "from Grand Junction to Gunnison",
+        "transportation": "self-driving, from Grand Junction to Gunnison",
+        "breakfast": "Cha Bar, Grand Junction",
+        "attraction": "Black Canyon of the Gunnison National Park, Gunnison",
+        "lunch": "SALT, Gunnison",
+        "dinner": "Mocha, Gunnison",
+        "accommodation": "Full-size loft bed in East Village, Gunnison"
+    },
+    {
+        "days": 6,
+        "current_city": "Gunnison",
+        "transportation": "-",
+        "breakfast": "Timboo Cafe, Gunnison",
+        "attraction": "Gunnison Pioneer Museum, Gunnison;Gunnison Valley Observatory, Gunnison",
+        "lunch": "Social on Main, Gunnison",
+        "dinner": "Cyber Hub Social, Gunnison",
+        "accommodation": "Full-size loft bed in East Village, Gunnison"
+    },
+    {
+        "days": 7,
+        "current_city": "from Gunnison to Devils Lake",
+        "transportation": "self-driving, from Gunnison to Devils Lake",
+        "breakfast": "Larry's China - Taj Vivanta, Gunnison",
+        "attraction": "Hartman Rocks, Gunnison",
+        "lunch": "The Burger Club, Gunnison",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]; SCORE: 1
+experiemnt 14: 1 (2); correct_answer:  vs. extracted_answer: [
+    {
+        "day": 1,
+        "current_city": "from Palm Springs to Houston",
+        "transportation": "Flight Number: F3839339, from Palm Springs to Houston, Departure Time: 06:07, Arrival Time: 10:59",
+        "breakfast": "-",
+        "attraction": "Downtown Aquarium, Houston",
+        "lunch": "Jalapenos, Houston",
+        "dinner": "Matchbox, Houston",
+        "accommodation": "Sunny and Airy near Manhattan, Houston"
+    },
+    {
+        "day": 2,
+        "current_city": "Houston",
+        "transportation": "-",
+        "breakfast": "Royal Mart, Houston",
+        "attraction": "Space Center Houston, Houston;Water Wall, Houston.",
+        "lunch": "The BrewMaster - The Mix Fine Dine, Houston",
+        "dinner": "Vinayaka Mylari, Houston",
+        "accommodation": "Sunny and Airy near Manhattan, Houston"
+    },
+    {
+        "day": 3,
+        "current_city": "from Houston to Austin",
+        "transportation": "Flight Number: F4043054, from Houston to Austin, Departure Time: 07:57, Arrival Time: 09:03",
+        "breakfast": "Moksha, Austin",
+        "attraction": "Texas Capitol, Austin.",
+        "lunch": "Wildflour Cafe + Bakery, Austin",
+        "dinner": "The Kasbah, Austin",
+        "accommodation": "Spacious Williamsburg 1 bedroom!, Austin"
+    },
+    {
+        "day": 4,
+        "current_city": "Austin",
+        "transportation": "-",
+        "breakfast": "Cafe Coffee Day, Austin",
+        "attraction": "Zilker Metropolitan Park, Austin;Museum of the Weird, Austin.",
+        "lunch": "Chili's, Austin",
+        "dinner": "Tandoori Nights, Austin",
+        "accommodation": "Spacious Williamsburg 1 bedroom!, Austin"
+    },
+    {
+        "day": 5,
+        "current_city": "from Austin to Dallas",
+        "transportation": "Flight Number: F3601654, from Austin to Dallas, Departure Time: 11:43, Arrival Time: 12:36",
+        "breakfast": "Frontier, Austin",
+        "attraction": "The Dallas World Aquarium, Dallas.",
+        "lunch": "Coconuts Fish Cafe, Dallas",
+        "dinner": "1918 Bistro & Grill, Dallas",
+        "accommodation": "1BR, elevator, kitchen, doorman!, Dallas"
+    },
+    {
+        "day": 6,
+        "current_city": "Dallas",
+        "transportation": "-",
+        "breakfast": "Cafe Gatherings, Dallas",
+        "attraction": "The Sixth Floor Museum at Dealey Plaza, Dallas;Reunion Tower, Dallas.",
+        "lunch": "Yanki Sizzlers, Dallas",
+        "dinner": "L'Opera, Dallas",
+        "accommodation": "1BR, elevator, kitchen, doorman!, Dallas"
+    },
+    {
+        "day": 7,
+        "current_city": "from Dallas to Palm Springs",
+        "transportation": "Flight Number: F3675114, from Dallas to Palm Springs, Departure Time: 18:55, Arrival Time: 20:19",
+        "breakfast": "Bikaner Sweets, Dallas",
+        "attraction": "Dallas Museum of Art, Dallas;Klyde Warren Park, Dallas.",
+        "lunch": "Drifters Cafe, Dallas",
+        "dinner": "MONKS, Dallas",
+        "accommodation": "-"
+    }
+]; SCORE: 1
+experiemnt 15: 1 (3); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Philadelphia to Richmond",
+        "transportation": "Flight Number: F3734535, from Philadelphia to Richmond, Departure Time: 09:40, Arrival Time: 10:51",
+        "breakfast": "Sandpiper Restaurant & Lounge, Richmond",
+        "attraction": "Virginia Museum of Fine Arts, Richmond;Maymont, Richmond;",
+        "lunch": "Perfect Bake, Richmond",
+        "dinner": "The Spot, Richmond",
+        "accommodation": "Luxury NYC 1 Bed w/Gorgeous Views + Pool, Richmond"
+    },
+    {
+        "days": 2,
+        "current_city": "Richmond",
+        "transportation": "-",
+        "breakfast": "Yo! China, Richmond",
+        "attraction": "The Poe Museum, Richmond;Haunts of Richmond - Shadows of Shockoe Tour, Richmond;",
+        "lunch": "Mirch Masala MM Cafe, Richmond",
+        "dinner": "Chidambaram's New Madras Hotel, Richmond",
+        "accommodation": "Luxury NYC 1 Bed w/Gorgeous Views + Pool, Richmond"
+    },
+    {
+        "days": 3,
+        "current_city": "from Richmond to Jamestown",
+        "transportation": "taxi, from Richmond to Jamestown, duration: 1 hour 1 min, distance: 92.4 km, cost: 92",
+        "breakfast": "Kwality Bengali Sweets, Richmond",
+        "attraction": "Canal Walk, Richmond;The Grand Kugel, Richmond;",
+        "lunch": "Beyond Breads, Jamestown",
+        "dinner": "BarShala, Jamestown",
+        "accommodation": "Room in Modern Apartment., Jamestown"
+    },
+    {
+        "days": 4,
+        "current_city": "Jamestown",
+        "transportation": "-",
+        "breakfast": "Mughlai Flavours, Jamestown",
+        "attraction": "Historic Jamestowne, Jamestown;Jamestown Settlement, Jamestown;",
+        "lunch": "Janaab, Jamestown",
+        "dinner": "2 Bros Kitchen, Jamestown",
+        "accommodation": "Room in Modern Apartment., Jamestown"
+    },
+    {
+        "days": 5,
+        "current_city": "from Jamestown to Charlottesville",
+        "transportation": "taxi, from Jamestown to Charlottesville, duration: 2 hours 2 mins, distance: 206 km, cost: 206",
+        "breakfast": "Riddhi Siddhi Restaurant, Jamestown",
+        "attraction": "Archaearium Archaeology Museum, Jamestown;Jamestown Glasshouse, Jamestown;",
+        "lunch": "Madras Cafe, Charlottesville",
+        "dinner": "Firefly, Charlottesville",
+        "accommodation": "Single room in Bushwick w/backyard, Charlottesville"
+    },
+    {
+        "days": 6,
+        "current_city": "Charlottesville",
+        "transportation": "-",
+        "breakfast": "Dawat-e-Ishq, Charlottesville",
+        "attraction": "Monticello, Charlottesville;Virginia Discovery Museum, Charlottesville;",
+        "lunch": "Baking Bad, Charlottesville",
+        "dinner": "Tales & Spirits, Charlottesville",
+        "accommodation": "Single room in Bushwick w/backyard, Charlottesville"
+    },
+    {
+        "days": 7,
+        "current_city": "from Charlottesville to Philadelphia",
+        "transportation": "taxi, from Charlottesville to Philadelphia, duration: 4 hours 24 mins, distance: 411 km, cost: 411",
+        "breakfast": "Shah Bakery, Charlottesville",
+        "attraction": "The Rotunda, Charlottesville;The Lawn, Charlottesville;",
+        "lunch": "Blue Bull Cafe, Charlottesville",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]; SCORE: 1
+experiemnt 13: 1 (0); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Charlotte to Pittsburgh",
+        "transportation": "Flight Number: F4050756, from Charlotte to Pittsburgh, Departure Time: 07:15, Arrival Time: 08:34",
+        "breakfast": "Beijing Cafe, Pittsburgh",
+        "attraction": "Pittsburgh Zoo & Aquarium, Pittsburgh",
+        "lunch": "Burger Factory, Pittsburgh",
+        "dinner": "The Urban Foundry, Pittsburgh",
+        "accommodation": "Sunny 1 BR Brooklyn Loft Apartment, Pittsburgh"
+    },
+    {
+        "days": 2,
+        "current_city": "Pittsburgh",
+        "transportation": "-",
+        "breakfast": "Maharaja Bhog, Pittsburgh",
+        "attraction": "Phipps Conservatory and Botanical Gardens, Pittsburgh;The Andy Warhol Museum, Pittsburgh",
+        "lunch": "Indus Flavour, Pittsburgh",
+        "dinner": "Black Pepper, Pittsburgh",
+        "accommodation": "Sunny 1 BR Brooklyn Loft Apartment, Pittsburgh"
+    },
+    {
+        "days": 3,
+        "current_city": "Pittsburgh",
+        "transportation": "-",
+        "breakfast": "Via Delhi, Pittsburgh",
+        "attraction": "Point State Park, Pittsburgh;Carnegie Museum of Art, Pittsburgh",
+        "lunch": "Standard Family Restaurant, Pittsburgh",
+        "dinner": "Moon of Taj, Pittsburgh",
+        "accommodation": "Sunny 1 BR Brooklyn Loft Apartment, Pittsburgh"
+    },
+    {
+        "days": 4,
+        "current_city": "from Pittsburgh to Erie",
+        "transportation": "self-driving, from Pittsburgh to Erie, Departure Time: -, Arrival Time: -",
+        "breakfast": "Costa Coffee, Pittsburgh",
+        "attraction": "Erie Maritime Museum, Erie",
+        "lunch": "Kona Brewing Company, Erie",
+        "dinner": "Burger Hut, Erie",
+        "accommodation": "Studio in Upper East Side Manhattan, Erie"
+    },
+    {
+        "days": 5,
+        "current_city": "Erie",
+        "transportation": "-",
+        "breakfast": "Chapter 1 Cafe, Erie",
+        "attraction": "Presque Isle State Park, Erie;expERIEnce Children's Museum, Erie",
+        "lunch": "Kalsang AMA Cafe, Erie",
+        "dinner": "Templo da Carne - Marcos Bassi, Erie",
+        "accommodation": "Studio in Upper East Side Manhattan, Erie"
+    },
+    {
+        "days": 6,
+        "current_city": "from Erie to Philadelphia",
+        "transportation": "self-driving, from Erie to Philadelphia, Departure Time: -, Arrival Time: -",
+        "breakfast": "Mad Over Donuts, Erie",
+        "attraction": "Philadelphia's Magic Gardens, Philadelphia;Independence National Historical Park, Philadelphia",
+        "lunch": "Hong Kong Cafe, Philadelphia",
+        "dinner": "Pind Balluchi, Philadelphia",
+        "accommodation": "Industrial Loft Living in NYC, Philadelphia"
+    },
+    {
+        "days": 7,
+        "current_city": "from Philadelphia to Charlotte",
+        "transportation": "Flight Number: F3562723, from Philadelphia to Charlotte, Departure Time: 19:52, Arrival Time: 21:35",
+        "breakfast": "Brothers Dhaba, Philadelphia",
+        "attraction": "The Franklin Institute, Philadelphia;Philadelphia Museum of Art, Philadelphia",
+        "lunch": "Marukame Udon, Philadelphia",
+        "dinner": "Pizza Hut, Philadelphia",
+        "accommodation": "-"
+    }
+]; SCORE: 0
+experiemnt 2: 1 (2); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Gainesville to Wilmington",
+        "transportation": "self-driving, from Gainesville to Wilmington, Duration: 7 hours 29 mins, Distance: 814 km, Cost: 40",
+        "breakfast": "Azteca, Wilmington",
+        "attraction": "Bellamy Mansion Museum, Wilmington",
+        "lunch": "Bandit Burrito, Wilmington",
+        "dinner": "Moonie's Texas Barbecue, Wilmington",
+        "accommodation": "Brooklyn Bedroom - Warm & Cozy Near Subway (1), Wilmington"
+    },
+    {
+        "days": 2,
+        "current_city": "Wilmington",
+        "transportation": "-",
+        "breakfast": "Taco Bus, Wilmington",
+        "attraction": "Cape Fear Museum of History and Science, Wilmington;Wilmington Riverwalk, Wilmington",
+        "lunch": "Dunkin' Donuts, Wilmington",
+        "dinner": "The Yellow Chef, Wilmington",
+        "accommodation": "Brooklyn Bedroom - Warm & Cozy Near Subway (1), Wilmington"
+    },
+    {
+        "days": 3,
+        "current_city": "from Wilmington to Fayetteville",
+        "transportation": "self-driving, from Wilmington to Fayetteville, Duration: 1 hour 43 mins, Distance: 149 km, Cost: 7",
+        "breakfast": "Kebabish, Wilmington",
+        "attraction": "Museum of the Cape Fear, Fayetteville;Lake Rim Park, Fayetteville",
+        "lunch": "DiVine, Fayetteville",
+        "dinner": "Pind Balluchi, Fayetteville",
+        "accommodation": "*CoZy Private Williamsburg Home*, Fayetteville"
+    },
+    {
+        "days": 4,
+        "current_city": "Fayetteville",
+        "transportation": "-",
+        "breakfast": "Eat Street, Fayetteville",
+        "attraction": "Airborne & Special Operations Museum Foundation, Fayetteville;Fascinate-U Children's Museum, Fayetteville",
+        "lunch": "The Great Indian Pub, Fayetteville",
+        "dinner": "Kay's Food Land, Fayetteville",
+        "accommodation": "*CoZy Private Williamsburg Home*, Fayetteville"
+    },
+    {
+        "days": 5,
+        "current_city": "from Fayetteville to Gainesville",
+        "transportation": "self-driving, from Fayetteville to Gainesville, Duration: 6 hours 45 mins, Distance: 743 km, Cost: 37",
+        "breakfast": "Biryani By Kilo, Fayetteville",
+        "attraction": "Cape Fear Botanical Garden, Fayetteville",
+        "lunch": "Oriental Fusion, Fayetteville",
+        "dinner": "Oasis Kitchen, Fayetteville",
+        "accommodation": "-"
+    }
+]; SCORE: 1
+experiemnt 5: 1 (0); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Birmingham to Memphis",
+        "transportation": "Flight Number: F3592321, from Birmingham to Memphis, Departure Time: 06:13, Arrival Time: 09:09",
+        "breakfast": "Cafe, Memphis",
+        "attraction": "Jubilee Inn, Memphis;Pélicanille Art Museum, Memphis;",
+        "lunch": "Sunset Bakery & Snacks, Memphis",
+        "dinner": "Paul's Memphis Cafe & Meals, Memphis",
+        "accommodation": "Sunset Inn, Memphis"
+    },
+    {
+        "days": 2,
+        "current_city": "Memphis",
+        "transportation": "-",
+        "breakfast": "Tommy's Café & Pastries, Memphis",
+        "attraction": "Wild Woods, Memphis;Paint & Play Family Museum & Space, Memphis;",
+        "lunch": "Abe's All Barbecue, Memphis",
+        "dinner": "Alfredo's, Memphis",
+        "accommodation": "Sunset Inn, Memphis"
+    },
+    {
+        "days": 3,
+        "current_city": "from Memphis to Orlando",
+        "transportation": "Flight Number: F3621691, from Memphis to Orlando, Departure Time: 05:41, Arrival Time: 06:46",
+        "breakfast": "Fresh Juice Spot, Orlando",
+        "attraction": "SeaWorld Orlando, Orlando;The Wheel at ICON Park, Orlando;",
+        "lunch": "The Veranda, Orlando",
+        "dinner": "The Tropical Terrace, Orlando",
+        "accommodation": "Palmwood Inn, Orlando"
+    },
+    {
+        "days": 4,
+        "current_city": "Orlando",
+        "transportation": "-",
+        "breakfast": "Cafe Nutella Corner, Orlando",
+        "attraction": "Universal Orlando Resort, Orlando;Harry Potter Lego Gallery, Orlando;",
+        "lunch": "Island Cafe & Restaurant, Orlando",
+        "dinner": "Blue Note Spot, Orlando",
+        "accommodation": "Palmwood Inn, Orlando"
+    },
+    {
+        "days": 5,
+        "current_city": "from Orlando to Birmingham",
+        "transportation": "Flight Number: F3987879, from Orlando to Birmingham, Departure Time: 14:24, Arrival Time: 15:12",
+        "breakfast": "Palm Bistro, Orlando",
+        "attraction": "Magic Trail Orlando, Orlando;",
+        "lunch": "Wendy's Yarn Maker Cafe, Orlando",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]; SCORE: 0
+experiemnt 9: 1 (0); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Bakersfield to El Paso",
+        "transportation": "self-driving, from Bakersfield to El Paso, duration: 13 hours 25 mins, distance: 1468 km, cost: 73",
+        "breakfast": "Los Beto's, El Paso",
+        "attraction": "El Paso Zoo and Botanical Gardens, El Paso",
+        "lunch": "Ceviché Tapas Bar & Restaurant, El Paso",
+        "dinner": "The Garden Cafe - The Fern, El Paso",
+        "accommodation": "Chic Designer Home Guest Studio, El Paso"
+    },
+    {
+        "days": 2,
+        "current_city": "El Paso",
+        "transportation": "-",
+        "breakfast": "Raju Chat Palace, El Paso",
+        "attraction": "El Paso Museum of Art, El Paso;National Border Patrol Museum, El Paso",
+        "lunch": "Onesta, El Paso",
+        "dinner": "Downtown Kitchen & Bar - Courtyard by Marriott, El Paso",
+        "accommodation": "Chic Designer Home Guest Studio, El Paso"
+    },
+    {
+        "days": 3,
+        "current_city": "from El Paso to Amarillo",
+        "transportation": "self-driving, from El Paso to Amarillo, duration: 6 hours 43 mins, distance: 704 km, cost: 35",
+        "breakfast": "Sigree Global Grill, Amarillo",
+        "attraction": "Cadillac Ranch, Amarillo",
+        "lunch": "Wood Box Cafe, Amarillo",
+        "dinner": "The Whippet, Amarillo",
+        "accommodation": "Trendy Brooklyn Room - 20mins from Manhattan, Amarillo"
+    },
+    {
+        "days": 4,
+        "current_city": "Amarillo",
+        "transportation": "-",
+        "breakfast": "The Cinnamon Kitchen, Amarillo",
+        "attraction": "Amarillo Botanical Gardens, Amarillo;Amarillo Zoo, Amarillo",
+        "lunch": "Komachi, Amarillo",
+        "dinner": "Anand Restaurant, Amarillo",
+        "accommodation": "Trendy Brooklyn Room - 20mins from Manhattan, Amarillo"
+    },
+    {
+        "days": 5,
+        "current_city": "from Amarillo to Dallas",
+        "transportation": "Flight Number: F3609463, from Amarillo to Dallas, Departure Time: 04:58, Arrival Time: 06:29",
+        "breakfast": "Coconuts Fish Cafe, Dallas",
+        "attraction": "The Dallas World Aquarium, Dallas",
+        "lunch": "1918 Bistro & Grill, Dallas",
+        "dinner": "Yanki Sizzlers, Dallas",
+        "accommodation": "*Fresh Budget Room, Dallas"
+    },
+    {
+        "days": 6,
+        "current_city": "Dallas",
+        "transportation": "-",
+        "breakfast": "Aravali Owls, Dallas",
+        "attraction": "The Sixth Floor Museum at Dealey Plaza, Dallas;Reunion Tower, Dallas",
+        "lunch": "Kebab Xpress, Dallas",
+        "dinner": "Haldiram's, Dallas",
+        "accommodation": "*Fresh Budget Room, Dallas"
+    },
+    {
+        "days": 7,
+        "current_city": "from Dallas to Bakersfield",
+        "transportation": "Flight Number: F4048045, from Dallas to Bakersfield, Departure Time: 19:08, Arrival Time: 20:47",
+        "breakfast": "Delhicacy, Dallas",
+        "attraction": "Dallas Museum of Art, Dallas",
+        "lunch": "L'Opera, Dallas",
+        "dinner": "Cafe Gatherings, Dallas",
+        "accommodation": "-"
+    }
+]; SCORE: 0
+experiemnt 6: 1 (3); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Killeen to Dallas",
+        "transportation": "Flight Number: F3601133, from Killeen to Dallas, Departure Time: 06:40, Arrival Time: 07:37",
+        "breakfast": "Coconuts Fish Cafe, Dallas",
+        "attraction": "The Dallas World Aquarium, Dallas",
+        "lunch": "1918 Bistro & Grill, Dallas",
+        "dinner": "Yanki Sizzlers, Dallas",
+        "accommodation": "1BR, elevator, kitchen, doorman!, Dallas"
+    },
+    {
+        "days": 2,
+        "current_city": "Dallas",
+        "transportation": "-",
+        "breakfast": "Aravali Owls, Dallas",
+        "attraction": "The Sixth Floor Museum at Dealey Plaza, Dallas; Reunion Tower, Dallas",
+        "lunch": "Kebab Xpress, Dallas",
+        "dinner": "Haldiram's, Dallas",
+        "accommodation": "1BR, elevator, kitchen, doorman!, Dallas"
+    },
+    {
+        "days": 3,
+        "current_city": "from Dallas to El Paso",
+        "transportation": "Flight Number: F3800570, from Dallas to El Paso, Departure Time: 09:15, Arrival Time: 10:05",
+        "breakfast": "Delhicacy, Dallas",
+        "attraction": "El Paso Zoo and Botanical Gardens, El Paso",
+        "lunch": "Los Beto's, El Paso",
+        "dinner": "Cevīche Tapas Bar & Restaurant, El Paso",
+        "accommodation": "1 BR in 2 BR Apt (Upper East Side), El Paso"
+    },
+    {
+        "days": 4,
+        "current_city": "El Paso",
+        "transportation": "-",
+        "breakfast": "The Garden Cafe - The Fern, El Paso",
+        "attraction": "El Paso Museum of Art, El Paso; San Jacinto Plaza, El Paso",
+        "lunch": "Onesta, El Paso",
+        "dinner": "Downtown Kitchen & Bar - Courtyard by Marriott, El Paso",
+        "accommodation": "1 BR in 2 BR Apt (Upper East Side), El Paso"
+    },
+    {
+        "days": 5,
+        "current_city": "from El Paso to Killeen",
+        "transportation": "self-driving, from El Paso to Killeen, duration: 8 hours 29 mins, distance: 920 km, cost: 46",
+        "breakfast": "Knight Rider, El Paso",
+        "attraction": "National Border Patrol Museum, El Paso",
+        "lunch": "Panther Restaurant, El Paso",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]; SCORE: 0
+experiemnt 7: 1 (4); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Sun Valley to San Diego",
+        "transportation": "Self-driving, from Sun Valley to San Diego, duration: 14 hours 9 mins, Cost: 73",
+        "breakfast": "-",
+        "attraction": "-",
+        "lunch": "-",
+        "dinner": "Open Yard, San Diego",
+        "accommodation": "Spacious Room in Large 2 Bedroom Prewar Apartment, San Diego"
+    },
+    {
+        "days": 2,
+        "current_city": "San Diego",
+        "transportation": "-",
+        "breakfast": "Jetha Lal Ka Dhabha, San Diego",
+        "attraction": "SeaWorld San Diego, San Diego; Balboa Park, San Diego;",
+        "lunch": "Burger King, San Diego",
+        "dinner": "The Lost Mughal, San Diego",
+        "accommodation": "Spacious Room in Large 2 Bedroom Prewar Apartment, San Diego"
+    },
+    {
+        "days": 3,
+        "current_city": "from San Diego to Redding",
+        "transportation": "Self-driving, from San Diego to Redding, duration: 10 hours 10 mins, Cost: 53",
+        "breakfast": "Bikaner Sweets, San Diego",
+        "attraction": "-",
+        "lunch": "-",
+        "dinner": "Perfect Bake, Redding",
+        "accommodation": "Artist retreat in East Williamsburg, Brooklyn, Redding"
+    },
+    {
+        "days": 4,
+        "current_city": "Redding",
+        "transportation": "-",
+        "breakfast": "Di Ghent Boulangerie, Redding",
+        "attraction": "Turtle Bay Exploration Park, Redding; Caldwell Park, Redding;",
+        "lunch": "Weird Time Food, Redding",
+        "dinner": "Welcome Cafeteria, Redding",
+        "accommodation": "Artist retreat in East Williamsburg, Brooklyn, Redding"
+    },
+    {
+        "days": 5,
+        "current_city": "from Redding to Sun Valley",
+        "transportation": "Self-driving, from Redding to Sun Valley, duration: 11 hours 13 mins, Cost: 54",
+        "breakfast": "Milk n More, Redding",
+        "attraction": "-",
+        "lunch": "-",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]; SCORE: 1
+experiemnt 3: 1 (0); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Los Angeles to Colorado Springs",
+        "transportation": "Flight Number: F3822873, from Los Angeles to Colorado Springs, Departure Time: 18:45, Arrival Time: 22:03",
+        "breakfast": "-",
+        "attraction": "-",
+        "lunch": "-",
+        "dinner": "-",
+        "accommodation": "Large sunny park slope apartment, Colorado Springs"
+    },
+    {
+        "days": 2,
+        "current_city": "Colorado Springs",
+        "transportation": "-",
+        "breakfast": "Derby, Colorado Springs",
+        "attraction": "Garden of the Gods, Colorado Springs;Cheyenne Mountain Zoo, Colorado Springs;",
+        "lunch": "#Dilliwaala6, Colorado Springs",
+        "dinner": "Raglan Road Irish Pub and Restaurant, Colorado Springs",
+        "accommodation": "Large sunny park slope apartment, Colorado Springs"
+    },
+    {
+        "days": 3,
+        "current_city": "from Colorado Springs to Grand Junction",
+        "transportation": "self-driving, from Colorado Springs to Grand Junction, duration: 4 hours 48 mins, distance: 500 km, cost: 25",
+        "breakfast": "Sushi Masa, Colorado Springs",
+        "attraction": "The Broadmoor Seven Falls, Colorado Springs;",
+        "lunch": "Underdoggs Sports Bar & Grill, Colorado Springs",
+        "dinner": "2 Dog, Grand Junction",
+        "accommodation": "Cool room Manhattan - Sleeps up to 3 guests, Grand Junction"
+    },
+    {
+        "days": 4,
+        "current_city": "Grand Junction",
+        "transportation": "-",
+        "breakfast": "Cha Bar, Grand Junction",
+        "attraction": "Museum of the West, Museums of Western Colorado, Grand Junction;Eureka! McConnell Science Museum, Grand Junction;",
+        "lunch": "Coffee Culture, Grand Junction",
+        "dinner": "Cocoa Tree, Grand Junction",
+        "accommodation": "Cool room Manhattan - Sleeps up to 3 guests, Grand Junction"
+    },
+    {
+        "days": 5,
+        "current_city": "from Grand Junction to Los Angeles",
+        "transportation": "self-driving, from Grand Junction to Los Angeles, duration: 11 hours 19 mins, distance: 1,248 km, cost: 62",
+        "breakfast": "Austin's BBQ and Oyster Bar, Grand Junction",
+        "attraction": "Western Colorado Botanical Gardens, Grand Junction;",
+        "lunch": "Punjab Da Pind, Grand Junction",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]; SCORE: 0
+experiemnt 10: 1 (2); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Kona to San Diego",
+        "transportation": "Flight Number: F3739867, from Kona to San Diego, Departure Time: 16:33, Arrival Time: 00:04",
+        "breakfast": "-",
+        "attraction": "-",
+        "lunch": "-",
+        "dinner": "Open Yard, San Diego",
+        "accommodation": "Spacious Room in Large 2 Bedroom Prewar Apartment, San Diego"
+    },
+    {
+        "days": 2,
+        "current_city": "San Diego",
+        "transportation": "-",
+        "breakfast": "Burger King, San Diego",
+        "attraction": "Cabrillo National Monument, San Diego;La Jolla Shores Park, San Diego.",
+        "lunch": "Chaudhary Di Hatti, San Diego",
+        "dinner": "Meraki, San Diego",
+        "accommodation": "Spacious Room in Large 2 Bedroom Prewar Apartment, San Diego"
+    },
+    {
+        "days": 3,
+        "current_city": "from San Diego to Redding",
+        "transportation": "self-driving, from San Diego to Redding, duration: 10 hours 10 mins, distance: 1,070 km, cost: 53",
+        "breakfast": "Jetha Lal Ka Dhabha, San Diego",
+        "attraction": "USS Midway Museum, San Diego.",
+        "lunch": "Baskin Robbins, San Diego",
+        "dinner": "Di Ghent Boulangerie, Redding",
+        "accommodation": "Premier room in Downtown NY, Two Bridges,Chinatown, Redding"
+    },
+    {
+        "days": 4,
+        "current_city": "Redding",
+        "transportation": "-",
+        "breakfast": "Perfect Bake, Redding",
+        "attraction": "Turtle Bay Exploration Park, Redding;Sundial Bridge, Redding.",
+        "lunch": "Weird Time Food, Redding",
+        "dinner": "Mosaic - Country Inn & Suites, Redding",
+        "accommodation": "Premier room in Downtown NY, Two Bridges,Chinatown, Redding"
+    },
+    {
+        "days": 5,
+        "current_city": "from Redding to San Jose",
+        "transportation": "self-driving, from Redding to San Jose, duration: 3 hours 49 mins, distance: 402 km, cost: 20",
+        "breakfast": "Milk n More, Redding",
+        "attraction": "Shasta State Historic Park, Redding.",
+        "lunch": "Healthy Routes, Redding",
+        "dinner": "Wildfire - Crowne Plaza, San Jose",
+        "accommodation": "Best Location! Spacious 3BR in Center of NYC!, San Jose"
+    },
+    {
+        "days": 6,
+        "current_city": "San Jose",
+        "transportation": "-",
+        "breakfast": "Santa's Fantasea, San Jose",
+        "attraction": "Winchester Mystery House, San Jose;Happy Hollow Park & Zoo, San Jose.",
+        "lunch": "Barbeque Nation, San Jose",
+        "dinner": "Free Spirit, San Jose",
+        "accommodation": "Best Location! Spacious 3BR in Center of NYC!, San Jose"
+    },
+    {
+        "days": 7,
+        "current_city": "from San Jose to Kona",
+        "transportation": "Flight Number: F3976224, from San Jose to Kona, Departure Time: 09:32, Arrival Time: 11:36",
+        "breakfast": "Singh-O-Singh Kebabs, San Jose",
+        "attraction": "-",
+        "lunch": "-",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]; SCORE: 0
+experiemnt 1: 1 (2); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Charlotte to Newark",
+        "transportation": "Flight Number: F3715865, from Charlotte to Newark, Departure Time: 07:55, Arrival Time: 09:38",
+        "breakfast": "Artistry, Newark",
+        "attraction": "The Newark Museum of Art, Newark;",
+        "lunch": "Angeethi Restaurant, Newark",
+        "dinner": "Mirage Restro Bar, Newark",
+        "accommodation": "1 Bedroom in UWS Manhattan, Newark"
+    },
+    {
+        "days": 2,
+        "current_city": "Newark",
+        "transportation": "-",
+        "breakfast": "Harmann Restaurant, Newark",
+        "attraction": "Military Park, Newark;Branch Brook Park, Newark;",
+        "lunch": "Escape Terrace Bar Kitchen, Newark",
+        "dinner": "Jaguar, Newark",
+        "accommodation": "1 Bedroom in UWS Manhattan, Newark"
+    },
+    {
+        "days": 3,
+        "current_city": "from Newark to Trenton",
+        "transportation": "taxi, from Newark to Trenton, duration: 1 hour 5 mins, distance: 93.8 km, cost: 93",
+        "breakfast": "Drifters Cafe, Newark",
+        "attraction": "Old Barracks Museum, Trenton;",
+        "lunch": "Mario's Italian Restaurant, Trenton",
+        "dinner": "Global Grill, Trenton",
+        "accommodation": "Minutes to everything in the middle of Manhattan, Trenton"
+    },
+    {
+        "days": 4,
+        "current_city": "Trenton",
+        "transportation": "-",
+        "breakfast": "Tuscan Oven, Trenton",
+        "attraction": "New Jersey State Museum, Trenton;1719 William Trent House Museum, Trenton;",
+        "lunch": "The Lady & Sons, Trenton",
+        "dinner": "The Cheesecake Factory, Trenton",
+        "accommodation": "Minutes to everything in the middle of Manhattan, Trenton"
+    },
+    {
+        "days": 5,
+        "current_city": "from Trenton to Charlotte",
+        "transportation": "Flight Number: F3561600, from Trenton to Charlotte, Departure Time: 17:23, Arrival Time: 19:23",
+        "breakfast": "Patang - The Revolving Restaurant, Trenton",
+        "attraction": "Trenton City Museum/ Ellarslie Museum, Trenton;",
+        "lunch": "Fusilli Reasons, Trenton",
+        "dinner": "Dosa X'press, Trenton",
+        "accommodation": "-"
+    }
+]; SCORE: 1
+experiemnt 8: 1 (1); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Philadelphia to Richmond",
+        "transportation": "Flight Number: F3730367, from Philadelphia to Richmond, Departure Time: 14:03, Arrival Time: 15:03",
+        "breakfast": "-",
+        "attraction": "Virginia Museum of Fine Arts, Richmond;",
+        "lunch": "-",
+        "dinner": "Sandpiper Restaurant & Lounge, Richmond",
+        "accommodation": "Luxury NYC 1 Bed w/Gorgeous Views + Pool, Richmond"
+    },
+    {
+        "days": 2,
+        "current_city": "Richmond",
+        "transportation": "-",
+        "breakfast": "The Spot, Richmond",
+        "attraction": "Maymont, Richmond;The Poe Museum, Richmond;",
+        "lunch": "Krishna Juice & Shakes Corner, Richmond",
+        "dinner": "Mirch Masala MM Cafe, Richmond",
+        "accommodation": "Luxury NYC 1 Bed w/Gorgeous Views + Pool, Richmond"
+    },
+    {
+        "days": 3,
+        "current_city": "from Richmond to Petersburg",
+        "transportation": "self-driving, from Richmond to Petersburg, duration: 25 mins",
+        "breakfast": "Kwality Bengali Sweets, Richmond",
+        "attraction": "Canal Walk, Richmond;",
+        "lunch": "Hot & Spicy, Petersburg",
+        "dinner": "Pipes & Hipes, Petersburg",
+        "accommodation": "Brooklyn Cultural Chateau: Sunny Private Room, Petersburg"
+    },
+    {
+        "days": 4,
+        "current_city": "Petersburg",
+        "transportation": "-",
+        "breakfast": "Food For Thought, Petersburg",
+        "attraction": "Petersburg National Battlefield, Petersburg;Centre Hill Mansion-Museum, Petersburg;",
+        "lunch": "Zaoq, Petersburg",
+        "dinner": "Ricks Bar - The Taj Mahal Hotel, Petersburg",
+        "accommodation": "Brooklyn Cultural Chateau: Sunny Private Room, Petersburg"
+    },
+    {
+        "days": 5,
+        "current_city": "from Petersburg to Charlottesville",
+        "transportation": "self-driving, from Petersburg to Charlottesville, duration: 1 hour 30 mins",
+        "breakfast": "Lemon Chick, Petersburg",
+        "attraction": "Pamplin Historical Park, Petersburg;Soldier Statue, Petersburg;",
+        "lunch": "Blue Bull Cafe, Charlottesville",
+        "dinner": "Madras Cafe, Charlottesville",
+        "accommodation": "Amazing Private room in LIC minutes to Manhattan, Charlottesville"
+    },
+    {
+        "days": 6,
+        "current_city": "Charlottesville",
+        "transportation": "-",
+        "breakfast": "Riyaz Biryani Corner, Charlottesville",
+        "attraction": "Monticello, Charlottesville;Virginia Discovery Museum, Charlottesville;",
+        "lunch": "Shah Bakery, Charlottesville",
+        "dinner": "Cake Central - Premier Cake Design Studio, Charlottesville",
+        "accommodation": "Amazing Private room in LIC minutes to Manhattan, Charlottesville"
+    },
+    {
+        "days": 7,
+        "current_city": "from Charlottesville to Philadelphia",
+        "transportation": "self-driving, from Charlottesville to Philadelphia, duration: 4 hours 24 mins",
+        "breakfast": "Baking Bad, Charlottesville",
+        "attraction": "Ix Art Park, Charlottesville;The Rotunda, Charlottesville;",
+        "lunch": "Dawat-e-Ishq, Charlottesville",
+        "dinner": "Firefly, Charlottesville",
+        "accommodation": "-"
+    }
+]; SCORE: 0
+experiemnt 4: 1 (0); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Albuquerque to Houston",
+        "transportation": "Flight Number: F4011894, from Albuquerque to Houston, Departure Time: 06:29, Arrival Time: 09:18",
+        "breakfast": "-",
+        "attraction": "Downtown Aquarium, Houston",
+        "lunch": "Super Bakery, Houston",
+        "dinner": "Jalapenos, Houston",
+        "accommodation": "1BR in Newly Renovated Apartment - Rm C, Bushwick!, Houston"
+    },
+    {
+        "days": 2,
+        "current_city": "Houston",
+        "transportation": "-",
+        "breakfast": "Royal Mart, Houston",
+        "attraction": "Space Center Houston, Houston;Water Wall, Houston.",
+        "lunch": "Matchbox, Houston",
+        "dinner": "Cyber Adda 24, Houston",
+        "accommodation": "1BR in Newly Renovated Apartment - Rm C, Bushwick!, Houston"
+    },
+    {
+        "days": 3,
+        "current_city": "from Houston to Dallas",
+        "transportation": "Flight Number: F4035088, from Houston to Dallas, Departure Time: 11:01, Arrival Time: 12:12",
+        "breakfast": "Vinayaka Mylari, Houston",
+        "attraction": "The Dallas World Aquarium, Dallas.",
+        "lunch": "Coconuts Fish Cafe, Dallas",
+        "dinner": "1918 Bistro & Grill, Dallas",
+        "accommodation": "*Fresh Budget Room, Dallas"
+    },
+    {
+        "days": 4,
+        "current_city": "Dallas",
+        "transportation": "-",
+        "breakfast": "Cafe Gatherings, Dallas",
+        "attraction": "The Sixth Floor Museum at Dealey Plaza, Dallas;Reunion Tower, Dallas.",
+        "lunch": "Drifters Cafe, Dallas",
+        "dinner": "Castle 9, Dallas",
+        "accommodation": "*Fresh Budget Room, Dallas"
+    },
+    {
+        "days": 5,
+        "current_city": "from Dallas to Albuquerque",
+        "transportation": "Flight Number: F3960534, from Dallas to Albuquerque, Departure Time: 18:54, Arrival Time: 19:35",
+        "breakfast": "Puri Bakers, Dallas",
+        "attraction": "Dallas Museum of Art, Dallas;The Dallas Arboretum and Botanical Garden, Dallas.",
+        "lunch": "Mamma Drools, Dallas",
+        "dinner": "Metro Fast Food, Dallas",
+        "accommodation": "-"
+    }
+]; SCORE: 1
+experiemnt 0: 1 (4); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Denver to Seattle",
+        "transportation": "Flight Number: N/A, from Denver to Seattle, Departure Time: N/A, Arrival Time: N/A",
+        "breakfast": "-",
+        "attraction": "Pike Place Market, Seattle;",
+        "lunch": "-",
+        "dinner": "The Pink Door, Seattle",
+        "accommodation": "Seattle Central Hotel, Seattle"
+    },
+    {
+        "days": 2,
+        "current_city": "Seattle",
+        "transportation": "-",
+        "breakfast": "-",
+        "attraction": "Space Needle, Seattle;Chihuly Garden and Glass, Seattle;",
+        "lunch": "-",
+        "dinner": "Seaside Bistro, Seattle",
+        "accommodation": "Seattle Central Hotel, Seattle"
+    },
+    {
+        "days": 3,
+        "current_city": "from Seattle to Yakima",
+        "transportation": "Drive from Seattle to Yakima",
+        "breakfast": "-",
+        "attraction": "Local vineyards, Yakima;Yakima Valley Museum, Yakima;",
+        "lunch": "-",
+        "dinner": "The Rustic Grill, Yakima",
+        "accommodation": "Yakima Lodge, Yakima"
+    },
+    {
+        "days": 4,
+        "current_city": "Yakima",
+        "transportation": "-",
+        "breakfast": "-",
+        "attraction": "Cowiche Canyon, Yakima;Downtown Yakima, Yakima;",
+        "lunch": "-",
+        "dinner": "Crafted, Yakima",
+        "accommodation": "Yakima Lodge, Yakima"
+    },
+    {
+        "days": 5,
+        "current_city": "from Yakima to Denver",
+        "transportation": "Flight Number: N/A, from Yakima/Pasco to Denver, Departure Time: N/A, Arrival Time: N/A",
+        "breakfast": "-",
+        "attraction": "-",
+        "lunch": "-",
+        "dinner": "Airport Dining, Denver",
+        "accommodation": "-"
+    }
+]; SCORE: 0
+experiemnt 11: 1 (3); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Medford to Grand Junction",
+        "transportation": "self-driving, from Medford to Grand Junction, duration: 15 hours 49 mins, distance: 1,640 km, cost: 82",
+        "breakfast": "-",
+        "attraction": "-",
+        "lunch": "-",
+        "dinner": "New Punjabi Khana, Grand Junction",
+        "accommodation": "Cool room Manhattan - Sleeps up to 3 guests, Grand Junction"
+    },
+    {
+        "days": 2,
+        "current_city": "Grand Junction",
+        "transportation": "-",
+        "breakfast": "Austin's BBQ and Oyster Bar, Grand Junction",
+        "attraction": "Museum of the West, Museums of Western Colorado, Grand Junction;Eureka! McConnell Science Museum, Grand Junction.",
+        "lunch": "Pind Balluchi, Grand Junction",
+        "dinner": "Baba Chicken Ludhiana Wale, Grand Junction",
+        "accommodation": "Cool room Manhattan - Sleeps up to 3 guests, Grand Junction"
+    },
+    {
+        "days": 3,
+        "current_city": "from Grand Junction to Durango",
+        "transportation": "self-driving, from Grand Junction to Durango, duration: 3 hours 33 mins, distance: 269 km, cost: 13",
+        "breakfast": "Cha Bar, Grand Junction",
+        "attraction": "Animas Museum, Durango.",
+        "lunch": "Hot & Tasty Chinese Food, Durango",
+        "dinner": "Yeoh, Durango",
+        "accommodation": "Northern Manhattan Getaway, Durango"
+    },
+    {
+        "days": 4,
+        "current_city": "Durango",
+        "transportation": "-",
+        "breakfast": "Burger King, Durango",
+        "attraction": "The Powerhouse, Durango;Durango Wildlife Museum, Durango.",
+        "lunch": "Wow! Momo, Durango",
+        "dinner": "Asian Haus, Durango",
+        "accommodation": "Northern Manhattan Getaway, Durango"
+    },
+    {
+        "days": 5,
+        "current_city": "from Durango to Gunnison",
+        "transportation": "self-driving, from Durango to Gunnison, duration: 3 hours 47 mins, distance: 275 km, cost: 13",
+        "breakfast": "Hot Pot, Durango",
+        "attraction": "I.O.O.F. Park, Gunnison.",
+        "lunch": "Tughlaq, Gunnison",
+        "dinner": "Nirula's Ice Cream, Gunnison",
+        "accommodation": "Full-size loft bed in East Village, Gunnison"
+    },
+    {
+        "days": 6,
+        "current_city": "Gunnison",
+        "transportation": "-",
+        "breakfast": "Shree Bikaner Misthan Bhandar, Gunnison",
+        "attraction": "Jorgensen Park, Gunnison;Gunnison Pioneer Museum, Gunnison.",
+        "lunch": "Shree Meenakshi Dosai, Gunnison",
+        "dinner": "Organic German Bakeshop - Brown Bread Bakery, Gunnison",
+        "accommodation": "Full-size loft bed in East Village, Gunnison"
+    },
+    {
+        "days": 7,
+        "current_city": "from Gunnison to Medford",
+        "transportation": "self-driving, from Gunnison to Medford, duration: 18 hours 4 mins, distance: 1,832 km, cost: 91",
+        "breakfast": "-",
+        "attraction": "-",
+        "lunch": "-",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]; SCORE: 1
+coorect 16; Total: 182; Acc: 0.08791208791208792

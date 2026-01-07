@@ -1,0 +1,17 @@
+[
+    {
+        "The most likely diagnosis for the patient is roseola infantum.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Rubella": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Measles": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Enteroviral infection is the most likely diagnosis given the exclusion of roseola, rubella, and measles, and the clinical presentation of fever followed by a rash.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Scarlet fever is the most likely diagnosis given the exclusion of roseola infantum, rubella, measles, and enteroviral infection.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

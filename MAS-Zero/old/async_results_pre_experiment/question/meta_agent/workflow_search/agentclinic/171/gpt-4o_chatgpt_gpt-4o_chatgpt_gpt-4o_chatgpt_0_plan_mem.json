@@ -1,0 +1,17 @@
+[
+    {
+        "The diagnosis is Pseudomonas aeruginosa-induced microbial keratitis in the right eye, likely related to contact lens use.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Bacterial keratitis": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Pseudomonas aeruginosa keratitis": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Acanthamoeba keratitis": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Staphylococcus aureus keratitis": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

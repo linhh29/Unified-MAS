@@ -1,0 +1,17 @@
+[
+    {
+        "The final decision is that the patient has Lambert-Eaton Myasthenic Syndrome, likely as a paraneoplastic syndrome associated with an underlying malignancy such as small cell lung cancer.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The patient is diagnosed with Lambert-Eaton Myasthenic Syndrome. Further diagnostic workup, such as CT scans or PET scans, is recommended to explore potential underlying malignancies, given the inconclusive chest X-ray.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The recommended additional diagnostic steps include performing a CT scan or PET scan of the chest to assess for potential underlying malignancies, such as small cell lung cancer, which is commonly associated with Lambert-Eaton Myasthenic Syndrome.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Given the diagnosis of Lambert-Eaton Myasthenic Syndrome and the inconclusive chest X-ray, further diagnostic steps could include a thorough clinical examination for signs of malignancy, laboratory tests for tumor markers, and possibly a biopsy if any suspicious lesions are found. However, without further context on why CT or PET scans are not advised, it is difficult to propose a definitive alternative. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The identified diagnostic tests, CT scan of the chest and PET scan, are feasible and relevant for investigating potential underlying malignancies in this patient.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

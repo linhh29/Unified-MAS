@@ -1,0 +1,17 @@
+[
+    {
+        "Final Management Plan: 1. Discontinue levofloxacin to reduce the risk of exacerbating CDI. 2. Initiate oral vancomycin or fidaxomicin for CDI treatment, considering metronidazole if others are unavailable or in mild cases. 3. Provide supportive care with fluid and electrolyte replacement to address dehydration risk. 4. Confirm diagnosis with a stool test for Clostridium difficile toxin to ensure appropriate management. 5. Monitor patient for clinical improvement and adjust treatment based on test results. 6. Educate the patient on infection control measures to prevent transmission. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "If Clostridium difficile infection is confirmed, the management plan would typically include discontinuing the offending antibiotic (levofloxacin) if possible and starting appropriate antibiotic therapy for C. difficile, such as oral vancomycin or fidaxomicin. Supportive care with hydration and electrolyte management is also important. If the test results are still pending, consider empiric treatment based on clinical suspicion and severity of symptoms. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "1. Discontinue levofloxacin to prevent further disruption of gut flora.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "1. Discontinue levofloxacin if clinically feasible, given its association with CDI.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "1. Ensure adequate hydration and electrolyte management due to diarrhea. 2. Consider the use of probiotics to help restore gut flora. 3. Monitor the patient for complications or worsening symptoms. 4. Reevaluate antibiotic exposure and consider alternative diagnoses if symptoms persist. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

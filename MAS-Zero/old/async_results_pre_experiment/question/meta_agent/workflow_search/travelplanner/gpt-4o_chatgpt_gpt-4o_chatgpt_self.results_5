@@ -1,0 +1,241 @@
+experiemnt 26: 1 (2); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Jacksonville to Martha's Vineyard",
+        "transportation": "Self-driving, from Jacksonville to Martha's Vineyard, duration: 18 hours 51 mins, distance: 1,927 km, Cost: 96",
+        "breakfast": "-",
+        "attraction": "-",
+        "lunch": "-",
+        "dinner": "Yellow Dog Eats, Martha's Vineyard",
+        "accommodation": "Bright and Chill Room in Bushwick for two friends!, Martha's Vineyard"
+    },
+    {
+        "days": 2,
+        "current_city": "Martha's Vineyard",
+        "transportation": "-",
+        "breakfast": "Fortune Deli - Fortune Select Excalibur, Martha's Vineyard",
+        "attraction": "Martha's Vineyard Museum, Martha's Vineyard;East Chop Lighthouse, Martha's Vineyard;",
+        "lunch": "Prankster, Martha's Vineyard",
+        "dinner": "Depot Eatery and Oyster Bar, Martha's Vineyard",
+        "accommodation": "Bright and Chill Room in Bushwick for two friends!, Martha's Vineyard"
+    },
+    {
+        "days": 3,
+        "current_city": "from Martha's Vineyard to Hyannis",
+        "transportation": "Self-driving, from Martha's Vineyard to Hyannis, duration: 2 hours 7 mins, distance: 49.5 km, Cost: 2",
+        "breakfast": "Adarsh Bhojnalaya, Martha's Vineyard",
+        "attraction": "Aquinnah Cliffs Overlook, Martha's Vineyard;",
+        "lunch": "The Punjab Kitchen, Martha's Vineyard",
+        "dinner": "Bridge Road Brewers, Hyannis",
+        "accommodation": "(2)Comfy Home Away From Home/Multiple Rooms!!!, Hyannis"
+    },
+    {
+        "days": 4,
+        "current_city": "Hyannis",
+        "transportation": "-",
+        "breakfast": "Cafe Grub Up, Hyannis",
+        "attraction": "John F. Kennedy Hyannis Museum, Hyannis;Cape Cod Maritime Museum, Hyannis;",
+        "lunch": "The Cheesecake Factory, Hyannis",
+        "dinner": "Ambrosia Bliss, Hyannis",
+        "accommodation": "(2)Comfy Home Away From Home/Multiple Rooms!!!, Hyannis"
+    },
+    {
+        "days": 5,
+        "current_city": "from Hyannis to Nantucket",
+        "transportation": "Self-driving, from Hyannis to Nantucket, duration: 2 hours 17 mins, distance: 47.0 km, Cost: 2",
+        "breakfast": "Wah Ji Wah, Hyannis",
+        "attraction": "Cape Codder Water Park, Hyannis;",
+        "lunch": "Chilli Indiana, Hyannis",
+        "dinner": "Rhinehart's Oyster Bar, Nantucket",
+        "accommodation": "Spacious studio apartment on ideal LES block, Nantucket"
+    },
+    {
+        "days": 6,
+        "current_city": "Nantucket",
+        "transportation": "-",
+        "breakfast": "Starbucks, Nantucket",
+        "attraction": "Whaling Museum, Nantucket;Great Point Lighthouse, Nantucket;",
+        "lunch": "Open Oven, Nantucket",
+        "dinner": "Punjab Grill, Nantucket",
+        "accommodation": "Spacious studio apartment on ideal LES block, Nantucket"
+    },
+    {
+        "days": 7,
+        "current_city": "from Nantucket to Jacksonville",
+        "transportation": "Self-driving, from Nantucket to Jacksonville, duration: 20 hours 9 mins, distance: 1,967 km, Cost: 98",
+        "breakfast": "Uforia, Nantucket",
+        "attraction": "Nantucket Shipwreck and Life Saving Museum, Nantucket;",
+        "lunch": "Prince Chaat Corner, Nantucket",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]
+experiemnt 35: 1 (1); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Las Vegas to Santa Maria",
+        "transportation": "Self-driving, from Las Vegas to Santa Maria, Duration: 6 hours 17 mins, Cost: 31",
+        "breakfast": "-",
+        "attraction": "Santa Maria Valley Discovery Museum, Santa Maria",
+        "lunch": "Pirates of Grill, Santa Maria",
+        "dinner": "Indian By Nature, Santa Maria",
+        "accommodation": "Cozy apartment near Central Park, Santa Maria"
+    },
+    {
+        "days": 2,
+        "current_city": "Santa Maria",
+        "transportation": "-",
+        "breakfast": "Nashta, Santa Maria",
+        "attraction": "Santa Maria Museum of Flight, Santa Maria;Russell Park, Santa Maria",
+        "lunch": "London Street Kitchen, Santa Maria",
+        "dinner": "The Drunk House, Santa Maria",
+        "accommodation": "Cozy apartment near Central Park, Santa Maria"
+    },
+    {
+        "days": 3,
+        "current_city": "from Santa Maria to Las Vegas",
+        "transportation": "Self-driving, from Santa Maria to Las Vegas, Duration: 6 hours 19 mins, Cost: 31",
+        "breakfast": "Nariyal Cafe, Santa Maria",
+        "attraction": "Los Flores Ranch Park, Santa Maria",
+        "lunch": "Eat & Gulp, Santa Maria",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]
+experiemnt 46: 1 (0); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Eugene to Los Angeles",
+        "transportation": "Flight Number: F3818922, from Eugene to Los Angeles, Departure Time: 16:33, Arrival Time: 18:47",
+        "breakfast": "-",
+        "attraction": "Santa Monica Pier, Los Angeles",
+        "lunch": "Palmshore, Los Angeles",
+        "dinner": "Punjabi Zaika, Los Angeles",
+        "accommodation": "Lovely studio, Los Angeles"
+    },
+    {
+        "days": 2,
+        "current_city": "Los Angeles",
+        "transportation": "-",
+        "breakfast": "Choco Kraft, Los Angeles",
+        "attraction": "Hollywood Walk of Fame, Los Angeles;Griffith Observatory, Los Angeles",
+        "lunch": "Onokabe, Los Angeles",
+        "dinner": "The Hangout by 1861, Los Angeles",
+        "accommodation": "Lovely studio, Los Angeles"
+    },
+    {
+        "days": 3,
+        "current_city": "from Los Angeles to Eugene",
+        "transportation": "Flight Number: F3819973, from Los Angeles to Eugene, Departure Time: 13:35, Arrival Time: 16:03",
+        "breakfast": "Shree Manakamna Fast Food, Los Angeles",
+        "attraction": "The Getty, Los Angeles",
+        "lunch": "Elan - The Lodhi, Los Angeles",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]
+experiemnt 56: 1 (2); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Pittsburgh to Houston",
+        "transportation": "Flight Number: F3902409, from Pittsburgh to Houston, Departure Time: 06:27, Arrival Time: 08:40",
+        "breakfast": "-",
+        "attraction": "Space Center Houston, Houston",
+        "lunch": "Jalapenos, Houston",
+        "dinner": "Matchbox, Houston",
+        "accommodation": "Superhost 3 bedroom DISCOUNT, Houston"
+    },
+    {
+        "days": 2,
+        "current_city": "Houston",
+        "transportation": "-",
+        "breakfast": "Vinayaka Mylari, Houston",
+        "attraction": "Downtown Aquarium, Houston;Water Wall, Houston",
+        "lunch": "The BrewMaster - The Mix Fine Dine, Houston",
+        "dinner": "Pebble Street, Houston",
+        "accommodation": "Superhost 3 bedroom DISCOUNT, Houston"
+    },
+    {
+        "days": 3,
+        "current_city": "from Houston to Dallas",
+        "transportation": "Flight Number: F3723676, from Houston to Dallas, Departure Time: 05:07, Arrival Time: 06:09",
+        "breakfast": "Coconuts Fish Cafe, Dallas",
+        "attraction": "The Dallas World Aquarium, Dallas;Reunion Tower, Dallas",
+        "lunch": "1918 Bistro & Grill, Dallas",
+        "dinner": "Drifters Cafe, Dallas",
+        "accommodation": "1BR, elevator, kitchen, doorman!, Dallas"
+    },
+    {
+        "days": 4,
+        "current_city": "Dallas",
+        "transportation": "-",
+        "breakfast": "Cafe Gatherings, Dallas",
+        "attraction": "Dallas Museum of Art, Dallas;Klyde Warren Park, Dallas",
+        "lunch": "Delhicacy, Dallas",
+        "dinner": "L'Opera, Dallas",
+        "accommodation": "1BR, elevator, kitchen, doorman!, Dallas"
+    },
+    {
+        "days": 5,
+        "current_city": "from Dallas to Pittsburgh",
+        "transportation": "Flight Number: F3660424, from Dallas to Pittsburgh, Departure Time: 18:25, Arrival Time: 21:39",
+        "breakfast": "Bikaner Sweets, Dallas",
+        "attraction": "Perot Museum of Nature and Science, Dallas",
+        "lunch": "Cafe Coffee Day, Dallas",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]
+experiemnt 113: 1 (2); correct_answer:  vs. extracted_answer: [
+    {
+        "days": 1,
+        "current_city": "from Evansville to Texarkana",
+        "transportation": "Self-driving, from Evansville to Texarkana, duration: 8 hours 45 mins, distance: 889 km, Cost: 44",
+        "breakfast": "-",
+        "attraction": "Museum of Regional History, Texarkana",
+        "lunch": "Big City Bread Cafe, Texarkana",
+        "dinner": "Columbia Restaurant, Texarkana",
+        "accommodation": "Large 2.5 BR Apt In Park Slope, Texarkana"
+    },
+    {
+        "days": 2,
+        "current_city": "Texarkana",
+        "transportation": "-",
+        "breakfast": "Poets Cafe, Texarkana",
+        "attraction": "Texarkana Museums System, Texarkana; Spring Lake Park, Texarkana",
+        "lunch": "Club Mojo, Texarkana",
+        "dinner": "Blackout, Texarkana",
+        "accommodation": "Large 2.5 BR Apt In Park Slope, Texarkana"
+    },
+    {
+        "days": 3,
+        "current_city": "from Texarkana to Longview",
+        "transportation": "Self-driving, from Texarkana to Longview, duration: 1 hour 36 mins, distance: 142 km, Cost: 7",
+        "breakfast": "Granma's Homemade, Texarkana",
+        "attraction": "Four States Auto Museum, Texarkana",
+        "lunch": "Purani Dilli Foods, Texarkana",
+        "dinner": "The Beer Cafe - BIGGIE, Texarkana",
+        "accommodation": "Luxury STUDIO * PVT Entrance * WOW, Longview"
+    },
+    {
+        "days": 4,
+        "current_city": "Longview",
+        "transportation": "-",
+        "breakfast": "Barbeque Nation, Longview",
+        "attraction": "Longview World of Wonders, Longview; Gregg County Historical Museum, Longview",
+        "lunch": "Momo Mia, Longview",
+        "dinner": "Not Just Paranthas, Longview",
+        "accommodation": "Luxury STUDIO * PVT Entrance * WOW, Longview"
+    },
+    {
+        "days": 5,
+        "current_city": "from Longview to Evansville",
+        "transportation": "Self-driving, from Longview to Evansville, duration: 10 hours 8 mins, distance: 1,045 km, Cost: 52",
+        "breakfast": "Monster's Cafe, Longview",
+        "attraction": "Longview Museum of Fine Arts, Longview",
+        "lunch": "Royal India Food Plaza, Longview",
+        "dinner": "Chinese Dragon Cafe, Longview",
+        "accommodation": "-"
+    }
+]
+coorect 5; Total: 148; Acc: 0.033783783783783786

@@ -1,0 +1,17 @@
+[
+    {
+        "The final diagnosis is an active Hepatitis B infection. The positive Hepatitis B surface antigen, core antibody, and envelope antigen, along with elevated liver enzymes and bilirubin levels, support this diagnosis. The positive Hepatitis A IgG suggests past exposure or immunity, not an active Hepatitis A infection.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Acute Hepatitis A infection. The patient's symptoms, recent exposure history, and test results align with this diagnosis, especially considering her recent potential exposure to contaminated food.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Acute Hepatitis A infection, likely contracted from the state fair, with possible chronic Hepatitis B carrier state.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis is co-infection with acute Hepatitis A and active Hepatitis B infection, with the possibility of chronic Hepatitis B reactivation. The patient's type 2 diabetes mellitus and alcohol consumption are additional risk factors for liver disease. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis is a chronic liver condition with possible Hepatitis B reactivation, considering the serological markers and the patient's risk factors. There is no active co-infection with Hepatitis A or C. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

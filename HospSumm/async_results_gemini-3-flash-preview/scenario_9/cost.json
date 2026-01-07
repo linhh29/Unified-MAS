@@ -1,0 +1,202 @@
+{
+  "scenario_id": 9,
+  "doctor": {
+    "input_tokens": 68739,
+    "output_tokens": 9923,
+    "total_tokens": 78662,
+    "input_cost": 0.034369,
+    "output_cost": 0.029769,
+    "total_cost": 0.064138,
+    "num_calls": 11
+  },
+  "patient": {
+    "input_tokens": 28805,
+    "output_tokens": 2244,
+    "total_tokens": 31049,
+    "input_cost": 0.014403,
+    "output_cost": 0.006732,
+    "total_cost": 0.021135,
+    "num_calls": 5
+  },
+  "measurement": {
+    "input_tokens": 29026,
+    "output_tokens": 7373,
+    "total_tokens": 36399,
+    "input_cost": 0.014513,
+    "output_cost": 0.022119,
+    "total_cost": 0.036632,
+    "num_calls": 5
+  },
+  "judge": {
+    "input_tokens": 1167,
+    "output_tokens": 118,
+    "total_tokens": 1285,
+    "input_cost": 0.002917,
+    "output_cost": 0.00118,
+    "total_cost": 0.004098,
+    "num_calls": 1
+  },
+  "total": {
+    "total_cost": 0.126002,
+    "total_tokens": 147395
+  },
+  "detailed_calls": {
+    "doctor": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5515,
+        "output_tokens": 731,
+        "cost": 0.0049505,
+        "inference_num": 1
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5616,
+        "output_tokens": 426,
+        "cost": 0.004085999999999999,
+        "inference_num": 2
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6026,
+        "output_tokens": 396,
+        "cost": 0.004201,
+        "inference_num": 3
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6108,
+        "output_tokens": 786,
+        "cost": 0.005412,
+        "inference_num": 4
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6199,
+        "output_tokens": 606,
+        "cost": 0.0049175,
+        "inference_num": 5
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6294,
+        "output_tokens": 536,
+        "cost": 0.0047550000000000005,
+        "inference_num": 6
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6382,
+        "output_tokens": 804,
+        "cost": 0.005603,
+        "inference_num": 7
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6508,
+        "output_tokens": 450,
+        "cost": 0.0046040000000000005,
+        "inference_num": 8
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6598,
+        "output_tokens": 637,
+        "cost": 0.00521,
+        "inference_num": 9
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6672,
+        "output_tokens": 1385,
+        "cost": 0.007490999999999999,
+        "inference_num": 10
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6821,
+        "output_tokens": 3166,
+        "cost": 0.0129085,
+        "inference_num": 11
+      }
+    ],
+    "patient": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5196,
+        "output_tokens": 411,
+        "cost": 0.003831
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5664,
+        "output_tokens": 661,
+        "cost": 0.004815
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5796,
+        "output_tokens": 487,
+        "cost": 0.004359
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6030,
+        "output_tokens": 397,
+        "cost": 0.0042060000000000005
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6119,
+        "output_tokens": 288,
+        "cost": 0.0039235
+      }
+    ],
+    "measurement": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5262,
+        "output_tokens": 3589,
+        "cost": 0.013398
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5730,
+        "output_tokens": 556,
+        "cost": 0.004533000000000001
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5869,
+        "output_tokens": 900,
+        "cost": 0.005634500000000001
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5966,
+        "output_tokens": 817,
+        "cost": 0.005434
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6199,
+        "output_tokens": 1511,
+        "cost": 0.0076324999999999995
+      }
+    ],
+    "judge": [
+      {
+        "model": "gpt-4o",
+        "input_tokens": 1167,
+        "output_tokens": 118,
+        "cost": 0.0040975000000000004
+      }
+    ]
+  },
+  "diagnosis_result": {
+    "diagnosis_made": true,
+    "is_correct": false,
+    "doctor_diagnosis": "This 43-year-old male with a history of chronic pancreatitis, SMV thrombosis, and insulin-dependent diabetes was admitted with a right upper quadrant abdominal wall mass and a loculated left pleural empyema, complicated by a supratherapeutic INR of 22. During his stay, he underwent a VATS decortication and surgical debridement of his abdominal wall abscess, with cultures from both sites identifying Fusobacterium; he was also treated for Clostridioides difficile. He was discharged home in stable condition with a PICC line to complete a four-week course of intravenous penicillin G and two weeks of oral metronidazole. His discharge plan includes daily visiting nursing for INR monitoring and Lovenox bridging until therapeutic on warfarin, as well as wound vacuum dressing changes every three days. He is tolerating a regular diet with pancreatic enzyme supplementation and is managing his diabetes with a home insulin regimen and his pain with an intensified oral narcotic schedule.",
+    "correct_diagnosis": "The patient is a 43-year-old male who was admitted to the hospital with a chief complaint of a RUQ mass and pain, as well as a L pleural loculated fluid collection. He has a history of EtOH-induced chronic pancreatitis, SMV thrombosis, and is on Coumadin indefinitely. He also has chronic abdominal pain and is taking Oxycontin and Percocet. The patient's past medical history includes IDDM, chronic abdominal pain, chronic pancreatitis, SMV thrombosis, insomnia, and h/o alcoholism.\n\nThe patient's diagnosis includes a complex multiloculated cystic lesion in the right upper quadrant, possibly an abscess or hematoma, and a large loculated left pleural fluid collection. He also has sequela of chronic pancreatitis.\n\nThe patient underwent a tube thoracostomy (pigtail) and incision and drainage of the RUQ mass. He was prescribed medications at discharge, including antibiotics and pain medication.\n\nThe patient's physical exam revealed a thin male with a firm, extremely tender, erythematous mass deep to the RUQ scar. He had moderate TTP to palpation in the L hemi-abdomen, though he reported this was baseline. His vital signs were stable, and he was afebrile.\n\nThe patient's laboratory results showed an elevated white blood cell count, platelet count, and liver enzymes, consistent with an inflammatory process. His imaging studies, including CT and MRI, showed a complex multiloculated cystic lesion in the right upper quadrant, a large loculated left pleural fluid collection, and atrophy and calcification of the pancreas.\n\nOverall, the patient's hospital course was marked by a complex and challenging presentation, requiring multiple procedures and a multidisciplinary approach to management."
+  }
+}

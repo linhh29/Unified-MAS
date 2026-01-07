@@ -1,0 +1,17 @@
+[
+    {
+        "Self-driving, from Grand Junction to Los Angeles, duration: 11 hours 19 mins, distance: 1,248 km, cost: 62": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Taxi, from Grand Junction to Los Angeles, duration: 11 hours 19 mins, distance: 1,248 km, cost: 1248": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "300": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Travel Plan:": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Self-driving is the optimal transportation option from Grand Junction to Los Angeles on March 17th, 2022.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

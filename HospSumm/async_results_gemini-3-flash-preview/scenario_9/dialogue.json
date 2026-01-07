@@ -1,0 +1,132 @@
+{
+  "scenario_id": 9,
+  "dialogue_history": [
+    {
+      "round": 1,
+      "type": "doctor",
+      "content": "I'll start by gathering details from the nursing team. Nursing Agent, could you please clarify the specific instructions provided to the patient regarding the Wound Vac management and the scheduled frequency for visiting nurse visits?",
+      "progress": 2
+    },
+    {
+      "round": 1,
+      "type": "patient",
+      "content": "The wound vacuum dressing is scheduled to be changed every three days by the visiting nurses, and the patient was instructed to keep the pump on and suctioning 24 hours a day. Visiting nurses will also visit daily to check INR levels and assist with the administration of IV antibiotics via the PICC line.",
+      "progress": 2
+    },
+    {
+      "round": 2,
+      "type": "doctor",
+      "content": "REQUEST TEST: Please provide the specific dosing for the Lovenox bridge and the current plan for Coumadin monitoring and adjustment as it relates to the home health care.",
+      "progress": 5
+    },
+    {
+      "round": 2,
+      "type": "measurement",
+      "content": "RESULTS: Lovenox (Enoxaparin) 60 mg/0.6 mL Syringe: One (1) syringe Subcutaneous every 12 hours (twice a day) until INR is >1.8; Coumadin (Warfarin) Monitoring and Adjustment Plan: INR to be checked by visiting nurse daily and results called into clinic for daily dosing adjustments; Amylase-Lipase-Protease 30,000-8,000-30,000 unit Tablet: One (1) Tablet PO TID with meals; Lorazepam 1 mg Tablet: One (1) Tablet PO at bedtime as needed for anxiety; Gabapentin 300 mg Capsule: Three (3) Capsules PO TID; Oxycodone 20 mg Tablet Sustained Release: Three (3) Tablets PO every 8 hours for 2 weeks; Percocet: Tablets PO every 4 hours as needed for pain for 2 weeks (not to exceed 4000mg acetaminophen daily); Nexium 40 mg Capsule: One (1) Capsule PO daily; Clonidine 0.1 mg/24 hr Patch: One (1) Patch Weekly; Cialis 20 mg Tablet: One (1) Tablet PO daily as needed; Lantus 100 unit/mL: 30 units Subcutaneous at bedtime; Insulin Lispro 100 unit/mL: Subcutaneous per sliding scale before meals and at bedtime; Tramadol 50 mg Tablet: PO every 6 hours as needed for pain; Penicillin G: 4,000,000 units IV every 4 hours for 4 weeks; Metronidazole 500 mg Tablet: One (1) Tablet PO TID for 2 weeks.",
+      "progress": 5
+    },
+    {
+      "round": 3,
+      "type": "doctor",
+      "content": "Nursing Agent, given the patient's history of IDDM and chronic pancreatitis, could you provide details on any specific diabetic education or dietary counseling provided before discharge?",
+      "progress": 7
+    },
+    {
+      "round": 3,
+      "type": "patient",
+      "content": "The patient was educated on maintaining a regular diet and instructed to take pancreatic enzymes with each meal for symptom management. Nursing education also focused on continuing his subcutaneous insulin regimen, specifically administering sliding scale insulin before meals and insulin glargine at bedtime.",
+      "progress": 7
+    },
+    {
+      "round": 4,
+      "type": "doctor",
+      "content": "REQUEST TEST: Please provide the specific PICC line care protocol and confirm if there are any specific monitoring requirements or labs associated with the long-term IV Penicillin G therapy, such as potassium or renal function monitoring.",
+      "progress": 10
+    },
+    {
+      "round": 4,
+      "type": "measurement",
+      "content": "RESULTS: PICC Line Care: Per NEHT protocol; Monitoring for long-term IV Penicillin G therapy: Weekly CBC with differential, Chem7 (includes potassium and renal function/creatinine), and LFTs.",
+      "progress": 10
+    },
+    {
+      "round": 5,
+      "type": "doctor",
+      "content": "Nursing Agent, could you please provide specific care instructions for the left flank incision site and clarify if there are any specific physical activity or lifting restrictions for the patient during his recovery?",
+      "progress": 12
+    },
+    {
+      "round": 5,
+      "type": "patient",
+      "content": "The left flank incision dressing should remain in place for 48 hours, after which the patient may shower but must avoid baths or swimming until follow-up. The patient is restricted from lifting more than 5 pounds and driving while on pain medications, though frequent daily ambulation is encouraged.",
+      "progress": 12
+    },
+    {
+      "round": 6,
+      "type": "doctor",
+      "content": "REQUEST TEST: Please confirm the specific instructions for Metronidazole, including whether it should be taken with food and if any specific alcohol restrictions were emphasized to the patient.",
+      "progress": 15
+    },
+    {
+      "round": 6,
+      "type": "measurement",
+      "content": "RESULTS: Metronidazole 500 mg Tablet: One (1) Tablet PO TID (3 times a day) for 2 weeks, with specific instructions to take with food. There are no specific alcohol restrictions documented for Metronidazole in the provided discharge medications or instructions.",
+      "progress": 15
+    },
+    {
+      "round": 7,
+      "type": "doctor",
+      "content": "REQUEST TEST: Please provide the specific discharge dose for Warfarin (Coumadin) and any documented instructions for the patient regarding the management of his anticoagulation given his admission INR of 22.",
+      "progress": 17
+    },
+    {
+      "round": 7,
+      "type": "measurement",
+      "content": "RESULTS: Warfarin (Coumadin): No fixed dose provided in discharge medications; dosing to be adjusted daily based on lab results. Anticoagulation Management Instructions: INR will be checked daily by a visiting nurse and results called into the clinic for daily dosing adjustments; continue Lovenox 60 mg Subcutaneous every 12 hours until INR is >1.8 (Goal 2-3).",
+      "progress": 17
+    },
+    {
+      "round": 8,
+      "type": "doctor",
+      "content": "Nursing Agent, could you please clarify the specific follow-up appointments that have been scheduled for this patient, specifically with Thoracic Surgery, General Surgery, and Infectious Disease?",
+      "progress": 20
+    },
+    {
+      "round": 8,
+      "type": "patient",
+      "content": "The specific dates and times for follow-up appointments with Thoracic Surgery, General Surgery, and Infectious Disease are not documented in the provided record. Patients are generally instructed to contact these clinics directly to confirm their scheduled appointments or to call if they have not yet received them.",
+      "progress": 20
+    },
+    {
+      "round": 9,
+      "type": "doctor",
+      "content": "Nursing Agent, could you describe the patient's mobility at the time of discharge and confirm whether he was able to tolerate a regular diet without significant nausea or vomiting?",
+      "progress": 22
+    },
+    {
+      "round": 9,
+      "type": "patient",
+      "content": "At the time of discharge, the patient was stable, not in acute distress, and was instructed to ambulate several times daily. He was tolerating a regular diet without reported nausea or vomiting.",
+      "progress": 22
+    },
+    {
+      "round": 10,
+      "type": "doctor",
+      "content": "REQUEST TEST: Please confirm the specific strength for the Percocet (oxycodone/acetaminophen) and the dosing frequency for the Oxycontin (oxycodone SR) at discharge, and whether any other pain medications like Tramadol were continued as scheduled or as needed.",
+      "progress": 25
+    },
+    {
+      "round": 10,
+      "type": "measurement",
+      "content": "RESULTS: Percocet strength: Not specified in the discharge medication list (listed as \"Percocet ___ mg\"); Oxycontin (Oxycodone 20 mg Tablet Sustained Release 12 hr) dosing frequency: Three (3) tablets PO every 8 hours (Q8H) for 2 weeks; Tramadol 50 mg: Ordered as needed (PRN) every 6 hours (Q6H) for pain.",
+      "progress": 25
+    },
+    {
+      "round": 11,
+      "type": "doctor",
+      "content": "SUMMARY READY: This 43-year-old male with a history of chronic pancreatitis, SMV thrombosis, and insulin-dependent diabetes was admitted with a right upper quadrant abdominal wall mass and a loculated left pleural empyema, complicated by a supratherapeutic INR of 22. During his stay, he underwent a VATS decortication and surgical debridement of his abdominal wall abscess, with cultures from both sites identifying Fusobacterium; he was also treated for Clostridioides difficile. He was discharged home in stable condition with a PICC line to complete a four-week course of intravenous penicillin G and two weeks of oral metronidazole. His discharge plan includes daily visiting nursing for INR monitoring and Lovenox bridging until therapeutic on warfarin, as well as wound vacuum dressing changes every three days. He is tolerating a regular diet with pancreatic enzyme supplementation and is managing his diabetes with a home insulin regimen and his pain with an intensified oral narcotic schedule.",
+      "progress": 27
+    }
+  ],
+  "total_rounds": 21
+}

@@ -1,0 +1,17 @@
+[
+    {
+        "Flight Number: F3867717, from Houston to Miami, Departure Time: 07:26, Arrival Time: 10:48, Cost: $237 per person": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Flight Number: F3718726, from Houston to Miami, Departure Time: 11:20, Arrival Time: 14:44, Cost: $273 per person": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "F3866592": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "F3658491": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "237": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "Final Diagnosis: Acute acalculous cholecystitis with a high suspicion of sepsis secondary to cholecystitis. Management Plan: 1. Initiate broad-spectrum antibiotics to address potential sepsis. 2. Provide supportive care focusing on comfort, including pain management and hydration. 3. Consider non-invasive monitoring and reassessment. 4. Discuss with family regarding the goals of care given the patient's hospice status. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Final Diagnosis: Consider alternative causes of infection or inflammation, possibly involving the liver. Management Plan: Stabilize the patient, obtain liver function tests and blood cultures, and focus on comfort and quality of life in line with hospice care. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Final Diagnosis: Consider alternative infectious or inflammatory processes, such as pancreatitis or other intra-abdominal infections, given the right upper quadrant pain and systemic signs of infection. Management Plan: Initiate broad-spectrum antibiotics to address potential sepsis. Provide supportive care, including fluids and monitoring, with a focus on comfort and quality of life due to the patient's hospice status. Obtain liver enzyme and bilirubin levels to assess hepatic involvement. Consider imaging or further tests to identify other potential sources of infection or inflammation, while considering the patient's overall prognosis and goals of care. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Management should focus on supportive care and symptom relief, considering the patient's hospice status. Antibiotic therapy may be initiated to address potential infection, but aggressive interventions should be avoided to align with palliative care principles and maintain quality of life.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The management plan should prioritize supportive care and symptom relief, considering the patient's hospice status. This may include administering antibiotics to address the suspected infection, managing pain and fever, and ensuring the patient's comfort. Discussions with the patient and family about the goals of care and their preferences are essential. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

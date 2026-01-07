@@ -1,0 +1,17 @@
+[
+    {
+        "The final diagnosis for the patient is a lymphoproliferative disorder, likely chronic lymphocytic leukemia (CLL) or another type of leukemia or lymphoma, based on the elevated leukocyte count, high absolute lymphocyte count, and family history of hematologic malignancy.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The patient has knee osteoarthritis and elevated leukocyte and lymphocyte counts. While a lymphoproliferative disorder is suggested, further investigation is needed to rule out other causes of leukocytosis, such as infection or chronic inflammation. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis remains uncertain, and further tests are needed to explore other potential causes of leukocytosis, such as myeloproliferative disorders or reactive causes.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Further tests are necessary to confirm the diagnosis and rule out other potential causes of leukocytosis.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Plan for further investigation and management: 1. Conduct a peripheral blood smear to identify atypical lymphocytes. 2. Repeat the complete blood count (CBC) to monitor trends in leukocyte count. 3. Perform viral serologies for EBV and CMV to rule out viral infections. 4. Check inflammatory markers such as CRP and ESR to assess for chronic inflammation. 5. Consider consulting a hematologist for further evaluation and guidance on additional tests. 6. Continue monitoring the patient's blood pressure and manage hypertension as per current guidelines. 7. Address knee osteoarthritis with appropriate pain management and physical therapy as needed. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

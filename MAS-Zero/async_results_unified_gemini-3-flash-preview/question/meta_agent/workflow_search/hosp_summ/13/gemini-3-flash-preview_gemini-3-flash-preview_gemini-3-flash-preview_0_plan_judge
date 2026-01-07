@@ -1,0 +1,904 @@
+Question: 
+Patient Records: Input:
+age: 29. gender: F.  
+Name:  ___                Unit No:   ___
+ 
+Admission Date:  ___              Discharge Date:   ___
+ 
+Date of Birth:  ___             Sex:   F
+ 
+Service: NEUROSURGERY
+ 
+Allergies: 
+Patient recorded as having No Known Allergies to Drugs
+ 
+Attending: ___.
+ 
+Chief Complaint:
+Leg Pain, Weakness
+ 
+Major Surgical or Invasive Procedure:
+Left L5-S1 discectomy
+ 
+History of Present Illness:
+___ yo female with history of LBP presents with worsening lower 
+back pain X 1 month.  Patient's back pain began in ___ as lower 
+back pain radiating into her left buttock.  Was treated 
+conservatively with ESI and meds.  Patient was relatively 
+assymptomatic until about 1 month ago while vacationing in ___
+when she developed worseing back pain radiating all the way down 
+the back of her left leg.  Pain became unbearable on ___ and 
+started to develop weakness of her left calf.  Patient has had 
+limitation in walking secondary to her pain.  Patient was 
+started on a medrol dose back, neurontin, oxycodone, and 
+naproxen which have failed to relieve her pain.  Patient's pain 
+is a ___ ___nd a ___ with movement.  Patient has not had any 
+changes in bowel or bladder or changes in sensation around her 
+bottom.
+
+ 
+Past Medical History:
+Rosacea, seasonal allergies, headache, abnormal Pap smears
+ 
+Social History:
+___
+Family History:
+Maternal grandmother with ___ and TIAs
+ 
+Physical Exam:
+PHYSICAL EXAM:
+O: T:99.8  BP: 129/94 HR:72 R 15  O2Sats 100%
+Gen: WD/WN, comfortable, NAD.
+HEENT: Pupils PERRL EOMI
+Neck: Supple.
+Lungs: CTA bilaterally.
+Cardiac: RRR. S1/S2.
+Abd: Soft, NT, BS+
+Extrem: Warm and well-perfused.
+Neuro:
+Mental status: Awake and alert, cooperative with exam, normal
+affect.
+Orientation: Oriented to person, place, and date.
+Motor:
+      D    B     T    WE   WF    IP    Q  H     AT    ___    G
+R     5    5     5    5    5     5     5  5     5     5      5 
+L     5    5     5    5    5     5     5  5     5     5      4+
+
+Sensation: decreased sensation along the left lateral calf to
+temp and pinprick.  No saddle anesthesia
+
+Reflexes: B T Br Pa Ac
+Right     ___  2  2
+Left      ___  2  0
+
+Rectal exam normal sphincter control
+ exam upon discharge:
+full motors, incision cdi with steristrips
+ 
+Pertinent Results:
+MRI L-Spine ___:
+IMPRESSION: 
+1. Markedly severe L5-S1 discogenic disease with a 1 cm midline 
+to left 
+paracentral disc protrusion/partial extrusion causing 
+significant spinal canal stenosis, neural foraminal narrowing 
+and nerve root impingement as described above. 
+2. Moderate L4-L5 degenerative disease with moderate symmetric 
+bilateral 
+neural foraminal narrowing.  
+  
+
+ 
+Brief Hospital Course:
+The patient was admitted to the ___ service for Q4 hour neuro 
+checks and pain control.  The decision was made to take her to 
+the operating room the following day for surgical rectification 
+of the herniated disc.  She was made NPO and placed on decadron 
+for inflammation control. 
+
+On ___ she went to the operating room for a removal of the 
+bulged disc at L5-S1.  She tolerated the surgery well and 
+following a short course in the PACU, she was transferred back 
+to the neurosurgery floor. Her diet and activity were advanced.  
+Incision was clean and dry.  She was taking PO pain med with 
+good relief. she was ambulating independently.
+
+ 
+Medications on Admission:
+ibuprofen
+ 
+Discharge Medications:
+1. Docusate Sodium 100 mg Capsule Sig: One (1) Capsule PO BID (2 
+times a day).
+Disp:*60 Capsule(s)* Refills:*2*
+2. Senna 8.6 mg Tablet Sig: One (1) Tablet PO BID (2 times a 
+day).
+Disp:*60 Tablet(s)* Refills:*2*
+3. Acetaminophen 325 mg Tablet Sig: ___ Tablets PO Q6H (every 6 
+hours) as needed for pain.  
+4. Ibuprofen 400 mg Tablet Sig: One (1) Tablet PO Q8H (every 8 
+hours) as needed for pain.  
+5. Oxycodone 5 mg Tablet Sig: ___ Tablets PO Q3H (every 3 hours) 
+as needed for pain for 2 weeks.
+Disp:*30 Tablet(s)* Refills:*0*
+6. Gabapentin 100 mg Capsule Sig: Two (2) Capsule PO TID (3 
+times a day).  
+7. Citalopram 20 mg Tablet Sig: One (1) Tablet PO DAILY (Daily). 
+ 
+
+ 
+Discharge Disposition:
+Home
+ 
+Discharge Diagnosis:
+L5/S1 disc tear and severe spinal stenosis
+ 
+Discharge Condition:
+Intact mental status and well appearing.  Trace L plantar 
+flexion and dorsiflexion weakness with slight sensory loss to LT 
+over the L lateral aspect of the foot only.  Ambulatory and 
+steady.
+ 
+Discharge Instructions:
+DISCHARGE INSTRUCTIONS FOR SPINE CASES
+ 
+        Do not smoke
+        Keep wound clean / No tub baths or pools until seen in 
+follow up/ remove dressing ___/ begin daily showers ___
+        No pulling up, lifting> 10 lbs., excessive bending or 
+twisting for two weeks.
+        Limit your use of stairs to ___ times per day
+        Have a family member check your incision daily for 
+signs of infection
+        Take pain medication as instructed; you may find it 
+best if taken in the a.m. when you wake if you experience muscle 
+stiffness and before bed for sleeping discomfort
+        Do not take any anti-inflammatory medications such as 
+Motrin, Advil, aspirin, Ibuprofen etc. for 3 months to promote 
+bone fusion.
+        Increase your intake of fluids and fiber as pain 
+medicine (narcotics) can cause constipation
+ 
+Followup Instructions:
+___
+ 
+
+Output:
+
+Summarize the key diagnostic information and significant results based on the patients’ multiple health (long) records during hospitalization.
+
+proposed answer: The objective is to synthesize the patient's records into a comprehensive discharge summary focusing on diagnostic information and results. Key elements to include are: the patient's demographics (29yo female), the presenting symptoms (worsening back pain radiating to left leg, calf weakness), the critical diagnostic imaging (MRI showing 1 cm L5-S1 disc protrusion and spinal stenosis), the surgical intervention (Left L5-S1 discectomy), and the postoperative clinical status (independent ambulation, trace residual weakness, clean incision).
+
+Answer:A 29-year-old female with a history of lower back pain was admitted for worsening radiculopathy and left calf weakness that had become unbearable and limited her mobility. Diagnostic MRI of the lumbar spine revealed markedly severe L5-S1 discogenic disease characterized by a 1 cm midline to left paracentral disc protrusion/extrusion, resulting in significant spinal canal stenosis and nerve root impingement, alongside moderate L4-L5 degenerative disease. The patient underwent a successful left L5-S1 discectomy to alleviate the neural compression. Her postoperative course was uncomplicated; she achieved effective pain control with oral medications and regained the ability to ambulate independently. At the time of discharge, her surgical incision was clean and dry, and while she remained neurologically stable and ambulatory, she exhibited trace residual weakness in left plantar flexion and dorsiflexion with slight sensory loss over the lateral aspect of the left foot. She was discharged home with instructions for restricted activity and a multi-modal pain management regimen.
+Extracted answer: A 29-year-old female with a history of lower back pain was admitted for worsening radiculopathy and left calf weakness that had become unbearable and limited her mobility. Diagnostic MRI of the lumbar spine revealed markedly severe L5-S1 discogenic disease characterized by a 1 cm midline to left paracentral disc protrusion/extrusion, resulting in significant spinal canal stenosis and nerve root impingement, alongside moderate L4-L5 degenerative disease. The patient underwent a successful left L5-S1 discectomy to alleviate the neural compression. Her postoperative course was uncomplicated; she achieved effective pain control with oral medications and regained the ability to ambulate independently. At the time of discharge, her surgical incision was clean and dry, and while she remained neurologically stable and ambulatory, she exhibited trace residual weakness in left plantar flexion and dorsiflexion with slight sensory loss over the lateral aspect of the left foot. She was discharged home with instructions for restricted activity and a multi-modal pain management regimen.
+Correct answer: The patient is a 29-year-old female who was admitted to the neurosurgery service with a chief complaint of leg pain and weakness. She had a history of lower back pain (LBP) that began one month prior, which worsened while on vacation and led to unbearable pain and weakness in her left calf. She was treated conservatively with ESI and medications, but her pain persisted. The patient underwent a left L5-S1 discectomy and was diagnosed with a marked severe L5-S1 discogenic disease with spinal canal stenosis, neural foraminal narrowing, and nerve root impingement. She was prescribed several medications, including docusate sodium, senna, acetaminophen, ibuprofen, oxycodone, gabapentin, and citalopram. The patient was discharged home with instructions to keep her wound clean, avoid heavy lifting, and take pain medication as instructed.
+Question: 
+Patient Records: Input:
+age: 29. gender: F.  
+Name:  ___                Unit No:   ___
+ 
+Admission Date:  ___              Discharge Date:   ___
+ 
+Date of Birth:  ___             Sex:   F
+ 
+Service: NEUROSURGERY
+ 
+Allergies: 
+Patient recorded as having No Known Allergies to Drugs
+ 
+Attending: ___.
+ 
+Chief Complaint:
+Leg Pain, Weakness
+ 
+Major Surgical or Invasive Procedure:
+Left L5-S1 discectomy
+ 
+History of Present Illness:
+___ yo female with history of LBP presents with worsening lower 
+back pain X 1 month.  Patient's back pain began in ___ as lower 
+back pain radiating into her left buttock.  Was treated 
+conservatively with ESI and meds.  Patient was relatively 
+assymptomatic until about 1 month ago while vacationing in ___
+when she developed worseing back pain radiating all the way down 
+the back of her left leg.  Pain became unbearable on ___ and 
+started to develop weakness of her left calf.  Patient has had 
+limitation in walking secondary to her pain.  Patient was 
+started on a medrol dose back, neurontin, oxycodone, and 
+naproxen which have failed to relieve her pain.  Patient's pain 
+is a ___ ___nd a ___ with movement.  Patient has not had any 
+changes in bowel or bladder or changes in sensation around her 
+bottom.
+
+ 
+Past Medical History:
+Rosacea, seasonal allergies, headache, abnormal Pap smears
+ 
+Social History:
+___
+Family History:
+Maternal grandmother with ___ and TIAs
+ 
+Physical Exam:
+PHYSICAL EXAM:
+O: T:99.8  BP: 129/94 HR:72 R 15  O2Sats 100%
+Gen: WD/WN, comfortable, NAD.
+HEENT: Pupils PERRL EOMI
+Neck: Supple.
+Lungs: CTA bilaterally.
+Cardiac: RRR. S1/S2.
+Abd: Soft, NT, BS+
+Extrem: Warm and well-perfused.
+Neuro:
+Mental status: Awake and alert, cooperative with exam, normal
+affect.
+Orientation: Oriented to person, place, and date.
+Motor:
+      D    B     T    WE   WF    IP    Q  H     AT    ___    G
+R     5    5     5    5    5     5     5  5     5     5      5 
+L     5    5     5    5    5     5     5  5     5     5      4+
+
+Sensation: decreased sensation along the left lateral calf to
+temp and pinprick.  No saddle anesthesia
+
+Reflexes: B T Br Pa Ac
+Right     ___  2  2
+Left      ___  2  0
+
+Rectal exam normal sphincter control
+ exam upon discharge:
+full motors, incision cdi with steristrips
+ 
+Pertinent Results:
+MRI L-Spine ___:
+IMPRESSION: 
+1. Markedly severe L5-S1 discogenic disease with a 1 cm midline 
+to left 
+paracentral disc protrusion/partial extrusion causing 
+significant spinal canal stenosis, neural foraminal narrowing 
+and nerve root impingement as described above. 
+2. Moderate L4-L5 degenerative disease with moderate symmetric 
+bilateral 
+neural foraminal narrowing.  
+  
+
+ 
+Brief Hospital Course:
+The patient was admitted to the ___ service for Q4 hour neuro 
+checks and pain control.  The decision was made to take her to 
+the operating room the following day for surgical rectification 
+of the herniated disc.  She was made NPO and placed on decadron 
+for inflammation control. 
+
+On ___ she went to the operating room for a removal of the 
+bulged disc at L5-S1.  She tolerated the surgery well and 
+following a short course in the PACU, she was transferred back 
+to the neurosurgery floor. Her diet and activity were advanced.  
+Incision was clean and dry.  She was taking PO pain med with 
+good relief. she was ambulating independently.
+
+ 
+Medications on Admission:
+ibuprofen
+ 
+Discharge Medications:
+1. Docusate Sodium 100 mg Capsule Sig: One (1) Capsule PO BID (2 
+times a day).
+Disp:*60 Capsule(s)* Refills:*2*
+2. Senna 8.6 mg Tablet Sig: One (1) Tablet PO BID (2 times a 
+day).
+Disp:*60 Tablet(s)* Refills:*2*
+3. Acetaminophen 325 mg Tablet Sig: ___ Tablets PO Q6H (every 6 
+hours) as needed for pain.  
+4. Ibuprofen 400 mg Tablet Sig: One (1) Tablet PO Q8H (every 8 
+hours) as needed for pain.  
+5. Oxycodone 5 mg Tablet Sig: ___ Tablets PO Q3H (every 3 hours) 
+as needed for pain for 2 weeks.
+Disp:*30 Tablet(s)* Refills:*0*
+6. Gabapentin 100 mg Capsule Sig: Two (2) Capsule PO TID (3 
+times a day).  
+7. Citalopram 20 mg Tablet Sig: One (1) Tablet PO DAILY (Daily). 
+ 
+
+ 
+Discharge Disposition:
+Home
+ 
+Discharge Diagnosis:
+L5/S1 disc tear and severe spinal stenosis
+ 
+Discharge Condition:
+Intact mental status and well appearing.  Trace L plantar 
+flexion and dorsiflexion weakness with slight sensory loss to LT 
+over the L lateral aspect of the foot only.  Ambulatory and 
+steady.
+ 
+Discharge Instructions:
+DISCHARGE INSTRUCTIONS FOR SPINE CASES
+ 
+        Do not smoke
+        Keep wound clean / No tub baths or pools until seen in 
+follow up/ remove dressing ___/ begin daily showers ___
+        No pulling up, lifting> 10 lbs., excessive bending or 
+twisting for two weeks.
+        Limit your use of stairs to ___ times per day
+        Have a family member check your incision daily for 
+signs of infection
+        Take pain medication as instructed; you may find it 
+best if taken in the a.m. when you wake if you experience muscle 
+stiffness and before bed for sleeping discomfort
+        Do not take any anti-inflammatory medications such as 
+Motrin, Advil, aspirin, Ibuprofen etc. for 3 months to promote 
+bone fusion.
+        Increase your intake of fluids and fiber as pain 
+medicine (narcotics) can cause constipation
+ 
+Followup Instructions:
+___
+ 
+
+Output:
+
+Summarize the key diagnostic information and significant results based on the patients’ multiple health (long) records during hospitalization.
+
+proposed answer: The objective is to provide a comprehensive discharge summary for a 29-year-old female patient based on the provided clinical records. I need to synthesize diagnostic information, including specific measurements like the 1 cm disc protrusion and the L5-S1 anatomical level, details of the surgical intervention (Left L5-S1 discectomy), and the patient's recovery course. I will ensure the summary covers the clinical presentation, key MRI findings, surgical procedure, and discharge status.
+
+Answer:Comprehensive Discharge Summary:
+
+Patient Profile and Clinical Presentation: The patient is a 29-year-old female with a history of lower back pain that worsened significantly over one month. She presented with unbearable pain radiating down her left leg, weakness in her left calf, and limited mobility. Physical examination on admission revealed 4+ motor strength in left plantar flexion and an absent left Achilles reflex.
+
+Key Diagnostic Information: A lumbar spine MRI identified markedly severe L5-S1 discogenic disease, specifically a 1 cm midline to left paracentral disc protrusion/partial extrusion. This lesion caused significant spinal canal stenosis, neural foraminal narrowing, and nerve root impingement. Moderate degenerative disease was also noted at the L4-L5 level.
+
+Surgical Intervention: On the second day of hospitalization, the patient underwent a left L5-S1 discectomy for the removal of the herniated disc and decompression of the neural structures.
+
+Hospital Course: The surgery was tolerated well without complications. Postoperatively, the patient's pain was effectively managed with a regimen including oxycodone and gabapentin. She progressed quickly to independent ambulation, and her surgical incision remained clean, dry, and intact.
+
+Discharge Condition and Status: At the time of discharge, the patient was neurologically stable and ambulatory. She exhibited trace residual weakness in left plantar flexion and dorsiflexion, along with slight sensory loss over the lateral aspect of the left foot, though her primary radicular pain was significantly improved. She was discharged home with instructions to avoid heavy lifting (>10 lbs), smoking, and excessive bending/twisting, with a scheduled follow-up for wound assessment.
+Extracted answer: Comprehensive Discharge Summary:
+
+Patient Profile and Clinical Presentation: The patient is a 29-year-old female with a history of lower back pain that worsened significantly over one month. She presented with unbearable pain radiating down her left leg, weakness in her left calf, and limited mobility. Physical examination on admission revealed 4+ motor strength in left plantar flexion and an absent left Achilles reflex.
+
+Key Diagnostic Information: A lumbar spine MRI identified markedly severe L5-S1 discogenic disease, specifically a 1 cm midline to left paracentral disc protrusion/partial extrusion. This lesion caused significant spinal canal stenosis, neural foraminal narrowing, and nerve root impingement. Moderate degenerative disease was also noted at the L4-L5 level.
+
+Surgical Intervention: On the second day of hospitalization, the patient underwent a left L5-S1 discectomy for the removal of the herniated disc and decompression of the neural structures.
+
+Hospital Course: The surgery was tolerated well without complications. Postoperatively, the patient's pain was effectively managed with a regimen including oxycodone and gabapentin. She progressed quickly to independent ambulation, and her surgical incision remained clean, dry, and intact.
+
+Discharge Condition and Status: At the time of discharge, the patient was neurologically stable and ambulatory. She exhibited trace residual weakness in left plantar flexion and dorsiflexion, along with slight sensory loss over the lateral aspect of the left foot, though her primary radicular pain was significantly improved. She was discharged home with instructions to avoid heavy lifting (>10 lbs), smoking, and excessive bending/twisting, with a scheduled follow-up for wound assessment.
+Correct answer: The patient is a 29-year-old female who was admitted to the neurosurgery service with a chief complaint of leg pain and weakness. She had a history of lower back pain (LBP) that began one month prior, which worsened while on vacation and led to unbearable pain and weakness in her left calf. She was treated conservatively with ESI and medications, but her pain persisted. The patient underwent a left L5-S1 discectomy and was diagnosed with a marked severe L5-S1 discogenic disease with spinal canal stenosis, neural foraminal narrowing, and nerve root impingement. She was prescribed several medications, including docusate sodium, senna, acetaminophen, ibuprofen, oxycodone, gabapentin, and citalopram. The patient was discharged home with instructions to keep her wound clean, avoid heavy lifting, and take pain medication as instructed.
+Question: 
+Patient Records: Input:
+age: 29. gender: F.  
+Name:  ___                Unit No:   ___
+ 
+Admission Date:  ___              Discharge Date:   ___
+ 
+Date of Birth:  ___             Sex:   F
+ 
+Service: NEUROSURGERY
+ 
+Allergies: 
+Patient recorded as having No Known Allergies to Drugs
+ 
+Attending: ___.
+ 
+Chief Complaint:
+Leg Pain, Weakness
+ 
+Major Surgical or Invasive Procedure:
+Left L5-S1 discectomy
+ 
+History of Present Illness:
+___ yo female with history of LBP presents with worsening lower 
+back pain X 1 month.  Patient's back pain began in ___ as lower 
+back pain radiating into her left buttock.  Was treated 
+conservatively with ESI and meds.  Patient was relatively 
+assymptomatic until about 1 month ago while vacationing in ___
+when she developed worseing back pain radiating all the way down 
+the back of her left leg.  Pain became unbearable on ___ and 
+started to develop weakness of her left calf.  Patient has had 
+limitation in walking secondary to her pain.  Patient was 
+started on a medrol dose back, neurontin, oxycodone, and 
+naproxen which have failed to relieve her pain.  Patient's pain 
+is a ___ ___nd a ___ with movement.  Patient has not had any 
+changes in bowel or bladder or changes in sensation around her 
+bottom.
+
+ 
+Past Medical History:
+Rosacea, seasonal allergies, headache, abnormal Pap smears
+ 
+Social History:
+___
+Family History:
+Maternal grandmother with ___ and TIAs
+ 
+Physical Exam:
+PHYSICAL EXAM:
+O: T:99.8  BP: 129/94 HR:72 R 15  O2Sats 100%
+Gen: WD/WN, comfortable, NAD.
+HEENT: Pupils PERRL EOMI
+Neck: Supple.
+Lungs: CTA bilaterally.
+Cardiac: RRR. S1/S2.
+Abd: Soft, NT, BS+
+Extrem: Warm and well-perfused.
+Neuro:
+Mental status: Awake and alert, cooperative with exam, normal
+affect.
+Orientation: Oriented to person, place, and date.
+Motor:
+      D    B     T    WE   WF    IP    Q  H     AT    ___    G
+R     5    5     5    5    5     5     5  5     5     5      5 
+L     5    5     5    5    5     5     5  5     5     5      4+
+
+Sensation: decreased sensation along the left lateral calf to
+temp and pinprick.  No saddle anesthesia
+
+Reflexes: B T Br Pa Ac
+Right     ___  2  2
+Left      ___  2  0
+
+Rectal exam normal sphincter control
+ exam upon discharge:
+full motors, incision cdi with steristrips
+ 
+Pertinent Results:
+MRI L-Spine ___:
+IMPRESSION: 
+1. Markedly severe L5-S1 discogenic disease with a 1 cm midline 
+to left 
+paracentral disc protrusion/partial extrusion causing 
+significant spinal canal stenosis, neural foraminal narrowing 
+and nerve root impingement as described above. 
+2. Moderate L4-L5 degenerative disease with moderate symmetric 
+bilateral 
+neural foraminal narrowing.  
+  
+
+ 
+Brief Hospital Course:
+The patient was admitted to the ___ service for Q4 hour neuro 
+checks and pain control.  The decision was made to take her to 
+the operating room the following day for surgical rectification 
+of the herniated disc.  She was made NPO and placed on decadron 
+for inflammation control. 
+
+On ___ she went to the operating room for a removal of the 
+bulged disc at L5-S1.  She tolerated the surgery well and 
+following a short course in the PACU, she was transferred back 
+to the neurosurgery floor. Her diet and activity were advanced.  
+Incision was clean and dry.  She was taking PO pain med with 
+good relief. she was ambulating independently.
+
+ 
+Medications on Admission:
+ibuprofen
+ 
+Discharge Medications:
+1. Docusate Sodium 100 mg Capsule Sig: One (1) Capsule PO BID (2 
+times a day).
+Disp:*60 Capsule(s)* Refills:*2*
+2. Senna 8.6 mg Tablet Sig: One (1) Tablet PO BID (2 times a 
+day).
+Disp:*60 Tablet(s)* Refills:*2*
+3. Acetaminophen 325 mg Tablet Sig: ___ Tablets PO Q6H (every 6 
+hours) as needed for pain.  
+4. Ibuprofen 400 mg Tablet Sig: One (1) Tablet PO Q8H (every 8 
+hours) as needed for pain.  
+5. Oxycodone 5 mg Tablet Sig: ___ Tablets PO Q3H (every 3 hours) 
+as needed for pain for 2 weeks.
+Disp:*30 Tablet(s)* Refills:*0*
+6. Gabapentin 100 mg Capsule Sig: Two (2) Capsule PO TID (3 
+times a day).  
+7. Citalopram 20 mg Tablet Sig: One (1) Tablet PO DAILY (Daily). 
+ 
+
+ 
+Discharge Disposition:
+Home
+ 
+Discharge Diagnosis:
+L5/S1 disc tear and severe spinal stenosis
+ 
+Discharge Condition:
+Intact mental status and well appearing.  Trace L plantar 
+flexion and dorsiflexion weakness with slight sensory loss to LT 
+over the L lateral aspect of the foot only.  Ambulatory and 
+steady.
+ 
+Discharge Instructions:
+DISCHARGE INSTRUCTIONS FOR SPINE CASES
+ 
+        Do not smoke
+        Keep wound clean / No tub baths or pools until seen in 
+follow up/ remove dressing ___/ begin daily showers ___
+        No pulling up, lifting> 10 lbs., excessive bending or 
+twisting for two weeks.
+        Limit your use of stairs to ___ times per day
+        Have a family member check your incision daily for 
+signs of infection
+        Take pain medication as instructed; you may find it 
+best if taken in the a.m. when you wake if you experience muscle 
+stiffness and before bed for sleeping discomfort
+        Do not take any anti-inflammatory medications such as 
+Motrin, Advil, aspirin, Ibuprofen etc. for 3 months to promote 
+bone fusion.
+        Increase your intake of fluids and fiber as pain 
+medicine (narcotics) can cause constipation
+ 
+Followup Instructions:
+___
+ 
+
+Output:
+
+Summarize the key diagnostic information and significant results based on the patients’ multiple health (long) records during hospitalization.
+
+proposed answer: The objective is to create a concise, professional summary focused on the MRI findings and surgical results of the patient, specifically incorporating the 1 cm disc protrusion at L5-S1 and the subsequent discectomy. I must avoid discharge summary formats, headers, demographics, and follow-up instructions as per the sub-task constraints.
+
+Answer:MRI of the lumbar spine revealed markedly severe discogenic disease at the L5-S1 level, specifically a 1 cm midline to left paracentral disc protrusion and partial extrusion that caused significant spinal canal stenosis and nerve root impingement. Additionally, moderate degenerative changes and bilateral neural foraminal narrowing were identified at L4-L5. The patient underwent a left L5-S1 discectomy for the removal of the herniated disc. Following the procedure, the patient achieved independent ambulation. On discharge, clinical examination showed trace weakness in left plantar flexion and dorsiflexion and slight sensory loss over the lateral aspect of the left foot, while the surgical incision remained clean and dry.
+Extracted answer: MRI of the lumbar spine revealed markedly severe discogenic disease at the L5-S1 level, specifically a 1 cm midline to left paracentral disc protrusion and partial extrusion that caused significant spinal canal stenosis and nerve root impingement. Additionally, moderate degenerative changes and bilateral neural foraminal narrowing were identified at L4-L5. The patient underwent a left L5-S1 discectomy for the removal of the herniated disc. Following the procedure, the patient achieved independent ambulation. On discharge, clinical examination showed trace weakness in left plantar flexion and dorsiflexion and slight sensory loss over the lateral aspect of the left foot, while the surgical incision remained clean and dry.
+Correct answer: The patient is a 29-year-old female who was admitted to the neurosurgery service with a chief complaint of leg pain and weakness. She had a history of lower back pain (LBP) that began one month prior, which worsened while on vacation and led to unbearable pain and weakness in her left calf. She was treated conservatively with ESI and medications, but her pain persisted. The patient underwent a left L5-S1 discectomy and was diagnosed with a marked severe L5-S1 discogenic disease with spinal canal stenosis, neural foraminal narrowing, and nerve root impingement. She was prescribed several medications, including docusate sodium, senna, acetaminophen, ibuprofen, oxycodone, gabapentin, and citalopram. The patient was discharged home with instructions to keep her wound clean, avoid heavy lifting, and take pain medication as instructed.
+Question: 
+Patient Records: Input:
+age: 29. gender: F.  
+Name:  ___                Unit No:   ___
+ 
+Admission Date:  ___              Discharge Date:   ___
+ 
+Date of Birth:  ___             Sex:   F
+ 
+Service: NEUROSURGERY
+ 
+Allergies: 
+Patient recorded as having No Known Allergies to Drugs
+ 
+Attending: ___.
+ 
+Chief Complaint:
+Leg Pain, Weakness
+ 
+Major Surgical or Invasive Procedure:
+Left L5-S1 discectomy
+ 
+History of Present Illness:
+___ yo female with history of LBP presents with worsening lower 
+back pain X 1 month.  Patient's back pain began in ___ as lower 
+back pain radiating into her left buttock.  Was treated 
+conservatively with ESI and meds.  Patient was relatively 
+assymptomatic until about 1 month ago while vacationing in ___
+when she developed worseing back pain radiating all the way down 
+the back of her left leg.  Pain became unbearable on ___ and 
+started to develop weakness of her left calf.  Patient has had 
+limitation in walking secondary to her pain.  Patient was 
+started on a medrol dose back, neurontin, oxycodone, and 
+naproxen which have failed to relieve her pain.  Patient's pain 
+is a ___ ___nd a ___ with movement.  Patient has not had any 
+changes in bowel or bladder or changes in sensation around her 
+bottom.
+
+ 
+Past Medical History:
+Rosacea, seasonal allergies, headache, abnormal Pap smears
+ 
+Social History:
+___
+Family History:
+Maternal grandmother with ___ and TIAs
+ 
+Physical Exam:
+PHYSICAL EXAM:
+O: T:99.8  BP: 129/94 HR:72 R 15  O2Sats 100%
+Gen: WD/WN, comfortable, NAD.
+HEENT: Pupils PERRL EOMI
+Neck: Supple.
+Lungs: CTA bilaterally.
+Cardiac: RRR. S1/S2.
+Abd: Soft, NT, BS+
+Extrem: Warm and well-perfused.
+Neuro:
+Mental status: Awake and alert, cooperative with exam, normal
+affect.
+Orientation: Oriented to person, place, and date.
+Motor:
+      D    B     T    WE   WF    IP    Q  H     AT    ___    G
+R     5    5     5    5    5     5     5  5     5     5      5 
+L     5    5     5    5    5     5     5  5     5     5      4+
+
+Sensation: decreased sensation along the left lateral calf to
+temp and pinprick.  No saddle anesthesia
+
+Reflexes: B T Br Pa Ac
+Right     ___  2  2
+Left      ___  2  0
+
+Rectal exam normal sphincter control
+ exam upon discharge:
+full motors, incision cdi with steristrips
+ 
+Pertinent Results:
+MRI L-Spine ___:
+IMPRESSION: 
+1. Markedly severe L5-S1 discogenic disease with a 1 cm midline 
+to left 
+paracentral disc protrusion/partial extrusion causing 
+significant spinal canal stenosis, neural foraminal narrowing 
+and nerve root impingement as described above. 
+2. Moderate L4-L5 degenerative disease with moderate symmetric 
+bilateral 
+neural foraminal narrowing.  
+  
+
+ 
+Brief Hospital Course:
+The patient was admitted to the ___ service for Q4 hour neuro 
+checks and pain control.  The decision was made to take her to 
+the operating room the following day for surgical rectification 
+of the herniated disc.  She was made NPO and placed on decadron 
+for inflammation control. 
+
+On ___ she went to the operating room for a removal of the 
+bulged disc at L5-S1.  She tolerated the surgery well and 
+following a short course in the PACU, she was transferred back 
+to the neurosurgery floor. Her diet and activity were advanced.  
+Incision was clean and dry.  She was taking PO pain med with 
+good relief. she was ambulating independently.
+
+ 
+Medications on Admission:
+ibuprofen
+ 
+Discharge Medications:
+1. Docusate Sodium 100 mg Capsule Sig: One (1) Capsule PO BID (2 
+times a day).
+Disp:*60 Capsule(s)* Refills:*2*
+2. Senna 8.6 mg Tablet Sig: One (1) Tablet PO BID (2 times a 
+day).
+Disp:*60 Tablet(s)* Refills:*2*
+3. Acetaminophen 325 mg Tablet Sig: ___ Tablets PO Q6H (every 6 
+hours) as needed for pain.  
+4. Ibuprofen 400 mg Tablet Sig: One (1) Tablet PO Q8H (every 8 
+hours) as needed for pain.  
+5. Oxycodone 5 mg Tablet Sig: ___ Tablets PO Q3H (every 3 hours) 
+as needed for pain for 2 weeks.
+Disp:*30 Tablet(s)* Refills:*0*
+6. Gabapentin 100 mg Capsule Sig: Two (2) Capsule PO TID (3 
+times a day).  
+7. Citalopram 20 mg Tablet Sig: One (1) Tablet PO DAILY (Daily). 
+ 
+
+ 
+Discharge Disposition:
+Home
+ 
+Discharge Diagnosis:
+L5/S1 disc tear and severe spinal stenosis
+ 
+Discharge Condition:
+Intact mental status and well appearing.  Trace L plantar 
+flexion and dorsiflexion weakness with slight sensory loss to LT 
+over the L lateral aspect of the foot only.  Ambulatory and 
+steady.
+ 
+Discharge Instructions:
+DISCHARGE INSTRUCTIONS FOR SPINE CASES
+ 
+        Do not smoke
+        Keep wound clean / No tub baths or pools until seen in 
+follow up/ remove dressing ___/ begin daily showers ___
+        No pulling up, lifting> 10 lbs., excessive bending or 
+twisting for two weeks.
+        Limit your use of stairs to ___ times per day
+        Have a family member check your incision daily for 
+signs of infection
+        Take pain medication as instructed; you may find it 
+best if taken in the a.m. when you wake if you experience muscle 
+stiffness and before bed for sleeping discomfort
+        Do not take any anti-inflammatory medications such as 
+Motrin, Advil, aspirin, Ibuprofen etc. for 3 months to promote 
+bone fusion.
+        Increase your intake of fluids and fiber as pain 
+medicine (narcotics) can cause constipation
+ 
+Followup Instructions:
+___
+ 
+
+Output:
+
+Summarize the key diagnostic information and significant results based on the patients’ multiple health (long) records during hospitalization.
+
+proposed answer: The objective was to create a concise, structured discharge summary for a 29-year-old female patient. Key details required were the 1 cm disc protrusion, the L4-L5 findings, the L5-S1 discectomy procedure, and the 4+ motor strength. I have structured the information into clear categories: Diagnosis, Imaging, Procedure, Physical Exam, and Discharge Status, ensuring all specific data points are included without narrative filler.
+
+Answer:DISCHARGE SUMMARY
+
+- Diagnosis: L5/S1 disc tear, severe spinal stenosis.
+- Imaging (MRI L-Spine): 1 cm midline to left paracentral disc protrusion/partial extrusion at L5-S1 causing significant spinal canal stenosis and nerve root impingement; moderate L4-L5 degenerative disease with bilateral neural foraminal narrowing.
+- Surgical Procedure: Left L5-S1 discectomy.
+- Significant Physical Exam Findings: Left lower extremity motor strength 4+; absent left Achilles reflex.
+- Discharge Condition: Ambulatory and steady; trace left plantar flexion and dorsiflexion weakness; slight sensory loss over the lateral aspect of the left foot.
+- Discharge Medications: Oxycodone, Gabapentin, Ibuprofen, Acetaminophen, Senna, Docusate, Citalopram.
+Extracted answer: DISCHARGE SUMMARY
+
+- Diagnosis: L5/S1 disc tear, severe spinal stenosis.
+- Imaging (MRI L-Spine): 1 cm midline to left paracentral disc protrusion/partial extrusion at L5-S1 causing significant spinal canal stenosis and nerve root impingement; moderate L4-L5 degenerative disease with bilateral neural foraminal narrowing.
+- Surgical Procedure: Left L5-S1 discectomy.
+- Significant Physical Exam Findings: Left lower extremity motor strength 4+; absent left Achilles reflex.
+- Discharge Condition: Ambulatory and steady; trace left plantar flexion and dorsiflexion weakness; slight sensory loss over the lateral aspect of the left foot.
+- Discharge Medications: Oxycodone, Gabapentin, Ibuprofen, Acetaminophen, Senna, Docusate, Citalopram.
+Correct answer: The patient is a 29-year-old female who was admitted to the neurosurgery service with a chief complaint of leg pain and weakness. She had a history of lower back pain (LBP) that began one month prior, which worsened while on vacation and led to unbearable pain and weakness in her left calf. She was treated conservatively with ESI and medications, but her pain persisted. The patient underwent a left L5-S1 discectomy and was diagnosed with a marked severe L5-S1 discogenic disease with spinal canal stenosis, neural foraminal narrowing, and nerve root impingement. She was prescribed several medications, including docusate sodium, senna, acetaminophen, ibuprofen, oxycodone, gabapentin, and citalopram. The patient was discharged home with instructions to keep her wound clean, avoid heavy lifting, and take pain medication as instructed.
+Question: 
+Patient Records: Input:
+age: 29. gender: F.  
+Name:  ___                Unit No:   ___
+ 
+Admission Date:  ___              Discharge Date:   ___
+ 
+Date of Birth:  ___             Sex:   F
+ 
+Service: NEUROSURGERY
+ 
+Allergies: 
+Patient recorded as having No Known Allergies to Drugs
+ 
+Attending: ___.
+ 
+Chief Complaint:
+Leg Pain, Weakness
+ 
+Major Surgical or Invasive Procedure:
+Left L5-S1 discectomy
+ 
+History of Present Illness:
+___ yo female with history of LBP presents with worsening lower 
+back pain X 1 month.  Patient's back pain began in ___ as lower 
+back pain radiating into her left buttock.  Was treated 
+conservatively with ESI and meds.  Patient was relatively 
+assymptomatic until about 1 month ago while vacationing in ___
+when she developed worseing back pain radiating all the way down 
+the back of her left leg.  Pain became unbearable on ___ and 
+started to develop weakness of her left calf.  Patient has had 
+limitation in walking secondary to her pain.  Patient was 
+started on a medrol dose back, neurontin, oxycodone, and 
+naproxen which have failed to relieve her pain.  Patient's pain 
+is a ___ ___nd a ___ with movement.  Patient has not had any 
+changes in bowel or bladder or changes in sensation around her 
+bottom.
+
+ 
+Past Medical History:
+Rosacea, seasonal allergies, headache, abnormal Pap smears
+ 
+Social History:
+___
+Family History:
+Maternal grandmother with ___ and TIAs
+ 
+Physical Exam:
+PHYSICAL EXAM:
+O: T:99.8  BP: 129/94 HR:72 R 15  O2Sats 100%
+Gen: WD/WN, comfortable, NAD.
+HEENT: Pupils PERRL EOMI
+Neck: Supple.
+Lungs: CTA bilaterally.
+Cardiac: RRR. S1/S2.
+Abd: Soft, NT, BS+
+Extrem: Warm and well-perfused.
+Neuro:
+Mental status: Awake and alert, cooperative with exam, normal
+affect.
+Orientation: Oriented to person, place, and date.
+Motor:
+      D    B     T    WE   WF    IP    Q  H     AT    ___    G
+R     5    5     5    5    5     5     5  5     5     5      5 
+L     5    5     5    5    5     5     5  5     5     5      4+
+
+Sensation: decreased sensation along the left lateral calf to
+temp and pinprick.  No saddle anesthesia
+
+Reflexes: B T Br Pa Ac
+Right     ___  2  2
+Left      ___  2  0
+
+Rectal exam normal sphincter control
+ exam upon discharge:
+full motors, incision cdi with steristrips
+ 
+Pertinent Results:
+MRI L-Spine ___:
+IMPRESSION: 
+1. Markedly severe L5-S1 discogenic disease with a 1 cm midline 
+to left 
+paracentral disc protrusion/partial extrusion causing 
+significant spinal canal stenosis, neural foraminal narrowing 
+and nerve root impingement as described above. 
+2. Moderate L4-L5 degenerative disease with moderate symmetric 
+bilateral 
+neural foraminal narrowing.  
+  
+
+ 
+Brief Hospital Course:
+The patient was admitted to the ___ service for Q4 hour neuro 
+checks and pain control.  The decision was made to take her to 
+the operating room the following day for surgical rectification 
+of the herniated disc.  She was made NPO and placed on decadron 
+for inflammation control. 
+
+On ___ she went to the operating room for a removal of the 
+bulged disc at L5-S1.  She tolerated the surgery well and 
+following a short course in the PACU, she was transferred back 
+to the neurosurgery floor. Her diet and activity were advanced.  
+Incision was clean and dry.  She was taking PO pain med with 
+good relief. she was ambulating independently.
+
+ 
+Medications on Admission:
+ibuprofen
+ 
+Discharge Medications:
+1. Docusate Sodium 100 mg Capsule Sig: One (1) Capsule PO BID (2 
+times a day).
+Disp:*60 Capsule(s)* Refills:*2*
+2. Senna 8.6 mg Tablet Sig: One (1) Tablet PO BID (2 times a 
+day).
+Disp:*60 Tablet(s)* Refills:*2*
+3. Acetaminophen 325 mg Tablet Sig: ___ Tablets PO Q6H (every 6 
+hours) as needed for pain.  
+4. Ibuprofen 400 mg Tablet Sig: One (1) Tablet PO Q8H (every 8 
+hours) as needed for pain.  
+5. Oxycodone 5 mg Tablet Sig: ___ Tablets PO Q3H (every 3 hours) 
+as needed for pain for 2 weeks.
+Disp:*30 Tablet(s)* Refills:*0*
+6. Gabapentin 100 mg Capsule Sig: Two (2) Capsule PO TID (3 
+times a day).  
+7. Citalopram 20 mg Tablet Sig: One (1) Tablet PO DAILY (Daily). 
+ 
+
+ 
+Discharge Disposition:
+Home
+ 
+Discharge Diagnosis:
+L5/S1 disc tear and severe spinal stenosis
+ 
+Discharge Condition:
+Intact mental status and well appearing.  Trace L plantar 
+flexion and dorsiflexion weakness with slight sensory loss to LT 
+over the L lateral aspect of the foot only.  Ambulatory and 
+steady.
+ 
+Discharge Instructions:
+DISCHARGE INSTRUCTIONS FOR SPINE CASES
+ 
+        Do not smoke
+        Keep wound clean / No tub baths or pools until seen in 
+follow up/ remove dressing ___/ begin daily showers ___
+        No pulling up, lifting> 10 lbs., excessive bending or 
+twisting for two weeks.
+        Limit your use of stairs to ___ times per day
+        Have a family member check your incision daily for 
+signs of infection
+        Take pain medication as instructed; you may find it 
+best if taken in the a.m. when you wake if you experience muscle 
+stiffness and before bed for sleeping discomfort
+        Do not take any anti-inflammatory medications such as 
+Motrin, Advil, aspirin, Ibuprofen etc. for 3 months to promote 
+bone fusion.
+        Increase your intake of fluids and fiber as pain 
+medicine (narcotics) can cause constipation
+ 
+Followup Instructions:
+___
+ 
+
+Output:
+
+Summarize the key diagnostic information and significant results based on the patients’ multiple health (long) records during hospitalization.
+
+proposed answer: I evaluated the provided summaries based on the strict criteria of excluding demographics, headers, and history, starting directly with findings, and including specific diagnostic and outcome details. Synthesizer_0 is the most concise and strictly adheres to the requested format and content.
+
+Answer:MRI of the lumbar spine showed markedly severe L5-S1 discogenic disease with a 1 cm midline to left paracentral disc protrusion/partial extrusion causing significant spinal canal stenosis, neural foraminal narrowing, and nerve root impingement. The patient underwent a left L5-S1 discectomy for removal of the herniated disc. Upon discharge, the patient was ambulatory and steady, with trace residual weakness in left plantar flexion and dorsiflexion (4+/5) and slight sensory loss over the lateral aspect of the left foot.
+Extracted answer: MRI of the lumbar spine showed markedly severe L5-S1 discogenic disease with a 1 cm midline to left paracentral disc protrusion/partial extrusion causing significant spinal canal stenosis, neural foraminal narrowing, and nerve root impingement. The patient underwent a left L5-S1 discectomy for removal of the herniated disc. Upon discharge, the patient was ambulatory and steady, with trace residual weakness in left plantar flexion and dorsiflexion (4+/5) and slight sensory loss over the lateral aspect of the left foot.
+Correct answer: The patient is a 29-year-old female who was admitted to the neurosurgery service with a chief complaint of leg pain and weakness. She had a history of lower back pain (LBP) that began one month prior, which worsened while on vacation and led to unbearable pain and weakness in her left calf. She was treated conservatively with ESI and medications, but her pain persisted. The patient underwent a left L5-S1 discectomy and was diagnosed with a marked severe L5-S1 discogenic disease with spinal canal stenosis, neural foraminal narrowing, and nerve root impingement. She was prescribed several medications, including docusate sodium, senna, acetaminophen, ibuprofen, oxycodone, gabapentin, and citalopram. The patient was discharged home with instructions to keep her wound clean, avoid heavy lifting, and take pain medication as instructed.

@@ -1,0 +1,17 @@
+[
+    {
+        "The final diagnosis is myasthenia gravis. This is supported by the positive acetylcholine receptor antibodies and the electromyography and nerve conduction study findings, which are indicative of a neuromuscular junction disorder. The patient's symptoms of weakness, fatigue, and mild diplopia, along with the test results, align with this diagnosis.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "300": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Given the exclusion of myasthenia gravis, the final diagnosis remains uncertain. Further investigation into potential neuromuscular disorders or infections related to outdoor exposure is needed. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Single-fiber electromyography (SFEMG) and a trial of acetylcholinesterase inhibitors could be recommended for further evaluation. Additionally, monitor for any new symptoms that could suggest alternative diagnoses, such as Lyme disease, which might warrant further testing.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Propose the following specific tests or follow-up actions: 1. Conduct a Lyme disease test (e.g., ELISA followed by Western blot) to rule out Lyme disease. 2. Perform further neurological assessments, such as a single-fiber electromyography (SFEMG), to investigate neuromuscular junction disorders. 3. Consider testing for other tick-borne illnesses if Lyme disease is negative. 4. Monitor the patient's symptoms and response to any initial treatments to guide further diagnostic steps. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

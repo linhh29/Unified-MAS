@@ -1,0 +1,17 @@
+[
+    {
+        "Final Diagnosis: Peripheral artery disease (PAD) with claudication.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Final Diagnosis: Critical limb ischemia due to atherosclerotic vascular disease.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Diagnosis: Intermittent claudication due to femoropopliteal artery stenosis. Management plan: Smoking cessation, lifestyle modifications, optimal control of diabetes and hypertension, consideration of revascularization procedures such as angioplasty or bypass surgery, antiplatelet therapy, and statins.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Final diagnosis: Atherosclerotic vascular disease with significant femoropopliteal artery stenosis leading to exercise-induced ischemic symptoms. Management plan: 1. Initiate antiplatelet therapy (e.g., aspirin) and statins to manage atherosclerosis. 2. Optimize diabetes management with lifestyle changes and medication adjustments for better glucose control. 3. Provide support for smoking cessation, including nicotine replacement therapy or other interventions. 4. Implement supervised exercise therapy to improve claudication symptoms. 5. Consider revascularization procedures if symptoms persist despite medical management and lifestyle changes. 6. Regular follow-up with a healthcare provider to monitor progress and adjust treatment as needed. 7. Referral to a vascular specialist for further evaluation and management.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Diagnosis: Chronic limb-threatening ischemia (CLTI) due to significant femoropopliteal artery stenosis. Management Plan: 1. Lifestyle modifications: Encourage smoking cessation and regular, supervised exercise to improve collateral circulation. 2. Medical management: Optimize control of diabetes and hypertension, consider antiplatelet therapy and statins to manage atherosclerosis. 3. Vascular intervention: Evaluate for possible revascularization procedures such as angioplasty or bypass surgery if symptoms persist despite conservative management. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

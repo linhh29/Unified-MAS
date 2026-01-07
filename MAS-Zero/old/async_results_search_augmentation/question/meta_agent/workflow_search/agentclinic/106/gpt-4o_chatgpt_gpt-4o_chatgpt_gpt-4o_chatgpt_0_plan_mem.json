@@ -1,0 +1,17 @@
+[
+    {
+        "The refined differential diagnosis, based on the clinical pattern and test results, strongly points towards hypertrophic cardiomyopathy as the most likely diagnosis. The echocardiogram findings of asymmetrical septal thickening and left ventricular hypertrophy, along with the physical examination findings, support this. Arrhythmias could be a secondary consideration, but the primary diagnosis is hypertrophic cardiomyopathy.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The refined differential diagnosis includes: 1) Arrhythmogenic right ventricular cardiomyopathy, considering the athletic context and sudden cardiac event. 2) Long QT syndrome, although ECG findings do not support this. 3) Wolff-Parkinson-White syndrome, despite the lack of ECG evidence. 4) Anomalous coronary artery, which could cause exertional syncope. 5) Left ventricular non-compaction cardiomyopathy or another structural heart disease. Further testing is needed to confirm the diagnosis.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Congenital coronary artery anomalies remain a possibility, but further imaging such as a coronary angiogram would be needed to confirm this.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "1. Long QT syndrome": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The most likely diagnosis is hypertrophic cardiomyopathy (HCM), and other conditions such as aortic stenosis, hypertension, arrhythmogenic right ventricular cardiomyopathy, and myocarditis are unlikely given the test results and clinical findings.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

@@ -1,0 +1,215 @@
+{
+  "scenario_id": 1,
+  "doctor": {
+    "input_tokens": 45029,
+    "output_tokens": 8576,
+    "total_tokens": 53605,
+    "input_cost": 0.022514,
+    "output_cost": 0.025728,
+    "total_cost": 0.048243,
+    "num_calls": 12
+  },
+  "patient": {
+    "input_tokens": 9452,
+    "output_tokens": 1885,
+    "total_tokens": 11337,
+    "input_cost": 0.004726,
+    "output_cost": 0.005655,
+    "total_cost": 0.010381,
+    "num_calls": 3
+  },
+  "measurement": {
+    "input_tokens": 26659,
+    "output_tokens": 10889,
+    "total_tokens": 37548,
+    "input_cost": 0.01333,
+    "output_cost": 0.032667,
+    "total_cost": 0.045997,
+    "num_calls": 8
+  },
+  "judge": {
+    "input_tokens": 986,
+    "output_tokens": 117,
+    "total_tokens": 1103,
+    "input_cost": 0.002465,
+    "output_cost": 0.00117,
+    "total_cost": 0.003635,
+    "num_calls": 1
+  },
+  "total": {
+    "total_cost": 0.108255,
+    "total_tokens": 103593
+  },
+  "detailed_calls": {
+    "doctor": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3059,
+        "output_tokens": 694,
+        "cost": 0.0036115,
+        "inference_num": 1
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3171,
+        "output_tokens": 181,
+        "cost": 0.0021284999999999997,
+        "inference_num": 2
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3265,
+        "output_tokens": 382,
+        "cost": 0.0027785,
+        "inference_num": 3
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3365,
+        "output_tokens": 724,
+        "cost": 0.0038545000000000003,
+        "inference_num": 4
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3469,
+        "output_tokens": 843,
+        "cost": 0.0042635,
+        "inference_num": 5
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3588,
+        "output_tokens": 607,
+        "cost": 0.003615,
+        "inference_num": 6
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3719,
+        "output_tokens": 850,
+        "cost": 0.0044095,
+        "inference_num": 7
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3874,
+        "output_tokens": 679,
+        "cost": 0.003974,
+        "inference_num": 8
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4047,
+        "output_tokens": 841,
+        "cost": 0.0045465,
+        "inference_num": 9
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4308,
+        "output_tokens": 542,
+        "cost": 0.0037800000000000004,
+        "inference_num": 10
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4519,
+        "output_tokens": 839,
+        "cost": 0.0047765,
+        "inference_num": 11
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4645,
+        "output_tokens": 1394,
+        "cost": 0.0065045,
+        "inference_num": 12
+      }
+    ],
+    "patient": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2729,
+        "output_tokens": 649,
+        "cost": 0.0033115
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2993,
+        "output_tokens": 384,
+        "cost": 0.0026485
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3730,
+        "output_tokens": 852,
+        "cost": 0.0044210000000000005
+      }
+    ],
+    "measurement": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2818,
+        "output_tokens": 752,
+        "cost": 0.0036650000000000003
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2915,
+        "output_tokens": 1558,
+        "cost": 0.0061315
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3106,
+        "output_tokens": 1390,
+        "cost": 0.005723
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3229,
+        "output_tokens": 1422,
+        "cost": 0.0058805
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3373,
+        "output_tokens": 1325,
+        "cost": 0.0056615
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3525,
+        "output_tokens": 1399,
+        "cost": 0.0059595
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3727,
+        "output_tokens": 1143,
+        "cost": 0.0052925
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3966,
+        "output_tokens": 1900,
+        "cost": 0.007683000000000001
+      }
+    ],
+    "judge": [
+      {
+        "model": "gpt-4o",
+        "input_tokens": 986,
+        "output_tokens": 117,
+        "cost": 0.003635
+      }
+    ]
+  },
+  "diagnosis_result": {
+    "diagnosis_made": true,
+    "is_correct": false,
+    "doctor_diagnosis": "This 31-year-old male with a history of medically refractory chronic ulcerative colitis was admitted for a total abdominal colectomy and end ileostomy. The surgical procedure was successful, and pathology confirmed chronic active colitis without evidence of malignancy. His postoperative recovery was notable for transient right leg weakness that resolved completely after the epidural was discontinued, as well as non-ischemic shoulder pain that was managed with analgesics. He met all milestones for discharge, including tolerating a regular diet, achieving independent ambulation, and demonstrating stable ostomy output. The patient was discharged home in stable condition with instructions to monitor his ileostomy output closely for signs of dehydration and to maintain hydration with electrolyte-rich fluids. His pain management plan includes scheduled acetaminophen and as-needed oxycodone. He will receive home-based support from a visiting nurse for ostomy management and has been instructed to follow up in the clinic for staple removal and further ostomy teaching. He was advised to avoid heavy lifting for six weeks and to monitor his incision for any signs of infection.",
+    "correct_diagnosis": "The patient is a 31-year-old male who was admitted for a total abdominal colectomy with ileoanal pouch or end ileostomy due to chronic ulcerative colitis, which was medically refractory. The patient has a history of C. Diff colitis, ulcerative colitis, appendectomy, and right hand/finger debridement. He has no known allergies or adverse drug reactions. The patient underwent the procedure well and was discharged with good pain control. At discharge, the patient was tolerating a regular diet, ambulating, voiding well, and pain was well controlled. The patient was prescribed acetaminophen and oxycodone for pain management. He was also instructed to monitor his ileostomy output and to seek medical attention if he experiences dehydration symptoms."
+  }
+}

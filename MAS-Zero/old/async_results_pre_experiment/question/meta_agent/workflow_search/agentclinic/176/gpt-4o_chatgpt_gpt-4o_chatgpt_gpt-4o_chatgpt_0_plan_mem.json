@@ -1,0 +1,17 @@
+[
+    {
+        "Depressive disorder": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Adjustment disorder with anxiety or depressive features.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Anxiety disorder related to military history and occupational stress, possibly Generalized Anxiety Disorder (GAD).": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "PTSD": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Persistent Depressive Disorder (Dysthymia)": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

@@ -1,0 +1,126 @@
+================================================================================
+COST SUMMARY
+================================================================================
+
+Total Input Tokens: 104,887
+Total Output Tokens: 39,976
+Total Tokens: 144,863
+Total Cost: $0.1809
+Number of API Calls: 14
+
+================================================================================
+DETAILED COST BREAKDOWN
+================================================================================
+
+Call 1:
+  Agent: constraint_extractor
+  Model: gpt-4o
+  Input Tokens: 323 ($0.0008)
+  Output Tokens: 89 ($0.0009)
+  Total Tokens: 412
+  Cost: $0.0017
+
+Call 2:
+  Agent: manager
+  Model: gemini-3-flash-preview
+  Input Tokens: 8,223 ($0.0041)
+  Output Tokens: 886 ($0.0027)
+  Total Tokens: 9,109
+  Cost: $0.0068
+
+Call 3:
+  Agent: executor_temporal_0
+  Model: gemini-3-flash-preview
+  Input Tokens: 7,681 ($0.0038)
+  Output Tokens: 3,698 ($0.0111)
+  Total Tokens: 11,379
+  Cost: $0.0149
+
+Call 4:
+  Agent: executor_preference_0
+  Model: gemini-3-flash-preview
+  Input Tokens: 7,692 ($0.0038)
+  Output Tokens: 2,448 ($0.0073)
+  Total Tokens: 10,140
+  Cost: $0.0112
+
+Call 5:
+  Agent: executor_hard_0
+  Model: gemini-3-flash-preview
+  Input Tokens: 7,658 ($0.0038)
+  Output Tokens: 4,766 ($0.0143)
+  Total Tokens: 12,424
+  Cost: $0.0181
+
+Call 6:
+  Agent: executor_hard_0
+  Model: gemini-3-flash-preview
+  Input Tokens: 8,911 ($0.0045)
+  Output Tokens: 1,880 ($0.0056)
+  Total Tokens: 10,791
+  Cost: $0.0101
+
+Call 7:
+  Agent: executor_temporal_0
+  Model: gemini-3-flash-preview
+  Input Tokens: 8,024 ($0.0040)
+  Output Tokens: 2,399 ($0.0072)
+  Total Tokens: 10,423
+  Cost: $0.0112
+
+Call 8:
+  Agent: executor_spatial_0
+  Model: gemini-3-flash-preview
+  Input Tokens: 8,316 ($0.0042)
+  Output Tokens: 7,182 ($0.0215)
+  Total Tokens: 15,498
+  Cost: $0.0257
+
+Call 9:
+  Agent: executor_preference_0
+  Model: gemini-3-flash-preview
+  Input Tokens: 8,035 ($0.0040)
+  Output Tokens: 3,828 ($0.0115)
+  Total Tokens: 11,863
+  Cost: $0.0155
+
+Call 10:
+  Agent: executor_hard_0
+  Model: gemini-3-flash-preview
+  Input Tokens: 8,001 ($0.0040)
+  Output Tokens: 2,796 ($0.0084)
+  Total Tokens: 10,797
+  Cost: $0.0124
+
+Call 11:
+  Agent: executor_hard_0
+  Model: gemini-3-flash-preview
+  Input Tokens: 9,620 ($0.0048)
+  Output Tokens: 1,147 ($0.0034)
+  Total Tokens: 10,767
+  Cost: $0.0083
+
+Call 12:
+  Agent: executor_hard_0
+  Model: gemini-3-flash-preview
+  Input Tokens: 8,038 ($0.0040)
+  Output Tokens: 4,511 ($0.0135)
+  Total Tokens: 12,549
+  Cost: $0.0176
+
+Call 13:
+  Agent: integrator
+  Model: gemini-3-flash-preview
+  Input Tokens: 12,850 ($0.0064)
+  Output Tokens: 3,741 ($0.0112)
+  Total Tokens: 16,591
+  Cost: $0.0176
+
+Call 14:
+  Agent: plan_extractor
+  Model: gpt-4o
+  Input Tokens: 1,515 ($0.0038)
+  Output Tokens: 605 ($0.0060)
+  Total Tokens: 2,120
+  Cost: $0.0098
+

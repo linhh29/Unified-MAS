@@ -1,0 +1,17 @@
+[
+    {
+        "Giardiasis is the most likely diagnosis given the symptoms and recent travel history.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The most likely diagnosis is irritable bowel syndrome (IBS), particularly the diarrhea-predominant type (IBS-D).": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Microscopic colitis is the most likely diagnosis given the symptom profile and normal test results, but confirmation requires a colonoscopy with biopsy. Other possibilities include functional diarrhea or post-infectious diarrhea as diagnoses of exclusion. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Irritable Bowel Syndrome with diarrhea (IBS-D) is a non-infectious, non-inflammatory condition that could explain the symptoms without requiring additional testing.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Lactose intolerance, celiac disease, and microscopic colitis are potential non-infectious, non-inflammatory conditions that could explain the symptoms without requiring additional testing.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

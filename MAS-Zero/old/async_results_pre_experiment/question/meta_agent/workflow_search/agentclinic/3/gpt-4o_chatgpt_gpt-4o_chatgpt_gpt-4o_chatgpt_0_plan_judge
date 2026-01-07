@@ -1,0 +1,79 @@
+Question: 
+        Patient Information: {'Demographics': '65-year-old male', 'History': 'The patient reports difficulty in combing hair and reaching objects on high shelves for the past few months. Admits to a sedentary lifestyle.', 'Symptoms': {'Primary_Symptom': 'Stiffness in the arm', 'Secondary_Symptoms': ['Difficulty combing hair', 'Trouble reaching high objects', 'Decreased range of motion in shoulder', 'Arm strength 4/5']}, 'Past_Medical_History': 'Diabetes mellitus type II, obesity, hypertension. On metformin, insulin, lisinopril, and hydrochlorothiazide.', 'Social_History': 'Sedentary lifestyle, predominately staying indoors and watching television.', 'Review_of_Systems': 'Denies recent injuries or trauma to the arm or shoulder. No fever, weight loss, or other joint involvement.'}
+        Physical Examinations: {'Vital_Signs': {'Blood_Pressure': '142/85 mmHg', 'Heart_Rate': '78 bpm', 'Respiratory_Rate': '16 breaths/min', 'Temperature': '36.6°C (97.9°F)'}, 'Shoulder_Examination': {'Inspection': 'No visible swelling or deformity', 'Auscultation': 'N/A', 'Percussion': 'N/A', 'Palpation': 'Tenderness around the shoulder joint', 'Range_of_Motion': 'Decreased passive and active range of motion', 'Strength_Testing': 'Upper extremity strength 4/5'}}
+        Test Results: {'Blood_Tests': {'CBC': 'Within normal limits', 'CRP': 'Slightly elevated', 'Glucose': 'Elevated'}, 'Imaging': {'X-ray_Shoulder': {'Findings': 'No acute bony abnormality. Signs consistent with reduced joint space but no significant osteoarthritic changes.'}}}
+
+        You are a doctor and your task is:
+        
+        Assess and diagnose the patient presenting with stiffness in his arm impacting daily activities.
+        
+proposed answer: The consensus among the agents is that the patient's symptoms, medical history, and test results align with a diagnosis of adhesive capsulitis (frozen shoulder). The patient's history of diabetes is a known risk factor for this condition. The clinical presentation, including stiffness, decreased range of motion, and difficulty with overhead activities, supports this diagnosis. The test results, such as the reduced joint space on X-ray and slightly elevated CRP, are consistent with adhesive capsulitis. The treatment options discussed include physical therapy, pain management with NSAIDs or corticosteroid injections, and potentially surgical interventions if conservative treatments fail. Managing blood glucose levels is also crucial due to the patient's diabetes.
+
+Answer:The final diagnosis is adhesive capsulitis (frozen shoulder). Treatment options include physical therapy to improve range of motion, NSAIDs or corticosteroid injections for pain management, and, if necessary, surgical interventions such as manipulation under anesthesia or arthroscopic surgery. Additionally, it is important to manage the patient's blood glucose levels due to his diabetes, as poor glycemic control can worsen the condition.
+Extracted answer: The final diagnosis is adhesive capsulitis (frozen shoulder). Treatment options include physical therapy to improve range of motion, NSAIDs or corticosteroid injections for pain management, and, if necessary, surgical interventions such as manipulation under anesthesia or arthroscopic surgery. Additionally, it is important to manage the patient's blood glucose levels due to his diabetes, as poor glycemic control can worsen the condition.
+Correct answer: 
+Question: 
+        Patient Information: {'Demographics': '65-year-old male', 'History': 'The patient reports difficulty in combing hair and reaching objects on high shelves for the past few months. Admits to a sedentary lifestyle.', 'Symptoms': {'Primary_Symptom': 'Stiffness in the arm', 'Secondary_Symptoms': ['Difficulty combing hair', 'Trouble reaching high objects', 'Decreased range of motion in shoulder', 'Arm strength 4/5']}, 'Past_Medical_History': 'Diabetes mellitus type II, obesity, hypertension. On metformin, insulin, lisinopril, and hydrochlorothiazide.', 'Social_History': 'Sedentary lifestyle, predominately staying indoors and watching television.', 'Review_of_Systems': 'Denies recent injuries or trauma to the arm or shoulder. No fever, weight loss, or other joint involvement.'}
+        Physical Examinations: {'Vital_Signs': {'Blood_Pressure': '142/85 mmHg', 'Heart_Rate': '78 bpm', 'Respiratory_Rate': '16 breaths/min', 'Temperature': '36.6°C (97.9°F)'}, 'Shoulder_Examination': {'Inspection': 'No visible swelling or deformity', 'Auscultation': 'N/A', 'Percussion': 'N/A', 'Palpation': 'Tenderness around the shoulder joint', 'Range_of_Motion': 'Decreased passive and active range of motion', 'Strength_Testing': 'Upper extremity strength 4/5'}}
+        Test Results: {'Blood_Tests': {'CBC': 'Within normal limits', 'CRP': 'Slightly elevated', 'Glucose': 'Elevated'}, 'Imaging': {'X-ray_Shoulder': {'Findings': 'No acute bony abnormality. Signs consistent with reduced joint space but no significant osteoarthritic changes.'}}}
+
+        You are a doctor and your task is:
+        
+        Assess and diagnose the patient presenting with stiffness in his arm impacting daily activities.
+        
+proposed answer: The patient's symptoms, history, and test results suggest a musculoskeletal issue affecting the shoulder. The elevated CRP indicates inflammation, and the reduced joint space on X-ray suggests a degenerative or inflammatory process. Given that adhesive capsulitis is ruled out, rotator cuff tendinopathy or another form of shoulder impingement syndrome could be considered. The patient's diabetes and sedentary lifestyle are risk factors for musculoskeletal issues. Treatment options for rotator cuff tendinopathy include physical therapy, anti-inflammatory medications, and possibly corticosteroid injections. If symptoms persist, further imaging such as an MRI might be needed to assess the rotator cuff tendons more closely.
+
+Answer:Final Diagnosis: Rotator cuff tendinopathy or shoulder impingement syndrome.
+Treatment Options: Physical therapy, anti-inflammatory medications, corticosteroid injections, and lifestyle modifications to increase activity levels. Further imaging such as MRI may be needed if symptoms do not improve.
+[TOO_HARD]
+Suggestion: Consider further imaging and neurological evaluation to rule out other conditions such as cervical radiculopathy or diabetic neuropathy.
+Extracted answer: Final Diagnosis: Rotator cuff tendinopathy or shoulder impingement syndrome.
+Correct answer: 
+Question: 
+        Patient Information: {'Demographics': '65-year-old male', 'History': 'The patient reports difficulty in combing hair and reaching objects on high shelves for the past few months. Admits to a sedentary lifestyle.', 'Symptoms': {'Primary_Symptom': 'Stiffness in the arm', 'Secondary_Symptoms': ['Difficulty combing hair', 'Trouble reaching high objects', 'Decreased range of motion in shoulder', 'Arm strength 4/5']}, 'Past_Medical_History': 'Diabetes mellitus type II, obesity, hypertension. On metformin, insulin, lisinopril, and hydrochlorothiazide.', 'Social_History': 'Sedentary lifestyle, predominately staying indoors and watching television.', 'Review_of_Systems': 'Denies recent injuries or trauma to the arm or shoulder. No fever, weight loss, or other joint involvement.'}
+        Physical Examinations: {'Vital_Signs': {'Blood_Pressure': '142/85 mmHg', 'Heart_Rate': '78 bpm', 'Respiratory_Rate': '16 breaths/min', 'Temperature': '36.6°C (97.9°F)'}, 'Shoulder_Examination': {'Inspection': 'No visible swelling or deformity', 'Auscultation': 'N/A', 'Percussion': 'N/A', 'Palpation': 'Tenderness around the shoulder joint', 'Range_of_Motion': 'Decreased passive and active range of motion', 'Strength_Testing': 'Upper extremity strength 4/5'}}
+        Test Results: {'Blood_Tests': {'CBC': 'Within normal limits', 'CRP': 'Slightly elevated', 'Glucose': 'Elevated'}, 'Imaging': {'X-ray_Shoulder': {'Findings': 'No acute bony abnormality. Signs consistent with reduced joint space but no significant osteoarthritic changes.'}}}
+
+        You are a doctor and your task is:
+        
+        Assess and diagnose the patient presenting with stiffness in his arm impacting daily activities.
+        
+proposed answer: The patient's symptoms, history, and test results suggest a condition affecting the shoulder. The reduced joint space and elevated CRP indicate inflammation, and the patient's diabetes is a risk factor for shoulder conditions. However, adhesive capsulitis and rotator cuff tendinopathy are ruled out. Considering the symptoms and test results, the condition could be subacromial bursitis or another inflammatory shoulder condition. Treatment options typically include physical therapy, anti-inflammatory medications, and possibly corticosteroid injections.
+
+Answer:Subacromial bursitis
+[TOO_HARD]
+Suggestion: Further imaging such as MRI could help confirm the diagnosis and rule out other conditions. Consider consulting an orthopedic specialist for a more detailed assessment.
+Extracted answer: Subacromial bursitis
+Correct answer: 
+Question: 
+        Patient Information: {'Demographics': '65-year-old male', 'History': 'The patient reports difficulty in combing hair and reaching objects on high shelves for the past few months. Admits to a sedentary lifestyle.', 'Symptoms': {'Primary_Symptom': 'Stiffness in the arm', 'Secondary_Symptoms': ['Difficulty combing hair', 'Trouble reaching high objects', 'Decreased range of motion in shoulder', 'Arm strength 4/5']}, 'Past_Medical_History': 'Diabetes mellitus type II, obesity, hypertension. On metformin, insulin, lisinopril, and hydrochlorothiazide.', 'Social_History': 'Sedentary lifestyle, predominately staying indoors and watching television.', 'Review_of_Systems': 'Denies recent injuries or trauma to the arm or shoulder. No fever, weight loss, or other joint involvement.'}
+        Physical Examinations: {'Vital_Signs': {'Blood_Pressure': '142/85 mmHg', 'Heart_Rate': '78 bpm', 'Respiratory_Rate': '16 breaths/min', 'Temperature': '36.6°C (97.9°F)'}, 'Shoulder_Examination': {'Inspection': 'No visible swelling or deformity', 'Auscultation': 'N/A', 'Percussion': 'N/A', 'Palpation': 'Tenderness around the shoulder joint', 'Range_of_Motion': 'Decreased passive and active range of motion', 'Strength_Testing': 'Upper extremity strength 4/5'}}
+        Test Results: {'Blood_Tests': {'CBC': 'Within normal limits', 'CRP': 'Slightly elevated', 'Glucose': 'Elevated'}, 'Imaging': {'X-ray_Shoulder': {'Findings': 'No acute bony abnormality. Signs consistent with reduced joint space but no significant osteoarthritic changes.'}}}
+
+        You are a doctor and your task is:
+        
+        Assess and diagnose the patient presenting with stiffness in his arm impacting daily activities.
+        
+proposed answer: The patient's symptoms and test results suggest a musculoskeletal issue, but common shoulder conditions like adhesive capsulitis, rotator cuff tendinopathy, shoulder impingement syndrome, and subacromial bursitis have been ruled out. The elevated CRP indicates inflammation, and the patient's age and symptoms could suggest polymyalgia rheumatica, a condition that causes stiffness and pain in the shoulder girdle and is common in older adults. However, without further specific tests like ESR or a rheumatology consultation, a definitive diagnosis is challenging.
+
+Answer:Polymyalgia rheumatica
+[TOO_HARD]
+Suggestion: Consider additional tests such as ESR to evaluate for polymyalgia rheumatica and a rheumatology consultation for further assessment and management. Treatment may involve corticosteroids to reduce inflammation and relieve symptoms.
+Extracted answer: Polymyalgia rheumatica
+Correct answer: 
+Question: 
+        Patient Information: {'Demographics': '65-year-old male', 'History': 'The patient reports difficulty in combing hair and reaching objects on high shelves for the past few months. Admits to a sedentary lifestyle.', 'Symptoms': {'Primary_Symptom': 'Stiffness in the arm', 'Secondary_Symptoms': ['Difficulty combing hair', 'Trouble reaching high objects', 'Decreased range of motion in shoulder', 'Arm strength 4/5']}, 'Past_Medical_History': 'Diabetes mellitus type II, obesity, hypertension. On metformin, insulin, lisinopril, and hydrochlorothiazide.', 'Social_History': 'Sedentary lifestyle, predominately staying indoors and watching television.', 'Review_of_Systems': 'Denies recent injuries or trauma to the arm or shoulder. No fever, weight loss, or other joint involvement.'}
+        Physical Examinations: {'Vital_Signs': {'Blood_Pressure': '142/85 mmHg', 'Heart_Rate': '78 bpm', 'Respiratory_Rate': '16 breaths/min', 'Temperature': '36.6°C (97.9°F)'}, 'Shoulder_Examination': {'Inspection': 'No visible swelling or deformity', 'Auscultation': 'N/A', 'Percussion': 'N/A', 'Palpation': 'Tenderness around the shoulder joint', 'Range_of_Motion': 'Decreased passive and active range of motion', 'Strength_Testing': 'Upper extremity strength 4/5'}}
+        Test Results: {'Blood_Tests': {'CBC': 'Within normal limits', 'CRP': 'Slightly elevated', 'Glucose': 'Elevated'}, 'Imaging': {'X-ray_Shoulder': {'Findings': 'No acute bony abnormality. Signs consistent with reduced joint space but no significant osteoarthritic changes.'}}}
+
+        You are a doctor and your task is:
+        
+        Assess and diagnose the patient presenting with stiffness in his arm impacting daily activities.
+        
+proposed answer: The patient presents with symptoms and test results that align with adhesive capsulitis, such as stiffness, decreased range of motion, and elevated CRP. The patient also has diabetes, which is a risk factor for adhesive capsulitis. The X-ray shows reduced joint space without significant osteoarthritic changes, supporting a musculoskeletal diagnosis rather than a neurological one. However, adhesive capsulitis is ruled out as a correct diagnosis, along with similar conditions like rotator cuff tendinopathy and subacromial bursitis. Given these constraints, the exact diagnosis is difficult to pinpoint without additional information. The symptoms and test results suggest a musculoskeletal condition, but the exact diagnosis is unclear due to the exclusion of typical conditions.
+
+Answer:290
+[TOO_HARD]
+Suggestion: Consider further diagnostic tests such as MRI or referral to a specialist to explore less common musculoskeletal conditions or atypical presentations of common conditions.
+Extracted answer: 290
+Correct answer: 

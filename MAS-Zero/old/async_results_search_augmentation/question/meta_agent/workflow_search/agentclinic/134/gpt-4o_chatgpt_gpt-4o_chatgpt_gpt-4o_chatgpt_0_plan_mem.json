@@ -1,0 +1,17 @@
+[
+    {
+        "Non-Hodgkin lymphoma is the most likely diagnosis based on the synthesis of all available data, including clinical presentation, test results, and biopsy findings.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Mantle cell lymphoma or another rare B-cell malignancy.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Burkitt lymphoma": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Diffuse large B-cell lymphoma (DLBCL) is the most likely diagnosis.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Follicular lymphoma with transformation is a possible diagnosis due to its potential to present aggressively and CD20 positivity, although it typically presents indolently. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

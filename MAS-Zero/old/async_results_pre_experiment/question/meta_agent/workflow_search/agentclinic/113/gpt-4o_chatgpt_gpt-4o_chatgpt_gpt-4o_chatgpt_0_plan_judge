@@ -1,0 +1,73 @@
+Question: 
+        Patient Information: {'Demographics': '60-year-old woman', 'History': 'The patient was brought to the emergency department because of sudden, painless loss of vision in her right eye that occurred 30 minutes ago while watching TV. She has a history of coronary artery disease, hypertension, and type 2 diabetes mellitus but has had trouble adhering to her medication regimen.', 'Symptoms': {'Primary_Symptom': 'Sudden, painless loss of vision in the right eye', 'Secondary_Symptoms': []}, 'Past_Medical_History': 'Coronary artery disease, hypertension, type 2 diabetes mellitus', 'Social_History': 'Has difficulty adhering to medication regimen', 'Review_of_Systems': 'No other systemic symptoms reported'}
+        Physical Examinations: {'Vital_Signs': {'Blood_Pressure': '160/85 mm Hg', 'Vision': {'Left_Eye': '20/50', 'Right_Eye': 'No perception of light'}}, 'Eye_Examination': {'Direct_Pupillary_Reflex': {'Left_Eye': 'Present', 'Right_Eye': 'Absent'}, 'Accommodation': 'Intact bilaterally', 'Intraocular_Pressure': {'Left_Eye': '16 mm Hg', 'Right_Eye': '18 mm Hg'}, 'Fundoscopic_Examination': {'Right_Eye': 'Pale, white retina with a bright red area within the macula. The optic disc appears normal.'}}}
+        Test Results: {}
+
+        You are a doctor and your task is:
+        
+        Assess and diagnose the patient presenting with sudden loss of vision in one eye.
+        
+proposed answer: The patient's medical history, risk factors, and physical examination findings all point towards a diagnosis of central retinal artery occlusion (CRAO). The sudden, painless loss of vision in one eye, combined with the characteristic fundoscopic finding of a pale retina with a cherry-red spot, strongly supports this diagnosis. The patient's history of coronary artery disease, hypertension, and diabetes increases her risk for embolic events, which are common causes of CRAO. The absence of a direct pupillary reflex and no perception of light in the affected eye further corroborate this diagnosis.
+
+Answer:The final diagnosis for the patient is central retinal artery occlusion (CRAO) in the right eye.
+Extracted answer: The final diagnosis for the patient is central retinal artery occlusion (CRAO) in the right eye.
+Correct answer: 
+Question: 
+        Patient Information: {'Demographics': '60-year-old woman', 'History': 'The patient was brought to the emergency department because of sudden, painless loss of vision in her right eye that occurred 30 minutes ago while watching TV. She has a history of coronary artery disease, hypertension, and type 2 diabetes mellitus but has had trouble adhering to her medication regimen.', 'Symptoms': {'Primary_Symptom': 'Sudden, painless loss of vision in the right eye', 'Secondary_Symptoms': []}, 'Past_Medical_History': 'Coronary artery disease, hypertension, type 2 diabetes mellitus', 'Social_History': 'Has difficulty adhering to medication regimen', 'Review_of_Systems': 'No other systemic symptoms reported'}
+        Physical Examinations: {'Vital_Signs': {'Blood_Pressure': '160/85 mm Hg', 'Vision': {'Left_Eye': '20/50', 'Right_Eye': 'No perception of light'}}, 'Eye_Examination': {'Direct_Pupillary_Reflex': {'Left_Eye': 'Present', 'Right_Eye': 'Absent'}, 'Accommodation': 'Intact bilaterally', 'Intraocular_Pressure': {'Left_Eye': '16 mm Hg', 'Right_Eye': '18 mm Hg'}, 'Fundoscopic_Examination': {'Right_Eye': 'Pale, white retina with a bright red area within the macula. The optic disc appears normal.'}}}
+        Test Results: {}
+
+        You are a doctor and your task is:
+        
+        Assess and diagnose the patient presenting with sudden loss of vision in one eye.
+        
+proposed answer: The patient presents with sudden, painless loss of vision in the right eye, a pale retina with a cherry-red spot, and a normal optic disc. While central retinal artery occlusion (CRAO) was initially considered, it is not the correct diagnosis. Ophthalmic artery occlusion is a possibility, but it is rare and typically affects both the retina and optic nerve, which might not align with the normal optic disc finding. Anterior ischemic optic neuropathy (AION) is another potential diagnosis, given the patient's vascular risk factors, but it usually presents with optic disc swelling. Considering the fundoscopic findings and the exclusion of CRAO, another possibility is a branch retinal artery occlusion (BRAO), which can present with a cherry-red spot if the macula is involved and may not affect the entire retina, thus sparing the optic disc. However, the presentation is more consistent with a central or ophthalmic artery issue due to the complete vision loss. Given the complexity and the exclusion of CRAO, further information or tests might be needed to confirm the diagnosis.
+
+Answer:Ophthalmic artery occlusion is a plausible alternative diagnosis, but branch retinal artery occlusion (BRAO) should also be considered. Further investigation is needed to confirm the diagnosis. [TOO_HARD] Suggestion: Consider additional imaging or tests to differentiate between ophthalmic artery occlusion and other potential causes like BRAO or AION.
+Extracted answer: Ophthalmic artery occlusion is a plausible alternative diagnosis, but branch retinal artery occlusion (BRAO) should also be considered. Further investigation is needed to confirm the diagnosis. [TOO_HARD] Suggestion: Consider additional imaging or tests to differentiate between ophthalmic artery occlusion and other potential causes like BRAO or AION.
+Correct answer: 
+Question: 
+        Patient Information: {'Demographics': '60-year-old woman', 'History': 'The patient was brought to the emergency department because of sudden, painless loss of vision in her right eye that occurred 30 minutes ago while watching TV. She has a history of coronary artery disease, hypertension, and type 2 diabetes mellitus but has had trouble adhering to her medication regimen.', 'Symptoms': {'Primary_Symptom': 'Sudden, painless loss of vision in the right eye', 'Secondary_Symptoms': []}, 'Past_Medical_History': 'Coronary artery disease, hypertension, type 2 diabetes mellitus', 'Social_History': 'Has difficulty adhering to medication regimen', 'Review_of_Systems': 'No other systemic symptoms reported'}
+        Physical Examinations: {'Vital_Signs': {'Blood_Pressure': '160/85 mm Hg', 'Vision': {'Left_Eye': '20/50', 'Right_Eye': 'No perception of light'}}, 'Eye_Examination': {'Direct_Pupillary_Reflex': {'Left_Eye': 'Present', 'Right_Eye': 'Absent'}, 'Accommodation': 'Intact bilaterally', 'Intraocular_Pressure': {'Left_Eye': '16 mm Hg', 'Right_Eye': '18 mm Hg'}, 'Fundoscopic_Examination': {'Right_Eye': 'Pale, white retina with a bright red area within the macula. The optic disc appears normal.'}}}
+        Test Results: {}
+
+        You are a doctor and your task is:
+        
+        Assess and diagnose the patient presenting with sudden loss of vision in one eye.
+        
+proposed answer: The patient's presentation and examination findings are highly indicative of central retinal artery occlusion (CRAO), which has been ruled out as a diagnosis. The classic signs of a pale retina with a cherry-red spot are strongly associated with CRAO. Other potential causes of sudden, painless vision loss, such as retinal detachment or vitreous hemorrhage, typically present with different symptoms and findings. Given the specific fundoscopic findings, alternative diagnoses are less likely, and the task of synthesizing a final diagnosis without considering CRAO or ophthalmic artery occlusion is challenging. Further diagnostic tests or imaging might be necessary to explore less common causes.
+
+Answer:[TOO_HARD]
+Suggestion: Consider further diagnostic tests or imaging to explore less common causes of sudden vision loss, such as optic neuritis or anterior ischemic optic neuropathy, although these are less likely given the current findings.
+Extracted answer: [TOO_HARD]
+Correct answer: 
+Question: 
+        Patient Information: {'Demographics': '60-year-old woman', 'History': 'The patient was brought to the emergency department because of sudden, painless loss of vision in her right eye that occurred 30 minutes ago while watching TV. She has a history of coronary artery disease, hypertension, and type 2 diabetes mellitus but has had trouble adhering to her medication regimen.', 'Symptoms': {'Primary_Symptom': 'Sudden, painless loss of vision in the right eye', 'Secondary_Symptoms': []}, 'Past_Medical_History': 'Coronary artery disease, hypertension, type 2 diabetes mellitus', 'Social_History': 'Has difficulty adhering to medication regimen', 'Review_of_Systems': 'No other systemic symptoms reported'}
+        Physical Examinations: {'Vital_Signs': {'Blood_Pressure': '160/85 mm Hg', 'Vision': {'Left_Eye': '20/50', 'Right_Eye': 'No perception of light'}}, 'Eye_Examination': {'Direct_Pupillary_Reflex': {'Left_Eye': 'Present', 'Right_Eye': 'Absent'}, 'Accommodation': 'Intact bilaterally', 'Intraocular_Pressure': {'Left_Eye': '16 mm Hg', 'Right_Eye': '18 mm Hg'}, 'Fundoscopic_Examination': {'Right_Eye': 'Pale, white retina with a bright red area within the macula. The optic disc appears normal.'}}}
+        Test Results: {}
+
+        You are a doctor and your task is:
+        
+        Assess and diagnose the patient presenting with sudden loss of vision in one eye.
+        
+proposed answer: The patient's presentation and examination findings are highly indicative of central retinal artery occlusion (CRAO), which has been ruled out as a diagnosis. Other potential diagnoses like branch retinal artery occlusion (BRAO) or vitreous hemorrhage do not fully match the clinical picture due to the complete vision loss and the specific fundoscopic findings. The absence of systemic symptoms and the acute nature of the vision loss make other conditions like giant cell arteritis less likely. Without additional diagnostic information, it is challenging to synthesize a final diagnosis that fits all the findings as well as CRAO does.
+
+Answer:300
+[TOO_HARD]
+Suggestion: Consider further diagnostic tests or imaging to explore less common causes of sudden vision loss, such as carotid artery dissection or other vascular pathologies.
+Extracted answer: 300
+Correct answer: 
+Question: 
+        Patient Information: {'Demographics': '60-year-old woman', 'History': 'The patient was brought to the emergency department because of sudden, painless loss of vision in her right eye that occurred 30 minutes ago while watching TV. She has a history of coronary artery disease, hypertension, and type 2 diabetes mellitus but has had trouble adhering to her medication regimen.', 'Symptoms': {'Primary_Symptom': 'Sudden, painless loss of vision in the right eye', 'Secondary_Symptoms': []}, 'Past_Medical_History': 'Coronary artery disease, hypertension, type 2 diabetes mellitus', 'Social_History': 'Has difficulty adhering to medication regimen', 'Review_of_Systems': 'No other systemic symptoms reported'}
+        Physical Examinations: {'Vital_Signs': {'Blood_Pressure': '160/85 mm Hg', 'Vision': {'Left_Eye': '20/50', 'Right_Eye': 'No perception of light'}}, 'Eye_Examination': {'Direct_Pupillary_Reflex': {'Left_Eye': 'Present', 'Right_Eye': 'Absent'}, 'Accommodation': 'Intact bilaterally', 'Intraocular_Pressure': {'Left_Eye': '16 mm Hg', 'Right_Eye': '18 mm Hg'}, 'Fundoscopic_Examination': {'Right_Eye': 'Pale, white retina with a bright red area within the macula. The optic disc appears normal.'}}}
+        Test Results: {}
+
+        You are a doctor and your task is:
+        
+        Assess and diagnose the patient presenting with sudden loss of vision in one eye.
+        
+proposed answer: The patient's presentation and examination findings are highly indicative of central retinal artery occlusion (CRAO), which has been ruled out as a potential diagnosis. Ophthalmic artery occlusion is also ruled out. Given the sudden, painless loss of vision and the fundoscopic findings, other potential diagnoses could include retinal detachment or vitreous hemorrhage, but these typically present with different fundoscopic findings. Retinal detachment often shows a detached retina, and vitreous hemorrhage would obscure the fundus view. The absence of systemic symptoms and the specific fundoscopic appearance make these less likely. Another possibility could be anterior ischemic optic neuropathy (AION), but this usually presents with optic disc swelling, not a cherry-red spot. Considering the information provided, the alternative diagnoses are less likely given the specific findings. However, since CRAO and ophthalmic artery occlusion are ruled out, and the other conditions do not fit well, the task is challenging without additional information.
+
+Answer:Given the exclusion of CRAO and ophthalmic artery occlusion, and considering the specific fundoscopic findings, synthesizing a final diagnosis is challenging without additional information. [TOO_HARD] Suggestion: Further diagnostic tests such as fluorescein angiography or optical coherence tomography (OCT) could help clarify the diagnosis.
+Extracted answer: Given the exclusion of CRAO and ophthalmic artery occlusion, and considering the specific fundoscopic findings, synthesizing a final diagnosis is challenging without additional information. [TOO_HARD] Suggestion: Further diagnostic tests such as fluorescein angiography or optical coherence tomography (OCT) could help clarify the diagnosis.
+Correct answer: 

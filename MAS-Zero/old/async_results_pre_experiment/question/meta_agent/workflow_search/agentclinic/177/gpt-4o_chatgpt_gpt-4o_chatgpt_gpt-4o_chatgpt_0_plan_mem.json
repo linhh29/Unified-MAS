@@ -1,0 +1,17 @@
+[
+    {
+        "The infant is likely experiencing anemia of prematurity and apnea due to immature respiratory control. Further evaluation for nutritional deficiencies is recommended to confirm and address the anemia. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The infant is experiencing apnea due to immature respiratory control associated with prematurity and normocytic anemia, likely anemia of prematurity. Further evaluation and supportive care are recommended.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The infant is experiencing apnea of prematurity and anemia of prematurity. The anemia is due to inadequate erythropoietin production related to prematurity, not nutritional deficiencies.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The infant is experiencing apnea episodes likely due to a combination of prematurity and significant anemia. The anemia is characterized by normocytic and normochromic red blood cells with a low reticulocyte count, suggesting inadequate bone marrow response. Further investigation into the underlying cause of anemia is warranted, as it is not due to nutritional deficiencies. Consideration of possible cardiac issues given the father's history should also be kept in mind. Supportive care and monitoring are recommended.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The infant is experiencing apnea of prematurity and anemia of prematurity. These conditions are due to immature respiratory control and inadequate erythropoietin production, respectively, both associated with prematurity. Further supportive care and monitoring are recommended.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

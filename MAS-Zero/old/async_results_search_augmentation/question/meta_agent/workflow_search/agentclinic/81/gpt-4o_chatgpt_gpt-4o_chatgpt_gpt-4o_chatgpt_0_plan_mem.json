@@ -1,0 +1,17 @@
+[
+    {
+        "Final diagnosis: Possible lymphoproliferative disorder, such as chronic lymphocytic leukemia. Management plan: 1. Refer to a hematologist for further evaluation and diagnostic testing. 2. Continue monitoring blood pressure and maintain current management strategies, including lifestyle modifications and regular check-ups.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis cannot be confirmed without further investigation. The management plan includes: 1) Continue monitoring and maintaining blood pressure control. 2) Refer the patient to a hematologist for further evaluation of the elevated leukocyte and lymphocyte counts. 3) Consider additional diagnostic tests, such as a bone marrow biopsy, to confirm or rule out a hematologic malignancy. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Include additional diagnostic tests such as a bone marrow biopsy, immunophenotyping, and cytogenetic analysis. Refer to a hematologist for specialized evaluation and management. Continue regular monitoring of blood counts and maintain current lifestyle measures for blood pressure control.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The refined management plan includes: 1) Ongoing monitoring of blood counts and symptoms with regular follow-ups with a hematologist. 2) Considering treatment options such as watchful waiting, targeted therapies, or chemotherapy if a diagnosis of CLL is confirmed. 3) Continued monitoring and lifestyle management for hypertension, as the patient's blood pressure is well-controlled.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final management recommendation is to perform a peripheral blood smear and flow cytometry as initial diagnostic steps. If these tests suggest a hematologic disorder, consider a bone marrow biopsy for a definitive diagnosis. Concurrently, refer the patient to a hematologist for specialized care and management, ensuring that the approach is comprehensive and considers the patient's age and health status.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

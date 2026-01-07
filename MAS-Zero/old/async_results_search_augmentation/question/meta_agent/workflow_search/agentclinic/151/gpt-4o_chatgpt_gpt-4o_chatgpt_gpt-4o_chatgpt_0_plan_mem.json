@@ -1,0 +1,17 @@
+[
+    {
+        "The most likely diagnosis for the patient is night terrors.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis is nightmares.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The most updated and likely diagnosis is an anxiety-related sleep disturbance or confusional arousals.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The most likely diagnosis is sleep terrors, a common parasomnia in children, characterized by episodes of intense fear during non-REM sleep. Other conditions like nightmares, anxiety-related disturbances, obstructive sleep apnea, and nocturnal seizures are less likely. Without further data, such as polysomnography, a definitive diagnosis remains challenging, but sleep terrors remain the most plausible conclusion based on the current information.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

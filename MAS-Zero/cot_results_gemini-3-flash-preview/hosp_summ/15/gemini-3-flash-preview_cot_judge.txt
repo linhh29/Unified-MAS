@@ -1,0 +1,631 @@
+Question: 
+Patient Records: Input:
+age: 67. gender: M.  
+Name:  ___         Unit No:   ___
+ 
+Admission Date:  ___              Discharge Date:   ___
+ 
+Date of Birth:  ___             Sex:   M
+ 
+Service: MEDICINE
+ 
+Allergies: 
+No Known Allergies / Adverse Drug Reactions
+ 
+Attending: ___.
+ 
+Chief Complaint:
+Chest pain
+Tuberculosis rule-out
+Acute cerebral infarct
+Headache
+End Stage Renal Disease
+Pulmonary Edema
+Type II Diabetes Mellitus
+Anxiety
+ 
+Major Surgical or Invasive Procedure:
+tPA adminsistration
+
+ 
+History of Present Illness:
+___ year old man with a history ESRD, on HD ___, DM, HTN, 
+CAD s/p IMI with DES in ___ recent stress shows reversible 
+defect in inferior wall but overall improved per cardiologist. 
+Complained of cough and left sided chest pain, he was then 
+having a cough productive of gray and white sputum, he did have 
+drenching night sweats, unable to tell if he had weight loss. 
+Followed for latent TB infection by Dr. ___ been treated 
+with INH, but while being treated was exposed to his son so 
+there was a question of whether he could be treated or not. Dr. 
+___ feel like he was adequetely treated for TB. The CP was 
+constant, sharp, and pleuritic, made worse with climbing stairs, 
+similar to angina, EKG showed LVH with early repol abnormality, 
+no signs of acute ischemia, was ruled out for MI. With cough, 
+night sweats, questionable history of TB, decided he needed to 
+be ruled out for TB. On CXR had a LLL infiltrate. Was in sbps in 
+180s upon arrival, gave his home meds because they didn't think 
+this was urgency and he was 160 systolic prior to HS. They were 
+going to start CTX/Azithro after HD the next morning. Around 
+___ in AM at 8am, intern spoke with him via interpreter, said 
+his CP was improved, and his headache was improved (longstanding 
+and worse on HD days), and so at that time moving all his 
+extremities, no focal deficits, then had bedside HD after exam, 
+and nurse noted that he was moving his extremities, then came in 
+around 9:20 for AM rounds found to have flaccid LUE paralysis, 
+left nasal-labial fold flattening. CODE STROKE called, taken to 
+head CT, showed right MCA perfusion defect with "penumbra", but 
+no evidence of bleed. BP was 210 systolic. So he was admitted to 
+the ___ and started TPA. Wheeled him to the MICU but was 
+turned away because no respiration bed. Gave 10 x 2 brought his 
+BP down to 177 systpolic, at 1115 pushed TPA on the floor, neuro 
+attending at bedside, pushed continuous infusion. By the time 
+back to room, still aphasic but starting to move his LUE before 
+starting TPA. Then confirmed FULL CODE with family, transferrred 
+to ___ under neuro team. Remains aphasic and still has LUE 
+weakness, but is moving it, still has nasolabial fold flattening 
+on the left. They did see a R carotid stenosis. No a fib on EKG.
+  
+In Neuro ICU, patient started to speak slowly, so hopefully more 
+dysarthria as opposed to enunciating rather than true aphasia. 
+Put the order in for an MRI given his cypher stent, but he has 
+an unusual intracranial circulation, he is a vasculopath, has 
+all the risk factors for large vessel disease, ?embolic 
+phenomena, so getting a TTE with bubble study. But now anxious 
+and associating HD with stroke unfortunately, need to reiterate 
+that with him. Currently, 98  73  147/56 (required 10 of 
+labetolol and hydralazine IV this morning for 170s)  15  982L. 
+He did pass speech and swallow. He was transferred to the 
+medical floor for continued stabilization before discharge to 
+home with ___.
+ 
+Past Medical History:
+ESRD -CKD stage 5 on hemodialysis.  
+DM2 
+CAD s/p drug-eluting stent ___  
+Hyperlipidemia  
+HTN  
+Anemia
+Latent TB treated with INH ___  
+Chronic HA  
+
+ 
+Social History:
+___
+Family History:
+Sister died from diabetes complications
+6 siblings alive with hypertension
+8 living children with various problems including diabetes, 
+obesity, and fatty liver
+ 
+Physical Exam:
+Admission Exam:
+V/S: 97.6F, 180/100, 80, 16, 92-93%/RA
+Gen: NAD, lying in bed comfortably
+Head/Neck: NC/AT, no scleral icterus, no oropharyngeal lesions, 
+neck supple
+Cardiovascular: RRR, continuous systolic-diastolic murmur
+Pulmonary: Equal air entry bilaterally
+Abdomen: Soft, NT, ND, +BS, no guarding
+Extremities: Warm, thrill at L upper arm AVF
+  
+Discharge Exam:
+VS: 97.0F, 167/64, 63, 18, 97%/RA
+GENERAL: Comfortable, NAD  
+HEENT: NCAT, sclerae anicteric, PERRLA, MMM, OP clear, neck 
+supple  
+HEART: RRR, ___ continuous systolic-diastolic murmur, no rubs or 
+gallops.  
+LUNGS: CTAB, no r/r/w, good air movement, resp unlabored
+ABDOMEN:  +BS, soft, NT/ND, no guarding
+EXTREMITIES: WWP, thrill at LUE AV fistula, slightly more 
+swollen L arm without pitting edema or rubor/calor/dolor, no 
+c/c/e, 2+ peripheral pulses.    
+NEURO: Awake, speaking in short sentences, persistent left NLF 
+droop, smile asymmetric with drooping on L side, symmetric 
+eyebrow raise and palate elevation, Strength 4+/5 and equal b/l 
+and distally. LT intact bilaterally. RAM continues to be slowed 
+on left compared to right. Can ambulate to bathroom without 
+assistance.
+ 
+ 
+Pertinent Results:
+# CBC with Diff:
+___ 11:00AM BLOOD WBC-7.5 RBC-3.45* Hgb-12.2* Hct-33.6* 
+MCV-98 MCH-35.3* MCHC-36.2* RDW-15.1 Plt ___
+___ 11:00AM BLOOD Neuts-78.3* Lymphs-13.9* Monos-4.6 
+Eos-2.2 Baso-1.0
+___ 07:50AM BLOOD WBC-6.5 RBC-3.21* Hgb-10.9* Hct-32.4* 
+MCV-101* MCH-33.9* MCHC-33.6 RDW-14.9 Plt ___
+___ 02:13PM BLOOD WBC-6.2 RBC-3.17* Hgb-10.8* Hct-31.3* 
+MCV-99* MCH-34.0* MCHC-34.5 RDW-14.8 Plt ___
+___ 02:27AM BLOOD WBC-7.5 RBC-3.20* Hgb-11.1* Hct-32.0* 
+MCV-100* MCH-34.7* MCHC-34.8 RDW-14.8 Plt ___
+___ 07:35AM BLOOD WBC-4.6 RBC-3.29* Hgb-10.9* Hct-31.9* 
+MCV-97 MCH-33.1* MCHC-34.2 RDW-14.7 Plt ___
+___ 08:24AM BLOOD WBC-3.6* RBC-3.22* Hgb-11.0* Hct-30.9* 
+MCV-96 MCH-34.1* MCHC-35.5* RDW-14.5 Plt ___
+___ 07:35AM BLOOD WBC-3.7* RBC-3.27* Hgb-11.2* Hct-31.7* 
+MCV-97 MCH-34.2* MCHC-35.3* RDW-14.8 Plt ___
+___ 05:55AM BLOOD WBC-3.9* RBC-3.10* Hgb-10.6* Hct-30.1* 
+MCV-97 MCH-34.1* MCHC-35.2* RDW-14.8 Plt ___
+___ 07:47AM BLOOD WBC-4.3 RBC-3.31* Hgb-11.3* Hct-32.2* 
+MCV-97 MCH-34.1* MCHC-35.2* RDW-15.3 Plt ___
+___ 06:15AM BLOOD WBC-5.3 RBC-3.40* Hgb-11.8* Hct-33.5* 
+MCV-99* MCH-34.7* MCHC-35.2* RDW-15.4 Plt ___
+  
+# Blood Chemistry:
+___ 11:00AM BLOOD Glucose-86 UreaN-59* Creat-10.2*# Na-143 
+K-5.0 Cl-97 HCO3-27 AnGap-24*
+___ 11:00AM BLOOD Calcium-9.1 Phos-5.6* Mg-2.7*
+___ 11:21AM BLOOD Lactate-1.2 K-4.7
+___ 07:50AM BLOOD Glucose-130* UreaN-70* Creat-10.9* Na-140 
+K-5.2* Cl-95* HCO3-28 AnGap-22*
+___ 07:50AM BLOOD Calcium-9.2 Phos-6.4* Mg-2.6
+___ 02:13PM BLOOD Glucose-138* UreaN-53* Creat-9.4*# Na-138 
+K-4.5 Cl-93* HCO3-30 AnGap-20
+___ 02:13PM BLOOD Calcium-8.7 Phos-5.3* Mg-2.3
+___ 02:27AM BLOOD Glucose-98 UreaN-57* Creat-10.6*# Na-141 
+K-4.6 Cl-95* HCO3-26 AnGap-25*
+___ 02:27AM BLOOD Albumin-4.3 Calcium-9.0 Phos-6.8* Mg-2.4 
+Cholest-158
+___ 07:35AM BLOOD Glucose-73 UreaN-27* Creat-7.4*# Na-141 
+K-4.4 Cl-93* HCO3-37* AnGap-15
+___ 07:35AM BLOOD Calcium-9.2 Phos-5.9* Mg-2.2
+___ 08:24AM BLOOD Glucose-147* UreaN-39* Creat-9.7*# Na-137 
+K-4.0 Cl-91* HCO3-32 AnGap-18
+___ 08:24AM BLOOD Calcium-9.1 Phos-6.7* Mg-2.3
+___ 07:35AM BLOOD Glucose-85 UreaN-17 Creat-5.9*# Na-138 
+K-4.4 Cl-92* HCO3-35* AnGap-15
+___ 07:35AM BLOOD Calcium-9.7 Phos-4.7*# Mg-2.1
+___ 05:55AM BLOOD Glucose-79 UreaN-27* Creat-7.7*# Na-136 
+K-4.5 Cl-91* HCO3-35* AnGap-15
+___ 05:55AM BLOOD Calcium-9.5 Phos-5.6* Mg-2.1
+___ 07:47AM BLOOD Glucose-77 UreaN-39* Creat-9.7*# Na-136 
+K-5.0 Cl-91* HCO3-32 AnGap-18
+___ 07:47AM BLOOD Calcium-9.2 Phos-6.3* Mg-2.3
+___ 06:15AM BLOOD Glucose-83 UreaN-24* Creat-6.7*# Na-133 
+K-4.4 Cl-89* HCO3-34* AnGap-14
+___ 06:15AM BLOOD Calcium-9.3 Phos-4.5# Mg-2.2
+  
+# Cardiac Biomarkers:
+___ 11:00AM BLOOD CK-MB-2 cTropnT-0.04*
+___ 06:45PM BLOOD CK-MB-2 cTropnT-0.04*
+___ 07:50AM BLOOD CK-MB-2 cTropnT-0.04*
+___ 02:13PM BLOOD CK-MB-2 cTropnT-0.04*
+___ 02:27AM BLOOD CK-MB-2 cTropnT-0.05*
+  
+# Liver function tests:
+___ 11:00AM BLOOD CK(CPK)-58
+___ 06:45PM BLOOD CK(CPK)-52
+___ 07:50AM BLOOD CK(CPK)-52
+___ 02:13PM BLOOD CK(CPK)-57
+___ 07:59PM BLOOD CK(CPK)-75
+___ 02:27AM BLOOD ALT-14 AST-23 CK(CPK)-81 AlkPhos-93 
+TotBili-0.3
+___ 02:27AM BLOOD Triglyc-101 HDL-43 CHOL/HD-3.7 LDLcalc-95
+  
+# U/A:
+___ 01:00PM URINE Color-Straw Appear-Clear Sp ___
+___ 01:00PM URINE Blood-NEG Nitrite-NEG Protein->600 
+Glucose-150 Ketone-NEG Bilirub-NEG Urobiln-NEG pH-8.5* Leuks-NEG
+___ 01:00PM URINE RBC-1 WBC-1 Bacteri-NONE Yeast-NONE Epi-0 
+TransE-<1
+  
+# Sputum studies:
+___ 5:28 am SPUTUM      Source: Induced. 
+  
+   GRAM STAIN (Final ___: 
+      ___ PMNs and >10 epithelial cells/100X field. 
+      Gram stain indicates extensive contamination with upper 
+respiratory
+      secretions. Bacterial culture results are invalid. 
+      PLEASE SUBMIT ANOTHER SPECIMEN. 
+  
+   RESPIRATORY CULTURE (Final ___: 
+      TEST CANCELLED, PATIENT CREDITED. 
+  
+   ACID FAST SMEAR (Final ___: 
+      NO ACID FAST BACILLI SEEN ON DIRECT SMEAR. 
+      NO ACID FAST BACILLI SEEN ON CONCENTRATED SMEAR. 
+  
+   ACID FAST CULTURE (Preliminary):    NO MYCOBACTERIA ISOLATED.
+  
+___ 10:54 am SPUTUM      Source: Induced. 
+  
+   GRAM STAIN (Final ___: 
+      <10 PMNs and >10 epithelial cells/100X field. 
+      Gram stain indicates extensive contamination with upper 
+respiratory
+      secretions. Bacterial culture results are invalid. 
+      PLEASE SUBMIT ANOTHER SPECIMEN. 
+  
+   RESPIRATORY CULTURE (Final ___: 
+      TEST CANCELLED, PATIENT CREDITED. 
+   
+   ACID FAST SMEAR (Final ___: 
+      NO ACID FAST BACILLI SEEN ON CONCENTRATED SMEAR. 
+   
+   ACID FAST CULTURE (Preliminary):    NO MYCOBACTERIA ISOLATED. 
+
+
+Log-In Date/Time: ___ 5:53 am
+      SPUTUM      Source: Induced. 
+   
+   GRAM STAIN (Final ___: 
+      >25 PMNs and >10 epithelial cells/100X field. 
+      Gram stain indicates extensive contamination with upper 
+respiratory
+      secretions. Bacterial culture results are invalid. 
+      PLEASE SUBMIT ANOTHER SPECIMEN. 
+   
+   RESPIRATORY CULTURE (Final ___: 
+      TEST CANCELLED, PATIENT CREDITED. 
+   
+   ACID FAST SMEAR (Final ___: 
+      NO ACID FAST BACILLI SEEN ON DIRECT SMEAR. 
+      NO ACID FAST BACILLI SEEN ON CONCENTRATED SMEAR. 
+   
+   ACID FAST CULTURE (Preliminary): 
+   
+___ 8:55 am SPUTUM      Source: Induced. 
+  
+   ACID FAST SMEAR (Final ___: 
+      NO ACID FAST BACILLI SEEN ON DIRECT SMEAR. 
+      NO ACID FAST BACILLI SEEN ON CONCENTRATED SMEAR. 
+  
+   ACID FAST CULTURE (Preliminary): 
+  
+# MRSA Screen:
+___ 12:47 pm MRSA SCREEN      Source: Nasal swab. 
+   MRSA SCREEN (Final ___:    No MRSA isolated.
+  
+# Blood Cultures:
+___ 12:05 pm BLOOD CULTURE     Site: ARM      X2. 
+  
+                            **FINAL REPORT ___
+   
+   Blood Culture, Routine (Final ___:    NO GROWTH. 
+  
+# ___ EKG:
+Normal sinus rhythm at a rate of 80. Right bundle-branch block. 
+Mild 
+prolongation of the Q-T interval. Left ventricular hypertrophy. 
+There are 
+diffuse non-specific ST-T wave changes throughout. Clinical 
+correlation is 
+suggested.  
+  
+# ___ CXR:
+IMPRESSION: Mild pulmonary edema with bilateral small pleural 
+effusions and atelectasis. 
+  
+# ___ EKG:
+Normal sinus rhythm. Right bundle-branch block. Non-specific 
+ST-T wave 
+changes, all of which are unchanged compared with the previous 
+tracing. 
+  
+# ___ CT Brain Perfusion
+IMPRESSION: 
+1. No acute intra- or extra-axial hemorrhage. 
+2. Relatively small geographic region of abnormally increased 
+mean transit 
+time, without definite corresponding decreased relative cerebral 
+blood volume, 
+in the superior right frontal lobe, representing acute ischemic 
+(penumbra) in 
+the superior division, right MCA territory; there is no similar 
+region 
+elsewhere. 
+3. Unremarkable intracranial circulation; specifically, no 
+stenosis or 
+occlusion of the right MCA and its branches or the right ICA 
+terminus. 
+4. Atherosclerotic disease, involving particularly the left 
+carotid bulb and 
+proximal ICA with at least 65% diameter stenosis at its origin. 
+5. Evidence of CHF with bilateral pleural effusions. 
+  
+# ___ TTE
+Conclusion:
+The left atrium is moderately dilated. There is mild symmetric 
+left ventricular hypertrophy with normal cavity size and 
+regional/global systolic function (LVEF>55%). Doppler parameters 
+are indeterminate for left ventricular diastolic function. There 
+is no ventricular septal defect. Right ventricular chamber size 
+and free wall motion are normal. The aortic root is mildly 
+dilated at the sinus level. The aortic valve leaflets (3) are 
+mildly thickened but aortic stenosis is not present. No aortic 
+regurgitation is seen. The mitral valve leaflets are mildly 
+thickened. There is no mitral valve prolapse. The tricuspid 
+valve leaflets are mildly thickened. There is borderline 
+pulmonary artery systolic hypertension. There is a very small 
+pericardial effusion. 
+  
+IMPRESSION: Mild symmetric left ventricular hypertrophy with 
+preserved global and regional biventricular systolic function. 
+Indeterminate indices to assess diastolic dysfunction. No 
+pathologic valvular abnormality seen.
+  
+# ___ CXR:
+FINDINGS: In comparison with the study of ___, there is 
+increasing 
+opacification at both bases with poor definition of the 
+hemidiaphragms 
+consistent with pleural effusions and compressive atelectasis. 
+The degree of pulmonary vascular congestion is more prominent, 
+though some of this could reflect the AP supine rather than PA 
+technique. 
+  
+# ___ Non Con Head CT
+IMPRESSION: 
+Residual IV contrast limits optimal evaluation for subtle 
+hemorrhage.  
+1. New focal hypodense area with loss of gray-white 
+differentiation in the 
+right frontal lobe corresponding to the previously seen 
+perfusion abnormality representing either evolving ischemia or 
+infarction.  
+2. No large area of hemorrhage in this area or elsewhere within 
+limitation of this study. No new edema, mass effect, or shift in 
+midline structures. 
+  
+# ___ TTE Bubble Study
+Findings:
+No evidence suggestive of an atrial septal defect or patent 
+foramen ovale is seen by 2D, color Doppler or saline contrast 
+with maneuvers.  
+   
+# ___ MRI Head
+IMPRESSION: 
+  
+1. Acute infarct in the right posterior frontal lobe involving 
+the precentral gyrus which is unchanged. 
+   
+2. No evidence of acute intracranial hemorrhage or new infarct. 
+   
+3. Changes of chronic small vessel ischemic disease. 
+   
+4. Arachnoid cyst versus a prominent cisterna magna in the 
+posterior fossa.  
+  
+
+  
+
+ 
+Brief Hospital Course:
+ASSESSMENT:  ___ yo ___ RHM with h/o ESRD, CAD s/p 
+drug-eluting stent placed ___, DM2, HTN, HL, and latent TB 
+initially presented on ___ with c/o CP, productive cough and 
+night sweats, admitted for MI rule out hospital course c/b 
+right-sided acute cerebral infarct s/p tPA on ___, initially 
+with motor weakness, left sided facial droop and expressive 
+aphasia, now with symmetric strength and no facial droop but 
+persistent expressive aphasia. 
+  
+# Acute Cerebral Infarct: While in dialysis on ___ pt was 
+found around 09:20 to have new speech difficulty and LUE flaccid 
+weakness. A Code Stroke was called and CTA showed small 
+frontoparietal increased MTT/perfusion deficit. He was 
+administered tPA starting at approximately 11:15 on ___. He was 
+then transfered to the TICU for frequent neuro checks given risk 
+of bleed post-tPA. Passed speech and swallow on ___. 
+Continued to improve on the medical floor, with equal strength 
+and sensation distally. TTE showed no ASD or PFO. Cardiology had 
+low suspicion for any left atrial thrombus or appendage 
+abnormality, so TEE was recommended for outpatient. Neuro aware 
+of left ICA. LDL is 95, so started a statin to obtain less than 
+70. Followed daily by neurology. Antihypertensives were 
+uptitrated as necessary to bring BP within goal SBP 140-180.  
+Patient was placed on Aspirin 325 mg per neuro recs because they 
+felt plavix was not a good medication for him.
+Treatment Course:
+- Captopril 12.5 mg PO TID x1 day
+- Captopril 37.5 mg PO TID x3 days
+- Lisinopril 40 mg PO DAILY x2 days
+- Metoprolol tartrate 25 mg PO BID x3 days
+- Carvedilol 25 mg PO BID x3 days
+- Hydralazine ___ mg IV Q6H PRN SBP>180
+- Atorvastatin 80 mg daily x6 days
+- Aspirin 325 mg PO/NG DAILY x7 days 
+- Frequent neuro checks with monitoring for headache as 
+indication of possible hemorrhagic conversion or cerebral edema
+- Continuous monitoring by telemetry   
+- Maintained normothermia  
+- Risk Factor Assessment with Lipid panel 
+  
+# Headache: pt has h/o chronic HA with HD along with dizziness 
+and ear ache. ___ have h/o migraine but due to language barrier 
+it is described simply as HA. Associated with nausea and 
+vomiting. Varies from ___ to ___ in severity.
+- Acetaminophen dose to 1000 mg PO Q6H prn pain
+- Ibuprofen 600 mg PO Q8H prn pain
+- Odansetron 4 mg IV Q8H:PRN nausea/vomiting 
+- Elevated HOB to 30 degrees
+- Monitored closely for concurrent neurological findings 
+- Pt sent with a prescription for Tramadol for break through 
+headache pain
+  
+# No TB infection, ruled out after neg AFBx3 and neg 
+concentrated smear. Has been followed for latent TB infection by 
+Dr. ___ previously treated with INH. Resolved.
+  
+# ESRD: has a LUE fistula, after TPA did have more swelling of 
+his LUE ?less mobile, non pitting edema, so don't believe there 
+is a clot but something to monitor as an outpatient.  Dialysis 
+on T, Tr, ___. 
+- Monitored by daily Cr, urine output, electrolytes  
+  
+# No current chest pain on discharge, ruled out for MI with flat 
+CK-MB and TpnT.  Resolved.
+  
+# Pulmonary Edema: Likely ___ fluid overload on admission CXR, 
+now resolved.  Sats stable, lung sounds clear.
+  
+# DM 2: 
+- Pt placed on Insulin SS with goal <150.  BG very well 
+controlled during this admission.
+  
+# Anxiety: Pt has increased anxiety following stroke, especially 
+around HD, now resolved.
+- Pt given Lorazepam 0.5 mg IV PRN anxiety pre-HD.
+     
+# Consults:
+- ___ evaluations for walking stairs, showering without assitance
+- Nutrition evaluations for poor PO intake, treated with 
+appetite stimulant Megace
+- Social work consults for discharge home with services
+  
+Transitional Issues:
+1. Pt still needs a TEE for a better look at possible atrial 
+pathology which may have caused this stroke.  Cardiology did not 
+feel that this procedure had to be done in house and that he was 
+very low risk for having anything that would change our 
+management.  For this reason he was set up with cardiology as an 
+outpatient to get this TEE.
+2. Pt will need close neurology follow up to follow neuro 
+deficits and continue to reduce his risk of further stroke.
+3. Pt will need close PCP follow up to follow up on new 
+medications, medication refills, ongoing neuro deficits, stroke 
+risk reduction etc.
+ 
+Medications on Admission:
+Medications (verified):  
+metoprolol 25mg po BID  
+renagel 800mg nine tablets po TID with meals  
+ASA 81mg po daily  
+vitamin B complex one tab daily  
+fluticasone proprionate one spray in each nostril daily  
+lidocaine cream, apply to fistula as directed prior to 
+hemodialysis  
+prozac _____ (unknown dose)  
+ 
+Discharge Medications:
+1. sevelamer carbonate 800 mg Tablet Sig: One (1) Tablet PO TID 
+W/MEALS (3 TIMES A DAY WITH MEALS).  
+2. aspirin 325 mg Tablet Sig: One (1) Tablet PO DAILY (Daily).
+Disp:*30 Tablet(s)* Refills:*0*
+3. atorvastatin 80 mg Tablet Sig: One (1) Tablet PO DAILY 
+(Daily).
+Disp:*30 Tablet(s)* Refills:*0*
+4. B complex-vitamin C-folic acid 1 mg Capsule Sig: One (1) Cap 
+PO DAILY (Daily).
+Disp:*30 Cap(s)* Refills:*0*
+5. carvedilol 12.5 mg Tablet Sig: Two (2) Tablet PO BID (2 times 
+a day).
+Disp:*60 Tablet(s)* Refills:*0*
+6. lisinopril 20 mg Tablet Sig: One (1) Tablet PO BID (2 times a 
+day).
+Disp:*60 Tablet(s)* Refills:*0*
+7. Megace Oral 400 mg/10 mL (40 mg/mL) Suspension Sig: Fifteen 
+(15) mL PO once a day.
+Disp:*1 bottle* Refills:*0*
+8. tramadol 50 mg Tablet Sig: One (1) Tablet PO Q6H (every 6 
+hours) as needed for headache.
+Disp:*60 Tablet(s)* Refills:*0*
+9. Outpatient Occupational Therapy
+10. Outpatient Physical Therapy
+11. Outpatient Speech/Swallowing Therapy
+12. lidocaine 4 % Cream Sig: One (1) application Topical once a 
+day as needed for prior to dialysis: PRN for dialysis.
+Disp:*1 tube* Refills:*0*
+
+ 
+Discharge Disposition:
+Home
+ 
+Discharge Diagnosis:
+Acute Cerebral Infarct
+Headache
+End Stage Renal Disease
+Pulmonary Edema
+Type II Diabetes Mellitus
+Anxiety
+Anemia
+Hypertensive urgency
+
+ 
+Discharge Condition:
+Mental Status: Clear and coherent.
+Level of Consciousness: Alert and interactive.
+Activity Status: Ambulatory - requires assistance or aid (walker 
+or cane).
+
+ 
+Discharge Instructions:
+Dear Mr. ___,
+  
+You were admitted to the hospital with chest pain which has 
+resolved.  Unfortunately, while you were here you had a stroke 
+that affected the right side of your brain (and consequently the 
+left side of your body). You were given a medication that helps 
+to dissolve clots and helps people improve following a stroke.  
+Over the few days following the stroke you improved dramatically 
+and your motor muscle function appears to be back to baseline.  
+As we discussed, the reason for the stroke was secondary to 
+years of high cholesterol, diabetes, high blood pressure, and 
+dialysis that lead to hardening of the arteries, leading to a 
+blockage. The key to your recovery lies in your new medications 
+including aspirin, atorvastatin, and new blood pressure agents. 
+Further, you will benefit from outpatient physical therapy, 
+occupational therapy, and speech therapy. We have set you up 
+with primary care, cardiology and neurology appointments below. 
+    
+Additionally, while you were here we tested you for tuberculosis 
+and all of our tests were negative, indicating that you do not 
+have this infection.
+  
+The following changes were made to your medications:
+STOP Metoprolol
+STOP Fluticasone
+CHANGE Vitamin B complex vitamins to B complex with Vitamin C 
+and Folic Acid, 1 capsule by mouth daily
+CHANGE Aspirin from 81 mg daily to 325 mg daily
+START Atorvastatin 80 mg by mouth once daily
+START Carvedilol 25 mg by mouth twice daily
+START Lisinopril 20 mg by mouth twice daily
+START Megace 600 mg by mouth once daily
+START Tramadol 50 mg by mouth every 6 hours as needed for 
+headache
+  
+Thank you for allowing us to participate in your care.  We wish 
+you a speedy recovery.
+ 
+Followup Instructions:
+___
+ 
+
+Output:
+
+Summarize the key diagnostic information and significant results based on the patients’ multiple health (long) records during hospitalization.
+At the end, provide your final answer in a new line starting with 'Answer:' followed by a summary.
+proposed answer: The patient is a 67-year-old male with a complex medical history, including End-Stage Renal Disease (ESRD) on hemodialysis, Type II Diabetes, Hypertension, and Coronary Artery Disease. He was initially admitted for chest pain and to rule out tuberculosis (TB) due to a productive cough and night sweats. During his hospitalization, he experienced an acute ischemic stroke (right MCA territory) characterized by left-sided paralysis and aphasia. He was treated with tPA, leading to significant motor recovery, though residual expressive aphasia/dysarthria and mild facial droop persisted at discharge.
+
+**Key Diagnostic Information and Results:**
+*   **Neurological:** CT perfusion and MRI confirmed an acute infarct in the right posterior frontal lobe. Imaging also revealed 65% stenosis of the left internal carotid artery and chronic small vessel disease.
+*   **Cardiac:** Myocardial infarction was ruled out (negative serial Troponins and CK-MB). A Transthoracic Echocardiogram (TTE) showed a preserved ejection fraction (>55%) and no evidence of a patent foramen ovale (PFO) or atrial septal defect (ASD).
+*   **Infectious Disease:** Active TB was ruled out following three negative acid-fast bacilli (AFB) sputum smears and cultures.
+*   **Respiratory:** Initial pulmonary edema and pleural effusions (likely due to fluid overload) resolved during the stay.
+*   **Laboratory:** Labs remained consistent with ESRD (elevated Creatinine/BUN) and chronic anemia (Hgb ~11).
+
+**Answer:**
+The patient is a 67-year-old male with ESRD, DM2, and CAD who was hospitalized for chest pain and TB rule-out but subsequently suffered an acute right MCA ischemic stroke. He was treated with tPA and showed significant motor improvement. Major diagnostic findings included a confirmed right frontal lobe infarct on MRI, 65% left carotid stenosis, and the exclusion of MI and active TB. He was discharged home in stable condition with intensified stroke-prevention medications (Aspirin 325mg, high-dose Atorvastatin, and uptitrated antihypertensives) and referrals for physical, occupational, and speech therapy.
+Extracted answer: The patient is a 67-year-old male with a complex medical history, including End-Stage Renal Disease (ESRD) on hemodialysis, Type II Diabetes, Hypertension, and Coronary Artery Disease. He was initially admitted for chest pain and to rule out tuberculosis (TB) due to a productive cough and night sweats. During his hospitalization, he experienced an acute ischemic stroke (right MCA territory) characterized by left-sided paralysis and aphasia. He was treated with tPA, leading to significant motor recovery, though residual expressive aphasia/dysarthria and mild facial droop persisted at discharge.
+
+**Key Diagnostic Information and Results:**
+*   **Neurological:** CT perfusion and MRI confirmed an acute infarct in the right posterior frontal lobe. Imaging also revealed 65% stenosis of the left internal carotid artery and chronic small vessel disease.
+*   **Cardiac:** Myocardial infarction was ruled out (negative serial Troponins and CK-MB). A Transthoracic Echocardiogram (TTE) showed a preserved ejection fraction (>55%) and no evidence of a patent foramen ovale (PFO) or atrial septal defect (ASD).
+*   **Infectious Disease:** Active TB was ruled out following three negative acid-fast bacilli (AFB) sputum smears and cultures.
+*   **Respiratory:** Initial pulmonary edema and pleural effusions (likely due to fluid overload) resolved during the stay.
+*   **Laboratory:** Labs remained consistent with ESRD (elevated Creatinine/BUN) and chronic anemia (Hgb ~11).
+
+**Answer:**
+The patient is a 67-year-old male with ESRD, DM2, and CAD who was hospitalized for chest pain and TB rule-out but subsequently suffered an acute right MCA ischemic stroke. He was treated with tPA and showed significant motor improvement. Major diagnostic findings included a confirmed right frontal lobe infarct on MRI, 65% left carotid stenosis, and the exclusion of MI and active TB. He was discharged home in stable condition with intensified stroke-prevention medications (Aspirin 325mg, high-dose Atorvastatin, and uptitrated antihypertensives) and referrals for physical, occupational, and speech therapy.
+Correct answer: The patient is a 67-year-old male with a history of End Stage Renal Disease (ESRD) on hemodialysis, Type II Diabetes Mellitus, Coronary Artery Disease (CAD) with a drug-eluting stent, Hyperlipidemia, Hypertension, and Anemia. He was admitted to the hospital with a chief complaint of chest pain, tuberculosis rule-out, acute cerebral infarct, headache, and pulmonary edema. 
+
+The patient's past medical history includes latent tuberculosis treated with INH, chronic hypertension, and chronic hemodialysis. His social history is significant for a sister who died from diabetes complications and multiple living children with various health problems. 
+
+During his hospital stay, the patient was diagnosed with a right MCA perfusion defect with "penumbra" and was treated with tPA. He was also found to have a R carotid stenosis. The patient remains aphasic and has left upper extremity weakness, but is able to move his extremities and ambulate to the bathroom without assistance. 
+
+At discharge, the patient's vital signs were stable, and he was prescribed medications for his conditions. His laboratory results showed normal blood chemistry values, except for slightly elevated glucose levels.

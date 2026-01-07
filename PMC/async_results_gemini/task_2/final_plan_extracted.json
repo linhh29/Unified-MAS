@@ -1,0 +1,52 @@
+[
+    {
+        "days": 1,
+        "current_city": "from Gainesville to Wilmington",
+        "transportation": "Self-driving, from Gainesville to Wilmington, Departure Time: 06:00, Arrival Time: 13:29, Duration: 7 hours 29 mins, Distance: 814 km",
+        "breakfast": "-",
+        "attraction": "Wilmington Riverwalk, Wilmington;",
+        "lunch": "Taco Bus, Wilmington",
+        "dinner": "Rose Cafe, Wilmington",
+        "accommodation": "BEAUTIFUL&BRIGHT 1 bd (E. Village), Wilmington"
+    },
+    {
+        "days": 2,
+        "current_city": "Wilmington",
+        "transportation": "-",
+        "breakfast": "Azteca, Wilmington",
+        "attraction": "Battleship North Carolina, Wilmington;Bellamy Mansion Museum, Wilmington;",
+        "lunch": "Bandit Burrito, Wilmington",
+        "dinner": "Moonie's Texas Barbecue, Wilmington",
+        "accommodation": "BEAUTIFUL&BRIGHT 1 bd (E. Village), Wilmington"
+    },
+    {
+        "days": 3,
+        "current_city": "from Wilmington to Fayetteville",
+        "transportation": "Self-driving, from Wilmington to Fayetteville, Departure Time: 08:00, Arrival Time: 09:43, Duration: 1 hour 43 mins, Distance: 149 km",
+        "breakfast": "Ice Pan Creamery, Fayetteville",
+        "attraction": "Museum of the Cape Fear, Fayetteville;Airborne & Special Operations Museum Foundation, Fayetteville;",
+        "lunch": "Eat Street, Fayetteville",
+        "dinner": "The Great Indian Pub, Fayetteville",
+        "accommodation": "TRANQUIL HAVEN W/PRIVATE BATH-8 MINS TO JFK RM.#1, Fayetteville"
+    },
+    {
+        "days": 4,
+        "current_city": "Fayetteville",
+        "transportation": "-",
+        "breakfast": "Fa Yian, Fayetteville",
+        "attraction": "Cape Fear Botanical Garden, Fayetteville;Fascinate-U Children's Museum, Fayetteville;",
+        "lunch": "Noshi - Yum Asian Delivery, Fayetteville",
+        "dinner": "DiVine, Fayetteville",
+        "accommodation": "TRANQUIL HAVEN W/PRIVATE BATH-8 MINS TO JFK RM.#1, Fayetteville"
+    },
+    {
+        "days": 5,
+        "current_city": "from Fayetteville to Gainesville",
+        "transportation": "Self-driving, from Fayetteville to Gainesville, Duration: 6 hours 45 mins, Distance: 743 km",
+        "breakfast": "Biryani By Kilo, Fayetteville",
+        "attraction": "The Fayetteville Area Transportation and Local History Museum, Fayetteville;",
+        "lunch": "Maharashtra Sadan, Fayetteville",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]

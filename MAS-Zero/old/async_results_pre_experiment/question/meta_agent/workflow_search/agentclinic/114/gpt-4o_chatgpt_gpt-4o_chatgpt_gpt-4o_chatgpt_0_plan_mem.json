@@ -1,0 +1,17 @@
+[
+    {
+        "Huntington's disease": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis, excluding Huntington's disease, could potentially be Wilson's disease or a rare form of frontotemporal dementia, but further testing for copper metabolism and reviewing genetic testing accuracy is necessary for confirmation.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Huntington's disease is the most fitting diagnosis based on the evidence, but if excluded, further testing for Wilson's disease or frontotemporal dementia is necessary.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Rare neurodegenerative disorder": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "1": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

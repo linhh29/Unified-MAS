@@ -1,0 +1,202 @@
+{
+  "scenario_id": 5,
+  "doctor": {
+    "input_tokens": 63999,
+    "output_tokens": 8045,
+    "total_tokens": 72044,
+    "input_cost": 0.032,
+    "output_cost": 0.024135,
+    "total_cost": 0.056135,
+    "num_calls": 11
+  },
+  "patient": {
+    "input_tokens": 26161,
+    "output_tokens": 2866,
+    "total_tokens": 29027,
+    "input_cost": 0.013081,
+    "output_cost": 0.008598,
+    "total_cost": 0.021678,
+    "num_calls": 5
+  },
+  "measurement": {
+    "input_tokens": 26654,
+    "output_tokens": 7834,
+    "total_tokens": 34488,
+    "input_cost": 0.013327,
+    "output_cost": 0.023502,
+    "total_cost": 0.036829,
+    "num_calls": 5
+  },
+  "judge": {
+    "input_tokens": 1212,
+    "output_tokens": 136,
+    "total_tokens": 1348,
+    "input_cost": 0.00303,
+    "output_cost": 0.00136,
+    "total_cost": 0.00439,
+    "num_calls": 1
+  },
+  "total": {
+    "total_cost": 0.119032,
+    "total_tokens": 136907
+  },
+  "detailed_calls": {
+    "doctor": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4802,
+        "output_tokens": 418,
+        "cost": 0.003655,
+        "inference_num": 1
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4924,
+        "output_tokens": 521,
+        "cost": 0.004025000000000001,
+        "inference_num": 2
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5235,
+        "output_tokens": 436,
+        "cost": 0.0039255,
+        "inference_num": 3
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5326,
+        "output_tokens": 583,
+        "cost": 0.004412,
+        "inference_num": 4
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5638,
+        "output_tokens": 623,
+        "cost": 0.0046879999999999995,
+        "inference_num": 5
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5749,
+        "output_tokens": 711,
+        "cost": 0.0050075,
+        "inference_num": 6
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6076,
+        "output_tokens": 592,
+        "cost": 0.004814,
+        "inference_num": 7
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6207,
+        "output_tokens": 592,
+        "cost": 0.0048795,
+        "inference_num": 8
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6503,
+        "output_tokens": 633,
+        "cost": 0.0051505000000000006,
+        "inference_num": 9
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6612,
+        "output_tokens": 443,
+        "cost": 0.004635,
+        "inference_num": 10
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6927,
+        "output_tokens": 2493,
+        "cost": 0.010942499999999999,
+        "inference_num": 11
+      }
+    ],
+    "patient": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4491,
+        "output_tokens": 720,
+        "cost": 0.0044055
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4874,
+        "output_tokens": 431,
+        "cost": 0.00373
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5216,
+        "output_tokens": 700,
+        "cost": 0.004708
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5599,
+        "output_tokens": 565,
+        "cost": 0.0044945
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5981,
+        "output_tokens": 450,
+        "cost": 0.004340500000000001
+      }
+    ],
+    "measurement": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4569,
+        "output_tokens": 2281,
+        "cost": 0.0091275
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4948,
+        "output_tokens": 1366,
+        "cost": 0.006572
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5340,
+        "output_tokens": 1170,
+        "cost": 0.00618
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5709,
+        "output_tokens": 1749,
+        "cost": 0.008101500000000001
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6088,
+        "output_tokens": 1268,
+        "cost": 0.006848
+      }
+    ],
+    "judge": [
+      {
+        "model": "gpt-4o",
+        "input_tokens": 1212,
+        "output_tokens": 136,
+        "cost": 0.00439
+      }
+    ]
+  },
+  "diagnosis_result": {
+    "diagnosis_made": true,
+    "is_correct": false,
+    "doctor_diagnosis": "This 53-year-old female with primary sclerosing cholangitis and cirrhosis (Child-Pugh B, MELD 11) was admitted for right upper quadrant abdominal pain and fever concerning for recurrent cholangitis. Diagnostic imaging with MRCP and ultrasound demonstrated biliary sludge and a stone in the gallbladder remnant, which was addressed via an ERCP that removed scant sludge from the biliary tree. Given her history of multi-drug resistant infections, her antibiotic therapy was transitioned to Meropenem 1g every 8 hours via a PICC line, to be completed seven days post-procedure. An EGD performed during the admission identified an 8 mm gastroesophageal junction ulcer and portal gastropathy without evidence of active varices. Throughout the hospitalization, the patient remained neurologically intact with no signs of hepatic encephalopathy, and her chronic medications—including rifaximin, lactulose, and ursodiol—were continued. Her home diuretics were held on admission but restarted prior to discharge once her fluid status was stabilized. At the time of discharge, the patient was afebrile, ambulatory, and independent. She was instructed to complete her outpatient IV antibiotic course, continue a gluten-free diet, and follow up for scheduled laboratory monitoring and hepatology clinic appointments.",
+    "correct_diagnosis": "The patient is a 53-year-old female who was admitted to the hospital with abdominal pain and fever. She has a history of primary sclerosing cholangitis (PSC), cirrhosis, ascites, hepatic encephalopathy, varices, and possibly Crohn's disease and celiac disease. She was diagnosed with cholangitis during a previous hospitalization and was treated with IV antibiotics. She has also had a laparoscopic cholecystectomy and liver biopsy, which showed bile ductular proliferation and early, incomplete nodule formation.\n\nThe patient's allergies include Bactrim, Ampicillin, Sulfa, cefuroxime, Gadolinium-Containing Contrast Media, gluten, nadolol, and Pneumovax 23. She has a history of hypertension, GERD, hypothyroidism, and OSA.\n\nDuring her hospitalization, the patient's symptoms included abdominal pain, fever, nausea, and vomiting. She was treated with ertapenem and Zofran, and her nausea improved with the latter. Her laboratory results showed slightly elevated liver enzymes, but her chemistry panel and urinalysis were normal.\n\nThe patient underwent an ERCP procedure, which showed no dominant stricture in the CBD or CHD, but did show marked narrowing of the right and left common hepatic ducts consistent with known PSC. She also underwent an MRCP procedure, which showed cirrhosis complicated by portal hypertension, splenomegaly, and multiple esophageal and gastric varices.\n\nAt discharge, the patient was prescribed medications including ertapenem and Zofran, and was advised to follow up with her primary care physician."
+  }
+}

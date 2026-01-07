@@ -1,0 +1,17 @@
+[
+    {
+        "The final diagnosis for the patient is seborrheic keratoses, which are benign skin lesions common in older adults.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Solar lentigines": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis is that the lesions are likely benign, with possibilities including stucco keratosis, acrochordons, or benign lichenoid keratosis. Regular monitoring is recommended, and a biopsy should be considered if any atypical changes occur.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis is uncertain, but the lesions are likely benign. Dermatosis papulosa nigra or acrochordons could be considered, but further evaluation is needed. Recommendations include monitoring the lesions for any changes and considering a dermatological consultation for dermoscopy or biopsy if there are any atypical changes.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Recommendation: Perform a skin biopsy to obtain histopathological evaluation, which would provide definitive differentiation between benign possibilities such as dermatosis papulosa nigra, benign lichenoid keratosis, or acrochordons. Monitor for any changes in the lesions that might suggest malignancy. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

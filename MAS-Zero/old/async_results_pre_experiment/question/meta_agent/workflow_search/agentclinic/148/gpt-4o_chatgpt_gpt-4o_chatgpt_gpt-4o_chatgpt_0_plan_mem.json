@@ -1,0 +1,17 @@
+[
+    {
+        "The final psychiatric evaluation confirms the diagnosis of a brief psychotic disorder triggered by stress, with consideration of differential diagnoses such as major depressive disorder with psychotic features or schizophrenia. Immediate psychiatric intervention is required, including hospitalization or intensive outpatient care, antipsychotic medications, and therapy focused on grief and stress management to ensure the patient's safety and address underlying factors.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final psychiatric evaluation confirms a diagnosis of brief psychotic disorder or adjustment disorder with mixed anxiety and depressed mood. Immediate psychiatric intervention is necessary, focusing on managing the risk of self-harm and addressing psychotic symptoms and underlying stressors with antipsychotic medication and supportive therapy.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final psychiatric evaluation recommends considering major depressive disorder with psychotic features or an adjustment disorder with disturbance of emotions and conduct. Immediate psychiatric intervention is crucial, with a consensus on hospitalization or intensive outpatient care, medications, and psychotherapy to address both the acute symptoms and the underlying stressor effectively.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final psychiatric evaluation prioritizes major depressive disorder with psychotic features as the primary diagnosis. Immediate intervention is necessary to address the severe symptoms and ensure patient safety, potentially involving hospitalization, medication with antidepressants and antipsychotics, and psychotherapy, including cognitive-behavioral therapy, to manage stress and prevent recurrence.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final psychiatric evaluation concludes that major depressive disorder with psychotic features is the most likely diagnosis. Immediate psychiatric intervention is necessary to manage the risk of self-harm and stabilize the patient. Brief psychotic disorder and schizophrenia are less likely, and adjustment disorder with disturbance of conduct is possible but less likely given the psychotic symptoms.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

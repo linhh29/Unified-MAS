@@ -1,0 +1,17 @@
+[
+    {
+        "The final diagnosis is chronic kidney disease, likely secondary to hypertensive nephrosclerosis, resulting in anemia and weight loss.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Chronic kidney disease due to chronic interstitial nephritis or a genetic condition affecting the kidneys, resulting in anemia and weight loss.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Chronic kidney disease due to diabetic nephropathy, resulting in anemia and weight loss.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The patient likely has chronic kidney disease resulting in anemia and weight loss, with hypertension being a probable contributing factor. However, the exact cause of CKD is unclear. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis is chronic kidney disease (CKD) with anemia and weight loss, possibly due to a genetic condition affecting the kidneys or chronic interstitial nephritis. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

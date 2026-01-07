@@ -1,0 +1,17 @@
+[
+    {
+        "The most likely diagnosis is bed bug bites. Treatment plan: 1. Use oral antihistamines to alleviate itching. 2. Apply topical corticosteroids to reduce inflammation. 3. Advise the patient to inspect and treat their living environment for bed bugs, potentially involving professional pest control services. Educate the patient on preventing future infestations, including checking hotel rooms and luggage when traveling.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Treatment plan: 1. Use oral antihistamines to alleviate itching. 2. Apply topical corticosteroids to reduce inflammation. 3. Advise the patient to inspect and treat their living environment for fleas, potentially involving professional pest control services. Educate the patient on preventing future infestations, including checking hotel rooms and luggage when traveling.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "1. Symptomatic relief: Prescribe an oral antihistamine (e.g., cetirizine or loratadine) to reduce itching. 2. Topical treatment: Recommend a topical corticosteroid cream (e.g., hydrocortisone) to apply to the affected areas to reduce inflammation and itching. 3. Skin care: Advise the patient to keep the skin moisturized and avoid scratching to prevent excoriations. 4. Environmental control: Suggest avoiding potential allergens or irritants, and use insect repellent if mosquito bites are suspected. 5. Follow-up: Schedule a follow-up appointment to reassess the condition and adjust treatment if necessary. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "1. Topical corticosteroids: Prescribe a low to medium potency topical corticosteroid cream to reduce inflammation and itching. 2. Antihistamines: Recommend an oral antihistamine, such as cetirizine or loratadine, to help alleviate itching. 3. Skin care: Advise the patient to keep the affected areas clean and avoid scratching to prevent secondary infection. 4. Avoidance: Suggest avoiding known allergens or irritants and using insect repellent if insect bites are suspected. 5. Follow-up: Schedule a follow-up appointment to assess the response to treatment and adjust the plan if necessary.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "1. Prescribe a topical corticosteroid cream to apply to the affected areas to reduce inflammation and itching.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

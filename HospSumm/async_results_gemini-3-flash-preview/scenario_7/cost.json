@@ -1,0 +1,202 @@
+{
+  "scenario_id": 7,
+  "doctor": {
+    "input_tokens": 41296,
+    "output_tokens": 9492,
+    "total_tokens": 50788,
+    "input_cost": 0.020648,
+    "output_cost": 0.028476,
+    "total_cost": 0.049124,
+    "num_calls": 11
+  },
+  "patient": {
+    "input_tokens": 19889,
+    "output_tokens": 3224,
+    "total_tokens": 23113,
+    "input_cost": 0.009945,
+    "output_cost": 0.009672,
+    "total_cost": 0.019617,
+    "num_calls": 6
+  },
+  "measurement": {
+    "input_tokens": 13022,
+    "output_tokens": 4382,
+    "total_tokens": 17404,
+    "input_cost": 0.006511,
+    "output_cost": 0.013146,
+    "total_cost": 0.019657,
+    "num_calls": 4
+  },
+  "judge": {
+    "input_tokens": 1050,
+    "output_tokens": 115,
+    "total_tokens": 1165,
+    "input_cost": 0.002625,
+    "output_cost": 0.00115,
+    "total_cost": 0.003775,
+    "num_calls": 1
+  },
+  "total": {
+    "total_cost": 0.092173,
+    "total_tokens": 92470
+  },
+  "detailed_calls": {
+    "doctor": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3221,
+        "output_tokens": 784,
+        "cost": 0.0039625,
+        "inference_num": 1
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3297,
+        "output_tokens": 655,
+        "cost": 0.0036135000000000004,
+        "inference_num": 2
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3428,
+        "output_tokens": 505,
+        "cost": 0.003229,
+        "inference_num": 3
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3533,
+        "output_tokens": 611,
+        "cost": 0.0035995000000000003,
+        "inference_num": 4
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3609,
+        "output_tokens": 711,
+        "cost": 0.0039375,
+        "inference_num": 5
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3697,
+        "output_tokens": 590,
+        "cost": 0.0036185,
+        "inference_num": 6
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3859,
+        "output_tokens": 622,
+        "cost": 0.0037955000000000003,
+        "inference_num": 7
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3959,
+        "output_tokens": 442,
+        "cost": 0.0033055000000000003,
+        "inference_num": 8
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4095,
+        "output_tokens": 918,
+        "cost": 0.0048015,
+        "inference_num": 9
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4243,
+        "output_tokens": 729,
+        "cost": 0.0043085,
+        "inference_num": 10
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4355,
+        "output_tokens": 2925,
+        "cost": 0.0109525,
+        "inference_num": 11
+      }
+    ],
+    "patient": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2884,
+        "output_tokens": 457,
+        "cost": 0.002813
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3065,
+        "output_tokens": 518,
+        "cost": 0.0030865
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3207,
+        "output_tokens": 422,
+        "cost": 0.0028694999999999997
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3423,
+        "output_tokens": 493,
+        "cost": 0.0031905
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3540,
+        "output_tokens": 669,
+        "cost": 0.003777
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3770,
+        "output_tokens": 665,
+        "cost": 0.00388
+      }
+    ],
+    "measurement": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2965,
+        "output_tokens": 1291,
+        "cost": 0.005355499999999999
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3165,
+        "output_tokens": 731,
+        "cost": 0.0037755
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3295,
+        "output_tokens": 979,
+        "cost": 0.0045845
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3597,
+        "output_tokens": 1381,
+        "cost": 0.0059415
+      }
+    ],
+    "judge": [
+      {
+        "model": "gpt-4o",
+        "input_tokens": 1050,
+        "output_tokens": 115,
+        "cost": 0.003775
+      }
+    ]
+  },
+  "diagnosis_result": {
+    "diagnosis_made": true,
+    "is_correct": false,
+    "doctor_diagnosis": "Mrs. [Name] is a 74-year-old female with a history of severe aortic stenosis and coronary artery disease who was admitted for elective surgical management. She successfully underwent coronary artery bypass grafting to two vessels, aortic valve replacement with a 21mm porcine bioprosthesis, and closure of a patent foramen ovale. Her postoperative course was complicated by new-onset atrial fibrillation, managed with amiodarone and warfarin, and postoperative anemia requiring a transfusion of two units of packed red blood cells. She also experienced a period of transient confusion and leukocytosis that was treated empirically with a short course of ciprofloxacin and diuresis, with her mental status returning to baseline prior to discharge. Mrs. [Name] was discharged home in stable condition with visiting nurse and physical therapy services to assist with her recovery and wound monitoring. Her discharge plan includes strict sternal precautions, a 10-pound lifting restriction for ten weeks, and a medication regimen including metoprolol, aspirin, and atorvastatin, along with short-term courses of furosemide and potassium.",
+    "correct_diagnosis": "The patient is a 74-year-old female who was admitted for surgical management of her aortic valve and coronary artery disease. She has a history of aortic stenosis, patent foramen ovale, coronary artery disease, hyperlipidemia, hypertension, and cardiovascular disease. She is allergic to erythromycin base. \n\nThe patient underwent coronary artery bypass grafting to two vessels, aortic valve replacement with a 21mm porcine valve, and PFO closure. Postoperatively, she developed atrial fibrillation and was started on amiodarone and coumadin. She was also transfused with two units of packed red blood cells for postoperative anemia. \n\nThe patient's medications at discharge include amiodarone, docusate sodium, aspirin, potassium chloride, atorvastatin, metoprolol tartrate, pantoprazole, furosemide, ciprofloxacin, and warfarin. She was discharged home with service and was advised to follow up with her cardiologist."
+  }
+}

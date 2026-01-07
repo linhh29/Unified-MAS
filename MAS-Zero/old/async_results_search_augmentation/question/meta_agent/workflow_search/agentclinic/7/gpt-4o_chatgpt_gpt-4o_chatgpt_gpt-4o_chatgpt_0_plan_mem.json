@@ -1,0 +1,17 @@
+[
+    {
+        "The test results, including thrombocytosis, dysplastic megakaryocytes, and a genetic mutation on chromosome 9, along with iron deficiency, support the diagnosis of essential thrombocythemia.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The test results indicate a myeloproliferative disorder, likely essential thrombocythemia, due to thrombocytosis, dysplastic megakaryocytes, and the chromosome 9 mutation. Further confirmation of the specific genetic mutation, such as JAK2 V617F, would be beneficial. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Conduct a JAK2 V617F mutation assay to confirm the presence of the JAK2 V617F mutation.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Essential thrombocythemia": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The diagnosis is essential thrombocythemia, supported by the presence of the JAK2 V617F mutation, thrombocytosis, and clinical findings.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

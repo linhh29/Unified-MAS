@@ -1,0 +1,202 @@
+{
+  "scenario_id": 15,
+  "doctor": {
+    "input_tokens": 98260,
+    "output_tokens": 7607,
+    "total_tokens": 105867,
+    "input_cost": 0.04913,
+    "output_cost": 0.022821,
+    "total_cost": 0.071951,
+    "num_calls": 11
+  },
+  "patient": {
+    "input_tokens": 50308,
+    "output_tokens": 2720,
+    "total_tokens": 53028,
+    "input_cost": 0.025154,
+    "output_cost": 0.00816,
+    "total_cost": 0.033314,
+    "num_calls": 6
+  },
+  "measurement": {
+    "input_tokens": 33789,
+    "output_tokens": 9216,
+    "total_tokens": 43005,
+    "input_cost": 0.016894,
+    "output_cost": 0.027648,
+    "total_cost": 0.044542,
+    "num_calls": 4
+  },
+  "judge": {
+    "input_tokens": 1084,
+    "output_tokens": 137,
+    "total_tokens": 1221,
+    "input_cost": 0.00271,
+    "output_cost": 0.00137,
+    "total_cost": 0.00408,
+    "num_calls": 1
+  },
+  "total": {
+    "total_cost": 0.153888,
+    "total_tokens": 203121
+  },
+  "detailed_calls": {
+    "doctor": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 8002,
+        "output_tokens": 565,
+        "cost": 0.005696,
+        "inference_num": 1
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 8096,
+        "output_tokens": 694,
+        "cost": 0.00613,
+        "inference_num": 2
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 8427,
+        "output_tokens": 457,
+        "cost": 0.0055845,
+        "inference_num": 3
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 8519,
+        "output_tokens": 704,
+        "cost": 0.0063715,
+        "inference_num": 4
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 8621,
+        "output_tokens": 475,
+        "cost": 0.0057355,
+        "inference_num": 5
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 8709,
+        "output_tokens": 595,
+        "cost": 0.0061395,
+        "inference_num": 6
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 9064,
+        "output_tokens": 602,
+        "cost": 0.006338,
+        "inference_num": 7
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 9170,
+        "output_tokens": 406,
+        "cost": 0.005803,
+        "inference_num": 8
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 9575,
+        "output_tokens": 565,
+        "cost": 0.0064825,
+        "inference_num": 9
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 9989,
+        "output_tokens": 823,
+        "cost": 0.0074635000000000005,
+        "inference_num": 10
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 10088,
+        "output_tokens": 1721,
+        "cost": 0.010207,
+        "inference_num": 11
+      }
+    ],
+    "patient": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 7677,
+        "output_tokens": 371,
+        "cost": 0.0049515
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 8068,
+        "output_tokens": 502,
+        "cost": 0.00554
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 8158,
+        "output_tokens": 593,
+        "cost": 0.005858
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 8261,
+        "output_tokens": 377,
+        "cost": 0.0052615
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 8660,
+        "output_tokens": 453,
+        "cost": 0.0056890000000000005
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 9484,
+        "output_tokens": 424,
+        "cost": 0.006013999999999999
+      }
+    ],
+    "measurement": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 7750,
+        "output_tokens": 3158,
+        "cost": 0.013349
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 8261,
+        "output_tokens": 2466,
+        "cost": 0.0115285
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 8684,
+        "output_tokens": 1743,
+        "cost": 0.009571
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 9094,
+        "output_tokens": 1849,
+        "cost": 0.010093999999999999
+      }
+    ],
+    "judge": [
+      {
+        "model": "gpt-4o",
+        "input_tokens": 1084,
+        "output_tokens": 137,
+        "cost": 0.00408
+      }
+    ]
+  },
+  "diagnosis_result": {
+    "diagnosis_made": true,
+    "is_correct": false,
+    "doctor_diagnosis": "This 67-year-old male with end-stage renal disease on hemodialysis, type 2 diabetes, and coronary artery disease was initially admitted for chest pain and a cough concerning for tuberculosis. While myocardial infarction and active tuberculosis were successfully ruled out, his hospital course was complicated by an acute right MCA ischemic stroke occurring during hemodialysis. He received prompt tPA administration with significant improvement in his initial flaccid left-sided weakness, though he was discharged with a persistent left facial droop and mild expressive aphasia. His management focused on secondary stroke prevention through the initiation of high-dose atorvastatin, an increased aspirin dose of 325 mg, and optimized blood pressure control with carvedilol and lisinopril. Due to poor oral intake, Megace was started as an appetite stimulant, and tramadol was provided for his chronic headaches. He was discharged home in stable condition with instructions to use a walker for mobility and to engage in outpatient physical, occupational, and speech therapy, with plans for an outpatient transesophageal echocardiogram to further evaluate the stroke etiology.",
+    "correct_diagnosis": "The patient is a 67-year-old male with a history of End Stage Renal Disease (ESRD) on hemodialysis, Type II Diabetes Mellitus, Coronary Artery Disease (CAD) with a drug-eluting stent, Hyperlipidemia, Hypertension, and Anemia. He was admitted to the hospital with a chief complaint of chest pain, tuberculosis rule-out, acute cerebral infarct, headache, and pulmonary edema. \n\nThe patient's past medical history includes latent tuberculosis treated with INH, chronic hypertension, and chronic hemodialysis. His social history is significant for a sister who died from diabetes complications and multiple living children with various health problems. \n\nDuring his hospital stay, the patient was diagnosed with a right MCA perfusion defect with \"penumbra\" and was treated with tPA. He was also found to have a R carotid stenosis. The patient remains aphasic and has left upper extremity weakness, but is able to move his extremities and ambulate to the bathroom without assistance. \n\nAt discharge, the patient's vital signs were stable, and he was prescribed medications for his conditions. His laboratory results showed normal blood chemistry values, except for slightly elevated glucose levels."
+  }
+}

@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .message {
+                padding: 8px 16px;
+                margin-bottom: 8px;
+                border-radius: 4px;
+            }
+            .message.user {
+                background-color: #B2DFDB;
+                color: #00695C;
+            }
+            .message.assistant {
+                background-color: #B39DDB;
+                color: #4527A0;
+            }
+            .message.system {
+                background-color: #EEEEEE;
+                color: #212121;
+            }
+            .role {
+                font-weight: bold;
+                margin-bottom: 4px;
+            }
+            .variant {
+                color: #795548;
+            }
+            table, th, td {
+                border: 1px solid black;
+            }
+            pre {
+                white-space: pre-wrap;
+            }
+        </style>
+    </head>
+    <body>
+    
+    <h1>Metrics</h1>
+    <table>
+    <tr>
+        <th>Metric</th>
+        <th>Value</th>
+    </tr>
+    <tr>
+        <td><b>Score</b></td>
+        <td>0.0</td>
+    </tr>
+    
+    <tr>
+        <td>score:std</td>
+        <td>0.0</td>
+    </tr>
+    
+    </table>
+    
+    <h1>Examples</h1>
+    
+    
+<h3>Prompt conversation</h3>
+
+
+<div class="message system">
+    <div class="role">
+    system
+    
+    </div>
+    <div class="content">
+    <pre>You are a helpful assistant.
+
+Reply EXACTLY with the following JSON format.
+{&#34;reflection&#34;: &#34;Your reflection (if applicable).&#34;, &#34;thought&#34;: &#34;Your thought.&#34;, &#34;name&#34;: &#34;Your name.&#34;, &#34;code&#34;: &#34;Your code.&#34;}
+DO NOT MISS ANY REQUEST FIELDS and ensure that your response is a well-formed JSON object!</pre>
+    </div>
+</div>
+
+
+<div class="message user">
+    <div class="role">
+    user
+    
+    </div>
+    <div class="content">
+    <pre>Initial Round (Round 0):
+
+
+
+# Overview
+You are an expert machine learning researcher testing various agentic systems. Given a set of architectures in the archive and the question. Note that architecture can contain multiple agents, and agent means a LLM that is used for specifical objectives by specifclaied setting (instruction, tempreture...)
+
+Your objective is to 
+
+(1) Perform task decomposition. Specifically, decompose the give question significantly so that the sub-architecture (or node or block) can perform each of the sub-tasks. The output should be sub-task 1, sub-task 2, ... sub-task n. Do not solve the task for the sub-architecture and do not leak the expected answer in your sub-task description/instruction/question (a short-cut like &#39;output exactly the following...&#39; is also leakage and should be avoided). Instead, decompose the task that easy enough for the sub-architecture to solve. You need to justify how these sub-tasks can achieve the final answer to the orginal questions.
+
+Make sure 
+
+(a) Include sub-task ID  and &#39;Based on (task i)&#39; in the instruction of a sub-task. 
+For example, 
+Similarly, if sub-task 2 requires the output of task 1, then sub-task 2&#39;s instruction should be
+&#39;Sub-task 2: Based on the outputs from sub-task 1, ....(origin sub-task 1&#39;s instruction)&#39;
+
+Similarly, if sub-task 3 requires the output of task 1 and 2, then sub-task 3&#39;s instruction should be
+&#39;Sub-task 3: Based on the outputs from sub-task 1 and 2, ....(origin sub-task 3&#39;s instruction)&#39;
+This helps each sub-task connects to its prerequisite sub-tasks so that there is enough information to solve it.
+
+(b) Each sub-task should be specific and detailed enough to solve and to help achieve the final answer to the given question. The output should be helpful to solve the next sub-task. You need to include details steps (but not the answer) to the sub-task 
+For example,
+`Sub-task 3: Based on the output of sub-task 1 and 2....`
+You can see it clearly states &#39;based on what sub-tasks&#39;
+
+(c) The answer to the last sub-task should be the same as the answer to the final question, so that the architecture successfully solve the complex question by solving each of the sub-task. 
+
+(2) Given the resulting sub-task 1, sub-task 2, ... sub-task n, design connections between existing blocks to address each of them. 
+You should structure the architecture as a multi-layered network. Each existing architecture (or blocks) serves as a node, while connections between them act as edges, forming a structured hierarchy of interactions. Additionally, you must determine the number of layers in the network.
+
+For example, if the exising architectures are &#39;COT, COT_SC, Reflexion, LLM_debate&#39; and you determine that there can be 3 layers. There are 3 resulting sub-task from (1) sub-task 1, sub-task 2, sub-task 1, sub-task 3:
+
+Example Setup
+
+Resulting sub-tasks:
+sub-task 1, sub-task 2, sub-task 3, sub-task 4
+
+Available architectures:
+COT, COT_SC, Reflexion, LLM_debate
+
+Network with 3 Layers:
+
+Layer 1: COT  COT_SC  Reflexion  LLM_debate  
+Layer 2: COT  COT_SC  Reflexion  LLM_debate   
+Layer 3: COT  COT_SC  Reflexion  LLM_debate  
+
+Connection Strategies:
+
+1. Linear Connection: Directly link two block to pass information forward.
+Example: [COT] (address sub-task 1) -&gt; [LLM_debate] (address sub-task 2) (Single connection and exit)
+
+2. Multi-Layer Connection: An block can appear in multiple layers, forming deeper reasoning structures.
+Example: [COT] (address sub-task 1) -&gt; [LLM_debate] (address sub-task 2) -&gt; [COT -&gt; Reflexion] (address sub-task 3) (COT appears in both Layer 1 and Layer 3) (the whole [COT -&gt; Reflexion] is a sub-task architecture that aims to address sub-task 3)
+
+IMPORTANT:
+
+1. Decomposition itself should not be included in the architecture as the question has been decomposed at step (1). Do not assign one block to perform all the sub-tasks (if you put all decomposed sub-tasks into a single instruction for an block, it is very wrong). Instead, assign different block to address each of the sub-task instead.
+
+2. If your previous attempts in Discovered architecture archive are incorrect (fitness value equals to 0), it means the sub-tasks are still too difficult to the corresponidng blocka. Please further decompose the question to easier sub-tasks. 
+
+Your aim is to design an optimal block connection that can perform well on each of the sub-task.Your code should implement the exising blocks given in the archive (the &#39;code&#39; entry of blocks) as it-is without modication: Do not propose new blocks or modify existing ones and only change the connections between the given blocks, but block setting like instruction, temperature are allowed to modify
+
+
+
+# The utility code:
+
+```python
+from collections import namedtuple
+from typing import Union
+import numpy as np
+import json
+
+import openai
+import backoff
+from utils import random_id
+
+# Initialize the Async OpenAI client
+client = openai.AsyncOpenAI()
+
+# Named tuple for holding task information
+Info = namedtuple(&#39;Info&#39;, [&#39;name&#39;, &#39;author&#39;, &#39;content&#39;, &#39;prompt&#39;, &#39;sub_tasks&#39;, &#39;agents&#39;, &#39;iteration_idx&#39;])
+
+# Format instructions for LLM response
+FORMAT_INST = lambda request_keys: f&#34;Reply EXACTLY with the following JSON format.
+{str(request_keys)}
+DO NOT MISS ANY FIELDS AND MAKE SURE THE JSON FORMAT IS CORRECT!
+&#34;
+
+# Description of the role for the LLM
+ROLE_DESC = lambda role: f&#34;You are a {role}.&#34;
+
+@backoff.on_exception(backoff.expo, openai.RateLimitError)
+async def get_json_response_from_gpt(msg, model, system_message, temperature=0.5):
+    &#34;&#34;&#34;
+    Function to get JSON response from GPT model.
+    
+    Args:
+    - msg (str): The user message.
+    - model (str): The model to use.
+    - system_message (str): The system message.
+    - temperature (float): Sampling temperature.
+    
+    Returns:
+    - dict: The JSON response.
+    &#34;&#34;&#34;
+    response = await client.chat.completions.create(
+        model=model,
+        messages=[
+            {&#34;role&#34;: &#34;system&#34;, &#34;content&#34;: system_message},
+            {&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: msg},
+        ],
+        temperature=temperature,
+        max_tokens=1024,
+        stop=None,
+        response_format={&#34;type&#34;: &#34;json_object&#34;}
+    )
+    content = response.choices[0].message.content
+    json_dict = json.loads(content)
+    return json_dict
+
+class LLMAgentBase():
+    &#34;&#34;&#34;
+    Attributes:
+    &#34;&#34;&#34;
+
+    def __init__(self, output_fields: list, agent_name: str,
+                 role=&#39;helpful assistant&#39;, model=None, temperature=None) -&gt; None:
+        self.output_fields = output_fields
+        self.agent_name = agent_name
+
+        self.role = role
+        self.model = model
+        self.temperature = temperature
+        # give each instance a unique id
+        self.id = random_id()
+        
+
+    def generate_prompt(self, input_infos, instruction, is_sub_task=False) -&gt; str:
+
+        output_fields_and_description = {key: f&#34;Your {key}.&#34; if not &#39;answer&#39; in key else f&#34;Your {key}. {global_output_description}&#34; for key in self.output_fields}
+        system_prompt = ROLE_DESC(self.role) + &#34;
+
+&#34; + FORMAT_INST(output_fields_and_description)
+
+        # print(&#39;is_sub_task: &#39;,is_sub_task)
+        
+
+        # construct input infos text
+        input_infos_text = &#39;&#39;
+        prev_prompt = &#39;&#39;
+        for input_info in input_infos:
+            if isinstance(input_info, Info):
+                (field_name, author, content, prompt, _, _, iteration_idx) = input_info
+            else:
+                continue
+            if author == self.__repr__():
+                author += &#39; (yourself)&#39;
+            if field_name == &#39;task&#39;:
+                if is_sub_task: 
+                    # input_infos_text += f&#39;Giving the original question: 
+
+{content}
+
+, and below sub-task questions and answers, please solve the sub-task: {instruction}
+
+Sub-task questions and answers (if any):
+
+&#39;
+                    input_infos_text += f&#39;{instruction}
+
+Previous sub-task questions and answers (if any):
+
+&#39;
+                else:
+                    # continue # TODO: make sure it can deal with sub-tasks
+                    input_infos_text += f&#39;{content}
+
+&#39;
+            elif iteration_idx != -1:
+                if is_sub_task and prompt is not None and prompt != prev_prompt: 
+                    # print(&#39;prompt: &#39;,prompt)
+                    # pattern = r&#34;please solve the sub-task:\s*(.*?)\s*
+
+Sub-task questions and answers&#34;
+                    pattern = r&#34;\s*(.*?)\s*
+
+Previous sub-task questions&#34;
+
+                    sub_question = prompt[-1][&#39;content&#39;]
+                    match = re.search(pattern, sub_question, re.DOTALL)                                        
+                    input_infos_text += f&#39;### {match.group(1)} 
+
+ ### {field_name} #{iteration_idx + 1} by {author}:
+{content}
+
+&#39;
+                    prev_prompt = prompt
+                else:
+                    input_infos_text += f&#39;### {field_name} #{iteration_idx + 1} by {author}:
+{content}
+
+&#39;
+            else:
+                if is_sub_task and prompt is not None and prompt != prev_prompt: 
+                    # print(&#39;prompt: &#39;,prompt)
+                    pattern = r&#34;\s*(.*?)\s*
+
+Previous sub-task questions&#34;
+                    sub_question = prompt[-1][&#39;content&#39;]
+                    match = re.search(pattern, sub_question, re.DOTALL)
+                    input_infos_text += f&#39;### {match.group(1)} 
+
+ ### {field_name} by {author}:
+{content}
+
+&#39;
+                    prev_prompt = prompt # we do not want to duplicate the prompt
+                else:
+                    input_infos_text += f&#39;### {field_name} by {author}:
+{content}
+
+&#39;
+
+        if is_sub_task: 
+            prompt = input_infos_text # instruction (sub-task in above)
+        else:
+            prompt = input_infos_text + instruction
+        return system_prompt, prompt
+
+    async def query(self, input_infos: list, instruction, iteration_idx=-1, is_sub_task=False) -&gt; dict:
+
+        global COST_TOTAL
+
+        system_prompt, prompt = self.generate_prompt(input_infos, instruction, is_sub_task=is_sub_task)
+
+        prompt = [
+            _pack_message(content=system_prompt, role=&#34;system&#34;),
+            _pack_message(content=prompt, role=&#34;user&#34;)]
+        # use system prompt
+
+        response_json, cost = await get_json_response_from_gpt(prompt, self.model)
+        COST_TOTAL += cost
+
+        output_infos = []
+        for key, value in response_json.items():
+            info = Info(key, self.__repr__(), value, prompt, None, None, iteration_idx)
+            output_infos.append(info)
+        return output_infos
+
+    def __repr__(self):
+        return f&#34;{self.agent_name} {self.id}&#34;
+
+    async def __call__(self, input_infos: list, extra_info, instruction, iteration_idx=-1, is_sub_task=False):
+        return await self.query(input_infos, extra_info, instruction, iteration_idx=iteration_idx,  is_sub_task=is_sub_task)
+
+
+
+
+class AgentArchitecture:
+    &#34;&#34;&#34;
+    Fill in your code here.
+    &#34;&#34;&#34;
+    def forward(self, taskInfo, extra_info) -&gt; Union[Info, str]:
+        &#34;&#34;&#34;
+        Placeholder method for processing task information.
+        
+        Args:
+        - taskInfo (Info): Task information.
+        - extra_info (dict): Extra information to help solve the task.
+        
+        Returns:
+        - Answer (Info): Your FINAL Answer. Return namedtuple Info returned from self.make_final_answer.
+        &#34;&#34;&#34;
+        pass
+```
+# Discovered architecture archive
+Here is the archive of the discovered architectures:
+
+[{&#34;thought&#34;: &#34;This tool parses unstructured clinical text into semantic sections using regex heuristics based on common clinical headers. It normalizes section names and structures the raw notes into a dictionary for downstream processing.&#34;, &#34;name&#34;: &#34;Section_Segmenter_Tool&#34;, &#34;code&#34;: &#34;def forward(self, taskInfo):\n    import re\n    import json\n\n    # ---------- Step 1: Process the input data ----------\n    # Extract content from taskInfo\n    content = taskInfo.content\n    task_data = {}\n    \n    if isinstance(content, dict):\n        task_data = content\n    elif isinstance(content, str):\n        try:\n            task_data = json.loads(content)\n        except json.JSONDecodeError:\n            # Fallback: if string is not JSON, treat it as the &#39;instruct&#39; input directly\n            task_data = {&#39;instruct&#39;: content}\n    \n    raw_text = task_data.get(&#39;instruct&#39;, &#39;&#39;)\n    \n    # ---------- Step 2: Implement the node logic ----------\n    # Extended header map to capture all sections in the provided input and common variations\n    # Keys are lowercased for normalization logic\n    header_map = {\n        &#39;chief complaint&#39;: &#39;chief_complaint&#39;,\n        &#39;history of present illness&#39;: &#39;hpi&#39;,\n        &#39;past medical history&#39;: &#39;pmh&#39;,\n        &#39;social history&#39;: &#39;social_history&#39;,\n        &#39;family history&#39;: &#39;family_history&#39;,\n        &#39;major surgical or invasive procedure&#39;: &#39;procedures&#39;,\n        &#39;allergies&#39;: &#39;allergies&#39;,\n        &#39;physical exam&#39;: &#39;physical_exam&#39;,\n        &#39;pertinent results&#39;: &#39;results&#39;,\n        &#39;brief hospital course&#39;: &#39;hospital_course&#39;,\n        &#39;discharge diagnosis&#39;: &#39;discharge_diagnosis&#39;,\n        &#39;discharge instructions&#39;: &#39;instructions&#39;,\n        &#39;discharge medications&#39;: &#39;medications&#39;,\n        &#39;medications on admission&#39;: &#39;admission_meds&#39;,\n        &#39;service&#39;: &#39;service&#39;,\n        &#39;attending&#39;: &#39;attending&#39;,\n        &#39;discharge disposition&#39;: &#39;disposition&#39;,\n        &#39;discharge condition&#39;: &#39;condition&#39;,\n        &#39;review of systems&#39;: &#39;ros&#39;\n    }\n    \n    # Sort keys by length (descending) to match specific long headers before shorter substrings\n    sorted_headers = sorted(header_map.keys(), key=len, reverse=True)\n    \n    # Create a regex pattern: \\n followed by optional whitespace, then the header, then a colon\n    # Using re.IGNORECASE to handle casing variations\n    # re.escape ensures special characters in headers are treated as literals\n    combined_headers = &#39;|&#39;.join(map(re.escape, sorted_headers))\n    pattern = re.compile(r&#39;\\n\\s*(&#39; + combined_headers + r&#39;):&#39;, re.IGNORECASE)\n    \n    # Initialize result dict\n    sections = {}\n    \n    # Split the text. Prepend newline to ensure the first header is caught if at start.\n    parts = pattern.split(&#39;\\n&#39; + raw_text)\n    \n    # The first part is preamble (before any known header)\n    if parts:\n        sections[&#39;preamble&#39;] = parts[0].strip()\n    \n    # Iterate through split parts. re.split returns [text, captured_header, text, captured_header, ...]\n    # We iterate from index 1, in steps of 2\n    for i in range(1, len(parts) - 1, 2):\n        raw_header = parts[i]\n        content = parts[i+1].strip()\n        \n        # Normalize key using the map. Lowercase the captured header for lookup.\n        # Normalize whitespace in header (e.g. &#39;Chief   Complaint&#39; -&gt; &#39;chief complaint&#39;)\n        clean_header = re.sub(r&#39;\\s+&#39;, &#39; &#39;, raw_header).strip().lower()\n        normalized_key = header_map.get(clean_header, &#39;other&#39;)\n        \n        sections[normalized_key] = content\n        \n    # Fallback if no segmentation occurred (or only preamble found but it covers everything)\n    if len(sections) &lt;= 1:\n        if &#39;preamble&#39; in sections:\n             # If preamble is empty and raw_text exists, treat as body\n             if not sections[&#39;preamble&#39;] and raw_text:\n                 sections[&#39;body&#39;] = raw_text\n             # If only preamble and it has content, it remains as preamble (correct for files with no headers)\n        elif not sections:\n             sections[&#39;body&#39;] = raw_text\n\n    # ---------- Step 3: Collect the output ----------\n    output_data = {\n        &#39;segmented_sections&#39;: sections\n    }\n    \n    # Return the final answer wrapped in an Info object via make_final_answer\n    # No &#39;thinking&#39; component for this deterministic tool\n    return self.make_final_answer(&#39;&#39;, output_data)\n&#34;},
+{&#34;thought&#34;: &#34;I separate the task into two steps: extracting medical terms from the clinical text and then generating definitions for those terms using the model&#39;s knowledge base. This ensures only relevant acronyms are defined, keeping the summary semantic and concise.&#34;, &#34;name&#34;: &#34;Medical_Ontology_RAG&#34;, &#34;code&#34;: &#34;def forward(self, taskInfo):\n    # Step 1: Prepare Context from taskInfo\n    # Handle potential JSON string or dict in taskInfo.content\n    input_content = taskInfo.content\n    if isinstance(input_content, str):\n        try:\n            input_data = json.loads(input_content)\n        except:\n            input_data = {}\n    elif isinstance(input_content, dict):\n        input_data = input_content\n    else:\n        input_data = {}\n\n    sections = input_data.get(&#39;segmented_sections&#39;, {})\n    \n    # Combine relevant sections where acronyms/jargon appear\n    context_text = (\n        f\&#34;Procedures: {sections.get(&#39;major_surgical_or_invasive_procedure&#39;, &#39;&#39;)}\\n\&#34;\n        f\&#34;HPI: {sections.get(&#39;history_of_present_illness&#39;, &#39;&#39;)}\\n\&#34;\n        f\&#34;Labs/Exam: {sections.get(&#39;physical_exam&#39;, &#39;&#39;)} {sections.get(&#39;pertinent_results&#39;, &#39;&#39;)}\&#34;\n    )\n    # Truncate to avoid context limit\n    context_text = context_text[:4000]\n\n    # Step 2: Targeted Extraction Agent\n    # Instruction to get only abbreviations and specific eponymous terms\n    extraction_instruction = (\n        \&#34;Identify and list medical acronyms, abbreviations, and eponymous surgical procedures found in the text. \&#34;\n        \&#34;Strictly follow these rules:\\n\&#34;\n        \&#34;1. INCLUDE acronyms (e.g., OSH, BRBPR, EGD, Hct, MICU, NGT, PPI, CABG).\\n\&#34;\n        \&#34;2. INCLUDE eponymous procedures (e.g., Billroth II, Whipple).\\n\&#34;\n        \&#34;3. EXCLUDE common full disease names (e.g., Hypertension, Diabetes, Pneumonia).\\n\&#34;\n        \&#34;4. EXCLUDE common anatomical terms (e.g., abdomen, heart).\\n\&#34;\n        \&#34;5. EXCLUDE standard units of measure unless ambiguous.\\n\&#34;\n        \&#34;6. Output ONLY a comma-separated list of the top 8 most clinically relevant terms needing definition. If none, return &#39;None&#39;.\&#34;\n    )\n\n    # Use taskInfo to pass context, modifying content temporarily for the agent\n    taskInfo.content = context_text\n    \n    extraction_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Term Extraction Agent&#39;, model=self.node_model, temperature=0.0)\n    thinking_1, terms_answer = extraction_agent([taskInfo], extraction_instruction)\n    \n    # Process extraction result\n    terms_response = terms_answer.content\n    search_terms = []\n    if \&#34;None\&#34; not in terms_response and terms_response.strip():\n        cleaned_response = terms_response.replace(\&#34;Terms:\&#34;, \&#34;\&#34;).replace(\&#34;Answer:\&#34;, \&#34;\&#34;).strip()\n        search_terms = [t.strip() for t in cleaned_response.split(&#39;,&#39;) if t.strip()]\n\n    # Step 3: Retrieval/Definition Agent\n    if not search_terms:\n        # No terms to define, return empty summary\n        terms_answer.content = \&#34;No specific medical terminology definitions required.\&#34;\n        return self.make_final_answer(thinking_1, terms_answer)\n    \n    # Prepare query for Definition Agent\n    # Note: Using LLM as knowledge base to replace external search engine for portability\n    query_terms = \&#34;, \&#34;.join(search_terms[:8])\n    definition_instruction = (\n        \&#34;You are a precise Medical Dictionary. \&#34;\n        \&#34;Your task is to define the provided medical terms/acronyms.\\n\&#34;\n        \&#34;Format Requirement:\\n\&#34;\n        \&#34;- Term: Definition (1 sentence)\\n\&#34;\n        \&#34;- Term: Definition (1 sentence)\\n\\n\&#34;\n        \&#34;Do NOT write paragraphs. Do NOT provide general medical advice. ONLY define the specific terms requested.\&#34;\n    )\n    \n    # Update taskInfo content for the definition request\n    taskInfo.content = f\&#34;Requested Terms: {query_terms}\\nGenerate the definitions list.\&#34;\n    \n    definition_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Definition Agent&#39;, model=self.node_model, temperature=0.0)\n    thinking_2, definition_answer = definition_agent([taskInfo], definition_instruction)\n    \n    # Return the final definitions\n    return self.make_final_answer(thinking_2, definition_answer)\n&#34;},
+{&#34;thought&#34;: &#34;Extracts and summarizes pertinent lab results, imaging, and procedures from segmented clinical sections, ensuring numerical accuracy and professional medical prose.&#34;, &#34;name&#34;: &#34;Results_Processing_Agent&#34;, &#34;code&#34;: &#34;def forward(self, taskInfo):\n    # Extract input data from taskInfo\n    content = taskInfo.content\n    if isinstance(content, dict):\n        sections = content.get(&#39;segmented_sections&#39;, {})\n    elif isinstance(content, str):\n        try:\n            data = json.loads(content)\n            sections = data.get(&#39;segmented_sections&#39;, {})\n        except:\n            sections = {}\n    else:\n        sections = {}\n    \n    # Extract relevant sections. Note: Imaging/Echo often sits inside &#39;Pertinent Results&#39;\n    proc_section = sections.get(&#39;major_surgical_or_invasive_procedure&#39;, &#39;Not documented&#39;)\n    diagnosis_section = sections.get(&#39;discharge_diagnosis&#39;, &#39;Not documented&#39;)\n    results_section = sections.get(&#39;pertinent_results&#39;) or sections.get(&#39;results&#39;, &#39;Not documented&#39;)\n    imaging_section = sections.get(&#39;imaging&#39;, &#39;&#39;) # Fallback if segmented separately\n    hospital_course = sections.get(&#39;brief_hospital_course&#39;, &#39;Not documented&#39;)\n    \n    # Context construction\n    # Using single triple quotes to avoid conflict with outer wrapper string\n    combined_context = f&#39;&#39;&#39;\n    [Discharge Diagnosis]: {diagnosis_section}\n    [Major Procedure]: {proc_section}\n    \n    [Pertinent Results (Labs, Imaging, Studies)]:\n    {results_section}\n    {imaging_section}\n    \n    [Hospital Course (Context for procedures/findings)]:\n    {hospital_course}\n    &#39;&#39;&#39;\n\n    # Instruction for the Agent (System Prompt)\n    instruction = (\n        \&#34;You are an expert Medical Scribe. Your task is to write a narrative summary of the diagnostic results and procedures for a hospital discharge summary.\\n\\n\&#34;\n        \&#34;### GUIDELINES:\\n\&#34;\n        \&#34;1. **Format**: Output a SINGLE, continuous paragraph. **Do not use bullet points, lists, or line breaks.**\\n\&#34;\n        \&#34;2. **Content Focus**:\\n\&#34;\n        \&#34;   - **Labs**: Summarize significant abnormalities using qualitative terms (e.g., &#39;elevated creatinine&#39;, &#39;anemia&#39;, &#39;leukocytosis&#39;). **Do not list raw numbers** unless they are critical for context.\\n\&#34;\n        \&#34;   - **Imaging/Diagnostics**: Summarize the key impressions of scans (CT, MRI) and tests (Echo, EKG). Focus on the final impression (e.g., &#39;CT head revealed chronic ischemic changes&#39;).\\n\&#34;\n        \&#34;   - **Procedures**: Mention major invasive procedures (e.g., pacemaker placement) and their outcome.\\n\&#34;\n        \&#34;3. **Style**: Use smooth, professional medical prose (e.g., &#39;Laboratory results showed...&#39;, &#39;Imaging studies revealed...&#39;, &#39;The patient underwent...&#39;).\\n\&#34;\n        \&#34;4. **Input Handling**: Imaging and procedure details may be embedded within the &#39;Pertinent Results&#39; section; extract and synthesize them.\&#34;\n    )\n\n    # Prepare the inputs for the agent\n    # We construct the specific user prompt content expected by the logic\n    user_prompt_content = f\&#34;Analyze the following clinical data and generate the narrative summary:\\n\\n{combined_context}\&#34;\n    \n    # Update taskInfo content to pass the formatted text to the agent\n    taskInfo.content = user_prompt_content\n\n    # Instantiate a new LLM agent\n    # Using &#39;thinking&#39; and &#39;answer&#39; to match the reference format and enable CoT capabilities\n    agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Results_Processing_Agent&#39;, model=self.node_model, temperature=0.0)\n\n    # Get the response from the agent\n    thinking, answer = agent([taskInfo], instruction)\n    \n    # Return only the final answer using the helper\n    return self.make_final_answer(thinking, answer)\n&#34;},
+{&#34;thought&#34;: &#34;This node processes segmented medical record sections and a results summary to generate a structured discharge summary. I extracted the input handling logic to parse the &#39;segmented_sections&#39; dictionary. The complex string formatting logic (preamble, allergies, etc.) is preserved to build the specific context required for the prompt. The LLM interaction is handled via `LLMAgentBase` with a &#39;thinking&#39; step to encourage reasoning before generation.&#34;, &#34;name&#34;: &#34;Course_Plan_Agent&#34;, &#34;code&#34;: &#34;def forward(self, taskInfo):\n    # Instruction for the Chain-of-Thought (CoT) approach\n    # The system prompt from the original node serves as the instruction here.\n    cot_instruction = (\n        \&#34;You are an expert medical summarizer. Create a structured Discharge Summary based on the provided patient records.\\n\\n\&#34;\n        \&#34;Follow this exact 3-paragraph structure:\\n\\n\&#34;\n        \&#34;**Paragraph 1: Admission &amp; History**\\n\&#34;\n        \&#34;- Start with patient age, gender, and primary diagnosis (include specific genetic details if available, e.g., del 5q).\\n\&#34;\n        \&#34;- Briefly summarize the HPI/Reason for admission.\\n\&#34;\n        \&#34;- State relevant Past Medical History (PMH) and Allergies clearly.\\n\\n\&#34;\n        \&#34;**Paragraph 2: Hospital Course &amp; Treatment**\\n\&#34;\n        \&#34;- Summarize the primary treatment (e.g., chemotherapy cycle, agents, dosages if relevant).\\n\&#34;\n        \&#34;- Mention supportive care (antiemetics, prophylaxis) and specific medications used.\\n\&#34;\n        \&#34;- Note clinical progress, tolerance of treatment, and key complications (or lack thereof).\\n\&#34;\n        \&#34;- Incorporate significant lab trends/results if relevant to the course (e.g., anemia management).\\n\\n\&#34;\n        \&#34;**Paragraph 3: Discharge Plan**\\n\&#34;\n        \&#34;- Summarize discharge instructions, follow-up appointments (dates/doctors).\\n\&#34;\n        \&#34;- Mention home medications/treatments and specific warning signs to return for.\\n\\n\&#34;\n        \&#34;**Guidelines**:\\n\&#34;\n        \&#34;- Be concise but comprehensive.\\n\&#34;\n        \&#34;- Do not list raw data; synthesize it into the narrative.\\n\&#34;\n        \&#34;- Ensure Allergies and PMH are explicitly mentioned in Para 1.\&#34;\n    )\n\n    # Instantiate a new LLM agent specifically for CoT\n    # We enable &#39;thinking&#39; to allow the model to reason before generating the final summary.\n    cot_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Course Plan Agent&#39;,  model=self.node_model, temperature=0.0)\n\n    # Extract inputs from taskInfo\n    content = taskInfo.content\n    if isinstance(content, str):\n        try:\n            input_data = json.loads(content)\n        except:\n            input_data = {}\n    elif isinstance(content, dict):\n        input_data = content\n    else:\n        input_data = {}\n\n    sections = input_data.get(&#39;segmented_sections&#39;, {})\n    results_summary = input_data.get(&#39;results_summary&#39;, \&#34;See Pertinent Results section.\&#34;)\n    \n    # Helper function to extract specific content from sections\n    def get_content(keywords, exclusions=None, join_all=False):\n        matches = []\n        for k, v in sections.items():\n            k_lower = k.lower()\n            if exclusions and any(exc in k_lower for exc in exclusions):\n                continue\n            if any(kw in k_lower for kw in keywords):\n                header = f\&#34;--- {k.replace(&#39;_&#39;, &#39; &#39;).upper()} ---dict\&#34;\n                matches.append(f\&#34;{header}\\n{v}\&#34;)\n        \n        if not matches:\n            return \&#34;\&#34;\n        \n        if join_all:\n            return \&#34;\\n\\n\&#34;.join(matches)\n        else:\n            return matches[0]\n\n    # 1. Specific Extractions for Para 1 (History)\n    preamble = get_content([&#39;preamble&#39;, &#39;patient_info&#39;, &#39;demographics&#39;], join_all=True)\n    allergies = get_content([&#39;allergies&#39;, &#39;allergy&#39;], join_all=True)\n    if not allergies: allergies = \&#34;No Allergies Documented\&#34;\n    \n    hpi = get_content([&#39;history_of_present_illness&#39;, &#39;hpi&#39;, &#39;chief_complaint&#39;], exclusions=[&#39;past&#39;, &#39;social&#39;, &#39;family&#39;], join_all=True)\n    pmh = get_content([&#39;past_medical_history&#39;, &#39;pmh&#39;], exclusions=[&#39;present&#39;], join_all=True)\n    \n    # 2. Extractions for Para 2 (Course)\n    procedures = get_content([&#39;major_surgical&#39;, &#39;procedure&#39;, &#39;surgery&#39;, &#39;invasive&#39;])\n    course_content = get_content(\n        [&#39;brief_hospital_course&#39;, &#39;hospital_course&#39;, &#39;icu_course&#39;, &#39;floor_course&#39;, &#39;course&#39;, &#39;assessment&#39;, &#39;plan&#39;], \n        exclusions=[&#39;instruction&#39;, &#39;medication&#39;, &#39;discharge&#39;], \n        join_all=True\n    )\n    meds_all = get_content([&#39;medication&#39;, &#39;meds&#39;], join_all=True)\n    \n    # 3. Extractions for Para 3 (Plan)\n    discharge_info = get_content([&#39;discharge_instructions&#39;, &#39;discharge_diagnosis&#39;, &#39;diagnosis&#39;, &#39;disposition&#39;, &#39;condition&#39;, &#39;followup&#39;, &#39;return&#39;], join_all=True)\n\n    # Construct the user content for the LLM\n    user_prompt_template = (\n        \&#34;**Patient Demographics**:\\n{preamble}\\n\\n\&#34;\n        \&#34;**Allergies**:\\n{allergies}\\n\\n\&#34;\n        \&#34;**HPI**:\\n{hpi}\\n\\n\&#34;\n        \&#34;**PMH**:\\n{pmh}\\n\\n\&#34;\n        \&#34;**Key Results/Labs**:\\n{results_summary}\\n\\n\&#34;\n        \&#34;**Procedures**:\\n{procedures}\\n\\n\&#34;\n        \&#34;**Hospital Course Notes**:\\n{course_content}\\n\\n\&#34;\n        \&#34;**Medications**:\\n{meds_all}\\n\\n\&#34;\n        \&#34;**Discharge Plan &amp; Instructions**:\\n{discharge_info}\\n\\n\&#34;\n        \&#34;Task: Generate the 3-paragraph summary.\&#34;\n    )\n    \n    user_content = user_prompt_template.format(\n        preamble=preamble,\n        allergies=allergies,\n        hpi=hpi,\n        pmh=pmh,\n        results_summary=results_summary,\n        procedures=procedures,\n        course_content=course_content,\n        meds_all=meds_all,\n        discharge_info=discharge_info\n    )\n\n    # Prepare the inputs for the CoT agent\n    # We create a copy of taskInfo and inject the pre-formatted user_content strings\n    agent_input = copy.copy(taskInfo)\n    agent_input.content = user_content\n    cot_agent_inputs = [agent_input]\n\n    # Get the response from the CoT agent\n    thinking, answer = cot_agent(cot_agent_inputs, cot_instruction)\n    final_answer = self.make_final_answer(thinking, answer)\n    \n    # Return only the final answer\n    return final_answer   \n&#34;},
+{&#34;thought&#34;: &#34;This node synthesizes a diagnostic summary from segmented patient records. I migrated it to extract data from taskInfo, applied the original regex-based redaction handling, and used an LLMAgentBase with a combined instruction prompt to generate the narrative.&#34;, &#34;name&#34;: &#34;Diagnostic_Summary_Agent&#34;, &#34;code&#34;: &#34;def forward(self, taskInfo):\n    # ---------- Step 1: Process the input data ----------\n    # Extract content from taskInfo\n    # taskInfo.content might be a dict or a JSON string depending on the upstream node\n    input_data = taskInfo.content if isinstance(taskInfo.content, dict) else {}\n    if not input_data and isinstance(taskInfo.content, str):\n        try:\n            input_data = json.loads(taskInfo.content)\n        except:\n            input_data = {}\n\n    sections = input_data.get(&#39;segmented_sections&#39;, {})\n    preamble = sections.get(&#39;preamble&#39;, &#39;&#39;)\n    \n    # Robust Regex for Age (looking for \&#34;age: 54\&#34; or \&#34;Age 54\&#34; pattern)\n    age_match = re.search(r\&#34;age\\s*[:\\.]?\\s*(\\d+)\&#34;, preamble, re.IGNORECASE)\n    patient_age = age_match.group(1) if age_match else \&#34;unknown\&#34;\n    \n    # Robust Regex for Gender\n    gender_match = re.search(r\&#34;(?:gender|sex)\\s*[:\\.]?\\s*([MF])\&#34;, preamble, re.IGNORECASE)\n    raw_gender = gender_match.group(1).upper() if gender_match else \&#34;\&#34;\n    if raw_gender == &#39;F&#39;:\n        patient_gender = \&#34;female\&#34;\n    elif raw_gender == &#39;M&#39;:\n        patient_gender = \&#34;male\&#34;\n    else:\n        patient_gender = \&#34;patient\&#34;\n\n    # Helper to safely get section content with multiple possible keys\n    def get_section(keys, default=&#39;N/A&#39;):\n        for k in keys:\n            if k in sections and sections[k]:\n                return sections[k]\n        return default\n\n    # Extract specific sections with fallback keys\n    hpi = get_section([&#39;hpi&#39;, &#39;history_of_present_illness&#39;], &#39;N/A&#39;)\n    pmh = get_section([&#39;past_medical_history&#39;, &#39;pmh&#39;], &#39;N/A&#39;)\n    meds = get_section([&#39;discharge_medications&#39;, &#39;medications_on_discharge&#39;], &#39;N/A&#39;)\n    dx = get_section([&#39;discharge_diagnosis&#39;, &#39;discharge_diagnoses&#39;], &#39;N/A&#39;)\n    \n    # For hospital course, use the specific section if available, else upstream summary\n    raw_course = get_section([&#39;brief_hospital_course&#39;, &#39;hospital_course&#39;])\n    course_text = raw_course if raw_course != &#39;N/A&#39; else input_data.get(&#39;course_summary&#39;, &#39;&#39;)\n\n    # ---------- Step 2: Pre-process Text to Remove Conflicting Redactions ----------\n    # If we found an age, replace \&#34;___ year old\&#34; in the text with the actual age\n    # to prevent the LLM from hallucinating or keeping the redaction.\n    if patient_age != \&#34;unknown\&#34;:\n        redaction_pattern = r\&#34;[_]{2,}\\s*-?\\s*year\\s*-?\\s*old\&#34;\n        replacement_text = f\&#34;{patient_age}-year-old\&#34;\n        hpi = re.sub(redaction_pattern, replacement_text, hpi, flags=re.IGNORECASE)\n        course_text = re.sub(redaction_pattern, replacement_text, course_text, flags=re.IGNORECASE)\n\n    # ---------- Step 3: Implement the node logic for LLM_Generator ----------\n    system_prompt = (\n        \&#34;You are an expert Medical Summarizer. Synthesize the patient records into a comprehensive 4-paragraph narrative summary.\\n\\n\&#34;\n        \&#34;CRITICAL DATA OVERRIDE:\\n\&#34;\n        \&#34;- Patient Age: {patient_age}\\n\&#34;\n        \&#34;- Gender: {patient_gender}\\n\\n\&#34;\n        \&#34;INSTRUCTIONS:\\n\&#34;\n        \&#34;1. **First Sentence**: You MUST start with \\\&#34;The patient is a {patient_age}-year-old {patient_gender} who was admitted...\\\&#34;\\n\&#34;\n        \&#34;   - DO NOT output \\\&#34;___-year-old\\\&#34;. Use \\\&#34;{patient_age}-year-old\\\&#34; even if the text below has redactions.\\n\&#34;\n        \&#34;2. **Structure**: Create exactly 4 paragraphs:\\n\&#34;\n        \&#34;   - **Paragraph 1 (Admission &amp; HPI)**: Introduction, reason for admission (hypoxia/procedure), and history of present illness. Include the presenting symptoms and initial discovery details.\\n\&#34;\n        \&#34;   - **Paragraph 2 (History)**: Summarize Past Medical History (PMH). List chronic conditions and allergies.\\n\&#34;\n        \&#34;   - **Paragraph 3 (Hospital Course)**: Narrative of the stay. Include the procedure, post-op course, complications (or lack thereof), and clinical improvement.\\n\&#34;\n        \&#34;   - **Paragraph 4 (Discharge)**: Discharge diagnoses, list of specific discharge medications (names only), and follow-up plan.\\n\&#34;\n        \&#34;3. **Redaction Handling**: The input text contains &#39;___&#39; for redacted dates/names. Replace these with generic terms like &#39;in the past&#39;, &#39;previously&#39;, or &#39;the hospital&#39;. Exception: Use the provided Age and Gender.\\n\&#34;\n        \&#34;4. **Style**: Professional, smooth narrative flow.\\n\&#34;\n    ).format(patient_age=patient_age, patient_gender=patient_gender)\n    \n    user_prompt = (\n        \&#34;Patient Records:\\n\&#34;\n        \&#34;[HPI]:\\n{hpi}\\n\\n\&#34;\n        \&#34;[PMH]:\\n{pmh}\\n\\n\&#34;\n        \&#34;[Hospital Course]:\\n{course_text}\\n\\n\&#34;\n        \&#34;[Discharge Meds]:\\n{meds}\\n\\n\&#34;\n        \&#34;[Discharge Diagnosis]:\\n{dx}\\n\\n\&#34;\n        \&#34;Task: Generate the narrative summary now.\&#34;\n    ).format(\n        hpi=hpi,\n        pmh=pmh,\n        course_text=course_text,\n        meds=meds,\n        dx=dx\n    )\n    \n    # Combine the system and user prompt into the instruction for the agent\n    instruction = f\&#34;{system_prompt}\\n\\n{user_prompt}\&#34;\n\n    # Instantiate the LLM agent\n    agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Diagnostic_Summary_Agent&#39;, model=self.node_model, temperature=0.0)\n\n    # Get the response from the agent\n    # We pass [taskInfo] to provide context, though our instruction contains the specific formatted data.\n    thinking, answer = agent([taskInfo], instruction)\n    \n    # ---------- Step 4: Return final result ----------\n    final_answer = self.make_final_answer(thinking, answer)\n    return final_answer\n&#34;},
+{&#34;thought&#34;: &#34;Aggregates partial summaries and raw segments into a final structured discharge summary.&#34;, &#34;name&#34;: &#34;Final_Refinement_Agent&#34;, &#34;code&#34;: &#34;def forward(self, taskInfo):\n    # ---------- Step 1: Process the input data ----------\n    input_data = taskInfo.content\n    if isinstance(input_data, str):\n        try:\n            input_data = json.loads(input_data)\n        except:\n            input_data = {}\n    elif not isinstance(input_data, dict):\n        input_data = {}\n\n    # Retrieve summaries\n    history_sum = input_data.get(&#39;diagnostic_summary&#39;, &#39;No history provided.&#39;)\n    results_sum = input_data.get(&#39;results_summary&#39;, &#39;No results provided.&#39;)\n    course_sum = input_data.get(&#39;course_summary&#39;, &#39;No course provided.&#39;)\n\n    # Retrieve raw segments from Section_Segmenter_Tool\n    segments = input_data.get(&#39;segmented_sections&#39;)\n    if not isinstance(segments, dict):\n        segments = {}\n        \n    # Fallback keys logic\n    preamble = segments.get(&#39;preamble&#39;, &#39;&#39;)\n    meds_raw = segments.get(&#39;discharge_medications&#39;, &#39;&#39;) \n    pe_raw = segments.get(&#39;physical_exam&#39;, &#39;&#39;) \n    \n    # ---------- Step 2: Implement the node logic for LLM_Generator ----------\n    system_prompt = (\n        \&#34;You are an expert Clinical Documentation Specialist. Your task is to generate a structured Discharge Summary based on the provided patient records and partial summaries.\\n\\n\&#34;\n        \&#34;CRITICAL OUTPUT RULES:\\n\&#34;\n        \&#34;1. **Format**: The output must be organized into exactly these four distinct sections/paragraphs:\\n\&#34;\n        \&#34;   - **Patient Summary**: A concise narrative starting with &#39;The patient is a [Age]-year-old [Gender]...&#39; covering the admission reason, HPI, key procedures, and hospital course/outcome.\\n\&#34;\n        \&#34;   - **Past Medical History**: A list or comma-separated summary of conditions.\\n\&#34;\n        \&#34;   - **Discharge Medications**: A list of medications prescribed at discharge (generic names preferred).\\n\&#34;\n        \&#34;   - **Physical Examination**: Key findings from the admission exam (Vital signs, HEENT, CV, etc.).\\n\\n\&#34;\n        \&#34;2. **Data Usage**: \\n\&#34;\n        \&#34;   - Use the **Demographics** section for Age/Gender.\\n\&#34;\n        \&#34;   - Use the **Medications** section for the discharge list.\\n\&#34;\n        \&#34;   - Use the **Physical Exam** section for specific findings (e.g., &#39;warm, dry skin&#39;, &#39;murmur&#39;).\\n\&#34;\n        \&#34;   - Use the **Summaries** for the narrative history and course.\\n\\n\&#34;\n        \&#34;3. **Constraint**: Start your response immediately with &#39;Answer:&#39;. Do not use markdown headers like &#39;##&#39;. Just separate paragraphs clearly.\&#34;\n    )\n    \n    user_prompt_template = (\n        \&#34;Sources:\\n\&#34;\n        \&#34;[Demographics]: {preamble}\\n\&#34;\n        \&#34;[History Summary]: {history_sum}\\n\&#34;\n        \&#34;[Hospital Course Summary]: {course_sum}\\n\&#34;\n        \&#34;[Results Summary]: {results_sum}\\n\&#34;\n        \&#34;[Discharge Medications (Raw)]: {meds_raw}\\n\&#34;\n        \&#34;[Physical Exam (Raw)]: {pe_raw}\\n\\n\&#34;\n        \&#34;Task: Generate the final Discharge Summary.\&#34;\n    )\n    \n    user_content = user_prompt_template.format(\n        preamble=preamble,\n        history_sum=history_sum,\n        course_sum=course_sum,\n        results_sum=results_sum,\n        meds_raw=meds_raw,\n        pe_raw=pe_raw\n    )\n    \n    # Helper to wrap string content for Agent input\n    class InputInfo:\n        def __init__(self, content):\n            self.content = content\n\n    # Instantiate Agent\n    agent = LLMAgentBase([&#39;answer&#39;], &#39;Final_Refinement_Agent&#39;, model=self.node_model, temperature=0.0)\n    \n    # Prepare inputs and call agent\n    # We wrap the user_content string into an object as LLMAgentBase expects inputs with .content attribute\n    agent_inputs = [InputInfo(user_content)]\n    \n    # Get the response\n    # agent(...) returns a tuple of Info objects corresponding to the output fields\n    answer_info = agent(agent_inputs, system_prompt)[0]\n    response = answer_info.content\n\n    # ---------- Step 3: Validate and Format Output ----------\n    cleaned_response = response.strip()\n    if not cleaned_response.startswith(\&#34;Answer:\&#34;):\n        if \&#34;Answer:\&#34; in cleaned_response:\n            cleaned_response = cleaned_response[cleaned_response.find(\&#34;Answer:\&#34;):]\n        else:\n            cleaned_response = \&#34;Answer: \&#34; + cleaned_response\n\n    return cleaned_response\n&#34;}]
+
+The fitness value is the median and 95% Bootstrap Confidence Interval of the correct rate on the given question. Your GOAL is to maximize the &#34;fitness&#34;.
+
+
+# Output Instruction and Example:
+The first key should be (&#34;thought&#34;), and it should capture your thought process for and it should capture your thought process for reconnecting the existing blocks in archived. 
+
+In the &#34;(thought)&#34; section, include the following:
+
+(1) **Decomposition**: Given the new sub-task from (1). Form your final decomposition, which should include all of the new sub-task. Explain in details how do you decompose the question and how such decomposition is eaiser enough such that the subtask is solvable by the given agent, blocks and architecture 
+
+(2) **Overall Architecture**: 
+
+Given the resulting sub-task 1, sub-task 2, ... sub-task n, design connections between existing blocks to address each of them. describe your reasoning and the overall concept behind the connection design and finally detail the implementation steps. All connection must between exising blocks in the archive and no new blocks can be made. The format must strickly follow: 
+
+(a) Use &#39;-&gt;&#39; for connection. for example, &#39;CoT (address sub-task 1) (existing block name) -&gt; LLM debate (address sub-task 2) (another exising block name)&#39; means connect the CoT block and the LLM debate block to address sub-task 1 and sub-task 2 correspondingly.
+
+The second key (&#34;name&#34;) corresponds to the name of your block connection architecture. 
+Finally, the last key (&#34;code&#34;) corresponds to the exact “forward()” function in Python code that you would like to try. You must write a COMPLETE CODE in &#34;code&#34;: Your code will be part of the entire project (so do not implement any other part), so please implement complete, reliable, reusable code snippets. You cannot call the exising blocks (e.g., COT, COT-SC) by its name, but must implement them as it is in the achive. If the block is handling a sub-task, add &#39;sub_task=True&#39; when calling the block.
+
+Here is an example of the output format for the new connected block architecture:
+
+{&#34;thought&#34;: &#34;\n    **Insights:**\nProvide your reasoning for the next effective agent architecture (an architecture may contain multiple agents), along with an explanation of the overall concept behind the design. \n    **Decomposition:**\n Give the resulting new sub-task 1, sub-task 2, ..., sub-task n. Your final decomposition should include all the sub-tasks. \n    Please explain \n    (1) How do you make sure the sub-task is easier enough and thus solvable by the given or proposed blocks and agents; \n    (2) Justify how these sub-tasks can achieve the final answer to the original questions.\n\n    **Overall Architecture to solve each subquestion:**\n    You overall architecture and explain how this architecture can solve each of the resulting sub-task\n    \&#34;**Implementation:**describe the implementation step by step.\&#34;\n    &#34;, &#34;name&#34;: &#34;Name of your proposed architecture&#34;, &#34;code&#34;: &#34;async def forward(self, taskInfo, extra_info):\n    from collections import Counter # must have this and always make sure you import everything needed\n    # Your code here. IMPORTANT  \n    # (1) You cannot call the existing architecture from the archive but you have to implement it from the code in the Discovered architecture archive\n    # for example:\n    # you cannot call &#39;COT&#39; but you have to implement it exactly the same as the code in the Discovered architecture archive. \n    # name an agent &#39;reflexion&#39; or &#39;debate&#39; or &#39;cot_sc&#39; also do not implement the blocks. Make sure you ACTUALLY IMPLEMENT them\n    # for example, You need to implement the for-loop in COT-SC, LLM Debate and Reflexion\n    # You should only change how they connect but not the function inside (setting and instruction can be different)\n\n    # (2) To creat an agent, call the LLMAgentBase, must have &#39;model=self.node_model&#39; in the parameters\n    # the return of the call is always the same as the output fields,\n    # for example: \n    # reasoning_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Reasoning Agent&#39;, model=self.node_model)\n\n    # (3) Since the agent is handling with a sub_question made by question decomposition, use &#39;is_sub_task=True&#39; when calling the agent.\n\n    # (4) You need to specify the sub-task dependencies by specify the dependent sub-tasks in the instruction. You also need to give each sub-task an ID. This means you need to state clearly what the current sub-task is based on and also give all required information (thinking and answer) in the input task info\n    # for example:\n    # cot_instruction = (\&#34;Sub-task 3: Based on the output of sub-task 1 and sub-task 2.....\&#34;)\n    # thinking, answer = await reasoning_agent([taskInfo] + [thinking1, answer1, thinking2, answer2, ..., ], extra_info, cot_instruction, is_sub_task=True)\n\n\n    # (5) You need to keep tack of sub-task output, for each sub-task output, please append it to a list named `sub_tasks` (please initialize it as `sub_tasks = []` at the begining of your function) so that we can keep track of the performance of each sub-task. When you do self.make_final_answer, please also add `sub_tasks` as the second last parameterss \n    # for example: \n    # sub_tasks = []\n    # ...\n    # thinking, answer = await reasoning_agent([taskInfo] + [sub-task thinking, sub-task answer], reasoning_instruction, is_sub_task=True)\n    # sub_tasks.append(f&#39;the output of sub task n: thinking {thinking.content}; final answer: {answer.content}&#39;)\n\n    # (6) You need to keep track of agent, for each agent inside the sub-architecture (or block or node) output, please append it to a list named `agents` (please initialize it as `agents = []` at the beining of your function) so that we can keep track of the performance of each agents. It should contain the agent name (if setting is important to identify the agent, please include as well, e.g., round, ID), agent purpose, and the thinking and output of the agent. When you do self.make_final_answer, please also add `agents` as the last parameters\n    # Takes debate as an example: \n    # debate_instruction = (\&#34;Sub-task i: Based on the output of...\&#34;)\n    # max_round = ...(the max round you determine)\n    # debate_agents = [LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Debate Agent&#39;, model=self.node_model, role=role, temperature=0.5) for role in ...(the role you design)]\n    # all_thinking = []\n    # all_answer = []\n    # for r in range(max_round):\n    #     round_thinking = []\n    #     round_answer = []\n    #     for i, agent in enumerate(debate_agents):\n    #         if r == 0:\n    #             t, a = await agent([taskInfo, thinking1, answer1], extra_info, cot_instruction, is_sub_task=True)\n    #             agents.append(f&#39;Debate agent {agent.id}, round {r}, on the purpose of..., thinking: {t.content}; answer: {a.content}&#39;)\n    #         else:\n    #             t, a = await agent([taskInfo, thinking1, answer1] + all_thinking[r-1], extra_info, debate_instruction, is_sub_task=True)\n    #             agents.append(f&#39;Debate agent {agent.id}, round {r}, on the purpose of..., thinking: {t.content}; answer: {a.content}&#39;)\n    #         round_thinking.append(t)\n    #         round_answer.append(a)\n    #     all_thinking.append(round_thinking)\n    #     all_answer.append(round_answer)\n    # final_decision_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Final Decision Agent&#39;, model=self.node_model, temperature=0.0)\n    # thinking2, answer2 = await final_decision_agent(\n    #     [taskInfo] + all_thinking[-1] + all_answer[-1],\n    #     extra_info,\n    #     \&#34;Sub-task i: Based on the output of...\&#34;,\n    #     is_sub_task=True\n    # )\n    # agents.append(f&#39;Final Decision agent, on the purpose of..., thinking: {thinking2.content}; answer: {answer2.content}&#39;)\n    # sub_tasks.append(f\&#34;Sub-task 2 output: thinking - {thinking2.content}; answer - {answer2.content}\&#34;)\n\n    # Take reflexion as another example:\n    # cot_reflect_instruction = \&#34;Sub-task i: Based on the output of...\&#34;\n    # cot_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;, model=self.node_model, temperature=0.0)\n\n    # # Instruction for providing feedback and correcting the answer\n    # critic_instruction = \&#34;Sub-task i: Based on the output of...,\&#34;\n    # critic_agent = LLMAgentBase([&#39;feedback&#39;, &#39;correct&#39;], &#39;Critic Agent&#39;, model=self.node_model, temperature=0.0)\n    # N_max = ...(the max round you determine) # Maximum number of attempts\n    # # Initial attempt\n    # cot_inputs = [taskInfo]\n    # thinking, answer = await cot_agent(cot_inputs, extra_info, cot_initial_instruction, 0, is_sub_task=True)\n    # agents.append(f&#39;CoT agent {cot_agent.id}, on the purpose of..., thinking: {thinking.content}; answer: {answer.content}&#39;)\n\n    # for i in range(N_max):\n    #     # Get feedback and correct status from the critic\n    #     feedback, correct = await critic_agent([taskInfo, thinking, answer], extra_info, critic_instruction, i, is_sub_task=True)\n    #     agents.append(f&#39;Critic agent {critic_agent.id}, on the purpose of..., thinking: {feedback.content}; answer: {correct.content}&#39;)\n    #     if correct.content == &#39;True&#39;:\n    #         break\n            \n    #     # Add feedback to the inputs for the next iteration\n    #     cot_inputs.extend([thinking, answer, feedback])\n\n    #     # Reflect on previous attempts and refine the answer\n    #     thinking, answer = await cot_agent(cot_inputs, extra_info, cot_reflect_instruction, i + 1, is_sub_task=True)\n    #     agents.append(f&#39;CoT agent {cot_agent.id}, on the purpose of..., thinking: {thinking.content}; answer: {answer.content}&#39;)\n    # sub_tasks.append(f\&#34;Sub-task i output: thinking - {thinking.content}; answer - {answer.content}\&#34;)\n\n    # Take self-consistency as another example:\n    # cot_instruction = &#39;Sub-task i: Based on the output of...&#39;\n    # # Initialize multiple CoT agents with a higher temperature for varied reasoning\n    # cot_agents = [LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Agent&#39;,  model=self.node_model, temperature=0.5) for _ in range(N)]\n    \n    # thinking_mapping = {}\n    # answer_mapping = {}\n    # possible_answers = []\n    # for i in range(N):\n    #     thinking, answer = await cot_agents[i]([taskInfo], extra_info, cot_instruction, is_sub_task=True)\n    #     agents.append(f&#39;CoT agent {cot_agents.id}, on the purpose of..., thinking: {thinking.content}; answer: {answer.content}&#39;)\n    #     possible_answers.append(answer.content)\n    #     thinking_mapping[answer.content] = thinking\n    #     answer_mapping[answer.content] = answer\n    # answer = majority_voting(possible_answers)\n\n    # thinking = thinking_mapping[answer]\n    # answer = answer_mapping[answer]\n    # sub_tasks.append(f\&#34;Sub-task i output: thinking - {thinking.content}; answer - {answer.content}\&#34;)\n\n    # (7) Put the saved sub_tasks and agents to the final elf.make_final_answer. Make sure you have `is_sub_task=True` when calling an agent, and keep track of `sub_task`, `agents`, include `sub_task` dependency and detailed steps for the sub-task (&#39;Sub-task i: based on sub-task,&#39;) in the sub-task instruction, and actually implmenet the blocks by yourself (for-loop if COT-SC, Debate and Reflextion).\n\n    final_answer = self.make_final_answer(thinking, answer, sub_tasks, agents)\n    # Return only the final answer\n    return final_answer\n&#34;}
+
+You must use the exact function interface used above. You need to specify the instruction, input information, and the required output fields for various LLM agents to do their specific part of the architecture. DON&#39;T try to use some function that doesn&#39;t exisit.
+Also, it could be helpful to set the LLM’s role and temperature to further control the LLM’s response. Note that the LLMAgentBase() will automatically parse the output and return a list of “Infos”. You can get the content by Infos.content. 
+DO NOT FORGET the taskInfo input to LLM if you think it is needed, otherwise LLM will not know about the task.
+
+
+## WRONG Implementation examples:
+Here are some mistakes you may make:
+
+1. This is WRONG: ```
+feedback, correct = await critic_agent([taskInfo, thinking, answer], extra_info, critic_instruction, i)
+feedback_info = await verifier_agent([taskInfo, Info(&#39;feedback&#39;, &#39;Critic Agent&#39;, thinking, 0)], verification_instruction)
+```
+It is wrong to use &#34;Info(&#39;feedback&#39;, &#39;Critic Agent&#39;, thinking, 0)&#34;. The returned &#34;feedback&#34; from LLMAgentBase is already Info.
+
+2. This is WRONG: ```
+# Debugging: Log the generated answer
+print(&#39;Generated Answer:&#39;, ...)
+feedback_info = await verifier_agent([taskInfo, Info(&#39;feedback&#39;, &#39;Critic Agent&#39;, thinking, 0)], extra_info, verification_instruction)
+if len(feedback_info) &lt; 3:  # Check if feedback_info has enough elements
+    return &#39;Error: Feedback info incomplete&#39;
+```
+First, the len(feedback_info) will not work.
+Second, you should never return an error message. You should always return the best answer you can get.
+Third, you should never print anything in the code.
+Lastly, again, DO NOT CREATE Info object by yourself.
+
+3. This is WRONG: ```
+all_thinking = []
+all_answers = []
+for agent, role in zip(agents, roles):
+    outputs = await agent([taskInfo], extra_info, independent_reasoning_instruction.format(role=role))
+    all_thinking.append(outputs[0].content)
+    all_answers.append(outputs[1].content)
+
+# Aggregate the reasoning paths and answers
+aggregated_thinking = &#39;
+&#39;.join(all_thinking)
+aggregated_answers = &#39;
+&#39;.join(all_answers)
+```
+You SHOULD NOT extract the content from the Info object by yourself. You should use the Info object directly. If you want to aggregate the content, you should just put those Info objects into a list and then use the list as input to the next LLM agent.
+
+4. This is WRONG: ```
+reasoning_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Reasoning Agent&#39;)
+response_infos = await reasoning_agent([taskInfo] + ..., extra_info, reasoning_instruction)
+    
+# Extract the final answer from the response_infos
+for info in response_infos:
+    if info.name == &#39;final_answer&#39;:
+        return info
+# Fallback if no answer is found
+return Info(&#39;answer&#39;, &#39;Final Decision Agent&#39;, &#39;No answer generated.&#39;, 0)
+```
+
+5. This is WRONG: ```
+reasoning_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Reasoning Agent&#39;)
+thinking, answer = await reasoning_agent([taskInfo] + ..., extra_info, reasoning_instruction)
+return answer   
+```
+You MUST return final_answer returned by ```final_answer = self.make_final_answer(thinking, answer)```, instead of answer only.
+
+6. This is WRONG when handling sub-tasks: ```
+thinking, answer = await reasoning_agent([taskInfo] + ..., extra_info, reasoning_instruction)
+```
+You MUST add sub_task=True, when handling a sub question made by question decomposition
+
+7. This is WRONG when handling sub-tasks: ```
+reasoning_instruction = &#39;...&#39;
+```
+You MUST clearly states what sub task it is, it can be solved based on the output of what sub-tasks and what are the steps to solve the sub-tasks
+
+8. This is WRONG: ```
+cot_sc_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Chain-of-Thought Self-Consistency Agent&#39;, model=self.node_model, temperature=0.5)
+thinking3, answer3 = await cot_sc_agent([taskInfo, thinking1, answer1, thinking2, answer2], extra_info, cot_instruction, is_sub_task=True)
+```
+You MUST ACTUALLY IMPLEMENT the achitecture (here self-consistency). Name an agent to &#39;sc&#39; does not implment the structure (e.g. you will need to actually implmemnt the for-loop).
+CORRECT example: ```
+    from collections import Counter
+    def majority_voting(answers):
+        return Counter(answers).most_common(1)[0][0]
+    
+    thinking_mapping = {}
+    answer_mapping = {}
+    possible_answers = []
+    for i in range(N):
+        thinking, answer = await cot_agents[i]([taskInfo], extra_info, cot_instruction)
+        possible_answers.append(answer.content)
+        thinking_mapping[answer.content] = thinking
+        answer_mapping[answer.content] = answer
+
+    # Ensembling the answers from multiple CoT agents
+    answer = majority_voting(possible_answers)
+```
+
+9. This is WRONG: ```
+reflexion_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Reflexion Agent&#39;, model=self.node_model, temperature=0.5)
+thinking3, answer3 = await reflexion_agent([taskInfo, thinking1, answer1, thinking2, answer2], extra_info, reflexion_instruction, is_sub_task=True)
+```
+You MUST ACTUALLY IMPLEMENT the achitecture (here reflexion). Name an agent to &#39;reflexion&#39; does not implment the structure (e.g. you will need to actually implmemnt the for-loop).
+CORRECT example: ```
+    N_max = self.max_round # Maximum number of attempts
+    
+    # Initial attempt
+    cot_inputs = [taskInfo]
+    thinking, answer = await cot_agent(cot_inputs, extra_info, cot_initial_instruction, 0)
+
+    for i in range(N_max):
+        # Get feedback and correct status from the critic
+        feedback, correct = await critic_agent([taskInfo, thinking, answer], extra_info, critic_instruction, i)
+        if correct.content == &#39;True&#39;:
+            break
+            
+        # Add feedback to the inputs for the next iteration
+        cot_inputs.extend([thinking, answer, feedback])
+
+        # Reflect on previous attempts and refine the answer
+        thinking, answer = await cot_agent(cot_inputs, extra_info, cot_reflect_instruction, i + 1)
+```
+
+10. This is WRONG: ```
+debate_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Debate Agent&#39;, model=self.node_model, temperature=0.5)
+thinking3, answer3 = debate_agent([taskInfo, thinking1, answer1, thinking2, answer2], debate_instruction, is_sub_task=True)
+```
+You MUST ACTUALLY IMPLEMENT the achitecture (here debate). Name an agent to &#39;debate&#39; does not implment the structure (e.g. you will need to actually implmemnt the for-loop).
+CORRECT example: ```
+for r in range(max_round):
+    for i in range(len(debate_agents)):
+        if r == 0:
+            thinking, answer = await debate_agents[i]([taskInfo], extra_info, debate_initial_instruction)
+        else:
+            input_infos = [taskInfo] + [all_thinking[r-1][i]] + all_thinking[r-1][:i] + all_thinking[r-1][i+1:]
+            thinking, answer = await debate_agents[i](input_infos, extra_info, debate_instruction)
+        all_thinking[r].append(thinking)
+        all_answer[r].append(answer)
+```
+You should not extract the final answer by yourself. You SHOULD directly return the answer Info. Also, you should always return the best answer you can get.
+CORRECT example: ```
+reasoning_instruction = &#39;Sub-task i: Based on the output of sub-task i and j, ....&#39;
+reasoning_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Reasoning Agent&#39;)
+thinking, answer = await reasoning_agent([taskInfo] + ..., extra_info, reasoning_instruction)
+final_answer = self.make_final_answer(thinking, answer)
+
+# Return only the final answer
+return final_answer   
+```
+
+
+
+# Your task
+You are deeply familiar with LLM prompting techniques and LLM agent works from the literature. Your goal is to maximize the specified performance metrics by reconnecting the exisitng block in archived. Do not try to propose new block or modify the exising block, and only change the connection but block setting like instruction, tempreture are allowed to modify
+Observe the discovered blocks carefully and think about what insights, lessons, or stepping stones can be learned from them.
+You are encouraged to draw inspiration from related agent papers or academic papers from other research areas.
+Use the knowledge from the archive and inspiration from academic literature to propose the new connection.
+
+Below is the question to solve:
+
+
+Patient Records: Input:
+age: 58. gender: M.  
+Name:  ___.                    Unit No:   ___
+ 
+Admission Date:  ___              Discharge Date:   ___
+ 
+Date of Birth:  ___             Sex:   M
+ 
+Service: UROLOGY
+ 
+Allergies: 
+adhesive tape / Dicloxacillin
+ 
+Attending: ___.
+ 
+Chief Complaint:
+Bladder cancer
+ 
+Major Surgical or Invasive Procedure:
+Robot assisted laparoscopic radical cystoprostatectomy with 
+bilateral extended pelvic lymphadenectomy and ileal conduit 
+urinary diversion.
+
+ 
+History of Present Illness:
+___ y/o M with muscle invasive urothelial carcinoma s/p 
+neoadjuvant Gem/Cis chemotherapy who presents for robot assisted 
+lap cystoprostatectomy with bilat pelvic/obturator/iliac lymph 
+node dissection and open ileal loop urinary diversion.
+
+ 
+Past Medical History:
+Renal insufficiency
+Tendonitis
+Schistosomiasis
+IBS
+Prostatitis
+HLD
+Nephrolithiasis
+Epidymitis
+
+Allergies:
+Dicloxacillin Sodium 
+ 
+Social History:
+___
+Family History:
+Problem Relation Age of Onset 
+ Psych - Depression Mother   
+ Diabetes - Type II Father   
+ Cancer - Testicular Brother   
+ Hyperlipidemia Brother   
+
+ 
+Physical Exam:
+Avss
+NAD
+Unlabored breathing
+Abdomen soft, NTTP, incisions c/d/i. urostomy pink with clear 
+yellow urine.  Jp drain dressing in place, c/d.
+Ext WPP, ambulating
+ 
+Pertinent Results:
+___ 07:30AM BLOOD WBC-8.4 RBC-3.55* Hgb-10.5* Hct-31.6* 
+MCV-89 MCH-29.6 MCHC-33.1 RDW-16.2* Plt ___
+___ 08:25AM BLOOD WBC-6.0 RBC-3.13* Hgb-9.2* Hct-28.0* 
+MCV-89 MCH-29.5 MCHC-33.0 RDW-15.9* Plt ___
+___ 12:35AM BLOOD WBC-7.2 RBC-2.95* Hgb-8.7* Hct-26.3* 
+MCV-89 MCH-29.5 MCHC-33.0 RDW-16.2* Plt ___
+___ 10:24AM BLOOD Hgb-8.8* Hct-26.8*
+___ 07:10AM BLOOD WBC-8.2 RBC-2.72* Hgb-8.1* Hct-24.6* 
+MCV-90 MCH-29.8 MCHC-32.9 RDW-16.1* Plt ___
+___ 03:35PM BLOOD Hct-23.1*
+___ 04:00AM BLOOD WBC-14.7* RBC-2.63* Hgb-7.6* Hct-23.8* 
+MCV-91 MCH-29.1 MCHC-32.1 RDW-16.7* Plt ___
+___ 08:10PM BLOOD WBC-16.2* RBC-2.75* Hgb-8.0* Hct-24.5* 
+MCV-89 MCH-29.2 MCHC-32.8 RDW-17.3* Plt ___
+___ 08:10PM BLOOD WBC-16.2* RBC-2.75* Hgb-8.0* Hct-24.5* 
+MCV-89 MCH-29.2 MCHC-32.8 RDW-17.3* Plt ___
+___ 06:15AM BLOOD WBC-14.4* RBC-3.00* Hgb-8.9* Hct-26.6* 
+MCV-89 MCH-29.7 MCHC-33.4 RDW-17.1* Plt ___
+___ 12:57AM BLOOD WBC-16.0* RBC-3.05* Hgb-8.9* Hct-27.2* 
+MCV-89 MCH-29.3 MCHC-32.8 RDW-16.8* Plt ___
+___ 09:09PM BLOOD WBC-21.1* RBC-3.15* Hgb-9.3* Hct-28.4* 
+MCV-90 MCH-29.6 MCHC-32.9 RDW-17.0* Plt ___
+___ 08:25AM BLOOD Glucose-91 UreaN-15 Creat-1.2 Na-138 
+K-4.2 Cl-103 HCO3-26 AnGap-13
+___ 10:50AM BLOOD Glucose-98 UreaN-13 Creat-1.2 Na-135 
+K-4.1 Cl-100 HCO3-27 AnGap-12
+___ 12:35AM BLOOD Glucose-99 UreaN-10 Creat-1.3* Na-139 
+K-4.2 Cl-105 HCO3-28 AnGap-10
+___ 07:10AM BLOOD Glucose-94 UreaN-10 Creat-1.3* Na-140 
+K-4.2 Cl-107 HCO3-26 AnGap-11
+___ 04:00AM BLOOD Glucose-116* UreaN-11 Creat-1.4* Na-139 
+K-4.2 Cl-107 HCO3-27 AnGap-9
+___ 08:10PM BLOOD Glucose-126* UreaN-11 Creat-1.4* Na-138 
+K-4.4 Cl-107 HCO3-26 AnGap-9
+___ 06:15AM BLOOD Glucose-133* UreaN-13 Creat-1.5* Na-139 
+K-4.1 Cl-105 HCO3-25 AnGap-13
+___ 12:57AM BLOOD Glucose-193* UreaN-14 Creat-1.6* Na-143 
+K-4.6 Cl-106 HCO3-26 AnGap-16
+___ 12:50PM BLOOD CK(CPK)-2281*
+___ 04:00AM BLOOD CK(CPK)-2606*
+___ 09:15PM BLOOD CK(CPK)-2853*
+___ 12:50PM BLOOD CK-MB-4 cTropnT-&lt;0.01
+___ 04:00AM BLOOD CK-MB-4 cTropnT-&lt;0.01
+___ 09:15PM BLOOD CK-MB-6 cTropnT-&lt;0.01
+___ 08:25AM BLOOD Calcium-8.3* Phos-3.7 Mg-1.8
+___ 10:50AM BLOOD Calcium-7.9* Phos-3.5 Mg-2.1
+___ 12:35AM BLOOD Calcium-7.9* Phos-4.2# Mg-2.4
+___ 07:10AM BLOOD Calcium-7.6* Phos-2.6* Mg-1.8
+___ 08:10PM BLOOD Calcium-8.6 Phos-2.7 Mg-1.8
+___ 06:15AM BLOOD Mg-2.0
+___ 12:57AM BLOOD Calcium-7.7* Phos-3.5 Mg-2.3
+___ 09:09PM BLOOD Mg-1.4*
+___ 09:39AM ASCITES Creat-1.2
+___ 10:56AM ASCITES Triglyc-65
+___ 12:55PM ASCITES Creat-1.2
+
+___ CC1A ___ 9:12 ___ 
+ABDOMEN (SUPINE ONLY) PORT   Clip # ___   
+Reason: confirm proper position of single J R&amp;L ureteral stents 
+and  
+ 
+
+ 
+UNDERLYING MEDICAL CONDITION: 
+   ___ year old man with bladder cancer s/p radical 
+cystoprostatectomy with ileal  
+   loop urinary diversion 
+REASON FOR THIS EXAMINATION: 
+   confirm proper position of single J R&amp;L ureteral stents and 
+NGT.  
+
+ 
+ 
+Final Report 
+INDICATION:  ___ man with a history of bladder cancer 
+status post 
+radical cystoprostatectomy with ileal loop urinary diversion who 
+presents for 
+evaluation of stent placement and NG tube placement. 
+  
+COMPARISONS:  Abdominal radiograph from ___. 
+  
+FINDINGS:  Two frontal portable images of the abdomen 
+demonstrate a 
+right-sided nephrostomy tube in appropriate position.  There is 
+a tip of the 
+NG tube which appears to be appropriately located in the 
+stomach.  Multiple 
+surgical clips are seen in the pelvis.  The bowel gas pattern is 
+unremarkable. 
+No free air or pneumatosis is identified.  The visualized 
+osseous structures 
+are unremarkable. There is a left sided tube which courses 
+across the pelvis, 
+terminating over the right hemipelvis, likely at the site of the 
+ileal loop. A 
+wire is seen coursing from the right hemipelvis cephalad, 
+terminating adjacent 
+to the tip of the right nephrostomy tube, as well as a second 
+wire terminating 
+at the left mid-abdomen. 
+  
+IMPRESSION: 
+  
+NG tube tip is appropriately seen in the stomach. Remainder of 
+the urologic 
+devices appear to be in appropriate position. 
+  
+ 
+___ ___ 10:12 AM 
+CHEST (PORTABLE AP)   Clip # ___   
+Reason: r/o acute process  
+ 
+
+ 
+UNDERLYING MEDICAL CONDITION: 
+   ___ year old man with tachycardia ___ s/p lap ___ 
+___ w/ OPEN  
+   ileal loop diversion.  
+REASON FOR THIS EXAMINATION: 
+   r/o acute process  
+
+ 
+ 
+Final Report 
+INDICATION:  Postop day #1, status post laparoscopic robotic 
+cystoprostatectomy with open ileal loop diversion, now with 
+tachycardia, here 
+to evaluate for acute cardiopulmonary process. 
+  
+COMPARISON:  No prior studies available. 
+  
+TECHNIQUE:  Portable upright AP radiograph of the chest. 
+  
+FINDINGS:  A nasogastric tube is seen coursing below the 
+diaphragm and out of 
+view on this image.  The lungs are underinflated, with resultant 
+
+bronchovascular crowding.  Streaky opacities in the left lung 
+base greater 
+than the right are compatible with atelectasis in this setting.  
+The lungs are 
+otherwise clear without focal consolidation concerning for 
+pneumonia, pleural 
+effusion or pneumothorax.  The pulmonary vasculature is not 
+engorged.  The 
+cardiac silhouette is normal in size.  Mediastinal and hilar 
+contours are 
+within normal limits. 
+  
+IMPRESSION:  No acute cardiopulmonary process.  Low lung volumes 
+and mild 
+atelectasis. 
+ 
+
+ 
+Brief Hospital Course:
+Patient was admitted to Dr. ___ service.  Patient 
+received perioperative antibiotic prophylaxis, PCA, IVF and 
+placed NPO.  The patient had an NGT in place post-operatively, 
+and  KUB was performed to confirm placement.  While NPO, he 
+reamined on IVFs to keep UOP 1 cc/kg/hour.  On POD1 the NGT was 
+maintained, and he was encouraged to get OOB.  He was also found 
+to be tachycardic to 110-120s  with stable pressures and no 
+fevers.  An EKG, CXR, and cardiac enzyme rule out were negative 
+for any acute processes.  He was placed on telemetry and IV 
+metoprolol,  was found to be overall fluid positive, and 
+responded well to gentle diuresis and minimalizing fluid intake. 
+ On POD 2, the NGT was removed.  On POD 3 he was then started on 
+strict sips after ensuring no nausea, soft abdomen and normal 
+bowel sounds.  All home meds were restarted.  His diet was 
+advanced on POD 4.  He received one dose of unasyn, and his 
+nephrostomy tube was clamped.  On POD 5 he was transitioned from 
+PCA to po pain meds. He recieved another dose of unasyn and the 
+PCN was removed without difficulty.  He was transitioned off of 
+IV metopropol and his vitals were stable.  The ostomy nurse saw 
+the patient for ostomy teaching.  At the time of discharge the 
+wound was healing well with no evidence of erythema, swelling, 
+or purulent drainage.  The ostomy was perfused and patent.  On 
+POD 6, the JP fluid was sent for creatinine, which was 
+consistent with serous fluid, and removed without difficulty.  
+He was discharged home with pain controlled on oral medications, 
+ambulating without difficulty, producing adequate UOP, 
+tolerating a regular diet, and underwent ostomy care teaching.  
+He was discharged home with nursing home services. The ostomy 
+had ___ feeding tubes protruding from it as ureteral stents, 
+which would fall out on their own in ___ days.
+
+ 
+Medications on Admission:
+BuPROPion (Sustained Release) 200 mg PO QAM 
+Lansoprazole Oral Disintegrating Tab 30 mg PO DAILY 
+Lorazepam 0.5-1 mg PO DAILY:PRN nausea, insomnia and anxiety 
+ 
+Discharge Medications:
+1. BuPROPion (Sustained Release) 200 mg PO QAM 
+2. Gabapentin 300 mg PO BID 
+RX *gabapentin 300 mg ONE capsule(s) by mouth twice a day Disp 
+#*25 Capsule Refills:*0
+3. Hydrocodone-Acetaminophen (5mg-500mg) ___ TAB PO Q6H:PRN 
+breakthrough pain only (score&gt;4) 
+RX *hydrocodone-acetaminophen 5 mg-500 mg ___ tablet(s) by mouth 
+Q6hrs Disp #*40 Tablet Refills:*0
+4. Ibuprofen 600 mg PO Q8H 
+RX *ibuprofen 600 mg ONE tablet(s) by mouth Q8hrs Disp #*40 
+Tablet Refills:*0
+5. Lansoprazole Oral Disintegrating Tab 30 mg PO DAILY 
+6. Lorazepam 0.5-1 mg PO DAILY:PRN nausea, insomnia and anxiety 
+7. Polyethylene Glycol 17 g PO DAILY:PRN constipation 
+RX *polyethylene glycol 3350 [Miralax] 17 gram/dose 17 grams by 
+mouth Daily Disp #*12 Packet Refills:*0
+8. Hydrocortisone Cream 2.5% 1 Appl TP DAILY 
+apply TWICE DAILY to scaling areas of face and scalp AS NEEDED 
+  
+ 
+9. Acetaminophen 325-650 mg PO Q6H:PRN pain, fever&gt;100 
+
+ 
+Discharge Disposition:
+Home With Service
+ 
+Facility:
+___
+ 
+Discharge Diagnosis:
+PRINCIPAL DIAGNOSIS:  Clinical stage T3 bladder cancer,
+urothelial carcinoma.
+
+POSTOPERATIVE DIAGNOSIS:  Clinical stage T3 bladder cancer,
+urothelial carcinoma.
+
+ 
+Discharge Condition:
+Mental Status: Clear and coherent.
+Level of Consciousness: Alert and interactive.
+Activity Status: Ambulatory - Independent.
+
+ 
+Discharge Instructions:
+-You will be discharged home with ___ to facilitate your 
+transition home and care of your urosotomy. 
+
+-The stoma has protruding ureteral stents that are to REMAIN in 
+place until they are auto-ejected/fall out on their own.  The 
+___ nurse is NOT to pull or remove them.   Be careful not 
+to accidentally traumatize or pull the stents during appliance 
+changes. 
+
+-Please refer to the instructions on Ostomy care provided by 
+nursing
+
+-To reduce the strain/pressure on your abdomen and incision 
+sites; remember to log roll onto your side and then use your 
+hands to push yourself upright while taking advantage of the 
+momentum of putting your legs/feet to the ground. 
+
+-Resume your pre-admission/home medications except as noted. 
+Always call to inform, review and discuss any medication changes 
+
+and your post-operative course with your primary care doctor
+
+-___ AVOID aspirin or aspirin containing products and 
+supplements that may have blood-thinning effects (like Fish 
+Oil, Vitamin E, etc.) until further advised by your doctor
+
+-IBUPROFEN:  please note that you may take this in addition to 
+the prescribed NARCOTIC pain medications and/or tylenol.    
+FIRST, alternate Tylen ol (acetaminophen) and Ibuprofen for pain 
+
+control.  
+
+-Ibuprofen (Brand names include ___ this should 
+always be taken with food.  If you develop stomach pain or note 
+black stool, stop the Ibuprofen.  Ibuprofen works best when 
+taken around the clock.
+
+-REPLACE the Tylenol with the prescribed narcotic if the 
+narcotic is combined with Tylenol (examples include brand names 
+___, Tylenol #3 w/ codeine and their generic 
+equivalents).  ALWAYS discuss your medications (especially when 
+using narcotics or new medications) use with the pharmacist when 
+
+you first retrieve your prescription if you have any questions.  
+
+Use the narcotic pain medication for break-through pain that 
+is &gt;4 on the pain scale.
+
+-The MAXIMUM dose of Tylenol (ACETAMINOPHEN) is 4 grams (from 
+ALL sources) PER DAY and remember that the prescribed narcotic 
+pain medication may also contain Tylenol (acetaminophen) so this 
+
+needs to be considered when monitoring your daily dose and 
+maximum.
+
+-Please do NOT drive, operate dangerous machinery, or consume 
+alcohol while taking narcotic pain medications.
+
+-For your safety and the safety of others; PLEASE DO NOT drive, 
+operate dangerous machinery, or consume alcohol while taking 
+narcotic pain medications. 
+
+-You should continue with the bowel regimen recommended, 
+including use of miralax. It is important that you not strain 
+during bowel movements and that you avoid post surgical 
+constipation 
+and constipation related to narcotic pain medication. 
+
+-You may shower 2 days after surgery, but do not tub bathe, 
+swim, soak, or scrub incision for 2 weeks
+
+-No heavy lifting for 4 weeks (no more than 10 pounds) and no 
+sports/athletics for six weeks or you are otherwise advised.
+
+-ALWAYS discuss your medications (especially when using 
+narcotics or new medications) use with the pharmacist when you 
+first retrieve your prescription if you have any questions.    
+
+-Use the narcotic pain medication for break-through pain that is 
+&gt;4 on the pain scale.
+
+-The drain that was removed from your LEFT abdomen will have a 
+gauze dressing under a clear wrap. REMOVE the outer dressing on 
+___ but leave the bandage strips (called  steristrips). 
+Allow these bandage strips to fall off on their own over time.  
+PLEASE REMOVE the outer guauze dressing but please remove the 
+gauze dressing after two days.  You may get the steristrips wet.
+ 
+Followup Instructions:
+___
+ 
+
+Output:
+
+Summarize the key diagnostic information and significant results based on the patients’ multiple health (long) records during hospitalization.
+
+
+
+IMPORTANT: You must follow all the requirements in the Initial Round (Round 0) (e.g., what is wrong and correct in code implementation; You need to ACTUALLY IMPLEMENT the structure for self-consistency, LLM Debate and Reflexion, by writing the for-loop, if you choose to use them).</pre>
+    </div>
+</div>
+
+
+<div class="message assistant">
+    <div class="role">
+    assistant
+    
+    </div>
+    <div class="content">
+    <pre>reflection: The error &#39;LLMAgentBase.__call__() missing 1 required positional argument: &#39;instruction&#39;&#39; occurred because I missed the `extra_info` positional argument in the `LLMAgentBase` call. According to the utility code and the &#39;Correct Implementation&#39; examples, the signature for calling an agent is `agent(input_infos, extra_info, instruction, ...)`. I will fix this by including `extra_info` in all agent calls.
+
+debug_thought: I will ensure that every call to an LLM agent using `LLMAgentBase` includes `extra_info` as the second positional argument, matching the signature `__call__(self, input_infos, extra_info, instruction, ...)`. I will also ensure that I use `await` for these asynchronous calls and correctly unpack the list of `Info` objects returned by the agents.
+
+thought: **Insights:**
+For clinical summarization tasks, especially those involving &#39;key diagnostic information and significant results&#39;, it is crucial to move from raw data to semantic interpretation. The existing blocks provide a robust pipeline for this: (1) Segmentation (regex-based) avoids LLM context overload; (2) Results Processing focuses specifically on the &#39;Pertinent Results&#39; section to turn raw numbers into medical narratives; (3) Diagnostic Summary connects the HPI and Course into a logical flow; and (4) Final Refinement ensures the output matches the user&#39;s specific query.
+
+**Decomposition:**
+1. Sub-task 1: Use regex-based segmentation to divide the unstructured clinical record into standard sections like &#39;Chief Complaint&#39;, &#39;HPI&#39;, &#39;Pertinent Results&#39;, and &#39;Hospital Course&#39;. This makes the data manageable for specialized agents.
+2. Sub-task 2: Based on the output of Sub-task 1, analyze the &#39;Pertinent Results&#39; and &#39;Procedures&#39; sections to create a narrative summary of labs, imaging impressions, and major invasive procedures into a single professional narrative paragraph.
+3. Sub-task 3: Based on the output of Sub-task 1 and 2, synthesize the HPI and hospital course into a diagnostic narrative that explains why the patient was admitted and what the primary clinical trajectory was.
+4. Sub-task 4: Based on the outputs of Sub-tasks 1, 2, and 3, aggregate the information into a final response that strictly summarizes the key diagnostic information and significant results as requested by the user.
+
+**Overall Architecture to solve each subquestion:**
+- Layer 1: Section_Segmenter_Tool (Sub-task 1)
+- Layer 2: Results_Processing_Agent (Sub-task 2)
+- Layer 3: Diagnostic_Summary_Agent (Sub-task 3)
+- Layer 4: Final_Refinement_Agent (Sub-task 4)
+
+**Implementation:**
+The architecture first runs the deterministic Section_Segmenter_Tool. The output is fed into the Results_Processing_Agent to handle the technical data. Then, the Diagnostic_Summary_Agent builds the patient&#39;s story. Finally, the Final_Refinement_Agent combines these summaries into a structured final answer.
+
+name: Diagnostic Synthesis Pipeline
+
+code: async def forward(self, taskInfo, extra_info):
+    import re
+    import json
+    import copy
+    from collections import namedtuple, Counter
+
+    sub_tasks = []
+    agents = []
+
+    # Helper to wrap objects for the LLM input logic without modifying immutable namedtuples
+    # The utility code defines Info as: [&#39;name&#39;, &#39;author&#39;, &#39;content&#39;, &#39;prompt&#39;, &#39;sub_tasks&#39;, &#39;agents&#39;, &#39;iteration_idx&#39;]
+    Info = namedtuple(&#39;Info&#39;, [&#39;field_name&#39;, &#39;author&#39;, &#39;content&#39;, &#39;prompt&#39;, &#39;sub_tasks&#39;, &#39;agents&#39;, &#39;iteration_idx&#39;])
+
+    # --- Sub-task 1: Section Segmentation ---
+    # Deterministic tool: Segmenting the raw text into a dictionary of sections
+    raw_text = taskInfo.content
+    header_map = {
+        &#39;chief complaint&#39;: &#39;chief_complaint&#39;,
+        &#39;history of present illness&#39;: &#39;hpi&#39;,
+        &#39;past medical history&#39;: &#39;pmh&#39;,
+        &#39;social history&#39;: &#39;social_history&#39;,
+        &#39;family history&#39;: &#39;family_history&#39;,
+        &#39;major surgical or invasive procedure&#39;: &#39;procedures&#39;,
+        &#39;allergies&#39;: &#39;allergies&#39;,
+        &#39;physical exam&#39;: &#39;physical_exam&#39;,
+        &#39;pertinent results&#39;: &#39;results&#39;,
+        &#39;brief hospital course&#39;: &#39;hospital_course&#39;,
+        &#39;discharge diagnosis&#39;: &#39;discharge_diagnosis&#39;,
+        &#39;discharge instructions&#39;: &#39;instructions&#39;,
+        &#39;discharge medications&#39;: &#39;medications&#39;,
+        &#39;medications on admission&#39;: &#39;admission_meds&#39;,
+        &#39;service&#39;: &#39;service&#39;,
+        &#39;attending&#39;: &#39;attending&#39;,
+        &#39;discharge disposition&#39;: &#39;disposition&#39;,
+        &#39;discharge condition&#39;: &#39;condition&#39;,
+        &#39;review of systems&#39;: &#39;ros&#39;
+    }
+    sorted_headers = sorted(header_map.keys(), key=len, reverse=True)
+    combined_headers = &#39;|&#39;.join(map(re.escape, sorted_headers))
+    pattern = re.compile(r&#39;\n\s*(&#39; + combined_headers + r&#39;):&#39;, re.IGNORECASE)
+    sections = {}
+    parts = pattern.split(&#39;\n&#39; + raw_text)
+    if parts:
+        sections[&#39;preamble&#39;] = parts[0].strip()
+    for i in range(1, len(parts) - 1, 2):
+        raw_header = parts[i]
+        content = parts[i+1].strip()
+        clean_header = re.sub(r&#39;\s+&#39;, &#39; &#39;, raw_header).strip().lower()
+        normalized_key = header_map.get(clean_header, &#39;other&#39;)
+        sections[normalized_key] = content
+    
+    section_info = Info(&#39;segmented_sections&#39;, &#39;Section_Segmenter&#39;, sections, None, None, None, -1)
+    sub_tasks.append(f&#34;Sub-task 1 output: Segmented {len(sections)} sections.&#34;)
+
+    # --- Sub-task 2: Results Synthesis ---
+    # Goal: Narrative summary of diagnostic results
+    results_instruction = &#34;Sub-task 2: Based on the outputs from sub-task 1 (segmented sections), identify and summarize significant lab results, imaging impressions, and major procedures into a single professional narrative paragraph. Do not use lists.&#34;
+    res_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Results_Processing_Agent&#39;, model=self.node_model, temperature=0.0)
+    
+    # Correct call signature: [input_infos], extra_info, instruction, is_sub_task=True
+    results_outputs = await res_agent([taskInfo, section_info], extra_info, results_instruction, is_sub_task=True)
+    thinking_res, answer_res = results_outputs[0], results_outputs[1]
+    
+    agents.append(f&#34;Results Agent: thinking: {thinking_res.content}; answer: {answer_res.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 2 output: {answer_res.content}&#34;)
+
+    # --- Sub-task 3: Narrative Construction ---
+    # Goal: Diagnostic narrative (Admission -&gt; PMH -&gt; Course)
+    diag_instruction = &#34;Sub-task 3: Based on the outputs from sub-task 1 and 2, synthesize a diagnostic narrative. Start with the patient&#39;s age and gender. Combine the admission history (HPI), past medical history (PMH), and hospital course into a coherent narrative. Use the summary of results from sub-task 2 to enrich the course.&#34;
+    diag_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Diagnostic_Summary_Agent&#39;, model=self.node_model, temperature=0.0)
+    
+    diag_outputs = await diag_agent([taskInfo, section_info, thinking_res, answer_res], extra_info, diag_instruction, is_sub_task=True)
+    thinking_diag, answer_diag = diag_outputs[0], diag_outputs[1]
+    
+    agents.append(f&#34;Diagnostic Agent: thinking: {thinking_diag.content}; answer: {answer_diag.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 3 output: {answer_diag.content}&#34;)
+
+    # --- Sub-task 4: Final Refinement ---
+    # Goal: Final response formatting
+    final_instruction = &#34;Sub-task 4: Based on the outputs from sub-tasks 1, 2, and 3, provide a final summary focusing strictly on &#39;key diagnostic information and significant results&#39;. Ensure the output is structured professionally and concisely as a final response to the user&#39;s request.&#34;
+    refinement_agent = LLMAgentBase([&#39;answer&#39;], &#39;Final_Refinement_Agent&#39;, model=self.node_model, temperature=0.0)
+    
+    final_outputs = await refinement_agent([taskInfo, section_info, thinking_res, answer_res, thinking_diag, answer_diag], extra_info, final_instruction, is_sub_task=True)
+    answer_final = final_outputs[0]
+    
+    agents.append(f&#34;Final Refinement Agent: answer: {answer_final.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 4 output: {answer_final.content}&#34;)
+
+    # Return final answer utilizing the standard helper
+    final_answer = self.make_final_answer(thinking_diag, answer_final, sub_tasks, agents)
+    return final_answer
+
+acc: [0.0]
+
+fitness: 95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%
+
+generation: 1
+
+total_cost: 0.0892365
+
+sub_tasks: [None]
+
+agents: [&#34;Results Agent: thinking: The patient is a 58-year-old male with muscle-invasive bladder cancer who underwent a major robot-assisted cystoprostatectomy and ileal conduit urinary diversion. I will summarize the surgical intervention, the postoperative tachycardia and its management, significant lab trends (anemia, leukocytosis, and elevated CK), imaging findings (atelectasis and stent placement), and the final discharge status into a single narrative paragraph as requested.; answer: The patient is a 58-year-old male with clinical stage T3 muscle-invasive urothelial carcinoma who, following neoadjuvant chemotherapy, underwent a robot-assisted laparoscopic radical cystoprostatectomy with bilateral extended pelvic lymphadenectomy and ileal conduit urinary diversion. His postoperative course was notable for tachycardia on postoperative day one, which was successfully managed with IV metoprolol and gentle diuresis after a cardiac workup including EKG, cardiac enzymes, and a chest radiograph—which showed only mild atelectasis—ruled out acute cardiopulmonary events. Significant laboratory findings included a postoperative hemoglobin nadir of 7.6 g/dL, a peak leukocytosis of 21.1 K/uL, and elevated creatine kinase levels reaching 2853 U/L, alongside a slight increase in serum creatinine to 1.6 mg/dL. Radiographic imaging confirmed the correct positioning of his nasogastric tube and urologic devices, including single J ureteral stents. Following the removal of the nasogastric tube, JP drain, and nephrostomy tube, the patient met all discharge criteria, including independent ambulation and tolerance of a regular diet, and was discharged home with nursing services for continued ostomy care education.\nDiagnostic Agent: thinking: I will synthesize the clinical data for this 58-year-old male, combining his history of muscle-invasive bladder cancer, the major surgical procedure (cystoprostatectomy), the postoperative management of tachycardia, significant lab fluctuations (anemia, leukocytosis, elevated CK), and his recovery milestones into a professional discharge summary.; answer: This 58-year-old male with a history of clinical stage T3 muscle-invasive urothelial carcinoma, following neoadjuvant Gemcitabine and Cisplatin chemotherapy, was admitted for definitive surgical management. His significant past medical history includes renal insufficiency, schistosomiasis, prostatitis, nephrolithiasis, and irritable bowel syndrome. He successfully underwent a robot-assisted laparoscopic radical cystoprostatectomy, bilateral extended pelvic lymphadenectomy, and ileal conduit urinary diversion. His postoperative course was complicated on day one by tachycardia (110-120 bpm); however, a cardiac workup including EKG, cardiac enzymes, and chest radiography—which showed only mild atelectasis and low lung volumes—was negative for acute cardiopulmonary events. He was managed with IV metoprolol and gentle diuresis for fluid overload. Notable laboratory results during his stay included a hemoglobin nadir of 7.6 g/dL, a peak white blood cell count of 21.1 K/uL, and an elevated creatine kinase level of 2853 U/L, alongside a transient creatinine rise to 1.6 mg/dL. Radiographic imaging confirmed the correct positioning of his nasogastric tube (NGT) and urologic stents. The patient progressed well, with the NGT removed on postoperative day (POD) 2 and the JP drain and nephrostomy tube removed by POD 6 after fluid analysis confirmed serous output. At the time of discharge, he was ambulating independently, tolerating a regular diet, and was proficient in ostomy care. He was discharged home with nursing services, with ureteral stents remaining in place to be auto-ejected.\nFinal Refinement Agent: answer: This 58-year-old male with clinical stage T3 muscle-invasive urothelial carcinoma, status post neoadjuvant chemotherapy, was admitted for a robot-assisted laparoscopic radical cystoprostatectomy, bilateral extended pelvic lymphadenectomy, and ileal conduit urinary diversion. The primary diagnosis was confirmed as clinical stage T3 bladder cancer. His postoperative course was marked by tachycardia (110-120 bpm) on postoperative day one, which was managed with metoprolol and diuresis after a cardiac workup including EKG, cardiac enzymes, and chest radiography (showing mild atelectasis) ruled out acute cardiopulmonary pathology. Significant laboratory results included a hemoglobin nadir of 7.6 g/dL, a peak white blood cell count of 21.1 K/uL, and an elevated creatine kinase (CK) peaking at 2853 U/L, along with a transient increase in serum creatinine to 1.6 mg/dL. Imaging confirmed the appropriate positioning of the nasogastric tube and urologic stents. By the time of discharge on postoperative day six, the patient&#39;s JP drain and nephrostomy tube had been removed, and he was ambulating independently while tolerating a regular diet. He was discharged home with nursing services for ostomy care, with ureteral stents left in place for spontaneous ejection.&#34;]
+
+final_response: [&#34;I will synthesize the clinical data for this 58-year-old male, combining his history of muscle-invasive bladder cancer, the major surgical procedure (cystoprostatectomy), the postoperative management of tachycardia, significant lab fluctuations (anemia, leukocytosis, elevated CK), and his recovery milestones into a professional discharge summary.\n\nAnswer:This 58-year-old male with clinical stage T3 muscle-invasive urothelial carcinoma, status post neoadjuvant chemotherapy, was admitted for a robot-assisted laparoscopic radical cystoprostatectomy, bilateral extended pelvic lymphadenectomy, and ileal conduit urinary diversion. The primary diagnosis was confirmed as clinical stage T3 bladder cancer. His postoperative course was marked by tachycardia (110-120 bpm) on postoperative day one, which was managed with metoprolol and diuresis after a cardiac workup including EKG, cardiac enzymes, and chest radiography (showing mild atelectasis) ruled out acute cardiopulmonary pathology. Significant laboratory results included a hemoglobin nadir of 7.6 g/dL, a peak white blood cell count of 21.1 K/uL, and an elevated creatine kinase (CK) peaking at 2853 U/L, along with a transient increase in serum creatinine to 1.6 mg/dL. Imaging confirmed the appropriate positioning of the nasogastric tube and urologic stents. By the time of discharge on postoperative day six, the patient&#39;s JP drain and nephrostomy tube had been removed, and he was ambulating independently while tolerating a regular diet. He was discharged home with nursing services for ostomy care, with ureteral stents left in place for spontaneous ejection.&#34;]
+
+memory: [{&#34;This 58-year-old male with clinical stage T3 muscle-invasive urothelial carcinoma, status post neoadjuvant chemotherapy, was admitted for a robot-assisted laparoscopic radical cystoprostatectomy, bilateral extended pelvic lymphadenectomy, and ileal conduit urinary diversion. The primary diagnosis was confirmed as clinical stage T3 bladder cancer. His postoperative course was marked by tachycardia (110-120 bpm) on postoperative day one, which was managed with metoprolol and diuresis after a cardiac workup including EKG, cardiac enzymes, and chest radiography (showing mild atelectasis) ruled out acute cardiopulmonary pathology. Significant laboratory results included a hemoglobin nadir of 7.6 g/dL, a peak white blood cell count of 21.1 K/uL, and an elevated creatine kinase (CK) peaking at 2853 U/L, along with a transient increase in serum creatinine to 1.6 mg/dL. Imaging confirmed the appropriate positioning of the nasogastric tube and urologic stents. By the time of discharge on postoperative day six, the patient&#39;s JP drain and nephrostomy tube had been removed, and he was ambulating independently while tolerating a regular diet. He was discharged home with nursing services for ostomy care, with ureteral stents left in place for spontaneous ejection.&#34;: &#39;95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%&#39;}]</pre>
+    </div>
+</div>
+
+
+<div class="message user">
+    <div class="role">
+    user
+    
+    </div>
+    <div class="content">
+    <pre>Round 1: The entries (code, thoughts, agents, reflection, etc.) have been updated since last round (Round 0). Now Using insights from previous rounds, reflect again on the new outputs after round 0.
+
+&#34;
+Carefully review the proposed new architectures (&#34;code&#34; entry), the answer of each sub-tasks (&#34;sub_tasks&#34; entry) , the answer of each agnets (&#34;agents&#34; entry), the final response (&#34;final_reponse&#34; entry) and the fitness (&#34;fitness&#34; entry, i.e., the median and 95% Bootstrap Confidence Interval of the correct rate on the given question), and the &#39;memory&#39; (previous final answer extracted from their reponse and the corresponding fitness score, in the format of a list of dictionary final answer: fitness) in all the history user and assistant answers. Reflect on the following points:&#34;
+
+1. **Solvable**: Assess whether all sub-tasks are solvable by the corresponidng block via checking the output answer of each sub-task. 
+
+- if the answer of the sub-task explicitly contain [TOO_HARD]. This clearly state that task is too hard, what need to be further decomposed. Consider the suggestion given after the [TOO_HARD] (you can see the &#39;Suggestions:&#39; next to the [TOO_HARD] )and improve your decomposison accrodingly. See below (a) for what need to be make sure
+
+- If the sub-task answr is incoorect. That means it is not solvable, what need to be improved. It may beuase 
+
+(a) the task is still too difficult for the block, then the sub-task need to be further decomposed. 
+
+When proposing new sub-task, make sure 
+(i) it is specific and detailed enough to solve and to help achieve the final answer to the given question.
+(ii) all information required to answer the question is proveded by the previous answers or the instruction. 
+(iii) the related sub-tasks thinking and answers have correctly input to the current sub-task by adding it to the taskInfo list when calling the agent. 
+(iv) The output should be helpful to solve the next sub-task. Also make sure the sub-task connection is clearly by clealy state &#39;Based on the output of sub-task i..&#39; in the sub-task instruction
+
+(b) some agnets in the block is malfunctional or the underlying LLM is too weak to solve the sub-task alone. This can be detemined by checking the agents output to decide whether it works as expected. If this is the case, then we need to get rid of the block and use another block in the architecture. There are then two possibilities
+    (i) the agent in the block is not optimal to solve the sub-task, setting needed to be improved (instruction, tempreture...)
+    (ii) the agent architecutre in the block is not optimal, a new block that combine exisitng blocks in a different way or different settings need to be proposed
+Please jutify it is (a), the decomposition issue or (b) (and (i) or (ii)), the block and agent issue. It could also be both.
+
+2. **Completeness**: Are the sub-tasks include all neccessay information from the irginal query that can ensure the aggregation of sub-task responses can effectively yild a comprehensive answer to the user query? Note that while a sub-task might include only part of the neccessary information, it is not allowable for any particular piece of critical information to be omitted from all sub-tasks. Make sure the sub-task are connected to the prerequisite sub-tasks so that there is enough information to solve it.
+
+3. **Fitness**: Your final goal is to optimize the fitness score after updating the architectures and/or task decomposision based on (1) and (2). The fitness is computed based on the final reponse. If it is low, it indicates that your final answer is incorrect. In your updated architecture or task decomposition, you need to make sure they will update your final response accordingly. 
+
+And then, you need to improve or revise the implementation, or implement the new proposed architecture based on the reflection.
+
+Your response should add new entries to the previous answers:
+
+&#34;reflection&#34;: 
+(1) Provide your thoughts on the Solvable, Completeness and Fitness of the architecture and/or task decomposision (which sub-tasks are incorrect? which agent in which block are malfunctional?)
+(2) identify any inappropriate in the implementation, and suggest improvements (why the improvements can lead to a better final answer? Expain in detail)
+
+&#34;thought&#34;: Revise your previous proposal or propose a new architecture if necessary, using the same format as the example response. 
+
+For case (a), Give the 
+
+(1) **Further Decomposion**: Compre to your previous decomposition attemps in the Discovered architecture archive (see the &#39;thought&#39; entries), how do you futher decompose the questions? please give details by the following format: &#39;last sub-task 1 -&gt; (further decompose to) new sub-task 2, new sub-task 3..., new sub-task n)&#39; Give detail compare and justify how the new sub-tasks are eaiser than the old one. Do not give answer or short-cut (an example for shot-cut: &#39;output exactly the following:..&#39;, which is not allowed) in the sub-task instruction in any format, but only do the planing. Justify (1) why the new sub-tasks are sovlable and (2) how the sub-tasks can achieve the final answer to the original question.
+
+
+For case (b), Give the 
+
+(2) **Improved subtask architeture**: Compare to your last block attemps in the history (last answer), which sub-task architecture need to be imrpoved? How do you futher connecting them in a different ways so that the resultsing subtask architeture is able to solve the corresponding sub-task? please give details by the following format: &#39;last sub-task architeture (what architecute was it?) (aims to address sub-task i)-&gt; (improve to) new sub-task architeture (what is the main difference?)&#39; Give detail compare and justify how the new connection is improved than the old one. Note that the new connection still follow the rules that you need need to determine the number of layers as well as the connection, but do not propose new blocks or modify existing ones in the sub-task architecture, and just changes the connection among the block, but block setting like instruction, tempreture are allowed to modify
+
+For case where the final response is not updated and still the same mistaken answer, Give the
+
+(3) **Updated Subtask Instruction**. Read the &#39;memeory&#39; entry, improve the sub-task instruction so that it can know explicitly that some answers should be avoided. For example, you can add `It is known that (wrong answers, include all wrong answers from the &#39;memeory&#39;, i.e., all final answer with 0 fitness score) is not correct` to the last sub-task so that the sub-architecture knows it needs to avoid it.
+
+
+&#34;name&#34;: Provide a name for the revised or new architecture. (Don&#39;t put words like &#34;new&#34; or &#34;improved&#34; in the name.)
+
+&#34;code&#34;: Update the code entry based on your reflection and thought. Make sure you actually implement all the improvements mentioned in the reflection and thougths and improvement in this code. Make sure only return the final answer, i.e., the output of self.make_final_answer. All the requirement on code still valid: You must write a COMPLETE CODE in &#34;code&#34;: Your code will be part of the entire project (so do not implement any other part), so please implement complete, reliable, reusable code snippets. Do not make any syntactic mistakes. For example. 
+if single quote (&#39;) is used in string, then double quote (&#34;) should be used for the whole string.
+
+This is WRONG
+`f&#39;CoT-SC agent ABC, on the purpose of determining changes to Maxwell&#39;s&#39;`. 
+This is wrong becuse single qupte is used (Maxwell&#39;s) within the sting but single quote is used again for the f-string (f&#39;&#39;). This will casue unterminated string error. To correct it, one should use double quote for f-stirng, i.e., `f&#34;CoT-SC agent ABC, on the purpose of determining changes to Maxwell&#39;s&#34;`
+</pre>
+    </div>
+</div>
+
+<h3>Sampled message</h3>
+
+<div class="message assistant">
+    <div class="role">
+    assistant
+    
+    </div>
+    <div class="content">
+    <pre>reflection: (1) Solvable: The previous sub-tasks were solvable, but the resulting summaries were overly broad, including routine discharge information (medications, PMH) that diluted the focus on &#39;key diagnostic information and significant results&#39;. The fitness score of 0.0 indicates that either critical clinical findings (like the specific ascites creatinine levels or the severity of the CK elevation) were buried or the format was too generic. 
+(2) Completeness: While the narrative was professional, it missed the high-granularity extraction of all abnormal values which are often required for a &#39;significant results&#39; summary in medical benchmarks. 
+(3) Implementation: I will improve the architecture by splitting the results processing into two steps: a high-recall extraction of abnormal numerical data (using Self-Consistency) and a qualitative synthesis of imaging/procedures. I will then use a Reflexion loop for the final synthesis to ensure that the agent cross-references the extracted data with the user&#39;s specific request, avoiding the inclusion of irrelevant discharge details like home medications unless they pertain to the results.
+
+thought: **Insights:**
+For complex medical records, a single-pass narrative often loses specific data points (e.g., specific lab abnormalities). Literature suggests that multi-agent ensembling (Self-Consistency) improves numerical extraction accuracy, while a critic-loop (Reflexion) ensures adherence to specific constraints (like excluding irrelevant discharge details).
+
+**Decomposition:**
+1. Sub-task 1: Segment the clinical text using regex heuristics.
+2. Sub-task 2: Identify and list all significant abnormal laboratory values and imaging findings. Use Self-Consistency to ensure no critical abnormal value (e.g., CK &gt; 2800 or Ascites Creatinine) is omitted.
+3. Sub-task 3: Summarize the key diagnostic information, including the principal diagnosis, surgical staging, and procedures performed.
+4. Sub-task 4: Based on Sub-tasks 2 and 3, synthesize the final summary. Use Reflexion to verify that all &#39;significant&#39; results are included and that irrelevant discharge info is excluded.
+
+**Overall Architecture:**
+- Layer 1: Section_Segmenter_Tool (Regex)
+- Layer 2: Self-Consistency (3 Parallel Agents) for Result Extraction (Sub-task 2)
+- Layer 3: COT Agent for Diagnostic Info (Sub-task 3)
+- Layer 4: Reflexion (Critic + Generator) for Final Synthesis (Sub-task 4)
+
+**Implementation:**
+I will implement a for-loop for the 3-path Self-Consistency for sub-task 2 and a for-loop (max 2 iterations) for the Reflexion loop in sub-task 4. I will explicitly instruct the agents to avoid the previous generic narrative style.
+
+name: High Fidelity Clinical Synthesis Pipeline
+
+code: async def forward(self, taskInfo, extra_info):
+    import re
+    import json
+    import copy
+    from collections import namedtuple, Counter
+
+    sub_tasks = []
+    agents = []
+    Info = namedtuple(&#39;Info&#39;, [&#39;field_name&#39;, &#39;author&#39;, &#39;content&#39;, &#39;prompt&#39;, &#39;sub_tasks&#39;, &#39;agents&#39;, &#39;iteration_idx&#39;])
+
+    # --- Sub-task 1: Section Segmentation (Tool) ---
+    raw_text = taskInfo.content
+    header_map = {
+        &#39;chief complaint&#39;: &#39;chief_complaint&#39;,
+        &#39;history of present illness&#39;: &#39;hpi&#39;,
+        &#39;past medical history&#39;: &#39;pmh&#39;,
+        &#39;major surgical or invasive procedure&#39;: &#39;procedures&#39;,
+        &#39;pertinent results&#39;: &#39;results&#39;,
+        &#39;brief hospital course&#39;: &#39;hospital_course&#39;,
+        &#39;discharge diagnosis&#39;: &#39;discharge_diagnosis&#39;,
+        &#39;discharge medications&#39;: &#39;medications&#39;,
+        &#39;physical exam&#39;: &#39;physical_exam&#39;
+    }
+    sorted_headers = sorted(header_map.keys(), key=len, reverse=True)
+    combined_headers = &#39;|&#39;.join(map(re.escape, sorted_headers))
+    pattern = re.compile(r&#39;\n\s*(&#39; + combined_headers + r&#39;):&#39;, re.IGNORECASE)
+    sections = {}
+    parts = pattern.split(&#39;\n&#39; + raw_text)
+    if parts:
+        sections[&#39;preamble&#39;] = parts[0].strip()
+    for i in range(1, len(parts) - 1, 2):
+        normalized_key = header_map.get(re.sub(r&#39;\s+&#39;, &#39; &#39;, parts[i]).strip().lower(), &#39;other&#39;)
+        sections[normalized_key] = parts[i+1].strip()
+    
+    section_info = Info(&#39;segmented_sections&#39;, &#39;Segmenter&#39;, sections, None, None, None, -1)
+    sub_tasks.append(f&#34;Sub-task 1: Segmented input into {len(sections)} sections.&#34;)
+
+    # --- Sub-task 2: Result Extraction (Self-Consistency) ---
+    # Using N=3 for consistency on numerical data
+    sc_instruction = &#34;Sub-task 2: Based on the segmented sections (especially &#39;results&#39;), list ALL clinically significant abnormal laboratory values (with units/ranges if noted) and key imaging findings. Be exhaustive for numerical abnormalities.&#34;
+    sc_agents = [LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], f&#39;SC_Agent_{i}&#39;, model=self.node_model, temperature=0.3) for i in range(3)]
+    
+    possible_answers = []
+    for agent in sc_agents:
+        t, a = await agent([taskInfo, section_info], extra_info, sc_instruction, is_sub_task=True)
+        agents.append(f&#34;{agent.agent_name} result extraction: {a.content}&#34;)
+        possible_answers.append(a.content)
+    
+    # In clinical text, we use the most detailed extraction instead of simple majority vote to ensure high recall
+    best_extraction_content = max(possible_answers, key=len)
+    results_info = Info(&#39;significant_results&#39;, &#39;SC_Ensemble&#39;, best_extraction_content, None, None, None, -1)
+    sub_tasks.append(f&#34;Sub-task 2 output: {best_extraction_content[:200]}...&#34;)
+
+    # --- Sub-task 3: Diagnostic Info (COT) ---
+    diag_instruction = &#34;Sub-task 3: Based on the segmented sections, summarize the primary diagnosis, clinical staging (e.g., T3), and the specific surgical procedures performed. Be precise with medical terminology.&#34;
+    diag_agent = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Diagnostic_Agent&#39;, model=self.node_model, temperature=0.0)
+    t_diag, a_diag = await diag_agent([taskInfo, section_info], extra_info, diag_instruction, is_sub_task=True)
+    agents.append(f&#34;Diagnostic Agent: {a_diag.content}&#34;)
+    sub_tasks.append(f&#34;Sub-task 3 output: {a_diag.content}&#34;)
+
+    # --- Sub-task 4: Final Synthesis (Reflexion) ---
+    # Avoid the previous failed answer
+    memory_wrong = &#34;The patient is a 58-year-old male with clinical stage T3 muscle-invasive urothelial carcinoma, status post neoadjuvant chemotherapy...&#34;
+    refine_instruction = f&#34;Sub-task 4: Based on the outputs of sub-tasks 2 and 3, summarize the key diagnostic information and significant results. DO NOT include routine discharge info like medication lists or PMH unless they are results of the stay. It is known that the following structure is not optimal: {memory_wrong}&#34;
+    critic_instruction = &#34;Critique the summary: Does it capture all significant lab abnormalities (like CK levels or ascites results)? Does it concisely state the diagnosis and procedure? Answer ONLY &#39;True&#39; in &#39;correct&#39; if it is perfect.&#34;
+    
+    generator = LLMAgentBase([&#39;thinking&#39;, &#39;answer&#39;], &#39;Final_Generator&#39;, model=self.node_model, temperature=0.0)
+    critic = LLMAgentBase([&#39;feedback&#39;, &#39;correct&#39;], &#39;Final_Critic&#39;, model=self.node_model, temperature=0.0)
+    
+    current_inputs = [taskInfo, results_info, a_diag]
+    t_final, a_final = await generator(current_inputs, extra_info, refine_instruction, is_sub_task=True)
+    
+    for i in range(1):
+        f_critic, c_critic = await critic([taskInfo, t_final, a_final], extra_info, critic_instruction, is_sub_task=True)
+        agents.append(f&#34;Critic Iteration {i}: {c_critic.content}&#34;)
+        if c_critic.content.strip().lower() == &#39;true&#39;:
+            break
+        # Refine if not perfect
+        t_final, a_final = await generator(current_inputs + [f_critic], extra_info, &#34;Refine the summary based on the critic feedback.&#34;, is_sub_task=True)
+
+    sub_tasks.append(f&#34;Sub-task 4 output: {a_final.content}&#34;)
+    return self.make_final_answer(t_final, a_final, sub_tasks, agents)</pre>
+    </div>
+</div>
+<h3>Results</h3>
+<p>Correct Answer: 0</p>
+<p>Extracted Answer: 0</p>
+<p>Score: 0</p>
+    <hr>
+    
+    </body>
+</html>

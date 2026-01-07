@@ -1,0 +1,17 @@
+[
+    {
+        "The patient is likely suffering from hyponatremia due to SIADH or another cause of euvolemic hyponatremia.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The patient may have hyponatremia due to a paraneoplastic syndrome, possibly related to an undiagnosed malignancy such as small cell lung cancer, which can cause SIADH-like symptoms. Further investigation into potential underlying malignancies or medication effects is needed. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Final diagnosis: Hyponatremia of unclear etiology. Next steps: Initiate treatment to correct hyponatremia, such as fluid restriction or hypertonic saline if indicated. Further investigate potential endocrine causes, including adrenal insufficiency and hypothyroidism, with appropriate hormonal assays. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Final Diagnosis: Hyponatremia due to SIADH, with a potential underlying cause of paraneoplastic syndrome related to smoking history. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The patient may have hyponatremia due to hypothyroidism, adrenal insufficiency, medication effects, primary polydipsia, or reset osmostat. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

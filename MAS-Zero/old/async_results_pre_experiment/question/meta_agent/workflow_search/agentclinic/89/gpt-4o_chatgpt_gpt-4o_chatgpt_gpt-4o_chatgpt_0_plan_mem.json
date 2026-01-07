@@ -1,0 +1,17 @@
+[
+    {
+        "The final diagnosis for the patient is a phyllodes tumor of the left breast.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis for the patient is a borderline or malignant phyllodes tumor of the left breast, given the rapid growth and biopsy findings. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Additional tests such as a breast MRI and a more extensive histopathological examination with immunohistochemical staining are needed to confirm the diagnosis and rule out other differential diagnoses like invasive ductal carcinoma or sarcoma.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Specific tests needed include detailed histopathological examination focusing on stromal cellularity, atypia, and mitotic activity to confirm phyllodes tumor and rule out fibroadenoma. Immunohistochemical staining for markers like ER, PR, and HER2 can help rule out invasive ductal carcinoma. Further histological analysis for specific sarcoma markers is also needed.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "No additional tests are needed beyond the current biopsy findings to confirm the diagnosis of a phyllodes tumor and rule out other malignant differential diagnoses.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

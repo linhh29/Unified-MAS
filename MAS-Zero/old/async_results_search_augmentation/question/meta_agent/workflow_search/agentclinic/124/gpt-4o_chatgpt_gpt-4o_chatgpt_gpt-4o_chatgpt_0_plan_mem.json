@@ -1,0 +1,17 @@
+[
+    {
+        "The most likely cause of the patient's acute diarrhea is Clostridium difficile infection due to recent levofloxacin use. The management plan should include discontinuing levofloxacin if possible, and starting treatment with oral vancomycin or fidaxomicin for C. difficile infection. Supportive care with hydration and monitoring is also important. Further confirmation with a C. difficile toxin test is recommended.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The most likely cause of the patient's acute diarrhea is non-C. difficile antibiotic-associated diarrhea due to levofloxacin use. Management should include supportive care with oral rehydration and monitoring of symptoms. Further stool test results should be awaited to rule out other infectious causes and guide specific treatment if needed.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The most likely cause of the patient's acute diarrhea is a direct side effect of levofloxacin or another infectious cause not related to C. difficile. Management should include supportive care with hydration and monitoring, while awaiting further test results for specific treatment guidance. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "1. Ensure adequate hydration and electrolyte balance with oral rehydration solutions.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "1. Ensure adequate hydration and electrolyte balance through oral rehydration solutions or intravenous fluids if necessary.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

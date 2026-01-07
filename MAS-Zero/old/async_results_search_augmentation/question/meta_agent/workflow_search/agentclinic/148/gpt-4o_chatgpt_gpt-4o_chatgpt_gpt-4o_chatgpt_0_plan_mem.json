@@ -1,0 +1,17 @@
+[
+    {
+        "Final Diagnosis: Brief Psychotic Disorder triggered by recent bereavement. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Final Diagnosis: Major Depressive Disorder with Psychotic Features. Treatment Plan: Initiate treatment with a combination of psychotherapy and pharmacotherapy. Consider starting an antidepressant such as an SSRI (e.g., sertraline) and an antipsychotic (e.g., risperidone) to address the psychotic symptoms. Regular follow-up appointments should be scheduled to monitor her response to treatment and adjust medications as needed. Additionally, provide supportive therapy to help her cope with the bereavement and address any safety concerns related to suicidal ideation.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Final Diagnosis: Adjustment Disorder with Mixed Anxiety and Depressed Mood. Treatment Plan: Initiate psychotherapy, such as cognitive-behavioral therapy, to help the patient process her grief and develop coping strategies. Consider short-term pharmacotherapy with anxiolytics or antidepressants if symptoms are severe or do not improve with therapy alone. Monitor for any escalation of symptoms or risk of self-harm.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Final Diagnosis: Acute Stress Disorder with psychotic features.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Final Diagnosis: Psychotic Disorder Not Otherwise Specified (NOS) due to the acute onset of psychotic symptoms following a significant stressor.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

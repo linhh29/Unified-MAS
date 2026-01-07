@@ -1,0 +1,17 @@
+[
+    {
+        "Flight Number: F3663441, from Charlotte to Boston, Departure Time: 15:06, Arrival Time: 17:08": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Flight Number: F3690539, from Charlotte to Boston, Departure Time: 20:30, Arrival Time: 22:33": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "22:35": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "F3693944": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "F3695301": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

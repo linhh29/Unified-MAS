@@ -1,0 +1,202 @@
+{
+  "scenario_id": 4,
+  "doctor": {
+    "input_tokens": 71339,
+    "output_tokens": 8154,
+    "total_tokens": 79493,
+    "input_cost": 0.03567,
+    "output_cost": 0.024462,
+    "total_cost": 0.060132,
+    "num_calls": 11
+  },
+  "patient": {
+    "input_tokens": 35869,
+    "output_tokens": 6701,
+    "total_tokens": 42570,
+    "input_cost": 0.017934,
+    "output_cost": 0.020103,
+    "total_cost": 0.038038,
+    "num_calls": 6
+  },
+  "measurement": {
+    "input_tokens": 23438,
+    "output_tokens": 10240,
+    "total_tokens": 33678,
+    "input_cost": 0.011719,
+    "output_cost": 0.03072,
+    "total_cost": 0.042439,
+    "num_calls": 4
+  },
+  "judge": {
+    "input_tokens": 1258,
+    "output_tokens": 124,
+    "total_tokens": 1382,
+    "input_cost": 0.003145,
+    "output_cost": 0.00124,
+    "total_cost": 0.004385,
+    "num_calls": 1
+  },
+  "total": {
+    "total_cost": 0.144993,
+    "total_tokens": 157123
+  },
+  "detailed_calls": {
+    "doctor": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5215,
+        "output_tokens": 504,
+        "cost": 0.0041195,
+        "inference_num": 1
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5327,
+        "output_tokens": 472,
+        "cost": 0.0040795,
+        "inference_num": 2
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5834,
+        "output_tokens": 432,
+        "cost": 0.004213,
+        "inference_num": 3
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5953,
+        "output_tokens": 333,
+        "cost": 0.003975500000000001,
+        "inference_num": 4
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6057,
+        "output_tokens": 492,
+        "cost": 0.004504500000000001,
+        "inference_num": 5
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6491,
+        "output_tokens": 366,
+        "cost": 0.0043435,
+        "inference_num": 6
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6635,
+        "output_tokens": 687,
+        "cost": 0.0053785000000000005,
+        "inference_num": 7
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 7058,
+        "output_tokens": 910,
+        "cost": 0.006259000000000001,
+        "inference_num": 8
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 7200,
+        "output_tokens": 831,
+        "cost": 0.006093,
+        "inference_num": 9
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 7722,
+        "output_tokens": 1233,
+        "cost": 0.007560000000000001,
+        "inference_num": 10
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 7847,
+        "output_tokens": 1894,
+        "cost": 0.0096055,
+        "inference_num": 11
+      }
+    ],
+    "patient": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4891,
+        "output_tokens": 645,
+        "cost": 0.004380500000000001
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5466,
+        "output_tokens": 522,
+        "cost": 0.004299000000000001
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5606,
+        "output_tokens": 1719,
+        "cost": 0.00796
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6114,
+        "output_tokens": 1634,
+        "cost": 0.007959
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6589,
+        "output_tokens": 1217,
+        "cost": 0.0069455
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 7203,
+        "output_tokens": 964,
+        "cost": 0.0064935
+      }
+    ],
+    "measurement": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4982,
+        "output_tokens": 1927,
+        "cost": 0.008272000000000002
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5641,
+        "output_tokens": 1987,
+        "cost": 0.008781500000000001
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6168,
+        "output_tokens": 4406,
+        "cost": 0.016301999999999997
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6647,
+        "output_tokens": 1920,
+        "cost": 0.0090835
+      }
+    ],
+    "judge": [
+      {
+        "model": "gpt-4o",
+        "input_tokens": 1258,
+        "output_tokens": 124,
+        "cost": 0.004385
+      }
+    ]
+  },
+  "diagnosis_result": {
+    "diagnosis_made": true,
+    "is_correct": false,
+    "doctor_diagnosis": "This 58-year-old male with muscle-invasive urothelial carcinoma underwent a robot-assisted laparoscopic radical cystoprostatectomy, bilateral extended pelvic lymphadenectomy, and ileal conduit urinary diversion following neoadjuvant chemotherapy. His postoperative course was complicated by tachycardia and fluid positivity on day one, which resolved with metoprolol and gentle diuresis, as well as transient elevations in white blood cell count and creatine kinase that were monitored without further intervention. The patient successfully transitioned from patient-controlled analgesia to a multimodal oral pain regimen consisting of gabapentin, ibuprofen, and as-needed hydrocodone-acetaminophen. He was discharged home in stable condition with visiting nursing services for urostomy care, maintaining two ureteral stents intended for natural auto-ejection. He was instructed to follow a ten-pound lifting restriction for four weeks, utilize a \"log-roll\" technique for mobility, and remove the outer dressing of his JP drain site two days after discharge while leaving the underlying steri-strips intact. At the time of discharge, his urostomy was pink and patent, and his incisions were healing well without evidence of infection.",
+    "correct_diagnosis": "The patient is a 58-year-old male who was admitted to the hospital for a robot-assisted laparoscopic radical cystoprostatectomy with bilateral extended pelvic lymphadenectomy and ileal conduit urinary diversion due to bladder cancer. His past medical history includes renal insufficiency, tendonitis, schistosomiasis, IBS, prostatitis, HLD, nephrolithiasis, and epididymitis. He has allergies to adhesive tape and Dicloxacillin.\n\nThe patient's presenting symptoms and reason for admission were related to his bladder cancer and the surgical procedure. He had a major surgical procedure performed, which included a robot-assisted laparoscopic radical cystoprostatectomy with bilateral extended pelvic lymphadenectomy and ileal conduit urinary diversion.\n\nThe patient's diagnosis was bladder cancer, and he was prescribed medications at discharge. His physical exam was normal, with no abnormalities noted.\n\nThe patient's laboratory results showed normal blood counts, with some fluctuations in his white blood cell count and hemoglobin levels. His blood glucose levels were also monitored, and he had some fluctuations in his levels. His calcium and phosphorus levels were also monitored, and he had some fluctuations in his levels.\n\nThe patient's hospital course was uneventful, with no acute cardiopulmonary processes noted. He was started on strict sips on POD 3 and advanced to a regular diet on POD 4. He received one dose of unasyn and his nephrostomy tube was clamped on POD 5.\n\nIn summary, the patient is a 58-year-old male who underwent a robot-assisted laparoscopic radical cystoprostatectomy with bilateral extended pelvic lymphadenectomy and ileal conduit urinary diversion due to bladder cancer. His past medical history includes several conditions, and he has allergies to adhesive tape and Dicloxacillin. His laboratory results showed some fluctuations in his blood counts and blood glucose levels, but no acute cardiopulmonary processes were noted. He was started on strict sips on POD 3 and advanced to a regular diet on POD 4."
+  }
+}

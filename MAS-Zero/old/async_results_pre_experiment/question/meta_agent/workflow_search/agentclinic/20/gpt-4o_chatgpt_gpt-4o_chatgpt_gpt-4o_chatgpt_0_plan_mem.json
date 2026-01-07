@@ -1,0 +1,17 @@
+[
+    {
+        "The patient likely has a pneumothorax or lung collapse due to the fractured rib and depression of the left mainstem bronchus, along with a possible mediastinal hematoma, contributing to the respiratory distress.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The patient likely has a tension pneumothorax on the left side, causing mediastinal shift and respiratory distress, due to the fractured rib and depression of the left mainstem bronchus.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The patient likely has a left-sided hemothorax due to the fractured rib and depression of the left mainstem bronchus, causing respiratory distress and mediastinal shift.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The patient likely has a traumatic bronchial injury or tracheobronchial disruption, causing respiratory distress and mediastinal shift due to air leakage and potential mediastinal emphysema.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The patient likely has a complex thoracic injury involving a left-sided pneumothorax or hemothorax, with possible mediastinal injury, contributing to the respiratory distress and mediastinal shift. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

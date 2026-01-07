@@ -1,0 +1,52 @@
+[
+    {
+        "day": 1,
+        "current_city": "from Killeen to Dallas",
+        "transportation": "Flight Number: F3601133, from Killeen to Dallas, Departure Time: 06:40, Arrival Time: 07:37",
+        "breakfast": "Cafe Gatherings, Dallas",
+        "attraction": "The Sixth Floor Museum at Dealey Plaza, Dallas",
+        "lunch": "Coconuts Fish Cafe, Dallas",
+        "dinner": "Yanki Sizzlers, Dallas",
+        "accommodation": "Fresh Budget Room, Dallas"
+    },
+    {
+        "day": 2,
+        "current_city": "Dallas",
+        "transportation": "-",
+        "breakfast": "Drifters Cafe, Dallas",
+        "attraction": "The Dallas World Aquarium, Dallas;Reunion Tower, Dallas",
+        "lunch": "1918 Bistro & Grill, Dallas",
+        "dinner": "Dem Karaköy, Dallas",
+        "accommodation": "Fresh Budget Room, Dallas"
+    },
+    {
+        "day": 3,
+        "current_city": "from Dallas to El Paso",
+        "transportation": "Flight Number: F3800570, from Dallas to El Paso, Departure Time: 09:15, Arrival Time: 10:05",
+        "breakfast": "Bikaner Sweets, Dallas",
+        "attraction": "El Paso Museum of Art, El Paso;San Jacinto Plaza, El Paso",
+        "lunch": "The Garden Cafe - The Fern, El Paso",
+        "dinner": "Ceviche Tapas Bar & Restaurant, El Paso",
+        "accommodation": "Chic Designer Home Guest Studio, El Paso"
+    },
+    {
+        "day": 4,
+        "current_city": "El Paso",
+        "transportation": "-",
+        "breakfast": "Raju Chat Palace, El Paso",
+        "attraction": "El Paso Zoo and Botanical Gardens, El Paso;Franklin Mountains State Park, El Paso",
+        "lunch": "Onesta, El Paso",
+        "dinner": "The Plough, El Paso",
+        "accommodation": "Chic Designer Home Guest Studio, El Paso"
+    },
+    {
+        "day": 5,
+        "current_city": "from El Paso to Killeen",
+        "transportation": "self-driving, from El Paso to Killeen, duration: 8 hours 29 mins, distance: 920 km, cost: 46",
+        "breakfast": "Los Beto's, El Paso",
+        "attraction": "Centennial Museum and Chihuahuan Desert Gardens, El Paso",
+        "lunch": "Captain Grub, El Paso",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]

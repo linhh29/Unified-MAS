@@ -1,0 +1,17 @@
+[
+    {
+        "The most likely cause of the patient's symptoms is obstructive jaundice due to a mass causing bile duct obstruction, likely a pancreatic or biliary tumor such as pancreatic cancer or cholangiocarcinoma.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The most likely cause of the patient's symptoms is obstructive jaundice due to a pancreatic pseudocyst causing bile duct obstruction.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Pancreatic adenocarcinoma is more likely than cholangiocarcinoma.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Cholangiocarcinoma is the most likely cause given the cystic mass in the subhepatic region, bile duct dilation, and the patient's risk factors of age and smoking.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Pancreatic cancer is the most likely cause given the cystic mass, bile duct dilation, and the patient's risk factors of age, smoking, and past alcohol use.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

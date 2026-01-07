@@ -1,0 +1,52 @@
+[
+    {
+        "days": 1,
+        "current_city": "from Sun Valley to San Diego",
+        "transportation": "Self-driving, from Sun Valley to San Diego, Departure Time: 06:00, Arrival Time: 20:09",
+        "breakfast": "Jetha Lal Ka Dhabha, San Diego",
+        "attraction": "Old Town San Diego, San Diego",
+        "lunch": "Burger King, San Diego",
+        "dinner": "Meraki, San Diego",
+        "accommodation": "Conveniently located 2 BR Time Square Apartment, San Diego"
+    },
+    {
+        "days": 2,
+        "current_city": "San Diego",
+        "transportation": "-",
+        "breakfast": "Open Yard, San Diego",
+        "attraction": "San Diego Zoo, San Diego;Balboa Park, San Diego;",
+        "lunch": "Burgrill, San Diego",
+        "dinner": "The Lost Mughal, San Diego",
+        "accommodation": "Conveniently located 2 BR Time Square Apartment, San Diego"
+    },
+    {
+        "days": 3,
+        "current_city": "from San Diego to Redding",
+        "transportation": "Self-driving, from San Diego to Redding, Departure Time: 08:00, Arrival Time: 18:10",
+        "breakfast": "Milk n More, Redding",
+        "attraction": "-",
+        "lunch": "Healthy Routes, Redding",
+        "dinner": "Mosaic - Country Inn & Suites, Redding",
+        "accommodation": "Artist retreat in East Williamsburg, Brooklyn, Redding"
+    },
+    {
+        "days": 4,
+        "current_city": "Redding",
+        "transportation": "-",
+        "breakfast": "Elma's Bakery, Bar, and Kitchen, Redding",
+        "attraction": "Turtle Bay Exploration Park, Redding;Sundial Bridge, Redding;",
+        "lunch": "The Junction, Redding",
+        "dinner": "Bloomsbury's Boutique Cafe and Artisan Bakery, Redding",
+        "accommodation": "Artist retreat in East Williamsburg, Brooklyn, Redding"
+    },
+    {
+        "days": 5,
+        "current_city": "from Redding to Sun Valley",
+        "transportation": "Self-driving, from Redding to Sun Valley, Departure Time: 11:30, Arrival Time: 22:43",
+        "breakfast": "Di Ghent Boulangerie, Redding",
+        "attraction": "Shasta State Historic Park, Redding.",
+        "lunch": "Weird Time Food, Redding",
+        "dinner": "New Yorker Deli & Pizzeria, Redding",
+        "accommodation": "-"
+    }
+]

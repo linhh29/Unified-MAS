@@ -1,0 +1,17 @@
+[
+    {
+        "The final diagnosis is seborrheic dermatitis as the most likely condition, with psoriasis as a less likely possibility.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Infantile psoriasis is the final diagnosis, considering the family history and presentation.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Atopic dermatitis (eczema) is the final diagnosis.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Seborrheic Dermatitis": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Seborrheic dermatitis": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "The patient is likely suffering from alcoholic liver disease, potentially presenting as alcoholic hepatitis, given the symptoms, alcohol consumption history, and test results indicating liver dysfunction.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The patient is likely suffering from obstructive jaundice, possibly due to a condition like primary sclerosing cholangitis or another form of biliary obstruction, with alcohol use exacerbating liver dysfunction.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The patient is likely suffering from a form of cholestatic liver disease, possibly primary biliary cholangitis or another biliary obstruction, with alcohol use contributing to liver dysfunction. Further evaluation with imaging and additional tests for autoimmune or viral liver diseases is recommended to confirm the diagnosis. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The patient is likely suffering from a malignant obstruction, such as pancreatic cancer, causing secondary biliary cirrhosis, with alcohol use exacerbating liver dysfunction. Further imaging and tests are needed to confirm this diagnosis.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The patient is likely suffering from a form of obstructive jaundice, potentially due to choledocholithiasis or another form of biliary obstruction, with alcohol use contributing to liver dysfunction. Further imaging and endoscopic evaluation are needed to confirm the diagnosis.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

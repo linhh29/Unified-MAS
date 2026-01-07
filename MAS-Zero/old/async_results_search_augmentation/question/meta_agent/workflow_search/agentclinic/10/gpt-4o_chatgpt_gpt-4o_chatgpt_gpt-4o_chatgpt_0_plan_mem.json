@@ -1,0 +1,17 @@
+[
+    {
+        "The final diagnosis is heart failure secondary to an atrial septal defect with a left to right shunt. Ongoing monitoring for potential complications such as pulmonary hypertension and Eisenmenger syndrome is recommended.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Pulmonary hypertension secondary to atrial septal defect causing right-sided heart strain.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis is challenging due to the exclusion of heart failure secondary to ASD and pulmonary hypertension secondary to ASD. Consideration of other congenital heart defects like VSD or PDA is necessary, but further investigation is required to confirm. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Atrial septal defect (ASD) with left to right shunt causing hemodynamic changes and symptoms consistent with increased pulmonary blood flow and right-sided volume overload. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Right-sided heart strain due to volume overload from an atrial septal defect (ASD) with a left-to-right shunt.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

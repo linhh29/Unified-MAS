@@ -2,6 +2,148 @@
 import json
 from async_code_archive import util_code, wrong_implementation
 
+background_hosp_summ = """
+To address the task of summarizing hospitalization records into comprehensive discharge summaries, it's essential to understand several key concepts and follow a structured approach. Here's a breakdown of the necessary background knowledge and a typical workflow for solving such a problem:
+
+### Key Background Knowledge and Concepts
+
+1. **Hospitalization Records:**
+   - Hospitalization records contain comprehensive patient information including admission details, history of present illness, physical examination findings, laboratory results, imaging studies, medications, procedures, and discharge instructions.
+
+2. **Discharge Summary Structure:**
+   - A discharge summary is a critical document that synthesizes a patient's hospital stay into a concise, comprehensive summary. It typically includes: chief complaint, history of present illness, hospital course, procedures performed, medications, discharge diagnosis, discharge condition, and follow-up instructions.
+
+3. **Clinical Information Extraction:**
+   - The ability to identify and extract key diagnostic information, significant findings, and important clinical events from lengthy medical records is crucial for creating accurate summaries.
+
+4. **Medical Terminology:**
+   - Understanding medical terminology, abbreviations, and clinical concepts is necessary to accurately interpret and summarize medical records.
+
+5. **Information Prioritization:**
+   - Not all information in a hospitalization record is equally important. The ability to prioritize and include the most relevant diagnostic and clinical information is essential.
+
+6. **Synthesis and Coherence:**
+   - Creating a coherent narrative that flows logically from admission through discharge, connecting various pieces of information into a comprehensive summary.
+
+### Typical Solution Process / Workflow
+
+1. **Review Complete Record:**
+   - Read through the entire hospitalization record to understand the full context of the patient's stay, including admission reason, course of treatment, and outcomes.
+
+2. **Identify Key Information:**
+   - Extract key diagnostic information, significant test results, procedures performed, complications, and important clinical decisions made during the hospitalization.
+
+3. **Organize Information:**
+   - Structure the information logically: admission details, hospital course, procedures, medications, discharge diagnosis, and follow-up instructions.
+
+4. **Synthesize Content:**
+   - Combine and synthesize information from different sections (physician notes, nursing notes, medications, discharge instructions) into a coherent summary.
+
+5. **Ensure Completeness:**
+   - Verify that all critical information is included: primary diagnosis, significant findings, procedures, discharge medications, and follow-up requirements.
+
+6. **Maintain Accuracy:**
+   - Ensure that the summary accurately reflects the information in the original record without adding or omitting critical details.
+
+7. **Review and Refine:**
+   - Review the summary for clarity, completeness, and accuracy. Ensure it provides a comprehensive overview of the hospitalization.
+
+By following this structured approach, one can systematically analyze hospitalization records and create comprehensive discharge summaries that accurately capture the key diagnostic information and significant results from a patient's hospital stay.
+"""
+
+background_travelplanner = """
+To create a travel itinerary for a solo traveler based on the provided JSONL samples, it's important to understand several key concepts and follow a structured approach. Here's a breakdown of the necessary background knowledge and a typical solution process:
+
+### Key Background Knowledge and Concepts
+
+1. **Travel Planning Basics**:
+   - **Transportation**: Understanding different modes of travel (flights, trains, buses, taxis, self-driving) and how to choose the most cost-effective and time-efficient options.
+   - **Accommodation**: Familiarity with various types of accommodations (hotels, hostels, Airbnb, home swaps) and how to select them based on budget and preferences.
+   - **Attractions and Dining**: Knowledge of how to research and select attractions and dining options that align with the traveler's interests and budget.
+
+2. **Budget Management**:
+   - Ability to calculate and manage costs for transportation, accommodation, dining, and attractions to ensure the trip stays within the specified budget.
+
+3. **Geographical and Cultural Knowledge**:
+   - Understanding the logistics of traveling between cities and the cultural and culinary preferences that might influence itinerary choices.
+
+4. **Constraints Handling**:
+   - Ability to incorporate and respect specified local constraints, such as house rules, cuisine preferences, room types, and transportation preferences.
+
+5. **Tools and Resources**:
+   - Familiarity with travel planning tools like Google Maps, Rome2Rio, Hopper, and travel communities for logistical planning and cost-saving tips.
+
+### Typical Solution Process / Workflow
+
+1. **Define Trip Parameters**:
+   - Extract and understand the key parameters from the JSONL samples, including origin, destination, number of days, cities to visit, travel dates, budget, and local constraints.
+
+2. **Research and Planning**:
+   - Use travel planning tools to research transportation options, accommodation, attractions, and dining that fit the traveler's preferences and budget.
+   - Consider using tools like Rome2Rio for transportation logistics and Hopper for flight deals.
+
+3. **Create a Draft Itinerary**:
+   - Outline a day-by-day plan that includes transportation, accommodation, attractions, and dining options.
+   - Ensure the itinerary aligns with the traveler's interests and constraints, allowing for flexibility and downtime.
+
+4. **Budget Allocation**:
+   - Allocate the budget across different categories (transportation, accommodation, dining, attractions) and ensure the total cost does not exceed the specified budget.
+   - Consider cost-saving strategies like traveling during shoulder seasons or using home swaps for accommodation.
+
+5. **Iterate and Refine**:
+   - Review the draft itinerary to ensure it is realistic and feasible, making adjustments as needed to accommodate travel logistics and budget constraints.
+   - Incorporate feedback from travel communities or use AI tools to refine the itinerary further.
+
+6. **Finalize the Itinerary**:
+   - Ensure all bookings and reservations are made, and the itinerary is shared with the traveler for review and final adjustments.
+   - Provide additional tips for safety, packing, and cultural considerations to enhance the travel experience.
+
+By following this structured approach, one can create a coherent and feasible travel plan that meets the solo traveler's requirements and preferences.
+"""
+
+background_j1eval = """
+To address the task of analyzing legal case data related to personality rights disputes, contract disputes, and marriage and family issues, it's essential to understand the relevant legal concepts and the typical process for analyzing such cases.
+
+### Key Background Knowledge and Concepts
+
+1. **Personality Rights**:
+   - **Definition**: Personality rights, also known as the right of publicity, allow individuals to control the commercial use of their identity, including their name, image, and likeness (Source 4).
+   - **Legal Framework**: These rights are often considered property rights and can extend beyond an individual's death, depending on jurisdiction. They are divided into the right of publicity (preventing unauthorized commercial exploitation) and the right to privacy (protecting individuals from unauthorized public representation) (Source 4, 6).
+   - **Jurisdictional Variations**: Different jurisdictions have varying approaches to personality rights, with common law jurisdictions focusing on torts like passing off, and civil law jurisdictions having specific legal provisions (Source 4).
+
+2. **Contract Disputes**:
+   - **Definition**: Contract disputes arise when there is a disagreement over the terms, execution, or validity of a contract. These disputes often involve issues like breach of contract, misrepresentation, or non-performance.
+   - **Legal Principles**: Key principles include offer, acceptance, consideration, and mutual consent. Courts often look at the intent of the parties and the terms of the contract to resolve disputes.
+
+3. **Marriage and Family Issues**:
+   - **Definition**: These disputes involve legal issues related to marriage, divorce, child custody, and other family matters.
+   - **Legal Considerations**: Family law often involves considerations of the best interests of children, equitable distribution of assets, and spousal support.
+
+### Typical Solution Process / Workflow
+
+1. **Understanding Legal Context**:
+   - Familiarize yourself with the specific legal terminology and principles relevant to the type of dispute (personality rights, contract law, family law).
+   - Review applicable laws and precedents that may influence the case outcome.
+
+2. **Analyzing Evidence**:
+   - Examine the evidence provided by both parties, including documents, receipts, and other materials.
+   - Assess the validity and relevance of the evidence, considering any disputes over its authenticity.
+
+3. **Assessing Claims and Defenses**:
+   - Evaluate the plaintiff's claims and the defendant's defenses, focusing on the credibility and consistency of each party's narrative.
+   - Consider any counterarguments or alternative narratives presented by the defendant.
+
+4. **Applying Legal Principles**:
+   - Apply relevant legal principles and precedents to the facts of the case.
+   - Consider how courts have previously ruled in similar cases and the reasoning behind those decisions.
+
+5. **Judgment Prediction**:
+   - Based on the analysis, predict the likely judgment, including any compensation awarded or actions mandated.
+   - Consider the balance between protecting individual rights and upholding public interest, especially in personality rights cases (Source 2, 3).
+
+By following this structured approach, one can systematically analyze legal case data and make informed predictions about potential judgments. Understanding the nuances of each type of dispute and the legal frameworks involved is crucial for accurate analysis and prediction.
+"""
+
 
 EXAMPLE = {
     "thought": """
@@ -134,8 +276,10 @@ EXAMPLE = {
 """
 }
 
+# ###The task background: {background_j1eval}
+base = f"""
 
-base = f"""# Overview
+# Overview
 You are an expert machine learning researcher testing various agentic systems. Given a set of architectures in the archive and the question. Note that architecture can contain multiple agents, and agent means a LLM that is used for specifical objectives by specifclaied setting (instruction, tempreture...)
 
 Your objective is to 

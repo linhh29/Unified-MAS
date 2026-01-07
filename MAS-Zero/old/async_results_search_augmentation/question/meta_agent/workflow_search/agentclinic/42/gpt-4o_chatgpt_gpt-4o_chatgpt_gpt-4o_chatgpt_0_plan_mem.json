@@ -1,0 +1,17 @@
+[
+    {
+        "Reactive arthritis is the most likely diagnosis, consistent with all available data. Testing for Chlamydia trachomatis is recommended to confirm the underlying cause.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Gonococcal arthritis is the most likely diagnosis, consistent with all available data. Testing for Neisseria gonorrhoeae is recommended to confirm the underlying cause.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Reactive arthritis is the most likely diagnosis, likely triggered by a sexually transmitted infection such as Chlamydia trachomatis. Testing for Chlamydia and other potential pathogens is recommended to confirm the underlying cause.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Gonococcal arthritis is the most likely diagnosis, given the patient's symptoms and sexual history. Testing for Neisseria gonorrhoeae is recommended to confirm the underlying cause.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis is reactive arthritis, likely triggered by a sexually transmitted infection. Further testing for Chlamydia trachomatis and other STIs is recommended to confirm the diagnosis.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

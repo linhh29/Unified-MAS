@@ -1,0 +1,70 @@
+Question: 
+        Patient Information: {'Demographics': '24-year-old woman', 'History': 'The patient reports a severe, 10/10 headache that is exacerbated by chewing. The pain is described as a dull ache over the sides of her head. She mentions that the headache is new and she has never experienced something like this before. The patient denies any recent illnesses, injuries, or significant stressors.', 'Symptoms': {'Primary_Symptom': 'Severe headache with intensity of 10/10', 'Secondary_Symptoms': ['Pain is associated with chewing', 'Dull ache located over the sides of the head']}, 'Past_Medical_History': 'No significant medical history. Not currently taking any medications.', 'Social_History': 'Currently a graduate student. Does not smoke tobacco, use illicit drugs, and drinks alcohol socially.', 'Review_of_Systems': 'Denies fever, vision changes, nausea, vomiting, weakness, numbness, or recent trauma to the head.'}
+        Physical Examinations: {'Vital_Signs': {'Temperature': '97.0°F (36.4°C)', 'Blood_Pressure': '111/74 mmHg', 'Heart_Rate': '83/min', 'Respiratory_Rate': '13/min', 'Oxygen_Saturation': '98% on room air'}, 'Head_and_Neck_Examination': {'Inspection': 'Normal appearance without asymmetry', 'Palpation': 'Pain and tenderness over mandibular and temporal regions, worsened with mouth movements'}}
+        Test Results: {'Complete_Blood_Count': {'WBC': 'Within normal limits', 'Hemoglobin': 'Within normal limits', 'Platelets': 'Within normal limits'}, 'Inflammatory_Markers': {'ESR': 'Normal', 'CRP': 'Normal'}, 'Imaging': {'TMJ_X-ray': {'Findings': 'No structural abnormalities detected'}}}
+
+        You are a doctor and your task is:
+        
+        Evaluate the patient presenting with a severe headache, focusing on history taking, physical examination, and formulation of a differential diagnosis.
+        
+proposed answer: Based on the patient's history, physical examination, and test results, the most likely differential diagnosis is a temporomandibular joint (TMJ) disorder. The key details supporting this include the severe headache exacerbated by chewing, tenderness over the mandibular and temporal regions, and normal inflammatory markers and imaging. Other potential diagnoses could include tension-type headache or myofascial pain syndrome, but the specific exacerbation with chewing and location of tenderness strongly suggest TMJ involvement.
+
+Answer:Differential diagnosis: 1. Temporomandibular joint (TMJ) disorder 2. Tension-type headache 3. Myofascial pain syndrome
+Extracted answer: Differential diagnosis: 1. Temporomandibular joint (TMJ) disorder 2. Tension-type headache 3. Myofascial pain syndrome
+Correct answer: 
+Question: 
+        Patient Information: {'Demographics': '24-year-old woman', 'History': 'The patient reports a severe, 10/10 headache that is exacerbated by chewing. The pain is described as a dull ache over the sides of her head. She mentions that the headache is new and she has never experienced something like this before. The patient denies any recent illnesses, injuries, or significant stressors.', 'Symptoms': {'Primary_Symptom': 'Severe headache with intensity of 10/10', 'Secondary_Symptoms': ['Pain is associated with chewing', 'Dull ache located over the sides of the head']}, 'Past_Medical_History': 'No significant medical history. Not currently taking any medications.', 'Social_History': 'Currently a graduate student. Does not smoke tobacco, use illicit drugs, and drinks alcohol socially.', 'Review_of_Systems': 'Denies fever, vision changes, nausea, vomiting, weakness, numbness, or recent trauma to the head.'}
+        Physical Examinations: {'Vital_Signs': {'Temperature': '97.0°F (36.4°C)', 'Blood_Pressure': '111/74 mmHg', 'Heart_Rate': '83/min', 'Respiratory_Rate': '13/min', 'Oxygen_Saturation': '98% on room air'}, 'Head_and_Neck_Examination': {'Inspection': 'Normal appearance without asymmetry', 'Palpation': 'Pain and tenderness over mandibular and temporal regions, worsened with mouth movements'}}
+        Test Results: {'Complete_Blood_Count': {'WBC': 'Within normal limits', 'Hemoglobin': 'Within normal limits', 'Platelets': 'Within normal limits'}, 'Inflammatory_Markers': {'ESR': 'Normal', 'CRP': 'Normal'}, 'Imaging': {'TMJ_X-ray': {'Findings': 'No structural abnormalities detected'}}}
+
+        You are a doctor and your task is:
+        
+        Evaluate the patient presenting with a severe headache, focusing on history taking, physical examination, and formulation of a differential diagnosis.
+        
+proposed answer: The patient's symptoms and examination findings strongly suggest a TMJ-related headache due to the pain being exacerbated by chewing and tenderness over the mandibular and temporal regions. The normal inflammatory markers and imaging further support this. Tension-type headaches and migraines are less likely due to the lack of typical features such as nausea, visual changes, or stress-related triggers. Cluster headaches are unlikely due to the bilateral nature and absence of autonomic symptoms. Myofascial pain syndrome could be considered but is less likely given the specific exacerbation by jaw movement. Therefore, the differential diagnosis should focus on TMJ disorder and exclude tension-type headache and myofascial pain syndrome.
+
+Answer:Differential diagnosis: 1. Temporomandibular joint (TMJ) disorder 2. Migraine 3. Cluster headache
+Extracted answer: Differential diagnosis: 1. Temporomandibular joint (TMJ) disorder 2. Migraine 3. Cluster headache
+Correct answer: 
+Question: 
+        Patient Information: {'Demographics': '24-year-old woman', 'History': 'The patient reports a severe, 10/10 headache that is exacerbated by chewing. The pain is described as a dull ache over the sides of her head. She mentions that the headache is new and she has never experienced something like this before. The patient denies any recent illnesses, injuries, or significant stressors.', 'Symptoms': {'Primary_Symptom': 'Severe headache with intensity of 10/10', 'Secondary_Symptoms': ['Pain is associated with chewing', 'Dull ache located over the sides of the head']}, 'Past_Medical_History': 'No significant medical history. Not currently taking any medications.', 'Social_History': 'Currently a graduate student. Does not smoke tobacco, use illicit drugs, and drinks alcohol socially.', 'Review_of_Systems': 'Denies fever, vision changes, nausea, vomiting, weakness, numbness, or recent trauma to the head.'}
+        Physical Examinations: {'Vital_Signs': {'Temperature': '97.0°F (36.4°C)', 'Blood_Pressure': '111/74 mmHg', 'Heart_Rate': '83/min', 'Respiratory_Rate': '13/min', 'Oxygen_Saturation': '98% on room air'}, 'Head_and_Neck_Examination': {'Inspection': 'Normal appearance without asymmetry', 'Palpation': 'Pain and tenderness over mandibular and temporal regions, worsened with mouth movements'}}
+        Test Results: {'Complete_Blood_Count': {'WBC': 'Within normal limits', 'Hemoglobin': 'Within normal limits', 'Platelets': 'Within normal limits'}, 'Inflammatory_Markers': {'ESR': 'Normal', 'CRP': 'Normal'}, 'Imaging': {'TMJ_X-ray': {'Findings': 'No structural abnormalities detected'}}}
+
+        You are a doctor and your task is:
+        
+        Evaluate the patient presenting with a severe headache, focusing on history taking, physical examination, and formulation of a differential diagnosis.
+        
+proposed answer: The patient's symptoms and examination findings strongly suggest a temporomandibular joint (TMJ) disorder-related headache due to the pain and tenderness over the mandibular and temporal regions, worsened with mouth movements. The normal inflammatory markers and the nature of the headache make conditions like temporal arteritis unlikely. Trigeminal neuralgia and cervicogenic headaches do not align well with the described symptoms. Tension-type headache could be considered but does not typically involve exacerbation by chewing. Given these considerations, the most likely differential diagnosis is 1. Temporomandibular joint (TMJ) disorder 2. Tension-type headache 3. Myofascial pain syndrome, with a focus on TMJ disorder as the primary diagnosis.
+
+Answer:Differential diagnosis: 1. Temporomandibular joint (TMJ) disorder 2. Tension-type headache 3. Myofascial pain syndrome
+Extracted answer: Differential diagnosis: 1. Temporomandibular joint (TMJ) disorder 2. Tension-type headache 3. Myofascial pain syndrome
+Correct answer: 
+Question: 
+        Patient Information: {'Demographics': '24-year-old woman', 'History': 'The patient reports a severe, 10/10 headache that is exacerbated by chewing. The pain is described as a dull ache over the sides of her head. She mentions that the headache is new and she has never experienced something like this before. The patient denies any recent illnesses, injuries, or significant stressors.', 'Symptoms': {'Primary_Symptom': 'Severe headache with intensity of 10/10', 'Secondary_Symptoms': ['Pain is associated with chewing', 'Dull ache located over the sides of the head']}, 'Past_Medical_History': 'No significant medical history. Not currently taking any medications.', 'Social_History': 'Currently a graduate student. Does not smoke tobacco, use illicit drugs, and drinks alcohol socially.', 'Review_of_Systems': 'Denies fever, vision changes, nausea, vomiting, weakness, numbness, or recent trauma to the head.'}
+        Physical Examinations: {'Vital_Signs': {'Temperature': '97.0°F (36.4°C)', 'Blood_Pressure': '111/74 mmHg', 'Heart_Rate': '83/min', 'Respiratory_Rate': '13/min', 'Oxygen_Saturation': '98% on room air'}, 'Head_and_Neck_Examination': {'Inspection': 'Normal appearance without asymmetry', 'Palpation': 'Pain and tenderness over mandibular and temporal regions, worsened with mouth movements'}}
+        Test Results: {'Complete_Blood_Count': {'WBC': 'Within normal limits', 'Hemoglobin': 'Within normal limits', 'Platelets': 'Within normal limits'}, 'Inflammatory_Markers': {'ESR': 'Normal', 'CRP': 'Normal'}, 'Imaging': {'TMJ_X-ray': {'Findings': 'No structural abnormalities detected'}}}
+
+        You are a doctor and your task is:
+        
+        Evaluate the patient presenting with a severe headache, focusing on history taking, physical examination, and formulation of a differential diagnosis.
+        
+proposed answer: The task is to rank the likelihood of each potential diagnosis based on their consistency with the patient data. In sub-task 4.3.1, it was determined that the symptoms are most consistent with temporomandibular joint dysfunction (TMJ dysfunction) due to the jaw pain and exacerbation by jaw movements. Tension-type headaches, migraines, and cluster headaches were found to be inconsistent. Therefore, the most likely diagnosis is TMJ dysfunction, followed by tension-type headache, and then the other types such as migraines or cluster headaches, which are less consistent with the patient's presentation.
+
+Answer:1. Temporomandibular joint (TMJ) disorder 2. Tension-type headache 3. Migraine 4. Cluster headache
+Extracted answer: 1. Temporomandibular joint (TMJ) disorder 2. Tension-type headache 3. Migraine 4. Cluster headache
+Correct answer: 
+Question: 
+        Patient Information: {'Demographics': '24-year-old woman', 'History': 'The patient reports a severe, 10/10 headache that is exacerbated by chewing. The pain is described as a dull ache over the sides of her head. She mentions that the headache is new and she has never experienced something like this before. The patient denies any recent illnesses, injuries, or significant stressors.', 'Symptoms': {'Primary_Symptom': 'Severe headache with intensity of 10/10', 'Secondary_Symptoms': ['Pain is associated with chewing', 'Dull ache located over the sides of the head']}, 'Past_Medical_History': 'No significant medical history. Not currently taking any medications.', 'Social_History': 'Currently a graduate student. Does not smoke tobacco, use illicit drugs, and drinks alcohol socially.', 'Review_of_Systems': 'Denies fever, vision changes, nausea, vomiting, weakness, numbness, or recent trauma to the head.'}
+        Physical Examinations: {'Vital_Signs': {'Temperature': '97.0°F (36.4°C)', 'Blood_Pressure': '111/74 mmHg', 'Heart_Rate': '83/min', 'Respiratory_Rate': '13/min', 'Oxygen_Saturation': '98% on room air'}, 'Head_and_Neck_Examination': {'Inspection': 'Normal appearance without asymmetry', 'Palpation': 'Pain and tenderness over mandibular and temporal regions, worsened with mouth movements'}}
+        Test Results: {'Complete_Blood_Count': {'WBC': 'Within normal limits', 'Hemoglobin': 'Within normal limits', 'Platelets': 'Within normal limits'}, 'Inflammatory_Markers': {'ESR': 'Normal', 'CRP': 'Normal'}, 'Imaging': {'TMJ_X-ray': {'Findings': 'No structural abnormalities detected'}}}
+
+        You are a doctor and your task is:
+        
+        Evaluate the patient presenting with a severe headache, focusing on history taking, physical examination, and formulation of a differential diagnosis.
+        
+proposed answer: The patient's symptoms are most consistent with a TMJ disorder-related headache due to the pain being localized over the mandibular and temporal regions and being exacerbated by chewing. Tension-type headache is also a possibility due to the dull, aching nature of the headache, but it is less likely than TMJ disorder because it does not typically worsen with chewing. Migraine and cluster headache are less consistent with the patient's symptoms as there are no associated symptoms like nausea, vomiting, or unilateral throbbing pain. Myofascial pain syndrome could also be considered, but the specific exacerbation by chewing points more towards TMJ disorder. Therefore, the most likely diagnosis is TMJ disorder, followed by tension-type headache, and then myofascial pain syndrome.
+
+Answer:1. Temporomandibular joint (TMJ) disorder 2. Tension-type headache 3. Myofascial pain syndrome
+Extracted answer: 1. Temporomandibular joint (TMJ) disorder 2. Tension-type headache 3. Myofascial pain syndrome
+Correct answer: 

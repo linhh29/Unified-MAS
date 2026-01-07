@@ -1,0 +1,17 @@
+[
+    {
+        "Pelvic inflammatory disease (PID) is the most likely diagnosis given the symptoms, examination findings, and laboratory results.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Ectopic pregnancy": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Appendicitis": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Severe cervicitis or sexually transmitted infection (STI) related infection. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Tubo-ovarian abscess or inflammatory bowel disease (IBD) could be considered. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

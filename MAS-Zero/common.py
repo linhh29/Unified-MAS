@@ -2,6 +2,7 @@ import copy
 import io
 import json
 import os
+import re
 from collections import defaultdict
 from dataclasses import dataclass, field
 from multiprocessing.pool import ThreadPool
@@ -17,8 +18,26 @@ from tqdm import tqdm
 from blocks.cot import COT
 from blocks.cot_sc import COT_SC
 from blocks.llm_debate import LLM_debate
+from blocks.j1eval_damages_calculator import DAMAGES_CALCULATOR
+from blocks.j1eval_fact_structuring_agent import FACT_STRUCTURING_AGENT
+from blocks.j1eval_legal_knowledge_retriever import LEGAL_KNOWLEDGE_RETRIEVER
+from blocks.j1eval_liability_assessment_agent import LIABILITY_ASSESSMENT_AGENT
+from blocks.j1eval_judgment_drafter import JUDGMENT_DRAFTER
+from blocks.hosp_summ_section_segmenter_tool import SECTION_SEGMENTER_TOOL
+from blocks.hosp_summ_medical_ontology_rag import MEDICAL_ONTOLOGY_RAG
+from blocks.hosp_summ_results_processing_agent import RESULTS_PROCESSING_AGENT
+from blocks.hosp_summ_course_plan_agent import COURSE_PLAN_AGENT
+from blocks.hosp_summ_diagnostic_summary_agent import DIAGNOSTIC_SUMMARY_AGENT
+from blocks.hosp_summ_final_refinement_agent import FINAL_REFINEMENT_AGENT
+from blocks.travelplanner_refinement_agent import REFINEMENT_AGENT
+from blocks.travelplanner_validation_tool import VALIDATION_TOOL
+from blocks.travelplanner_itineraryplanner_agent import ITINERARYPLANNER_AGENT
+from blocks.travelplanner_datafilter_tool import DATA_FILTER_TOOL
+from blocks.travelplanner_constraint_extractor_agent import CONSTRAINT_EXTRACTOR_AGENT
+
 from sampler import get_model
 from shared_vars import get_global, add_to_global_cost
+import ast
 
 Message = dict[str, Any]  # keys role, content
 MessageList = list[Message]
@@ -31,13 +50,30 @@ model_price_map = {
         'prompt': 0.0025,
         'completion': 0.01
     },
-    "gpt-4-turbo": {
-        'prompt': 0.01,
-        'completion': 0.03
+    "gpt-5-mini": {
+        'prompt': 0.00025,
+        'completion': 0.002
     },
-    # follow aflow: "gpt-4o": {"prompt": 0.005, "completion": 0.015}
-    # in https://github.com/geekan/MetaGPT/blob/main/metagpt/utils/token_counter.py
-
+    "gpt-5": {
+        'prompt': 0.00125,
+        'completion': 0.01
+    },
+    "gpt-5-nano": {
+        'prompt': 0.00005,
+        'completion': 0.0004
+    },
+    "gemini-3-flash-preview": {
+        'prompt': 0.0005,
+        'completion': 0.003
+    },
+    "deepseek-v3.2": {
+        'prompt': 0.000284,
+        'completion': 0.000426
+    },
+    "qwen3-30b-a3b-instruct-2507": {
+        'prompt': 0.0001065,
+        'completion': 0.000426
+    },
     "o3-mini": {
         'prompt': 0.55,
         'completion': 4.40
@@ -243,7 +279,7 @@ def get_json_response_from_gpt(
             keys = json_dict.keys()
 
             is_valid_answer = True
-            if 'answer' in keys and len(json_dict['answer'].strip()) == 0:
+            if 'answer' in keys and len(json_dict['answer']) == 0:
                 is_valid_answer = False
 
             # Hacked by Fangkai to run Qwen3-235B
@@ -307,7 +343,7 @@ async def get_json_response_from_gpt_local(
             keys = json_dict.keys()
 
             is_valid_answer = True
-            if 'answer' in keys and len(json_dict['answer'].strip()) == 0:
+            if 'answer' in keys and len(json_dict['answer']) == 0:
                 is_valid_answer = False
 
             # Hacked by Fangkai to run Qwen3-235B
@@ -368,8 +404,9 @@ def get_json_response_from_gpt_reflect(
 
             # print('json_dict: ',json_dict)
             keys = json_dict.keys()
+            print(keys)
             # TODO: consider constraint the json like above
-            if 'name' in keys and 'thought' in keys and 'code' in keys and 'def forward(self, taskInfo):' in json_dict['code']:
+            if 'name' in keys and 'thought' in keys and 'code' in keys and 'async def forward(self, taskInfo, extra_info):' in json_dict['code']:
                 try:
                     compile(json_dict['code'], "<string>", "exec")
                 except SyntaxError as e:
@@ -394,6 +431,7 @@ def get_json_response_from_gpt_reflect(
     return json_dict
 
 
+
 @backoff.on_exception(backoff.expo, openai.RateLimitError)
 async def get_json_response_from_gpt_reflect_local(
         msg,
@@ -409,9 +447,11 @@ async def get_json_response_from_gpt_reflect_local(
     # print('meta msg: ',msg)
 
     debug_count = 0
+    usage = None
     while True:
         debug_count += 1
         response_text = ""
+        json_dict = None
         try:
             sampler_return = await sampler(msg)
             if sampler_return == "" or debug_count > 5:  # bad request
@@ -419,10 +459,19 @@ async def get_json_response_from_gpt_reflect_local(
                 return json_dict
 
             response_text, usage = sampler_return
-            json_dict = json.loads(response_text)
+            # print(response_text)
+            try:
+                json_dict = json.loads(response_text)
+            except Exception as e:
+                print(f"Error loading JSON: {e}")
+                print(f"Response text: {response_text}")
+                
+            # except Exception as e:
+            # json_dict = ast.literal_eval(response_text)
 
             # print('json_dict: ',json_dict)
             keys = json_dict.keys()
+            print(keys)
             # TODO: consider constraint the json like above
             if 'name' in keys and 'thought' in keys and 'code' in keys and 'async def forward(self, taskInfo, extra_info):' in json_dict['code']:
                 try:
@@ -432,13 +481,20 @@ async def get_json_response_from_gpt_reflect_local(
                     continue
                 break
             else:  # inocrrect
-                if not 'async def forward(self, taskInfo, extra_info):' in json_dict['code']:
+                if not 'def forward(self, taskInfo):' in json_dict['code']:
                     print(f"code: {json_dict['code']}; reflection: {json_dict['reflection']}")
                 print(f"missing key: {keys}", )
+            
+
+            
         except Exception as e:
             import traceback
             traceback.print_exc()
-            print(f'Reflect Error: {e}; response_text: {response_text}')
+            response_preview = response_text[:200] if response_text else "(empty)"
+            print(f'Reflect Error: {e}; response_text preview: {response_preview}...')
+            # Continue to retry if json_dict extraction failed
+            if json_dict is None:
+                continue
 
     if isinstance(usage, dict):
         prompt_tokens = usage["prompt_tokens"]
@@ -469,6 +525,22 @@ def get_init_archive(blocks):
         'COT_SC': COT_SC,
         'Reflexion': Reflexion,
         'LLM_debate': LLM_debate,
+        'DAMAGES_CALCULATOR': DAMAGES_CALCULATOR,
+        'FACT_STRUCTURING_AGENT': FACT_STRUCTURING_AGENT,
+        'LEGAL_KNOWLEDGE_RETRIEVER': LEGAL_KNOWLEDGE_RETRIEVER,
+        'LIABILITY_ASSESSMENT_AGENT': LIABILITY_ASSESSMENT_AGENT,
+        'JUDGMENT_DRAFTER': JUDGMENT_DRAFTER,
+        'SECTION_SEGMENTER_TOOL': SECTION_SEGMENTER_TOOL,
+        'MEDICAL_ONTOLOGY_RAG': MEDICAL_ONTOLOGY_RAG,
+        'RESULTS_PROCESSING_AGENT': RESULTS_PROCESSING_AGENT,
+        'COURSE_PLAN_AGENT': COURSE_PLAN_AGENT,
+        'DIAGNOSTIC_SUMMARY_AGENT': DIAGNOSTIC_SUMMARY_AGENT,
+        'FINAL_REFINEMENT_AGENT': FINAL_REFINEMENT_AGENT,
+        'REFINEMENT_AGENT': REFINEMENT_AGENT,
+        'VALIDATION_TOOL': VALIDATION_TOOL,
+        'ITINERARYPLANNER_AGENT': ITINERARYPLANNER_AGENT,
+        'DATA_FILTER_TOOL': DATA_FILTER_TOOL,
+        'CONSTRAINT_EXTRACTOR_AGENT': CONSTRAINT_EXTRACTOR_AGENT,
     }
     return [copy.deepcopy(block_map[block]) for block in blocks]  # it may be the same architecture, copy to avpod cross modification
 
@@ -487,6 +559,22 @@ def get_init_archive_local(blocks, extra_info):
         'COT_SC': COT_SC,
         'Reflexion': Reflexion,
         'LLM_debate': LLM_debate,
+        'DAMAGES_CALCULATOR': DAMAGES_CALCULATOR,
+        'FACT_STRUCTURING_AGENT': FACT_STRUCTURING_AGENT,
+        'LEGAL_KNOWLEDGE_RETRIEVER': LEGAL_KNOWLEDGE_RETRIEVER,
+        'LIABILITY_ASSESSMENT_AGENT': LIABILITY_ASSESSMENT_AGENT,
+        'JUDGMENT_DRAFTER': JUDGMENT_DRAFTER,
+        'SECTION_SEGMENTER_TOOL': SECTION_SEGMENTER_TOOL,
+        'MEDICAL_ONTOLOGY_RAG': MEDICAL_ONTOLOGY_RAG,
+        'RESULTS_PROCESSING_AGENT': RESULTS_PROCESSING_AGENT,
+        'COURSE_PLAN_AGENT': COURSE_PLAN_AGENT,
+        'DIAGNOSTIC_SUMMARY_AGENT': DIAGNOSTIC_SUMMARY_AGENT,
+        'FINAL_REFINEMENT_AGENT': FINAL_REFINEMENT_AGENT,
+        'REFINEMENT_AGENT': REFINEMENT_AGENT,
+        'VALIDATION_TOOL': VALIDATION_TOOL,
+        'ITINERARYPLANNER_AGENT': ITINERARYPLANNER_AGENT,
+        'DATA_FILTER_TOOL': DATA_FILTER_TOOL,
+        'CONSTRAINT_EXTRACTOR_AGENT': CONSTRAINT_EXTRACTOR_AGENT,
     }
     return [copy.deepcopy(block_map[block]) for block in blocks]  # it may be the same architecture, copy to avoid cross modification
 

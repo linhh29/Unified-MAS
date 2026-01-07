@@ -225,23 +225,12 @@ async def evaluate_forward_fn(extra_info, forward_str):
     func = namespace[names[0]]
     if not callable(func):
         raise AssertionError(f"{func} is not callable")
-    # setattr(AgentSystem, "forward", func)
 
-    # 如果 forward_str 里写的是同步函数，包装成异步
-    # if not inspect.iscoroutinefunction(func):
-    #     async def _async_wrapper(self, *a, **kw):
-    #         return await asyncio.to_thread(func, self, *a, **kw)
-    #
-    #     forward = _async_wrapper
-    # else:
-    #     async def forward(self, *args, **kwargs):
-    #         return await func(self, *args, **kwargs)
 
     agent_system = AgentSystem()
     # Assign the function to this instance only without affecting other instances across threads
     agent_system.forward = types.MethodType(func, agent_system)
 
-    # global_max_workers = extra_info["max_workers"]
     task_queue = extra_info["task_queue"]
     answers = extra_info["answers"]
     technique = extra_info["dataset"].split('/')[0]
@@ -255,8 +244,6 @@ async def evaluate_forward_fn(extra_info, forward_str):
     agent_system.example_id = extra_info["example_id"]
     agent_system.instance_id = extra_info["instance_id"]
 
-    # tasks = [agent_system.forward(item) for item in task_queue]
-    # results = await tqdm_asyncio.gather(*tasks, desc="Evaluating forward function", total=len(tasks))
     results = []
     for item in tqdm(task_queue, desc="Evaluating forward function", total=len(task_queue)):
         res = await agent_system.forward(item, extra_info)
@@ -329,17 +316,14 @@ async def search(extra_info, task_queue, meta_model, blocks, verifier_model, n_g
     task_queue = [Info(field_name, author, content, prompt, sub_tasks, agents, iteration_idx) for
                   field_name, author, content, prompt, sub_tasks, agents, iteration_idx in task_queue]
 
-    # extra_info["global_max_workers", max_workers)
-    # extra_info["global_task_queue", task_queue)
-    # extra_info["max_workers"] = max_workers
     extra_info["task_queue"] = task_queue
 
     next_solution_path = os.path.join(save_dir, f"{expr_name}_{option}_next_solution.json")
     msg_path = os.path.join(save_dir, f"{expr_name}_{option}_msg.json")
     mem_path = os.path.join(save_dir, f"{expr_name}_{option}_mem.json")
     file_path = os.path.join(save_dir, f"{expr_name}_{option}_archive.json")
-    result_path = f'./async_results/question/meta_agent/{dataset}/{meta_model}_{node_model}_{verifier_model}.results'
-    oracle_acc_result_path = f'./async_results/question/meta_agent/{dataset}/{meta_model}_{node_model}_oracle.results'
+    result_path = f'{save_dir}/question/meta_agent/{dataset}/{meta_model}_{node_model}_{verifier_model}.results'
+    oracle_acc_result_path = f'{save_dir}/question/meta_agent/{dataset}/{meta_model}_{node_model}_oracle.results'
     judge_path = os.path.join(save_dir, f"{expr_name}_{option}_judge")
     response_path = os.path.join(save_dir, f"{expr_name}_{option}_response")
     os.makedirs(os.path.dirname(judge_path), exist_ok=True)
@@ -489,15 +473,6 @@ async def search(extra_info, task_queue, meta_model, blocks, verifier_model, n_g
         print(f"============Generation {n + 1}=================")
         extra_info["n"] = n
 
-        # if n == 0:  # initial propose
-        #     system_prompt, prompt = get_prompt_local(cur_archive, extra_info, option=args.option, task_queue=task_queue)
-        #     msg_list = [
-        #         {"role": "system", "content": system_prompt},
-        #         {"role": "user", "content": prompt},
-        #     ]
-        
-        #     next_solution = get_json_response_from_gpt_reflect_local(copy.deepcopy(msg_list), meta_model, extra_info)
-
         if os.path.exists(msg_path):
             print(f'load msg_list from {msg_path}')
             with open(msg_path, 'r') as json_file:
@@ -611,14 +586,15 @@ async def search(extra_info, task_queue, meta_model, blocks, verifier_model, n_g
 
         next_solution["final_response"] = final_response
 
-        if 'swe_bench' in dataset:
-            extracted_answer = final_response[0].split('\n\nAnswer:', 1)[-1].strip()
-            if '<patch>' in extracted_answer:
-                extracted_answer = extract_xml(extracted_answer, 'patch').strip()
-        elif 'j1eval' in dataset:
-            extracted_answer = final_response[0].split('\n\nAnswer:', 1)[-1].strip()
-        else:
-            extracted_answer = re.search(ANSWER_PATTERN, final_response[0]).group(1)
+        # if 'swe_bench' in dataset:
+        #     extracted_answer = final_response[0].split('\nAnswer:', 1)[-1].strip()
+        #     if '<patch>' in extracted_answer:
+        #         extracted_answer = extract_xml(extracted_answer, 'patch').strip()
+        # elif 'j1eval' in dataset:
+        #     extracted_answer = final_response[0].split('\nAnswer:', 1)[-1].strip()
+        # else:
+        #     extracted_answer = re.search(ANSWER_PATTERN, final_response[0]).group(1)
+        extracted_answer = final_response[0].split('\nAnswer:', 1)[-1].strip()
 
         if '[TOO_HARD]' in extracted_answer:
             extracted_answer = extracted_answer[:extracted_answer.index('[TOO_HARD]')]

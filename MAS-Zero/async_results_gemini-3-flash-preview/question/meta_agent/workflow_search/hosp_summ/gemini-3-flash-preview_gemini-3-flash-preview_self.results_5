@@ -1,0 +1,237 @@
+experiemnt 14: LLM_Judge_Score=0.8500 (2); correct_answer: The patient is a 43-year-old female with a chief complaint of diabetic ketoacidosis (DKA) due to poor oral intake and insulin noncompliance. She has a history of type 1 diabetes, complicated by retinopathy, neuropathy, nephropathy, and gastroparesis. She was recently discharged with DKA and was readmitted to the ICU for DKA management and insulin drip.
+
+The patient's past medical history includes hypercholesterolemia, hypertension, rheumatoid arthritis, fibromyalgia, degenerative joint disease, depression, status post appendectomy, multiple exploratory laparotomies for endometriosis, and hysterectomy. She has a history of pelvic inflammatory disease and has a narcotics contract with her primary care physician for hydromorphone.
+
+The patient's allergies include Relafen and Leflunomide. She has a history of gastroparesis and was successfully treated for Clostridioides difficile (C. diff) with oral Flagyl two weeks prior to admission.
+
+The patient's diagnosis includes DKA, diabetes mellitus type 1, leukocytosis, and abdominal pain likely due to her known gastroparesis. She was treated with insulin drip, hydration, and antiemetics, and her G-tube output remained unchanged.
+
+The patient's medications at discharge include amlodipine, carvedilol, fluoxetine, rosuvastatin, lansoprazole, and lorazepam. vs. extracted_answer: Significant Diagnostic Results and Hospital Course: Ms. is a 43-year-old female with Type 1 DM (complicated by retinopathy, neuropathy, nephropathy, and gastroparesis) admitted for DKA and a gastroparesis flare. Key admission labs revealed an anion gap of 25, blood glucose of 432 mg/dL, leukocytosis (WBC 14.0), and acute kidney injury (Creatinine 2.0 mg/dL). She was stabilized in the ICU with an insulin drip and IV fluids. Her DKA resolved (anion gap 12, glucose 97 mg/dL) and renal function improved toward baseline (Creatinine 1.6 mg/dL). Gastroparesis symptoms were managed with antiemetics (Ativan and Ondansetron) and nocturnal jejunal tube feedings. C. diff testing was negative, and leukocytosis resolved following DKA treatment.
+
+Discharge Summary: The patient's DKA and dehydration were successfully treated. She was transitioned to her home subcutaneous insulin regimen with her bedtime Lantus dose reduced to 14 units to prevent nocturnal hypoglycemia. To prevent GJ-tube clogging, her GERD medication was switched to lansoprazole SoluTabs. At discharge, the patient was hemodynamically stable and ambulatory. She was counseled on the critical importance of basal insulin compliance even during illness and was discharged home with home health services. Final Diagnoses: Type 1 Diabetes Mellitus (uncontrolled), Diabetic Ketoacidosis, and Gastroparesis.; SCORE: 0.85
+experiemnt 15: LLM_Judge_Score=0.8000 (0); correct_answer: The patient is a 67-year-old male with a history of End Stage Renal Disease (ESRD) on hemodialysis, Type II Diabetes Mellitus, Coronary Artery Disease (CAD) with a drug-eluting stent, Hyperlipidemia, Hypertension, and Anemia. He was admitted to the hospital with a chief complaint of chest pain, tuberculosis rule-out, acute cerebral infarct, headache, and pulmonary edema. 
+
+The patient's past medical history includes latent tuberculosis treated with INH, chronic hypertension, and chronic hemodialysis. His social history is significant for a sister who died from diabetes complications and multiple living children with various health problems. 
+
+During his hospital stay, the patient was diagnosed with a right MCA perfusion defect with "penumbra" and was treated with tPA. He was also found to have a R carotid stenosis. The patient remains aphasic and has left upper extremity weakness, but is able to move his extremities and ambulate to the bathroom without assistance. 
+
+At discharge, the patient's vital signs were stable, and he was prescribed medications for his conditions. His laboratory results showed normal blood chemistry values, except for slightly elevated glucose levels. vs. extracted_answer: Significant Results:
+- Laboratory Findings: Renal function tests were consistently abnormal, with Blood Urea Nitrogen (BUN) peaking at 70 mg/dL and Creatinine at 10.9 mg/dL, consistent with ESRD. Hematology showed chronic anemia (Hemoglobin 10.6–12.2 g/dL) and episodes of mild leukopenia (WBC 3.6–3.7 K/uL). Blood glucose was elevated, peaking at 147 mg/dL. Electrolytes revealed hyperphosphatemia (up to 6.8 mg/dL) and an elevated anion gap (up to 25). Cardiac biomarkers (Troponin-T 0.04–0.05 ng/mL) remained flat, ruling out acute myocardial infarction. Microbiology: Three sputum Acid-Fast Bacilli (AFB) smears and cultures were negative, ruling out active TB.
+- Imaging & Diagnostics: 
+1. CT Brain Perfusion: Showed right MCA territory ischemia (penumbra) in the superior right frontal lobe and 65% stenosis of the left proximal internal carotid artery (ICA).
+2. Non-Contrast Head CT: Revealed new focal hypodensity in the right frontal lobe corresponding to evolving infarction.
+3. MRI Head: Confirmed acute infarct in the right posterior frontal lobe (precentral gyrus) and chronic small vessel ischemic disease.
+4. EKG: Showed Right Bundle Branch Block (RBBB) and Left Ventricular Hypertrophy (LVH).
+5. TTE & Bubble Study: Preserved LVEF (>55%), moderate left atrial dilation, and no evidence of ASD or PFO.
+6. Chest X-ray: Initially showed mild pulmonary edema, bilateral small pleural effusions, and atelectasis, which improved after dialysis.
+
+Discharge Summary:
+Patient: 67-year-old male.
+Reason for Hospitalization: Initially admitted for pleuritic chest pain, productive cough, and night sweats (TB rule-out). 
+Hospital Course: On the second hospital day, during hemodialysis, the patient developed acute flaccid left upper extremity paralysis, facial droop, and aphasia. A 'Code Stroke' was triggered. CT imaging confirmed a right MCA territory ischemic penumbra. IV tPA was administered within the therapeutic window. He was monitored in the ICU and later transitioned to the floor. His motor strength significantly improved to 4+/5, and aphasia began to resolve. Active TB was ruled out via serial negative sputum studies. Chest pain and pulmonary edema were managed with optimized fluid removal during dialysis.
+Discharge Status: The patient is ambulatory with the assistance of a walker/cane, mentally clear, and coherent. Left-sided facial droop and mild expressive aphasia persist but are improved.
+Discharge Diagnoses: Acute Cerebral Infarct (Right MCA), ESRD on Hemodialysis, Type II Diabetes Mellitus, CAD, Chronic Anemia, and Hypertension.
+Major Medications: Aspirin 325 mg daily, Atorvastatin 80 mg daily, Lisinopril 20 mg BID, Carvedilol 25 mg BID, and Tramadol (PRN for headache).
+Follow-up: Outpatient TEE is required to further evaluate for embolic sources. Appointments are scheduled for Neurology, Cardiology, Primary Care, and outpatient Physical/Occupational/Speech therapy.; SCORE: 0.8
+experiemnt 8: LLM_Judge_Score=0.7875 (1); correct_answer: The patient is a 22-year-old female who was admitted to the hospital with a chief complaint of right thigh pain and elevated WBC count. She has no major past medical history, but has had a laparoscopic cholecystectomy and has been diagnosed with GERD. She has allergies to penicillins and amoxicillin. The patient's physical examination revealed normal vital signs, with the exception of a slightly elevated blood pressure. Laboratory results showed an abnormal complete blood count, with a WBC count of 139.3 and a platelet count of 123. Bone marrow biopsy revealed a translocation involving chromosomes 9 and 22, consistent with chronic myelogenous leukemia. The patient was diagnosed with chronic myelogenous leukemia and underwent a bone marrow aspirate and biopsy. She was prescribed pain control medication and was discharged from the hospital.
+
+ vs. extracted_answer: Key diagnostic findings for this patient include a profound leukocytosis at admission (WBC 139.3 x 10^3/uL) and a peak LDH of 809 U/L. Cytogenetic studies identified the Philadelphia chromosome translocation t(9;22)(q34;q11.2) in 100% of cells (20/20). FISH analysis confirmed the BCR/ABL1 gene rearrangement in 95% of cells using the SpectrumOrange (ABL1) and SpectrumGreen (BCR) dual color dual fusion translocation probe set. Diagnostic imaging revealed splenomegaly (14.5 cm) via ultrasound and 17 cm of abnormal bone marrow edema/infiltration in the distal right femur on MRI, consistent with marrow CML infiltration. The patient's Eutos score was 67.7, indicating low-risk disease. By the time of discharge, the WBC count was recorded at 90.5 x 10^3/uL.; SCORE: 0.7875
+experiemnt 4: LLM_Judge_Score=0.8125 (0); correct_answer: The patient is a 58-year-old male who was admitted to the hospital for a robot-assisted laparoscopic radical cystoprostatectomy with bilateral extended pelvic lymphadenectomy and ileal conduit urinary diversion due to bladder cancer. His past medical history includes renal insufficiency, tendonitis, schistosomiasis, IBS, prostatitis, HLD, nephrolithiasis, and epididymitis. He has allergies to adhesive tape and Dicloxacillin.
+
+The patient's presenting symptoms and reason for admission were related to his bladder cancer and the surgical procedure. He had a major surgical procedure performed, which included a robot-assisted laparoscopic radical cystoprostatectomy with bilateral extended pelvic lymphadenectomy and ileal conduit urinary diversion.
+
+The patient's diagnosis was bladder cancer, and he was prescribed medications at discharge. His physical exam was normal, with no abnormalities noted.
+
+The patient's laboratory results showed normal blood counts, with some fluctuations in his white blood cell count and hemoglobin levels. His blood glucose levels were also monitored, and he had some fluctuations in his levels. His calcium and phosphorus levels were also monitored, and he had some fluctuations in his levels.
+
+The patient's hospital course was uneventful, with no acute cardiopulmonary processes noted. He was started on strict sips on POD 3 and advanced to a regular diet on POD 4. He received one dose of unasyn and his nephrostomy tube was clamped on POD 5.
+
+In summary, the patient is a 58-year-old male who underwent a robot-assisted laparoscopic radical cystoprostatectomy with bilateral extended pelvic lymphadenectomy and ileal conduit urinary diversion due to bladder cancer. His past medical history includes several conditions, and he has allergies to adhesive tape and Dicloxacillin. His laboratory results showed some fluctuations in his blood counts and blood glucose levels, but no acute cardiopulmonary processes were noted. He was started on strict sips on POD 3 and advanced to a regular diet on POD 4. vs. extracted_answer: Comprehensive Discharge Summary:
+
+Patient Profile: 58-year-old male with clinical stage T3 muscle-invasive urothelial carcinoma, status post neoadjuvant Gem/Cis chemotherapy.
+
+Principal Diagnosis: Clinical stage T3 bladder cancer (urothelial carcinoma).
+
+Major Procedure: Robot-assisted laparoscopic radical cystoprostatectomy, bilateral extended pelvic lymphadenectomy, and open ileal conduit urinary diversion.
+
+Key Diagnostic and Laboratory Results:
+- Hematology: Postoperative anemia was observed with a hemoglobin nadir of 7.6 g/dL on POD 2, improving to 9.3 g/dL by discharge. Leukocytosis was noted, peaking at 21.1 K/uL.
+- Renal Function: The patient experienced mild acute kidney injury on chronic renal insufficiency, with creatinine increasing from a baseline of 1.2 mg/dL to a peak of 1.6 mg/dL.
+- Cardiac/Muscle Markers: Significant elevation of Creatine Kinase (CK) was noted, peaking at 2853 U/L (likely due to surgical positioning); however, myocardial infarction was ruled out with negative Troponin T (<0.01 ng/mL) and normal CK-MB levels.
+- Imaging: Postoperative KUB confirmed appropriate positioning of bilateral J-ureteral stents and the nasogastric tube (NGT). Chest X-ray showed mild atelectasis but no acute cardiopulmonary process.
+- Fluid Analysis: JP drain fluid creatinine (1.2 mg/dL) was consistent with serous fluid, ruling out a urinary leak.
+
+Hospital Course:
+Following surgery, the patient was initially NPO with an NGT and PCA for pain. On POD 1, he developed tachycardia (110-120s) and fluid overload, managed effectively with IV metoprolol and gentle diuresis. The NGT was removed on POD 2, and his diet was advanced to regular by POD 4. Nephrostomy and JP drains were removed following successful clamping and fluid testing. The patient received ostomy education from specialized nursing staff.
+
+Discharge Status:
+The patient was discharged on POD 6 in stable condition, alert, and ambulatory. He was transitioned to oral medications, including Gabapentin, Hydrocodone-Acetaminophen, and Ibuprofen. Ureteral stents remain in place (expected to auto-eject). He was discharged home with nursing services and instructions for a strict bowel regimen and activity restrictions (no heavy lifting for 4 weeks).; SCORE: 0.8125
+experiemnt 9: LLM_Judge_Score=0.7250 (1); correct_answer: The patient is a 43-year-old male who was admitted to the hospital with a chief complaint of a RUQ mass and pain, as well as a L pleural loculated fluid collection. He has a history of EtOH-induced chronic pancreatitis, SMV thrombosis, and is on Coumadin indefinitely. He also has chronic abdominal pain and is taking Oxycontin and Percocet. The patient's past medical history includes IDDM, chronic abdominal pain, chronic pancreatitis, SMV thrombosis, insomnia, and h/o alcoholism.
+
+The patient's diagnosis includes a complex multiloculated cystic lesion in the right upper quadrant, possibly an abscess or hematoma, and a large loculated left pleural fluid collection. He also has sequela of chronic pancreatitis.
+
+The patient underwent a tube thoracostomy (pigtail) and incision and drainage of the RUQ mass. He was prescribed medications at discharge, including antibiotics and pain medication.
+
+The patient's physical exam revealed a thin male with a firm, extremely tender, erythematous mass deep to the RUQ scar. He had moderate TTP to palpation in the L hemi-abdomen, though he reported this was baseline. His vital signs were stable, and he was afebrile.
+
+The patient's laboratory results showed an elevated white blood cell count, platelet count, and liver enzymes, consistent with an inflammatory process. His imaging studies, including CT and MRI, showed a complex multiloculated cystic lesion in the right upper quadrant, a large loculated left pleural fluid collection, and atrophy and calcification of the pancreas.
+
+Overall, the patient's hospital course was marked by a complex and challenging presentation, requiring multiple procedures and a multidisciplinary approach to management. vs. extracted_answer: Left lung empyema and right upper quadrant (RUQ) abdominal wall abscess (both culture-positive for Fusobacterium); C. difficile infection; severe coagulopathy (initial INR >22). Significant labs: Peak WBC 22.3, peak PTT 150, Hgb 7.6. Imaging: Complex RUQ multiloculated cystic lesion involving the abdominal wall and subcapsular liver; large loculated left pleural empyema; liver phlegmon. Procedures: Tube thoracostomy, bedside RUQ incision and drainage, VATS decortication of the left pleural space, and surgical abdominal wall debridement with wound vacuum placement. Status at discharge: stable, tolerating regular diet, with home health services for wound vacuum care, 4 weeks of IV Penicillin G via PICC, 2 weeks of oral Metronidazole, and Lovenox bridging to Coumadin for SMV thrombosis.; SCORE: 0.725
+experiemnt 2: LLM_Judge_Score=0.8250 (1); correct_answer: The patient is a 49-year-old male who presented to the hospital with a chief complaint of throat swelling. He has a history of asthma, diabetes, and hypertension. He was taking lisinopril for hypertension, but it was discontinued during his hospital stay due to concerns about its potential contribution to his angioedema. The patient's symptoms included a sensation of throat swelling, rhinorrhea, and a cough productive of whitish sputum. He was treated with steroids, benadryl, and famotidine, and his angioedema resolved. He was also diagnosed with asthma and treated with albuterol nebulizers as needed. The patient was discharged home with a diagnosis of angioedema and asthma, and was prescribed medications including diphenhydramine, famotidine, prednisone, albuterol inhaler, fluticasone propionate, and metformin. vs. extracted_answer: Comprehensive Discharge Summary:
+
+Key Diagnostic Information:
+- Diagnosis: Acute angioedema (ACE-inhibitor induced) and Asthma exacerbation.
+- History: 49-year-old male with hypertension (managed with lisinopril for one year), diabetes, and asthma presenting with progressive throat swelling, cough, and stridor.
+- Clinical Presentation: Severe hypopharyngeal swelling requiring MICU admission for airway monitoring; symptoms initially refractory to Benadryl but improved with steroids and racemic epinephrine.
+- Etiology: Symptoms were attributed to lisinopril (ACE inhibitor) use, which has been permanently discontinued.
+
+Significant Results:
+- Fiberoptic Laryngoscopy: Confirmed hypopharyngeal edema and mild epiglottal swelling; vocal cords appeared normal.
+- Physical Examination: Notable for Mallampati 4 airway, edematous uvula, and diffuse inspiratory/expiratory wheezes in all lung fields.
+- Laboratory Findings: Neutrophilia (92.4%), Lymphopenia (5.3%), Monocytopenia (0.6%), and elevated blood glucose (108 mg/dL). 
+- Rule-out Studies: Cardiac Troponin T was negative (<0.01 ng/mL) and Chest X-ray showed no acute cardiac or pulmonary abnormalities.
+- Neck Imaging: Soft tissue X-ray was reported as normal.
+
+Hospital Course and Plan:
+The patient was stabilized in the MICU with IV steroids, antihistamines, and nebulized treatments. Airway edema resolved prior to discharge. He was discharged home on a prednisone taper and antihistamines, with strict instructions to avoid all ACE inhibitors and follow up with his primary care provider for alternative hypertension management and an allergy specialist.; SCORE: 0.825
+experiemnt 6: LLM_Judge_Score=0.6875 (0); correct_answer: The patient is a 67-year-old male who was admitted to the hospital with a chief complaint of abdominal pain. He has a past medical history of depression, gout, and a suicide attempt. He was transferred from another hospital with worsening abdominal pain and concern for cholangitis. The patient underwent a laparoscopic cholecystectomy and was diagnosed with cholecystitis. He was started on IV fluids, antibiotics, and bowel rest, and his diet was gradually advanced to regular. He was discharged home on post-operative day 1 in stable condition, with instructions to follow up in the general surgery clinic in several weeks. The patient was prescribed medications for pain, constipation, and gout, and was advised to take acetaminophen as needed for pain. vs. extracted_answer: The patient is a 67-year-old male who presented with several weeks of worsening epigastric and right upper quadrant pain. Laboratory studies revealed a significant downtrend from peak values at an outside facility, with leukocytosis resolving from 17 K/uL to 7.3 K/uL and a peak lipase of 1412 U/L normalizing by discharge. Initial transaminitis and hyperbilirubinemia also improved, with bilirubin decreasing from 2.8 mg/dL to 0.9 mg/dL and ALT/AST levels trending toward baseline. While an initial RUQ ultrasound showed only gallbladder sludge and a 4 mm polyp, a subsequent MRCP revealed mild pancreatitis, a dilated common bile duct of 1.1 cm, cholelithiasis, and gallbladder wall thickening consistent with acute cholecystitis. Following these diagnostic findings, the patient underwent a successful and uncomplicated laparoscopic cholecystectomy on hospital day 3, leading to clinical stability and the resolution of his presenting symptoms.; SCORE: 0.6875
+experiemnt 10: LLM_Judge_Score=0.7500 (2); correct_answer: The patient is a 59-year-old male who was admitted for a liver transplant due to HCC/ETOH cirrhosis. He has a past medical history of EtOH cirrhosis, skin cancer, and has undergone TIPS and RFA procedures. He has no known allergies or adverse reactions. The patient underwent a deceased donor liver transplant and was intubated post-operatively due to respiratory failure. He was later extubated and transferred to the floor for post-operative care. During his hospital stay, he developed atrial fibrillation, which was treated with digoxin and propranolol. He also developed a pericardial effusion, which was drained and treated with antibiotics. The patient's laboratory results showed normal liver function tests, and he was prescribed immunosuppressive medications, including Cellcept, myfortic, and tacrolimus. He was discharged with a drain in the mid abdominal collection and was advised to follow up with his healthcare provider for further treatment. vs. extracted_answer: A 59-year-old male with HCC and EtOH cirrhosis underwent a deceased donor liver transplant (___; volumes: 740 cellsaver, 5 PRBC). His post-operative course was complicated by a re-exploration and pexy of the right hemidiaphragm on POD 1 to address suspected IVC obstruction. He experienced intermittent agitation and delirium post-extubation, which was managed with Seroquel. Cardiovascular complications included atrial fibrillation with RVR and a large pericardial effusion with signs of tamponade. A pericardial window with drain placement (___) removed 200cc of fluid; a follow-up echocardiogram on ___ demonstrated only trace effusion, and the drain was removed on ___. Respiratory management involved intubation immediately post-operatively with successful extubation on ___. Regarding the gastrointestinal system, a biliary leak at the anastomosis site was identified and managed via ERCP with sphincterotomy and placement of a ___ Fr biliary stent (___). A mid-abdominal fluid collection was further managed with a CT-guided ___ pigtail catheter (___), which aspirated 120cc of bilious fluid. Laboratory studies showed admission values of WBC 4.7, Hgb 11.5, Cr 0.7, ALT 27, AST 38, AlkPhos 111, and TotBili 1.5, which trended toward discharge values of WBC 5.3, Hgb 10.0, Cr 1.1, ALT 69, AST 33, AlkPhos 74, and TotBili 0.5. Immunosuppression was maintained with Myfortic, a Prednisone taper, and Tacrolimus (trough levels: 8.7, 9.0, 10.1, 13.0, and 9.5 ng/mL). All cultures (blood, pericardial, abdominal, C. diff) and admission screens (HBsAg, HIV) were negative. Additional management included Foley catheter placement (removed ___), NG tube placement (self-discontinued ___), and JP drain removals on ___ and ___. The patient was discharged home in stable condition with a mid-abdominal pigtail catheter and home nursing services.; SCORE: 0.75
+experiemnt 1: LLM_Judge_Score=0.8625 (0); correct_answer: The patient is a 31-year-old male who was admitted for a total abdominal colectomy with ileoanal pouch or end ileostomy due to chronic ulcerative colitis, which was medically refractory. The patient has a history of C. Diff colitis, ulcerative colitis, appendectomy, and right hand/finger debridement. He has no known allergies or adverse drug reactions. The patient underwent the procedure well and was discharged with good pain control. At discharge, the patient was tolerating a regular diet, ambulating, voiding well, and pain was well controlled. The patient was prescribed acetaminophen and oxycodone for pain management. He was also instructed to monitor his ileostomy output and to seek medical attention if he experiences dehydration symptoms. vs. extracted_answer: Comprehensive Discharge Summary:
+
+Patient: 31-year-old male
+Primary Diagnosis: Chronic ulcerative colitis, medically refractory.
+Major Procedure: Total abdominal colectomy and end ileostomy (performed on admission day; J-pouch was not feasible due to insufficient small bowel reach).
+
+Significant Findings:
+- Pathology: Confirmed chronic active colitis in the abdominal and sigmoid colon. Focal mucosal granulomas were present (attributed to crypt rupture), but the absence of transmural inflammation or fissures supported the diagnosis of ulcerative colitis.
+- Laboratory Results: Post-operative leukocytosis (WBC 16.8), mild anemia (Hgb 12.7, Hct 39.7), and slightly low calcium (8.0).
+- Clinical Events: Post-operatively, the patient experienced transient right leg weakness due to an epidural, which resolved fully upon adjustment and discontinuation. Referred shoulder pain was evaluated with an EKG, which was negative for ischemia. 
+
+Hospital Course:
+The patient's recovery was overall stable. His diet was advanced from sips on POD 1 to a regular diet by POD 2 as bowel function returned. He received extensive ostomy teaching and demonstrated competence in management. By POD 5, he was afebrile, hemodynamically stable, ambulating independently, and voiding well.
+
+Discharge Disposition & Instructions:
+The patient was discharged home with visiting nurse services. Key instructions include:
+- Monitoring ileostomy output (target: 500-1200 cc daily) and maintaining hydration (e.g., electrolyte drinks) to prevent dehydration.
+- Incision care for abdominal staples, which are to be removed at the first post-operative visit.
+- Activity restriction: No heavy lifting for at least 6 weeks.
+- Medications: Acetaminophen and Oxycodone for pain management.
+- Follow-up: Scheduled with the surgical and ostomy teams.; SCORE: 0.8625
+experiemnt 12: LLM_Judge_Score=0.8500 (0); correct_answer: The patient is an 18-year-old male who was admitted to the hospital after being hit by a line drive while playing baseball. He presented with jaw pain and was diagnosed with a nondisplaced right mandibular fracture. He underwent an open reduction and internal fixation (ORIF) of the fracture, as well as closed reduction with maxillo-mandibular fixation of a right sub-condylar fracture. The patient's surgical pain was controlled with intravenous analgesia and later converted to oral agents. He was started on clears and advanced to a full liquid diet. The patient was discharged home on post-operative day (POD) #1 in stable condition.
+
+The patient's past medical history is unremarkable, and he has no known allergies or adverse drug reactions. His vital signs upon discharge were normal, with a temperature of 98.2°F, blood pressure of 143/62 mmHg, heart rate of 62 beats per minute, and respiratory rate of 18 breaths per minute.
+
+The patient was prescribed three medications at discharge: chlorhexidine gluconate oral rinse, docusate sodium, and hydromorphone (Dilaudid) for pain control. He was instructed to follow a wound care regimen, including avoiding disturbing the surgical area and using gauze to control bleeding. He was also advised to avoid strenuous physical activity, use ice applications to minimize swelling, and begin normal oral hygiene the day after surgery. vs. extracted_answer: An 18-year-old male presented with facial trauma, right-sided jaw pain, swelling, and malocclusion after being struck by a baseball. Pre-operative Panorex and CT imaging revealed an acute fracture of the right mandibular body extending to the root of tooth #29 and a fracture of the right mandibular ramus/sub-condylar region. Significant laboratory results included a hemoglobin of 12.6 g/dL, hematocrit of 37.3%, and a bicarbonate level of 20 mmol/L, with an elevated neutrophil count (73.2%). The patient underwent ORIF of the right mandibular body fracture and closed reduction with maxillo-mandibular fixation of the right sub-condylar fracture. Post-operative Panorex confirmed stable interval fixation of the mandibular fractures. Admission vitals (BP 131/80, HR 79, RR 16, SpO2 100%) and discharge vitals (BP 143/62, HR 62, RR 18, SpO2 98%) remained stable. The patient was discharged on post-operative day 1 in stable condition.; SCORE: 0.85
+experiemnt 13: LLM_Judge_Score=0.8250 (2); correct_answer: The patient is a 29-year-old female who was admitted to the neurosurgery service with a chief complaint of leg pain and weakness. She had a history of lower back pain (LBP) that began one month prior, which worsened while on vacation and led to unbearable pain and weakness in her left calf. She was treated conservatively with ESI and medications, but her pain persisted. The patient underwent a left L5-S1 discectomy and was diagnosed with a marked severe L5-S1 discogenic disease with spinal canal stenosis, neural foraminal narrowing, and nerve root impingement. She was prescribed several medications, including docusate sodium, senna, acetaminophen, ibuprofen, oxycodone, gabapentin, and citalopram. The patient was discharged home with instructions to keep her wound clean, avoid heavy lifting, and take pain medication as instructed. vs. extracted_answer: Discharge Diagnosis: L5/S1 disc tear and severe spinal stenosis.
+
+Key Diagnostic Information: A 29-year-old female presented with worsening lower back pain radiating into the left leg and associated calf weakness. Pre-operative MRI of the lumbar spine demonstrated markedly severe L5-S1 discogenic disease with a 1 cm midline to left paracentral disc protrusion/partial extrusion, resulting in significant spinal canal stenosis and nerve root impingement. Additionally, the MRI showed moderate L4-L5 degenerative disease with moderate symmetric bilateral neural foraminal narrowing. Physical examination was significant for left gastrocnemius weakness (4+), an absent left Achilles reflex (0), and decreased sensation to temperature and pinprick along the left lateral calf.
+
+Surgical Procedure and Hospital Course: The patient underwent a left L5-S1 discectomy for surgical rectification of the herniated disc. The procedure was successful and well-tolerated. Post-operatively, the patient's pain was effectively managed, and she achieved independent ambulation.
+
+Discharge Condition: The patient was discharged in stable condition, ambulatory and steady. The surgical incision was clean, dry, and intact with steristrips. Residual neurological findings included trace left plantar flexion and dorsiflexion weakness with slight sensory loss to light touch over the lateral aspect of the left foot.; SCORE: 0.825
+experiemnt 5: LLM_Judge_Score=0.5000 (3); correct_answer: The patient is a 53-year-old female who was admitted to the hospital with abdominal pain and fever. She has a history of primary sclerosing cholangitis (PSC), cirrhosis, ascites, hepatic encephalopathy, varices, and possibly Crohn's disease and celiac disease. She was diagnosed with cholangitis during a previous hospitalization and was treated with IV antibiotics. She has also had a laparoscopic cholecystectomy and liver biopsy, which showed bile ductular proliferation and early, incomplete nodule formation.
+
+The patient's allergies include Bactrim, Ampicillin, Sulfa, cefuroxime, Gadolinium-Containing Contrast Media, gluten, nadolol, and Pneumovax 23. She has a history of hypertension, GERD, hypothyroidism, and OSA.
+
+During her hospitalization, the patient's symptoms included abdominal pain, fever, nausea, and vomiting. She was treated with ertapenem and Zofran, and her nausea improved with the latter. Her laboratory results showed slightly elevated liver enzymes, but her chemistry panel and urinalysis were normal.
+
+The patient underwent an ERCP procedure, which showed no dominant stricture in the CBD or CHD, but did show marked narrowing of the right and left common hepatic ducts consistent with known PSC. She also underwent an MRCP procedure, which showed cirrhosis complicated by portal hypertension, splenomegaly, and multiple esophageal and gastric varices.
+
+At discharge, the patient was prescribed medications including ertapenem and Zofran, and was advised to follow up with her primary care physician. vs. extracted_answer: The patient was diagnosed with Cholangitis and Primary Biliary Cirrhosis (PBC). Diagnostic imaging, including RUQ ultrasound and MRCP, identified a stone in the gallbladder remnant and biliary sludge within the common bile duct. ERCP confirmed and removed scant sludge from the biliary tree. EGD revealed an 8 mm ulcer at the gastroesophageal junction and mild portal gastropathy. Significant laboratory trends included a decrease in alkaline phosphatase from 308 to 245 U/L, a normalization of total bilirubin from 1.4 to 0.8 mg/dL, and a reduction in white blood cell count from 5.4 to 3.9.; SCORE: 0.5
+experiemnt 7: LLM_Judge_Score=0.8000 (0); correct_answer: The patient is a 74-year-old female who was admitted for surgical management of her aortic valve and coronary artery disease. She has a history of aortic stenosis, patent foramen ovale, coronary artery disease, hyperlipidemia, hypertension, and cardiovascular disease. She is allergic to erythromycin base. 
+
+The patient underwent coronary artery bypass grafting to two vessels, aortic valve replacement with a 21mm porcine valve, and PFO closure. Postoperatively, she developed atrial fibrillation and was started on amiodarone and coumadin. She was also transfused with two units of packed red blood cells for postoperative anemia. 
+
+The patient's medications at discharge include amiodarone, docusate sodium, aspirin, potassium chloride, atorvastatin, metoprolol tartrate, pantoprazole, furosemide, ciprofloxacin, and warfarin. She was discharged home with service and was advised to follow up with her cardiologist. vs. extracted_answer: CLINICAL PROFILE
+* Age: 74 years
+* Gender: Female
+* Primary Diagnoses: Severe Aortic Stenosis (AVA 0.5 cm²), Coronary Artery Disease (CAD), Patent Foramen Ovale (PFO)
+* Comorbidities: Hypertension, Hyperlipidemia, Cerebrovascular Disease (CVD), Peripheral Vascular Disease (PVD)
+* Postoperative Course: New-onset atrial fibrillation, postoperative anemia, transient confusion, and leukocytosis
+* Status: Stable discharge following POD #6
+
+SURGICAL INTERVENTIONS
+* Coronary Artery Bypass Grafting x2 (Vein to Obtuse Marginal; Vein to Posterior Left Ventricular Branch)
+* Aortic Valve Replacement (21mm Porcine Bioprosthetic Valve)
+* Patent Foramen Ovale (PFO) Closure
+
+DIAGNOSTIC RESULTS
+* Pre-CPB Echocardiogram: Severe aortic valve stenosis (area <0.8 cm²), Grade III/IV LV diastolic dysfunction, LVEF >55%, and patent foramen ovale with left-to-right shunt
+* Post-CPB Echocardiogram: Well-seated bioprosthetic aortic valve, mild residual stenosis, no paravalvular leak, intact atrial septum, and preserved biventricular function
+* Chest X-ray: Stable moderate cardiomegaly, bibasilar post-surgical atelectasis, and small bilateral pleural effusions
+* Peak White Blood Cell Count: 28.1 K/uL
+* Nadir Hemoglobin: 8.8 g/dL (transfused with 2 units packed red blood cells)
+* Peak INR: 3.6; SCORE: 0.8
+experiemnt 3: LLM_Judge_Score=0.7000 (0); correct_answer: The patient is a 70-year-old male who was admitted to the hospital with chest pain. He has a history of hypertension, dyslipidemia, pre-diabetes, hemorrhoids/anal fissure, and benign prostatic hypertrophy. He presented with substernal chest pain that started in the morning while he was lying in bed, which was associated with sweating, feeling hot and clammy, and diaphoresis. The pain lasted for about an hour and was described as severe. He denied radiation of pain, numbness/tingling in his arms, shortness of breath, and abdominal/back pain.
+
+The patient has a past medical history of cardiac risk factors, including pre-diabetes, hypertension, and dyslipidemia. He also has a history of dermatoheliosis, benign prostatic hypertrophy, inflammatory colon polyp, chronic sun-damaged skin, and seborrheic keratoses.
+
+The patient's physical examination on admission showed a well-developed male in no acute distress, with a normal cardiovascular examination. His laboratory results showed elevated troponin levels, with a peak level of 0.16 ng/mL. He was started on heparin gtt and aspirin.
+
+The patient underwent a left heart catheterization, which showed 90% occlusion in the mid and distal left anterior descending (LAD) artery, and two drug-eluting stents were placed with good revascularization.
+
+The patient's diagnosis is mild regional left ventricular systolic dysfunction, consistent with coronary artery disease. He was prescribed medications at discharge, including aspirin, clopidogrel, and metoprolol. vs. extracted_answer: A 70-year-old male was diagnosed with Non-ST elevation myocardial infarction (NSTEMI) and new-onset Diabetes Mellitus during this hospitalization. Primary diagnostic findings included a peak Troponin T level of 0.16 ng/mL and an HbA1c of 6.5%. Initial electrocardiogram (EKG) revealed ST depressions in leads I and aVL, alongside a Left Anterior Fascicular Block (LAFB). Left heart catheterization identified 90% occlusion in both the mid and distal left anterior descending (LAD) artery; revascularization was successfully performed with the placement of two drug-eluting stents (DES) and balloon angioplasty of the distal LAD. Transthoracic Echocardiography (TTE) showed a preserved Left Ventricular Ejection Fraction (LVEF) of 55%, with evidence of mild regional systolic dysfunction (focal distal septal hypokinesis). Additional pertinent diagnoses include hypertension, dyslipidemia, benign prostatic hypertrophy, and gastroesophageal reflux disease.; SCORE: 0.7
+experiemnt 11: LLM_Judge_Score=0.4500 (1); correct_answer: The patient is a 79-year-old female who was admitted to the hospital after a motor vehicle accident (MVA). She has a history of hypertension, hypothyroidism, and COPD. She was involved in a MVC, but does not remember the event. She complained of right-sided chest pain and diffuse back pain, and was found to have normal vital signs and laboratory results. She was diagnosed with a mild back strain and was prescribed pain medication. She also has a history of asthma/COPD, GERD, and a pacemaker for tachy/brady arrhythmia. She has no known allergies or adverse reactions. The patient's physical examination was normal, with the exception of some minor abrasions on her knees. She was discharged with a diagnosis of a mild back strain and was prescribed pain medication. vs. extracted_answer: Comprehensive Discharge Summary:
+
+Primary Diagnoses: Motor Vehicle Accident (MVA), Syncope, Orthostatic Hypotension.
+
+Clinical Summary: A 79-year-old female with a history of HTN, hypothyroidism, and COPD was admitted after an MVA (striking a light pole) with subsequent amnesia, indicating syncope. Extensive trauma imaging, including CT scans of the head, C-spine, and torso, showed no acute fractures, hemorrhages, or internal organ injuries. Syncope evaluation included a normal pacemaker interrogation and a Transthoracic Echocardiogram (TTE) showing preserved biventricular function (LVEF >55%). The patient was found to have orthostatic hypotension, likely exacerbated by dehydration and antihypertensive medication. An initial low AM cortisol (1.6) was determined to be a spurious result; repeat testing was normal (17.0), ruling out adrenal insufficiency.
+
+Significant Results and Management:
+- Medication Adjustment: Verapamil SR was reduced from 240mg BID to 240mg once daily to manage orthostatic hypotension.
+- Incidental Findings: CT chest revealed two 3-4mm pulmonary nodules and emphysema; a follow-up chest CT is recommended in 12 months.
+- Laboratory Findings: Minor decrease in Hemoglobin (12.3 to 11.1 g/dL) and a contaminated urinalysis.
+- Disposition: Discharged to an extended care/rehabilitation facility in stable condition.
+
+Discharge Instructions:
+- Driving Restriction: Strictly advised NOT to drive due to recurrent syncope risk.
+- Follow-up: Follow up with PCP and Cardiologist for blood pressure monitoring and repeat chest CT in 12 months.; SCORE: 0.45
+experiemnt 0: LLM_Judge_Score=0.8750 (4); correct_answer: The patient is a 54-year-old female who was admitted to the hospital for evaluation of her peripheral vascular disease and toe ulcers. She has a history of left femoral to posterior tibial bypass graft completed in the past, and has been experiencing toe pain and difficulty with ambulation. The patient has a history of ovarian cancer, hypertension, and other medical conditions. She is allergic to penicillins and NSAIDs.
+
+The patient underwent a diagnostic angiogram of her bilateral lower extremities, which showed occlusion of the left SFA, bypass graft, and popliteal artery, as well as occlusion of the right SFA and popliteal artery. She was admitted to the hospital for monitoring and was discharged home without services.
+
+The patient's medications at admission included acetaminophen, lisinopril, gabapentin, mirtazapine, rivaroxaban, atorvastatin, oxyCODONE, and omeprazole. Her medications at discharge included acetaminophen, aspirin, atorvastatin, gabapentin, mirtazapine, omeprazole, and oxyCODONE, with lisinopril and rivaroxaban held until her planned readmission.
+
+The patient's discharge diagnosis was peripheral vascular disease and toe ulcers, and her discharge condition was clear and coherent, with a level of consciousness of alert and interactive, and activity status of ambulatory with assistance or aid. vs. extracted_answer: ### Key Diagnostic Information
+
+**Primary and Secondary Diagnoses:**
+- Peripheral Vascular Disease (PVD)
+- Multiple Toe Ulcers (Left first hallux, Left second toe, Left fourth toe, and Right fourth toe)
+
+**Imaging and Procedure Findings (Bilateral Lower Extremity Angiogram):**
+- **Left Side:** Total occlusion of the Superficial Femoral Artery (SFA), the previous femoral-to-posterior tibial bypass graft, and the popliteal artery.
+- **Right Side:** Occlusion of the SFA and the popliteal artery.
+
+**Relevant Past Medical History:**
+- Borderline Ovarian Mucinous Tumor (s/p TAH-BSO)
+- Hypertension
+- Barrett's esophagus
+- History of H. pylori and Peptic Ulcer Disease
+- Compression fracture (L1) and Osteoporosis
+- B12 deficiency
+
+### Significant Results
+
+**Abnormal Laboratory Values:**
+- RBC: 3.60* 
+- MCV: 109* 
+- MCH: 34.7* 
+- MCHC: 31.9* 
+- RDWSD: 58.0* 
+- PTT: 36.7* 
+- Chloride (Cl): 113* 
+- Bicarbonate (HCO3): 18*
+
+**Physical Exam Findings:**
+- **Pulse Examination:**
+  - **Right Lower Extremity:** Palpable femoral and popliteal pulses; Dopplerable Dorsalis Pedis (DP) and Posterior Tibial (PT) pulses.
+  - **Left Lower Extremity:** Palpable femoral and popliteal pulses; Dopplerable PT pulse; Absent (-) DP pulse.
+- **Wound Assessment:**
+  - Left first hallux: Blister with drainage.
+  - Left second toe: New ulceration.
+  - Left fourth toe: Non-healing ulceration.
+  - Right fourth toe: New ulceration.
+
+**Discharge Summary:**
+Ms. ___ is a 54-year-old female with advanced PVD who presented with multiple new and non-healing toe ulcers. Diagnostic angiography confirmed extensive arterial occlusion bilaterally. She was monitored post-procedure and was scheduled for a redo left femoral-to-posterior tibial bypass. However, the patient eloped from the hospital prior to completing formal discharge teaching. She is expected to return for a planned readmission for the surgical bypass procedure.; SCORE: 0.875
+coorect 16; Total: 182; Acc: 0.08791208791208792

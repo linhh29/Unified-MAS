@@ -1,0 +1,132 @@
+{
+  "scenario_id": 2,
+  "dialogue_history": [
+    {
+      "round": 1,
+      "type": "doctor",
+      "content": "I am beginning the process of gathering information from the team to prepare this patient's discharge summary. Nursing Agent, could you please provide details on the patient's respiratory status and airway monitoring during his stay in the MICU, as well as his overall condition at the time of discharge?",
+      "progress": 2
+    },
+    {
+      "round": 1,
+      "type": "patient",
+      "content": "In the MICU, we closely monitored the patient for stridor and airway obstruction; he received albuterol nebulizers for diffuse wheezing, which successfully resolved. At discharge, the patient was alert, independent, and breathing comfortably with clear lung sounds and no further swelling.",
+      "progress": 2
+    },
+    {
+      "round": 2,
+      "type": "doctor",
+      "content": "REQUEST TEST: Please provide the full list of discharge medications and specific instructions given for the patient's asthma and angioedema management.",
+      "progress": 5
+    },
+    {
+      "round": 2,
+      "type": "measurement",
+      "content": "RESULTS: Discharge Medications: 1. DiphenhydrAMINE 25 mg PO Q6H:PRN sob, hives, swelling 2. Famotidine 20 mg PO BID 3. PredniSONE 40 mg PO DAILY Duration: 4 Days 4. Albuterol Inhaler ___ PUFF IH Q4H:PRN sob, wheeze (Seek medical attention if used more than 3 times a day) 5. Fluticasone Propionate 110mcg 2 PUFF IH BID (Use daily to help control asthma) 6. MetFORMIN (Glucophage) 500 mg PO BID Specific Medication Instructions: - Angioedema Management: The patient was treated with steroids, Benadryl, and famotidine to reduce swelling. Lisinopril was discontinued and must be avoided indefinitely, along with all other ACE inhibitors, as it was the suspected cause of the angioedema. The patient needs to consult a PCP for an alternative antihypertensive medication. - Asthma Management: Take Fluticasone (Flovent) daily for maintenance/control. Use the Albuterol inhaler only as needed for rescue symptoms (sob, wheeze).",
+      "progress": 5
+    },
+    {
+      "round": 3,
+      "type": "doctor",
+      "content": "Nursing Agent, could you elaborate on the education provided to the patient regarding the avoidance of ACE inhibitors and what specific symptoms he was told to monitor for at home?",
+      "progress": 7
+    },
+    {
+      "round": 3,
+      "type": "patient",
+      "content": "The patient was educated to permanently avoid lisinopril and all ACE inhibitors, as these likely caused his life-threatening throat swelling. We instructed him to seek emergency care immediately if he experiences recurring swelling of the lips or throat, difficulty breathing, or worsening wheezing. He was also advised to follow up with his primary care provider to manage his blood pressure and arrange an allergy consultation.",
+      "progress": 7
+    },
+    {
+      "round": 4,
+      "type": "doctor",
+      "content": "REQUEST TEST: Can you confirm the specific durations for the discharge medications, particularly the famotidine and prednisone taper details if any, and clarify the dosing for the diphenhydramine?",
+      "progress": 10
+    },
+    {
+      "round": 4,
+      "type": "measurement",
+      "content": "RESULTS: 1. DiphenhydrAMINE 25 mg PO Q6H:PRN sob, hives, swelling; 2. Famotidine 20 mg PO BID (Dispense #30; no specific duration or taper specified); 3. PredniSONE 40 mg PO DAILY for a duration of 4 days (No taper specified; Dispense #8).",
+      "progress": 10
+    },
+    {
+      "round": 5,
+      "type": "doctor",
+      "content": "Nursing Agent, could you provide more detail on the findings from the morning ENT evaluation and the patient's ability to tolerate oral intake or any swallowing difficulties prior to discharge?",
+      "progress": 12
+    },
+    {
+      "round": 5,
+      "type": "patient",
+      "content": "ENT evaluation on the morning of discharge confirmed that the airway edema had resolved. The patient reported significant improvement in throat comfort and was able to communicate verbally and tolerate oral intake without difficulty prior to discharge.",
+      "progress": 12
+    },
+    {
+      "round": 6,
+      "type": "doctor",
+      "content": "Nursing Agent, did the patient receive any specific education regarding his diabetes management or blood glucose monitoring while recovering from this acute episode, especially considering he will be on a short course of prednisone?",
+      "progress": 15
+    },
+    {
+      "round": 6,
+      "type": "patient",
+      "content": "The patient was instructed to continue his home metformin dose of 500 mg twice daily. There is no record of specific education provided regarding increased blood glucose monitoring during his four-day course of prednisone.",
+      "progress": 15
+    },
+    {
+      "round": 7,
+      "type": "doctor",
+      "content": "REQUEST TEST: The hospital course mentions saline nasal spray was used for URI symptoms; was this intended to be continued after discharge, and are there any other OTC recommendations provided to the patient for symptom management?",
+      "progress": 17
+    },
+    {
+      "round": 7,
+      "type": "measurement",
+      "content": "RESULTS: The saline nasal spray used during the hospitalization is NOT included in the discharge medication list or instructions for continuation after discharge. No other over-the-counter (OTC) recommendations were provided for symptom management beyond the following medications on the discharge list: 1. DiphenhydrAMINE 25 mg PO Q6H:PRN sob, hives, swelling 2. Famotidine 20 mg PO BID 3. PredniSONE 40 mg PO DAILY for 4 Days",
+      "progress": 17
+    },
+    {
+      "round": 8,
+      "type": "doctor",
+      "content": "Nursing Agent, were there any specific follow-up appointments scheduled for the patient prior to discharge, or was he instructed on a specific timeframe to see his primary care physician to address his hypertension now that lisinopril has been discontinued?",
+      "progress": 20
+    },
+    {
+      "round": 8,
+      "type": "patient",
+      "content": "The discharge instructions do not specify a scheduled appointment date or a timeframe for follow-up. The patient was advised to follow up with his primary care provider to discuss alternative blood pressure medications and a potential allergy specialist referral.",
+      "progress": 20
+    },
+    {
+      "round": 9,
+      "type": "doctor",
+      "content": "REQUEST TEST: Please clarify the specific number of puffs for the albuterol inhaler prescribed at discharge, as the record indicates \"___ PUFF,\" and confirm if any specific asthma action plan was provided.",
+      "progress": 22
+    },
+    {
+      "round": 9,
+      "type": "measurement",
+      "content": "RESULTS: The specific number of puffs for the albuterol inhaler is not documented in the record (listed as \"___ PUFF\" and \"___ puffs\"). No formal asthma action plan was provided beyond the medication instructions. Discharge Medications: 1. DiphenhydrAMINE 25 mg PO Q6H:PRN sob, hives, swelling; 2. Famotidine 20 mg PO BID; 3. PredniSONE 40 mg PO DAILY for 4 days; 4. Albuterol Inhaler ___ PUFF IH Q4H:PRN (Instruction: seek medical attention if used more than 3 times a day); 5. Fluticasone Propionate 110mcg 2 PUFF IH BID (Instruction: use daily to help control asthma); 6. MetFORMIN 500 mg PO BID.",
+      "progress": 22
+    },
+    {
+      "round": 10,
+      "type": "doctor",
+      "content": "REQUEST TEST: Were there any documented side effects or adverse reactions noted after the patient received racemic epinephrine or IV steroids in the ED or MICU, and were there any specific instructions provided for the patient's metformin use while on prednisone?",
+      "progress": 25
+    },
+    {
+      "round": 10,
+      "type": "measurement",
+      "content": "RESULTS: Tachycardia was documented as a likely side effect in the setting of the patient receiving IV steroids and racemic epinephrine. Regarding metformin, the patient was discharged on his home dose of 500 mg PO BID; however, there were no specific instructions or education provided in the record regarding metformin use or blood glucose monitoring while taking the 4-day course of prednisone.",
+      "progress": 25
+    },
+    {
+      "round": 11,
+      "type": "doctor",
+      "content": "SUMMARY READY: This 49-year-old male with a history of hypertension, asthma, and diabetes was admitted for acute throat swelling and respiratory distress diagnosed as lisinopril-induced angioedema. Following stabilization with racemic epinephrine, corticosteroids, and antihistamines, fiberoptic laryngoscopy confirmed resolving hypopharyngeal and epiglottal edema during his observation in the intensive care unit. His hospital course also addressed a concurrent asthma flare with nebulized albuterol. At the time of discharge, the patient's airway was stable, his lungs were clear, and he was tolerating oral intake well. He was instructed to permanently avoid all ACE inhibitors and was discharged on his home medications along with a four-day course of prednisone, with instructions to follow up with his primary care physician for alternative blood pressure management and an allergy consultation.",
+      "progress": 27
+    }
+  ],
+  "total_rounds": 21
+}

@@ -1,0 +1,52 @@
+[
+    {
+        "day": 1,
+        "current_city": "from Charlotte to Newark",
+        "transportation": "Flight Number: F3715865, from Charlotte to Newark, Departure Time: 07:55, Arrival Time: 09:38",
+        "breakfast": "Artistry, Newark",
+        "attraction": "The Newark Museum of Art, Newark;",
+        "lunch": "Escape Terrace Bar Kitchen, Newark",
+        "dinner": "Bernardo's, Newark",
+        "accommodation": "1 Bedroom in UWS Manhattan, Newark"
+    },
+    {
+        "day": 2,
+        "current_city": "Newark",
+        "transportation": "-",
+        "breakfast": "Mogambo Khush Hua, Newark",
+        "attraction": "New Jersey Historical Society, Newark;Branch Brook Park, Newark;",
+        "lunch": "Hawai Adda, Newark",
+        "dinner": "Anaicha's Food Joint, Newark",
+        "accommodation": "1 Bedroom in UWS Manhattan, Newark"
+    },
+    {
+        "day": 3,
+        "current_city": "from Newark to Trenton",
+        "transportation": "Taxi, from Newark to Trenton, Departure Time: 09:00, Arrival Time: 10:05",
+        "breakfast": "Elma's at Good Earth, Trenton",
+        "attraction": "Old Barracks Museum, Trenton;",
+        "lunch": "Global Grill, Trenton",
+        "dinner": "Duck & Waffle, Trenton",
+        "accommodation": "Whole Floor, 2 BR Apt. in Iconic Greenwich Village, Trenton"
+    },
+    {
+        "day": 4,
+        "current_city": "Trenton",
+        "transportation": "-",
+        "breakfast": "Willoughby & Co., Trenton",
+        "attraction": "New Jersey State Museum, Trenton;Grounds For Sculpture, Trenton;",
+        "lunch": "Fusilli Reasons, Trenton",
+        "dinner": "The Cheesecake Factory, Trenton",
+        "accommodation": "Whole Floor, 2 BR Apt. in Iconic Greenwich Village, Trenton"
+    },
+    {
+        "day": 5,
+        "current_city": "from Trenton to Charlotte",
+        "transportation": "Flight Number: F3561600, from Trenton to Charlotte, Departure Time: 17:23, Arrival Time: 19:23",
+        "breakfast": "Mario's Italian Restaurant, Trenton",
+        "attraction": "1719 William Trent House Museum, Trenton;",
+        "lunch": "Patang - The Revolving Restaurant, Trenton",
+        "dinner": "Sonya Bakery Cafe, Trenton",
+        "accommodation": "-"
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "The most likely diagnosis is hypoglycemia secondary to dumping syndrome following recent sleeve gastrectomy.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Intentional ingestion of a hypoglycemic agent.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Hypoglycemia due to inappropriate diabetes management. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The most likely diagnosis is accidental or intentional ingestion of a toxin or drug causing hypoglycemia and confusion. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Hypoglycemia due to an unknown exogenous substance, possibly related to the patient's psychiatric history.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

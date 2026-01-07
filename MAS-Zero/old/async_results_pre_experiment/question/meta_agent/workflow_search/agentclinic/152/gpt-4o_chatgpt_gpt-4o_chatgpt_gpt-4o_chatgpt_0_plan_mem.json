@@ -1,0 +1,17 @@
+[
+    {
+        "Diagnosis: Gastric ulcer.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Diagnosis: Gastric ulcer. Management Plan: 1. Prescribe a proton pump inhibitor (PPI) such as omeprazole to reduce gastric acid and promote healing. 2. Test for Helicobacter pylori and provide eradication therapy if positive. 3. Advise smoking cessation and limit alcohol consumption. 4. Recommend dietary modifications with small, frequent meals to manage symptoms and address weight loss. 5. Schedule follow-up appointments to monitor progress and consider repeat endoscopy if needed. 6. Educate the patient on recognizing signs of complications, such as gastrointestinal bleeding, and advise seeking immediate medical attention if they occur.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Management Plan: ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "1. Pharmacological Treatment: Start a proton pump inhibitor (PPI) such as omeprazole to reduce gastric acid secretion and promote healing. Test for Helicobacter pylori and provide eradication therapy if positive.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Final Management Plan:": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

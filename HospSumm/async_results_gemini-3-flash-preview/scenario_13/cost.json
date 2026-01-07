@@ -1,0 +1,267 @@
+{
+  "scenario_id": 13,
+  "doctor": {
+    "input_tokens": 57163,
+    "output_tokens": 14280,
+    "total_tokens": 71443,
+    "input_cost": 0.028582,
+    "output_cost": 0.04284,
+    "total_cost": 0.071421,
+    "num_calls": 16
+  },
+  "patient": {
+    "input_tokens": 23499,
+    "output_tokens": 4079,
+    "total_tokens": 27578,
+    "input_cost": 0.01175,
+    "output_cost": 0.012237,
+    "total_cost": 0.023987,
+    "num_calls": 8
+  },
+  "measurement": {
+    "input_tokens": 21120,
+    "output_tokens": 14346,
+    "total_tokens": 35466,
+    "input_cost": 0.01056,
+    "output_cost": 0.043038,
+    "total_cost": 0.053598,
+    "num_calls": 7
+  },
+  "judge": {
+    "input_tokens": 972,
+    "output_tokens": 128,
+    "total_tokens": 1100,
+    "input_cost": 0.00243,
+    "output_cost": 0.00128,
+    "total_cost": 0.00371,
+    "num_calls": 1
+  },
+  "total": {
+    "total_cost": 0.152716,
+    "total_tokens": 135587
+  },
+  "detailed_calls": {
+    "doctor": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2119,
+        "output_tokens": 353,
+        "cost": 0.0021185,
+        "inference_num": 1
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2239,
+        "output_tokens": 622,
+        "cost": 0.0029855000000000003,
+        "inference_num": 2
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2517,
+        "output_tokens": 481,
+        "cost": 0.0027015,
+        "inference_num": 3
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2592,
+        "output_tokens": 543,
+        "cost": 0.0029250000000000005,
+        "inference_num": 4
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2882,
+        "output_tokens": 580,
+        "cost": 0.003181,
+        "inference_num": 5
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2977,
+        "output_tokens": 494,
+        "cost": 0.0029705,
+        "inference_num": 6
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3331,
+        "output_tokens": 435,
+        "cost": 0.0029705,
+        "inference_num": 7
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3427,
+        "output_tokens": 758,
+        "cost": 0.0039875,
+        "inference_num": 8
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3716,
+        "output_tokens": 796,
+        "cost": 0.004246000000000001,
+        "inference_num": 9
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3796,
+        "output_tokens": 950,
+        "cost": 0.0047480000000000005,
+        "inference_num": 10
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3907,
+        "output_tokens": 750,
+        "cost": 0.004203500000000001,
+        "inference_num": 11
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4288,
+        "output_tokens": 603,
+        "cost": 0.003953,
+        "inference_num": 12
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4386,
+        "output_tokens": 957,
+        "cost": 0.005064,
+        "inference_num": 13
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4782,
+        "output_tokens": 708,
+        "cost": 0.004515,
+        "inference_num": 14
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4891,
+        "output_tokens": 773,
+        "cost": 0.0047645000000000005,
+        "inference_num": 15
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5313,
+        "output_tokens": 4477,
+        "cost": 0.0160875,
+        "inference_num": 16
+      }
+    ],
+    "patient": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 1794,
+        "output_tokens": 555,
+        "cost": 0.002562
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2132,
+        "output_tokens": 425,
+        "cost": 0.002341
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2450,
+        "output_tokens": 537,
+        "cost": 0.0028360000000000004
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2851,
+        "output_tokens": 643,
+        "cost": 0.0033545000000000003
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3163,
+        "output_tokens": 361,
+        "cost": 0.0026645
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3266,
+        "output_tokens": 429,
+        "cost": 0.00292
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3696,
+        "output_tokens": 449,
+        "cost": 0.003195
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4147,
+        "output_tokens": 680,
+        "cost": 0.004113500000000001
+      }
+    ],
+    "measurement": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 1913,
+        "output_tokens": 1690,
+        "cost": 0.0060265
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2229,
+        "output_tokens": 1013,
+        "cost": 0.004153499999999999
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2588,
+        "output_tokens": 1761,
+        "cost": 0.0065769999999999995
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 2978,
+        "output_tokens": 1716,
+        "cost": 0.006637
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3363,
+        "output_tokens": 2236,
+        "cost": 0.008389500000000001
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3795,
+        "output_tokens": 2165,
+        "cost": 0.0083925
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4254,
+        "output_tokens": 3765,
+        "cost": 0.013422000000000002
+      }
+    ],
+    "judge": [
+      {
+        "model": "gpt-4o",
+        "input_tokens": 972,
+        "output_tokens": 128,
+        "cost": 0.0037099999999999998
+      }
+    ]
+  },
+  "diagnosis_result": {
+    "diagnosis_made": true,
+    "is_correct": false,
+    "doctor_diagnosis": "This 29-year-old female with a history of progressive lower back pain and left leg weakness was admitted for surgical management of severe spinal stenosis and a 1 cm L5-S1 disc protrusion. She underwent an uncomplicated left L5-S1 discectomy and demonstrated a smooth post-operative recovery, achieving independent ambulation and good pain control with oral medications. At the time of discharge, she remained neurologically stable with only trace residual weakness in left plantar and dorsiflexion and slight sensory loss in her left foot. She was discharged home in stable condition with a medication regimen including gabapentin, citalopram, docusate, senna, and as-needed analgesics. Her discharge instructions focused on wound care and activity modifications, specifically avoiding lifting more than 10 pounds or excessive bending and twisting for a period of two weeks.",
+    "correct_diagnosis": "The patient is a 29-year-old female who was admitted to the neurosurgery service with a chief complaint of leg pain and weakness. She had a history of lower back pain (LBP) that began one month prior, which worsened while on vacation and led to unbearable pain and weakness in her left calf. She was treated conservatively with ESI and medications, but her pain persisted. The patient underwent a left L5-S1 discectomy and was diagnosed with a marked severe L5-S1 discogenic disease with spinal canal stenosis, neural foraminal narrowing, and nerve root impingement. She was prescribed several medications, including docusate sodium, senna, acetaminophen, ibuprofen, oxycodone, gabapentin, and citalopram. The patient was discharged home with instructions to keep her wound clean, avoid heavy lifting, and take pain medication as instructed."
+  }
+}

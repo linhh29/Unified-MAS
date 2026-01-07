@@ -1,0 +1,17 @@
+[
+    {
+        "The final diagnosis is osteoarthritis.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis is challenging due to the exclusion of osteoarthritis. Consideration of less common inflammatory conditions, seronegative spondyloarthropathies, or metabolic conditions like gout or pseudogout might be necessary. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The patient's condition could suggest pseudogout or a seronegative spondyloarthropathy, but without crystal analysis or more definitive symptoms, a final diagnosis cannot be confirmed. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis remains uncertain given the exclusion of osteoarthritis and previous incorrect diagnoses. Further investigation into less common conditions or additional tests such as uric acid levels, HLA-B27 testing, or more detailed history regarding other symptoms might be necessary to reach a conclusive diagnosis.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis remains inconclusive given the exclusion of osteoarthritis and previously considered conditions. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

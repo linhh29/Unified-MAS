@@ -1,0 +1,202 @@
+{
+  "scenario_id": 11,
+  "doctor": {
+    "input_tokens": 57964,
+    "output_tokens": 6731,
+    "total_tokens": 64695,
+    "input_cost": 0.028982,
+    "output_cost": 0.020193,
+    "total_cost": 0.049175,
+    "num_calls": 11
+  },
+  "patient": {
+    "input_tokens": 23557,
+    "output_tokens": 2443,
+    "total_tokens": 26000,
+    "input_cost": 0.011778,
+    "output_cost": 0.007329,
+    "total_cost": 0.019107,
+    "num_calls": 5
+  },
+  "measurement": {
+    "input_tokens": 23904,
+    "output_tokens": 10719,
+    "total_tokens": 34623,
+    "input_cost": 0.011952,
+    "output_cost": 0.032157,
+    "total_cost": 0.044109,
+    "num_calls": 5
+  },
+  "judge": {
+    "input_tokens": 1011,
+    "output_tokens": 122,
+    "total_tokens": 1133,
+    "input_cost": 0.002527,
+    "output_cost": 0.00122,
+    "total_cost": 0.003747,
+    "num_calls": 1
+  },
+  "total": {
+    "total_cost": 0.116139,
+    "total_tokens": 126451
+  },
+  "detailed_calls": {
+    "doctor": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4309,
+        "output_tokens": 443,
+        "cost": 0.0034835000000000005,
+        "inference_num": 1
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4399,
+        "output_tokens": 343,
+        "cost": 0.0032285000000000005,
+        "inference_num": 2
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4744,
+        "output_tokens": 798,
+        "cost": 0.004766,
+        "inference_num": 3
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4832,
+        "output_tokens": 583,
+        "cost": 0.004165,
+        "inference_num": 4
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5107,
+        "output_tokens": 560,
+        "cost": 0.0042335,
+        "inference_num": 5
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5211,
+        "output_tokens": 648,
+        "cost": 0.004549500000000001,
+        "inference_num": 6
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5511,
+        "output_tokens": 467,
+        "cost": 0.0041565000000000005,
+        "inference_num": 7
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5612,
+        "output_tokens": 619,
+        "cost": 0.004663,
+        "inference_num": 8
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5933,
+        "output_tokens": 785,
+        "cost": 0.0053215,
+        "inference_num": 9
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6030,
+        "output_tokens": 569,
+        "cost": 0.0047220000000000005,
+        "inference_num": 10
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 6276,
+        "output_tokens": 916,
+        "cost": 0.005886000000000001,
+        "inference_num": 11
+      }
+    ],
+    "patient": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 3993,
+        "output_tokens": 540,
+        "cost": 0.0036165
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4371,
+        "output_tokens": 476,
+        "cost": 0.0036135000000000004
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4696,
+        "output_tokens": 508,
+        "cost": 0.0038719999999999996
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5062,
+        "output_tokens": 447,
+        "cost": 0.0038720000000000004
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5435,
+        "output_tokens": 472,
+        "cost": 0.0041335
+      }
+    ],
+    "measurement": [
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4060,
+        "output_tokens": 1881,
+        "cost": 0.007673
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4446,
+        "output_tokens": 4091,
+        "cost": 0.014496
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 4769,
+        "output_tokens": 1260,
+        "cost": 0.0061645
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5135,
+        "output_tokens": 1973,
+        "cost": 0.008486500000000001
+      },
+      {
+        "model": "gemini-3-flash-preview",
+        "input_tokens": 5494,
+        "output_tokens": 1514,
+        "cost": 0.007289
+      }
+    ],
+    "judge": [
+      {
+        "model": "gpt-4o",
+        "input_tokens": 1011,
+        "output_tokens": 122,
+        "cost": 0.0037475
+      }
+    ]
+  },
+  "diagnosis_result": {
+    "diagnosis_made": true,
+    "is_correct": false,
+    "doctor_diagnosis": "This 79-year-old female with a history of hypertension, COPD, and a pacemaker was admitted following a motor vehicle accident after hitting a light pole, likely secondary to a syncopal event. An extensive trauma workup, including CT imaging of the head, neck, and torso, revealed no acute fractures or internal injuries; however, incidental 3-4 mm pulmonary nodules were identified, requiring a follow-up chest CT in 12 months. Evaluation of the syncope included a normal transthoracic echocardiogram and pacemaker interrogation with no significant events, but the patient was found to have symptomatic orthostatic hypotension. Consequently, she was treated with intravenous fluid boluses, and her home Verapamil dose was reduced to 240 mg daily. While an initial low morning cortisol level raised concern for adrenal insufficiency, a repeat test was normal, suggesting the initial value was likely influenced by prior fentanyl administration. The patient remained alert and independently ambulatory during her stay and was discharged to a rehabilitation facility to improve her stability, with strict instructions to refrain from driving and to follow up with her cardiologist regarding further blood pressure medication adjustments.",
+    "correct_diagnosis": "The patient is a 79-year-old female who was admitted to the hospital after a motor vehicle accident (MVA). She has a history of hypertension, hypothyroidism, and COPD. She was involved in a MVC, but does not remember the event. She complained of right-sided chest pain and diffuse back pain, and was found to have normal vital signs and laboratory results. She was diagnosed with a mild back strain and was prescribed pain medication. She also has a history of asthma/COPD, GERD, and a pacemaker for tachy/brady arrhythmia. She has no known allergies or adverse reactions. The patient's physical examination was normal, with the exception of some minor abrasions on her knees. She was discharged with a diagnosis of a mild back strain and was prescribed pain medication."
+  }
+}

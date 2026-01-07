@@ -1,0 +1,17 @@
+[
+    {
+        "The final diagnosis is keratoacanthoma, a rapidly growing skin tumor that resembles squamous cell carcinoma. Careful monitoring or treatment is advised due to its potential resemblance to squamous cell carcinoma.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Squamous cell carcinoma": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Keratoacanthoma with a recommendation for further investigation to rule out squamous cell carcinoma due to the patient's risk factors and lesion characteristics.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final decision is to excise the lesion and conduct close monitoring to prevent progression or confirm the diagnosis, given the characterization as a keratoacanthoma and the patient's significant risk factors.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Further histopathological analysis or clinical follow-up is recommended to differentiate between keratoacanthoma and squamous cell carcinoma, given the patient's risk factors and lesion characteristics.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

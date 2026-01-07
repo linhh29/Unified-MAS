@@ -1,0 +1,17 @@
+[
+    {
+        "Meigs' syndrome due to a benign ovarian tumor, likely a fibroma.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "A malignant ovarian tumor, possibly a germ cell tumor or sex cord-stromal tumor, should be considered. Further investigation, such as a CT scan of the abdomen and pelvis, and a biopsy of the ovarian mass, is needed to confirm the diagnosis. Additionally, consider evaluating for non-gynecological causes of ascites and pleural effusion, such as liver function tests, cardiac evaluation with echocardiogram, and tests for tuberculosis or nephrotic syndrome.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Pseudo-Meigs' syndrome due to a non-ovarian pelvic tumor. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Malignant ovarian tumor, possibly epithelial ovarian cancer.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The diagnosis remains uncertain due to the exclusion of common conditions. Consider endometriosis, other benign ovarian conditions, or non-gynecological causes as potential diagnoses. Further investigations such as MRI, CT scan, or biopsy are recommended to determine the nature of the ovarian mass and rule out rare conditions. Consulting a specialist in gynecologic oncology is advised for further evaluation and management. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

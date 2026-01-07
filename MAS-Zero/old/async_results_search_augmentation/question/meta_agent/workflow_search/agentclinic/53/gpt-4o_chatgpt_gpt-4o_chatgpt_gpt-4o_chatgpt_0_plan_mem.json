@@ -1,0 +1,17 @@
+[
+    {
+        "The refined diagnosis is that the patient's symptoms are likely due to hormonal changes after discontinuing oral contraceptives, combined with stress or psychological factors related to the desire to conceive. The negative pregnancy test and normal ultrasound support this conclusion.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The patient is not pregnant based on the negative urine \u03b2-hCG and ultrasound findings. Further evaluation may be needed to explore other causes of her symptoms. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Thyroid dysfunction or other endocrine disorders. Suggestion: Conduct thyroid function tests and evaluate for other endocrine disorders to confirm the diagnosis.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Consider evaluating for thyroid dysfunction or other endocrine disorders. Suggest thyroid function tests to rule out hypothyroidism.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The diagnosis of hormonal imbalance, potentially due to thyroid dysfunction such as hypothyroidism, is reasonable. Conduct thyroid function tests to confirm the diagnosis and rule out other endocrine disorders.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

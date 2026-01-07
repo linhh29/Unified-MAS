@@ -1,0 +1,522 @@
+Question: You are a proficient planner. Based on the provided information and query, please give me a detailed plan, including specifics such as flight numbers (e.g., F0123456), restaurant names, and accommodation names. Note that all the information in your plan should be derived from the provided data. You must adhere to the format given in the example. Additionally, all details should align with commonsense. The symbol '-' indicates that information is unnecessary. For example, in the provided sample, you do not need to plan after returning to the departure city. When you travel to two cities in one day, you should note it in the 'Current City' section as in the example (i.e., from A to B).
+
+***** Example *****
+Query: Could you create a travel plan for 7 people from Ithaca to Charlotte spanning 3 days, from March 8th to March 14th, 2022, with a budget of $30,200?
+Travel Plan:
+Day 1:
+Current City: from Ithaca to Charlotte
+Transportation: Flight Number: F3633413, from Ithaca to Charlotte, Departure Time: 05:38, Arrival Time: 07:46
+Breakfast: Nagaland's Kitchen, Charlotte
+Attraction: The Charlotte Museum of History, Charlotte
+Lunch: Cafe Maple Street, Charlotte
+Dinner: Bombay Vada Pav, Charlotte
+Accommodation: Affordable Spacious Refurbished Room in Bushwick!, Charlotte
+
+Day 2:
+Current City: Charlotte
+Transportation: -
+Breakfast: Olive Tree Cafe, Charlotte
+Attraction: The Mint Museum, Charlotte;Romare Bearden Park, Charlotte.
+Lunch: Birbal Ji Dhaba, Charlotte
+Dinner: Pind Balluchi, Charlotte
+Accommodation: Affordable Spacious Refurbished Room in Bushwick!, Charlotte
+
+Day 3:
+Current City: from Charlotte to Ithaca
+Transportation: Flight Number: F3786167, from Charlotte to Ithaca, Departure Time: 21:42, Arrival Time: 23:26
+Breakfast: Subway, Charlotte
+Attraction: Books Monument, Charlotte.
+Lunch: Olive Tree Cafe, Charlotte
+Dinner: Kylin Skybar, Charlotte
+Accommodation: -
+
+***** Example Ends *****
+
+Given information: [{'Description': 'Attractions in New York', 'Content': '                        Name  Latitude  Longitude                                        Address          Phone                                                                         Website     City\n             Top of The Rock 40.759350 -73.979409  30 Rockefeller Plaza, New York, NY 10112, USA (212) 698-2000 https://www.rockefellercenter.com/attractions/top-of-the-rock-observation-deck/ New York\n       One World Observatory 40.713006 -74.013173           117 West St, New York, NY 10007, USA (844) 696-1776                                                https://oneworldobservatory.com/ New York\n       SUMMIT One Vanderbilt 40.752764 -73.978746          45 E 42nd St, New York, NY 10017, USA        Unknown                                                        http://www.summitov.com/ New York\n          Rockefeller Center 40.758740 -73.978674  45 Rockefeller Plaza, New York, NY 10111, USA (212) 588-8601                                              https://www.rockefellercenter.com/ New York\n           Statue of Liberty 40.689249 -74.044500                        New York, NY 10004, USA (212) 363-3200                                              https://www.nps.gov/stli/index.htm New York\n               The High Line 40.747993 -74.004765                        New York, NY 10011, USA (212) 500-6035                                                    https://www.thehighline.org/ New York\n       Empire State Building 40.748441 -73.985664         20 W 34th St., New York, NY 10001, USA (212) 736-3100                                                         https://www.esbnyc.com/ New York\n             Brooklyn Bridge 40.706086 -73.996864                        New York, NY 10038, USA        Unknown          https://www.nyc.gov/html/dot/html/infrastructure/brooklyn-bridge.shtml New York\n      9/11 Memorial & Museum 40.711578 -74.013336      180 Greenwich St, New York, NY 10007, USA (212) 312-8800                                                    https://www.911memorial.org/ New York\n           Flatiron Building 40.741061 -73.989699           175 5th Ave, New York, NY 10010, USA        Unknown                                                                         Unknown New York\n                Times Square 40.757975 -73.985543                       Manhattan, NY 10036, USA        Unknown                                                 https://www.timessquarenyc.org/ New York\n                      RiseNY 40.757621 -73.985176         160 W 45th St, New York, NY 10036, USA (718) 701-4998                                                              https://riseny.co/ New York\n         The Channel Gardens 40.758501 -73.978087                        New York, NY 10020, USA        Unknown              https://www.rockefellercenter.com/attractions/the-channel-gardens/ New York\n                 The Battery 40.702931 -74.015360     Battery Park City, New York, NY 10004, USA (212) 344-3491                                                     https://www.thebattery.org/ New York\n                Central Park 40.782555 -73.965583                              New York, NY, USA (212) 310-6600                                                 https://www.centralparknyc.org/ New York\n             Tenement Museum 40.718818 -73.990088        103 Orchard St, New York, NY 10002, USA (877) 975-3786                                                       https://www.tenement.org/ New York\n         MUSEUM OF ICE CREAM 40.723855 -73.997917          558 Broadway, New York, NY 10012, USA        Unknown                                               https://www.museumoficecream.com/ New York\n       Radio City Music Hall 40.759976 -73.979977          1260 6th Ave, New York, NY 10020, USA (212) 465-6000                                       https://www.msg.com/radio-city-music-hall New York\nPier 46 at Hudson River Park 40.734189 -74.011265 Hudson River Greenway, New York, NY 10014, USA (212) 627-2020                                                     http://hudsonriverpark.org/ New York\n        Tiffany Street Clock 40.741981 -73.989378           200 5th Ave, New York, NY 10010, USA        Unknown                                                                         Unknown New York'}, {'Description': 'Restaurants in New York', 'Content': "                              Name  Average Cost                                             Cuisines  Aggregate Rating     City\n            Seasons 52 Fresh Grill            30                   Seafood, Indian, Desserts, Italian               4.4 New York\n                    Gurgaon Hights            46                    Cafe, American, Indian, Fast Food               2.5 New York\n                             G Dot            75                                   Cafe, Mexican, BBQ               2.4 New York\n                           Rambhog            95                     Tea, Seafood, Mexican, Fast Food               3.3 New York\n                  Green Chick Chop            26                           Tea, French, Cafe, Seafood               3.3 New York\n          Lord of the Drinks Forum            71                   Cafe, Bakery, BBQ, Chinese, Indian               4.2 New York\n                        Goosebumps            94                               Chinese, Pizza, Bakery               3.2 New York\nAryan's Rajasthani Pyaz Ki Kachori            17                         Cafe, Pizza, Indian, Seafood               3.1 New York\n                   QD's Restaurant            93                           Tea, Desserts, Indian, BBQ               4.1 New York\n               Golooji's Chat Waat            53                                           Pizza, BBQ               3.3 New York\n              Sir John Bakery Cafe            78                              Pizza, Bakery, Desserts               3.4 New York\n                     Shree Rathnam            91            Tea, Bakery, Fast Food, American, Seafood               3.4 New York\n                    Domino's Pizza            86                           Tea, French, Pizza, Indian               3.3 New York\n                    Sugary Affairs            55               Desserts, Tea, Fast Food, Cafe, Indian               3.0 New York\n                        Sugar Rush            89                            Tea, Chinese, Pizza, Cafe               0.0 New York\n                            Amchur            67                                Tea, Bakery, American               2.9 New York\n                Kamal Chat Bhandar            36                                 Chinese, Bakery, BBQ               0.0 New York\n                          736 A.D.            99 Desserts, Bakery, Fast Food, American, Mediterranean               4.1 New York\n          Garam Masala Food Corner            40                              Pizza, Bakery, Desserts               3.3 New York\n                  Green Restaurant            74                          Tea, Cafe, Bakery, Desserts               0.0 New York\n                       Hungry Ullu            94                                          Tea, Bakery               3.3 New York\n                          The Best            79                                   Tea, Chinese, Cafe               3.4 New York\n                          Baltazar            46                      Tea, Fast Food, Bakery, Seafood               4.3 New York"}, {'Description': 'Accommodations in New York', 'Content': '                                              NAME  price       room type                                  house_rules  minimum nights  maximum occupancy  review rate number     city\nVersatile private room in Harlem/Hamilton Heights!  398.0    Private room           No pets & No visitors & No parties             4.0                  1                 5.0 New York\nBeautiful and big 1BR sublet close by Central Park  983.0    Private room            No parties & No children under 10             5.0                  2                 5.0 New York\n    A Contemporary Homelike Stay in the Best of BK  228.0 Entire home/apt No pets & No visitors & No children under 10             2.0                  2                 2.0 New York\n       Charming Bright Room in Bed Stuy Brownstone 1064.0    Private room           No visitors & No smoking & No pets            30.0                  2                 3.0 New York\n       Spacious Bedroom in Prime Brooklyn Location  782.0    Private room                         No parties & No pets             3.0                  1                 4.0 New York\n         Cool Downtown Apartment in Great Location  997.0 Entire home/apt                                      No pets             4.0                  7                 4.0 New York\n              Modern Brooklyn oasis (PRIVATE ROOM)  403.0    Private room                         No children under 10             1.0                  1                 5.0 New York\n       Magical rowhouse and garden in Williamsburg  189.0 Entire home/apt                                   No parties             4.0                  3                 1.0 New York\n                          Large Bed-Stuy Apartment  132.0 Entire home/apt                                  No visitors             6.0                  2                 4.0 New York\nIN MINT CONDITION-1BR&TERRACE-E 44TH/UNITED NATION  297.0 Entire home/apt                                      No pets            30.0                  2                 4.0 New York\n   Spacious Private Access Near Trains M - L and J  800.0    Private room                                      No pets             2.0                  1                 4.0 New York\n Sunny + Spacious Master Bedroom with Outdoor Deck  109.0    Private room                                      No pets             3.0                  1                 5.0 New York\n ✈ NYC/Travelers. New Private Access Room Bed Full 1158.0    Private room                                      No pets             2.0                  1                 5.0 New York'}, {'Description': 'Flight from Milwaukee to New York on 2022-03-24', 'Content': 'Flight Number  Price DepTime ArrTime  ActualElapsedTime FlightDate OriginCityName DestCityName  Distance\n     F3643145    226   18:36   21:58 2 hours 22 minutes 2022-03-24      Milwaukee     New York     738.0\n     F3647823    353   05:55   09:17 2 hours 22 minutes 2022-03-24      Milwaukee     New York     738.0\n     F3649645    180   10:50   14:22 2 hours 32 minutes 2022-03-24      Milwaukee     New York     738.0'}, {'Description': 'Self-driving from Milwaukee to New York', 'Content': 'self-driving, from Milwaukee to New York, duration: 13 hours 29 mins, distance: 1,417 km, cost: 70'}, {'Description': 'Taxi from Milwaukee to New York', 'Content': 'taxi, from Milwaukee to New York, duration: 13 hours 29 mins, distance: 1,417 km, cost: 1417'}, {'Description': 'Flight from New York to Milwaukee on 2022-03-26', 'Content': 'Flight Number  Price DepTime ArrTime  ActualElapsedTime FlightDate OriginCityName DestCityName  Distance\n     F3644990    218   15:20   16:27  2 hours 7 minutes 2022-03-26       New York    Milwaukee     738.0\n     F3649624    245   08:21   09:36 2 hours 15 minutes 2022-03-26       New York    Milwaukee     738.0'}, {'Description': 'Self-driving from New York to Milwaukee', 'Content': 'self-driving, from New York to Milwaukee, duration: 13 hours 28 mins, distance: 1,417 km, cost: 70'}, {'Description': 'Taxi from New York to Milwaukee', 'Content': 'taxi, from New York to Milwaukee, duration: 13 hours 28 mins, distance: 1,417 km, cost: 1417'}]
+Query: Please create a 3-day travel plan for two people, starting from Milwaukee and heading to New York. We are planning to visit from March 24th to March 26th, 2022. We have a budget of $1,900 and prefer to have non-shared rooms for our accommodations.
+Travel Plan:
+proposed answer: The sub-tasks have provided all necessary components for the travel plan: transportation, accommodation, and itinerary details. The flights from Milwaukee to New York and back, the accommodation in New York, and the attractions and dining options have all been specified. Thus, compiling these elements into a coherent travel plan is straightforward.
+
+Answer:Travel Plan:
+
+Day 1:
+Current City: from Milwaukee to New York
+Transportation: Flight Number: F3649645, from Milwaukee to New York, Departure Time: 10:50, Arrival Time: 14:22
+Breakfast: -
+Attraction: Central Park, New York
+Lunch: Seasons 52 Fresh Grill, New York
+Dinner: Lord of the Drinks Forum, New York
+Accommodation: Magical rowhouse and garden in Williamsburg, New York
+
+Day 2:
+Current City: New York
+Transportation: -
+Breakfast: Aryan's Rajasthani Pyaz Ki Kachori, New York
+Attraction: Statue of Liberty, New York; Empire State Building, New York
+Lunch: Baltazar, New York
+Dinner: QD's Restaurant, New York
+Accommodation: Magical rowhouse and garden in Williamsburg, New York
+
+Day 3:
+Current City: from New York to Milwaukee
+Transportation: Flight Number: F3644990, from New York to Milwaukee, Departure Time: 15:20, Arrival Time: 16:27
+Breakfast: Green Chick Chop, New York
+Attraction: Times Square, New York
+Lunch: Goosebumps, New York
+Dinner: -
+Accommodation: -
+Extracted answer: 
+[
+    {
+        "days": 1,
+        "current_city": "from Milwaukee to New York",
+        "transportation": "Flight Number: F3649645, from Milwaukee to New York, Departure Time: 10:50, Arrival Time: 14:22",
+        "breakfast": "-",
+        "attraction": "Central Park, New York",
+        "lunch": "Seasons 52 Fresh Grill, New York",
+        "dinner": "Lord of the Drinks Forum, New York",
+        "accommodation": "Magical rowhouse and garden in Williamsburg, New York"
+    },
+    {
+        "days": 2,
+        "current_city": "New York",
+        "transportation": "-",
+        "breakfast": "Aryan's Rajasthani Pyaz Ki Kachori, New York",
+        "attraction": "Statue of Liberty, New York;Empire State Building, New York",
+        "lunch": "Baltazar, New York",
+        "dinner": "QD's Restaurant, New York",
+        "accommodation": "Magical rowhouse and garden in Williamsburg, New York"
+    },
+    {
+        "days": 3,
+        "current_city": "from New York to Milwaukee",
+        "transportation": "Flight Number: F3644990, from New York to Milwaukee, Departure Time: 15:20, Arrival Time: 16:27",
+        "breakfast": "Green Chick Chop, New York",
+        "attraction": "Times Square, New York",
+        "lunch": "Goosebumps, New York",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]
+
+Correct answer: 
+Question: You are a proficient planner. Based on the provided information and query, please give me a detailed plan, including specifics such as flight numbers (e.g., F0123456), restaurant names, and accommodation names. Note that all the information in your plan should be derived from the provided data. You must adhere to the format given in the example. Additionally, all details should align with commonsense. The symbol '-' indicates that information is unnecessary. For example, in the provided sample, you do not need to plan after returning to the departure city. When you travel to two cities in one day, you should note it in the 'Current City' section as in the example (i.e., from A to B).
+
+***** Example *****
+Query: Could you create a travel plan for 7 people from Ithaca to Charlotte spanning 3 days, from March 8th to March 14th, 2022, with a budget of $30,200?
+Travel Plan:
+Day 1:
+Current City: from Ithaca to Charlotte
+Transportation: Flight Number: F3633413, from Ithaca to Charlotte, Departure Time: 05:38, Arrival Time: 07:46
+Breakfast: Nagaland's Kitchen, Charlotte
+Attraction: The Charlotte Museum of History, Charlotte
+Lunch: Cafe Maple Street, Charlotte
+Dinner: Bombay Vada Pav, Charlotte
+Accommodation: Affordable Spacious Refurbished Room in Bushwick!, Charlotte
+
+Day 2:
+Current City: Charlotte
+Transportation: -
+Breakfast: Olive Tree Cafe, Charlotte
+Attraction: The Mint Museum, Charlotte;Romare Bearden Park, Charlotte.
+Lunch: Birbal Ji Dhaba, Charlotte
+Dinner: Pind Balluchi, Charlotte
+Accommodation: Affordable Spacious Refurbished Room in Bushwick!, Charlotte
+
+Day 3:
+Current City: from Charlotte to Ithaca
+Transportation: Flight Number: F3786167, from Charlotte to Ithaca, Departure Time: 21:42, Arrival Time: 23:26
+Breakfast: Subway, Charlotte
+Attraction: Books Monument, Charlotte.
+Lunch: Olive Tree Cafe, Charlotte
+Dinner: Kylin Skybar, Charlotte
+Accommodation: -
+
+***** Example Ends *****
+
+Given information: [{'Description': 'Attractions in New York', 'Content': '                        Name  Latitude  Longitude                                        Address          Phone                                                                         Website     City\n             Top of The Rock 40.759350 -73.979409  30 Rockefeller Plaza, New York, NY 10112, USA (212) 698-2000 https://www.rockefellercenter.com/attractions/top-of-the-rock-observation-deck/ New York\n       One World Observatory 40.713006 -74.013173           117 West St, New York, NY 10007, USA (844) 696-1776                                                https://oneworldobservatory.com/ New York\n       SUMMIT One Vanderbilt 40.752764 -73.978746          45 E 42nd St, New York, NY 10017, USA        Unknown                                                        http://www.summitov.com/ New York\n          Rockefeller Center 40.758740 -73.978674  45 Rockefeller Plaza, New York, NY 10111, USA (212) 588-8601                                              https://www.rockefellercenter.com/ New York\n           Statue of Liberty 40.689249 -74.044500                        New York, NY 10004, USA (212) 363-3200                                              https://www.nps.gov/stli/index.htm New York\n               The High Line 40.747993 -74.004765                        New York, NY 10011, USA (212) 500-6035                                                    https://www.thehighline.org/ New York\n       Empire State Building 40.748441 -73.985664         20 W 34th St., New York, NY 10001, USA (212) 736-3100                                                         https://www.esbnyc.com/ New York\n             Brooklyn Bridge 40.706086 -73.996864                        New York, NY 10038, USA        Unknown          https://www.nyc.gov/html/dot/html/infrastructure/brooklyn-bridge.shtml New York\n      9/11 Memorial & Museum 40.711578 -74.013336      180 Greenwich St, New York, NY 10007, USA (212) 312-8800                                                    https://www.911memorial.org/ New York\n           Flatiron Building 40.741061 -73.989699           175 5th Ave, New York, NY 10010, USA        Unknown                                                                         Unknown New York\n                Times Square 40.757975 -73.985543                       Manhattan, NY 10036, USA        Unknown                                                 https://www.timessquarenyc.org/ New York\n                      RiseNY 40.757621 -73.985176         160 W 45th St, New York, NY 10036, USA (718) 701-4998                                                              https://riseny.co/ New York\n         The Channel Gardens 40.758501 -73.978087                        New York, NY 10020, USA        Unknown              https://www.rockefellercenter.com/attractions/the-channel-gardens/ New York\n                 The Battery 40.702931 -74.015360     Battery Park City, New York, NY 10004, USA (212) 344-3491                                                     https://www.thebattery.org/ New York\n                Central Park 40.782555 -73.965583                              New York, NY, USA (212) 310-6600                                                 https://www.centralparknyc.org/ New York\n             Tenement Museum 40.718818 -73.990088        103 Orchard St, New York, NY 10002, USA (877) 975-3786                                                       https://www.tenement.org/ New York\n         MUSEUM OF ICE CREAM 40.723855 -73.997917          558 Broadway, New York, NY 10012, USA        Unknown                                               https://www.museumoficecream.com/ New York\n       Radio City Music Hall 40.759976 -73.979977          1260 6th Ave, New York, NY 10020, USA (212) 465-6000                                       https://www.msg.com/radio-city-music-hall New York\nPier 46 at Hudson River Park 40.734189 -74.011265 Hudson River Greenway, New York, NY 10014, USA (212) 627-2020                                                     http://hudsonriverpark.org/ New York\n        Tiffany Street Clock 40.741981 -73.989378           200 5th Ave, New York, NY 10010, USA        Unknown                                                                         Unknown New York'}, {'Description': 'Restaurants in New York', 'Content': "                              Name  Average Cost                                             Cuisines  Aggregate Rating     City\n            Seasons 52 Fresh Grill            30                   Seafood, Indian, Desserts, Italian               4.4 New York\n                    Gurgaon Hights            46                    Cafe, American, Indian, Fast Food               2.5 New York\n                             G Dot            75                                   Cafe, Mexican, BBQ               2.4 New York\n                           Rambhog            95                     Tea, Seafood, Mexican, Fast Food               3.3 New York\n                  Green Chick Chop            26                           Tea, French, Cafe, Seafood               3.3 New York\n          Lord of the Drinks Forum            71                   Cafe, Bakery, BBQ, Chinese, Indian               4.2 New York\n                        Goosebumps            94                               Chinese, Pizza, Bakery               3.2 New York\nAryan's Rajasthani Pyaz Ki Kachori            17                         Cafe, Pizza, Indian, Seafood               3.1 New York\n                   QD's Restaurant            93                           Tea, Desserts, Indian, BBQ               4.1 New York\n               Golooji's Chat Waat            53                                           Pizza, BBQ               3.3 New York\n              Sir John Bakery Cafe            78                              Pizza, Bakery, Desserts               3.4 New York\n                     Shree Rathnam            91            Tea, Bakery, Fast Food, American, Seafood               3.4 New York\n                    Domino's Pizza            86                           Tea, French, Pizza, Indian               3.3 New York\n                    Sugary Affairs            55               Desserts, Tea, Fast Food, Cafe, Indian               3.0 New York\n                        Sugar Rush            89                            Tea, Chinese, Pizza, Cafe               0.0 New York\n                            Amchur            67                                Tea, Bakery, American               2.9 New York\n                Kamal Chat Bhandar            36                                 Chinese, Bakery, BBQ               0.0 New York\n                          736 A.D.            99 Desserts, Bakery, Fast Food, American, Mediterranean               4.1 New York\n          Garam Masala Food Corner            40                              Pizza, Bakery, Desserts               3.3 New York\n                  Green Restaurant            74                          Tea, Cafe, Bakery, Desserts               0.0 New York\n                       Hungry Ullu            94                                          Tea, Bakery               3.3 New York\n                          The Best            79                                   Tea, Chinese, Cafe               3.4 New York\n                          Baltazar            46                      Tea, Fast Food, Bakery, Seafood               4.3 New York"}, {'Description': 'Accommodations in New York', 'Content': '                                              NAME  price       room type                                  house_rules  minimum nights  maximum occupancy  review rate number     city\nVersatile private room in Harlem/Hamilton Heights!  398.0    Private room           No pets & No visitors & No parties             4.0                  1                 5.0 New York\nBeautiful and big 1BR sublet close by Central Park  983.0    Private room            No parties & No children under 10             5.0                  2                 5.0 New York\n    A Contemporary Homelike Stay in the Best of BK  228.0 Entire home/apt No pets & No visitors & No children under 10             2.0                  2                 2.0 New York\n       Charming Bright Room in Bed Stuy Brownstone 1064.0    Private room           No visitors & No smoking & No pets            30.0                  2                 3.0 New York\n       Spacious Bedroom in Prime Brooklyn Location  782.0    Private room                         No parties & No pets             3.0                  1                 4.0 New York\n         Cool Downtown Apartment in Great Location  997.0 Entire home/apt                                      No pets             4.0                  7                 4.0 New York\n              Modern Brooklyn oasis (PRIVATE ROOM)  403.0    Private room                         No children under 10             1.0                  1                 5.0 New York\n       Magical rowhouse and garden in Williamsburg  189.0 Entire home/apt                                   No parties             4.0                  3                 1.0 New York\n                          Large Bed-Stuy Apartment  132.0 Entire home/apt                                  No visitors             6.0                  2                 4.0 New York\nIN MINT CONDITION-1BR&TERRACE-E 44TH/UNITED NATION  297.0 Entire home/apt                                      No pets            30.0                  2                 4.0 New York\n   Spacious Private Access Near Trains M - L and J  800.0    Private room                                      No pets             2.0                  1                 4.0 New York\n Sunny + Spacious Master Bedroom with Outdoor Deck  109.0    Private room                                      No pets             3.0                  1                 5.0 New York\n ✈ NYC/Travelers. New Private Access Room Bed Full 1158.0    Private room                                      No pets             2.0                  1                 5.0 New York'}, {'Description': 'Flight from Milwaukee to New York on 2022-03-24', 'Content': 'Flight Number  Price DepTime ArrTime  ActualElapsedTime FlightDate OriginCityName DestCityName  Distance\n     F3643145    226   18:36   21:58 2 hours 22 minutes 2022-03-24      Milwaukee     New York     738.0\n     F3647823    353   05:55   09:17 2 hours 22 minutes 2022-03-24      Milwaukee     New York     738.0\n     F3649645    180   10:50   14:22 2 hours 32 minutes 2022-03-24      Milwaukee     New York     738.0'}, {'Description': 'Self-driving from Milwaukee to New York', 'Content': 'self-driving, from Milwaukee to New York, duration: 13 hours 29 mins, distance: 1,417 km, cost: 70'}, {'Description': 'Taxi from Milwaukee to New York', 'Content': 'taxi, from Milwaukee to New York, duration: 13 hours 29 mins, distance: 1,417 km, cost: 1417'}, {'Description': 'Flight from New York to Milwaukee on 2022-03-26', 'Content': 'Flight Number  Price DepTime ArrTime  ActualElapsedTime FlightDate OriginCityName DestCityName  Distance\n     F3644990    218   15:20   16:27  2 hours 7 minutes 2022-03-26       New York    Milwaukee     738.0\n     F3649624    245   08:21   09:36 2 hours 15 minutes 2022-03-26       New York    Milwaukee     738.0'}, {'Description': 'Self-driving from New York to Milwaukee', 'Content': 'self-driving, from New York to Milwaukee, duration: 13 hours 28 mins, distance: 1,417 km, cost: 70'}, {'Description': 'Taxi from New York to Milwaukee', 'Content': 'taxi, from New York to Milwaukee, duration: 13 hours 28 mins, distance: 1,417 km, cost: 1417'}]
+Query: Please create a 3-day travel plan for two people, starting from Milwaukee and heading to New York. We are planning to visit from March 24th to March 26th, 2022. We have a budget of $1,900 and prefer to have non-shared rooms for our accommodations.
+Travel Plan:
+proposed answer: The task is to create a 3-day travel plan from Milwaukee to New York, ensuring it fits within a $1,900 budget and includes non-shared accommodations. The provided data includes transportation options, attractions, restaurants, and accommodations. The challenge is to ensure the total cost, including transportation, meals, and accommodations, does not exceed the budget. The accommodation must be non-shared, and the plan should include attractions and meals. The previous attempts suggest using self-driving for transportation due to its low cost and selecting accommodations that are non-shared and within budget. However, detailed cost breakdowns for meals and accommodations are missing, making it difficult to ensure the plan fits the budget accurately. Additionally, the plan must ensure proximity to attractions and non-shared room requirements, which require careful selection from the provided data.
+
+Answer:Travel Plan:
+
+Day 1:
+Current City: from Milwaukee to New York
+Transportation: Self-driving, from Milwaukee to New York, Duration: 13 hours 29 mins, Cost: $70
+Breakfast: -
+Attraction: Empire State Building, New York
+Lunch: Green Chick Chop, New York
+Dinner: Seasons 52 Fresh Grill, New York
+Accommodation: A Contemporary Homelike Stay in the Best of BK
+
+Day 2:
+Current City: New York
+Transportation: -
+Breakfast: Aryan's Rajasthani Pyaz Ki Kachori, New York
+Attraction: Statue of Liberty, New York; 9/11 Memorial & Museum, New York
+Lunch: Baltazar, New York
+Dinner: Lord of the Drinks Forum, New York
+Accommodation: A Contemporary Homelike Stay in the Best of BK
+
+Day 3:
+Current City: from New York to Milwaukee
+Transportation: Self-driving, from New York to Milwaukee, Duration: 13 hours 28 mins, Cost: $70
+Breakfast: Sugary Affairs, New York
+Attraction: Central Park, New York
+Lunch: QD's Restaurant, New York
+Dinner: Baltazar, New York
+Accommodation: -
+
+[TOO_HARD]
+Suggestion: Verify the total cost of accommodations and meals to ensure it fits within the $1,900 budget, considering the accommodation choice and self-driving costs. Additionally, ensure the accommodation choice aligns with the preference for non-shared rooms and proximity to attractions.
+Extracted answer: 
+[
+    {
+        "days": 1,
+        "current_city": "from Milwaukee to New York",
+        "transportation": "Self-driving, from Milwaukee to New York, Duration: 13 hours 29 mins, Cost: 70",
+        "breakfast": "-",
+        "attraction": "Empire State Building, New York",
+        "lunch": "Green Chick Chop, New York",
+        "dinner": "Seasons 52 Fresh Grill, New York",
+        "accommodation": "A Contemporary Homelike Stay in the Best of BK"
+    },
+    {
+        "days": 2,
+        "current_city": "New York",
+        "transportation": "-",
+        "breakfast": "Aryan's Rajasthani Pyaz Ki Kachori, New York",
+        "attraction": "Statue of Liberty, New York;9/11 Memorial & Museum, New York",
+        "lunch": "Baltazar, New York",
+        "dinner": "Lord of the Drinks Forum, New York",
+        "accommodation": "A Contemporary Homelike Stay in the Best of BK"
+    },
+    {
+        "days": 3,
+        "current_city": "from New York to Milwaukee",
+        "transportation": "Self-driving, from New York to Milwaukee, Duration: 13 hours 28 mins, Cost: 70",
+        "breakfast": "Sugary Affairs, New York",
+        "attraction": "Central Park, New York",
+        "lunch": "QD's Restaurant, New York",
+        "dinner": "Baltazar, New York",
+        "accommodation": "-"
+    }
+]
+
+Correct answer: 
+Question: You are a proficient planner. Based on the provided information and query, please give me a detailed plan, including specifics such as flight numbers (e.g., F0123456), restaurant names, and accommodation names. Note that all the information in your plan should be derived from the provided data. You must adhere to the format given in the example. Additionally, all details should align with commonsense. The symbol '-' indicates that information is unnecessary. For example, in the provided sample, you do not need to plan after returning to the departure city. When you travel to two cities in one day, you should note it in the 'Current City' section as in the example (i.e., from A to B).
+
+***** Example *****
+Query: Could you create a travel plan for 7 people from Ithaca to Charlotte spanning 3 days, from March 8th to March 14th, 2022, with a budget of $30,200?
+Travel Plan:
+Day 1:
+Current City: from Ithaca to Charlotte
+Transportation: Flight Number: F3633413, from Ithaca to Charlotte, Departure Time: 05:38, Arrival Time: 07:46
+Breakfast: Nagaland's Kitchen, Charlotte
+Attraction: The Charlotte Museum of History, Charlotte
+Lunch: Cafe Maple Street, Charlotte
+Dinner: Bombay Vada Pav, Charlotte
+Accommodation: Affordable Spacious Refurbished Room in Bushwick!, Charlotte
+
+Day 2:
+Current City: Charlotte
+Transportation: -
+Breakfast: Olive Tree Cafe, Charlotte
+Attraction: The Mint Museum, Charlotte;Romare Bearden Park, Charlotte.
+Lunch: Birbal Ji Dhaba, Charlotte
+Dinner: Pind Balluchi, Charlotte
+Accommodation: Affordable Spacious Refurbished Room in Bushwick!, Charlotte
+
+Day 3:
+Current City: from Charlotte to Ithaca
+Transportation: Flight Number: F3786167, from Charlotte to Ithaca, Departure Time: 21:42, Arrival Time: 23:26
+Breakfast: Subway, Charlotte
+Attraction: Books Monument, Charlotte.
+Lunch: Olive Tree Cafe, Charlotte
+Dinner: Kylin Skybar, Charlotte
+Accommodation: -
+
+***** Example Ends *****
+
+Given information: [{'Description': 'Attractions in New York', 'Content': '                        Name  Latitude  Longitude                                        Address          Phone                                                                         Website     City\n             Top of The Rock 40.759350 -73.979409  30 Rockefeller Plaza, New York, NY 10112, USA (212) 698-2000 https://www.rockefellercenter.com/attractions/top-of-the-rock-observation-deck/ New York\n       One World Observatory 40.713006 -74.013173           117 West St, New York, NY 10007, USA (844) 696-1776                                                https://oneworldobservatory.com/ New York\n       SUMMIT One Vanderbilt 40.752764 -73.978746          45 E 42nd St, New York, NY 10017, USA        Unknown                                                        http://www.summitov.com/ New York\n          Rockefeller Center 40.758740 -73.978674  45 Rockefeller Plaza, New York, NY 10111, USA (212) 588-8601                                              https://www.rockefellercenter.com/ New York\n           Statue of Liberty 40.689249 -74.044500                        New York, NY 10004, USA (212) 363-3200                                              https://www.nps.gov/stli/index.htm New York\n               The High Line 40.747993 -74.004765                        New York, NY 10011, USA (212) 500-6035                                                    https://www.thehighline.org/ New York\n       Empire State Building 40.748441 -73.985664         20 W 34th St., New York, NY 10001, USA (212) 736-3100                                                         https://www.esbnyc.com/ New York\n             Brooklyn Bridge 40.706086 -73.996864                        New York, NY 10038, USA        Unknown          https://www.nyc.gov/html/dot/html/infrastructure/brooklyn-bridge.shtml New York\n      9/11 Memorial & Museum 40.711578 -74.013336      180 Greenwich St, New York, NY 10007, USA (212) 312-8800                                                    https://www.911memorial.org/ New York\n           Flatiron Building 40.741061 -73.989699           175 5th Ave, New York, NY 10010, USA        Unknown                                                                         Unknown New York\n                Times Square 40.757975 -73.985543                       Manhattan, NY 10036, USA        Unknown                                                 https://www.timessquarenyc.org/ New York\n                      RiseNY 40.757621 -73.985176         160 W 45th St, New York, NY 10036, USA (718) 701-4998                                                              https://riseny.co/ New York\n         The Channel Gardens 40.758501 -73.978087                        New York, NY 10020, USA        Unknown              https://www.rockefellercenter.com/attractions/the-channel-gardens/ New York\n                 The Battery 40.702931 -74.015360     Battery Park City, New York, NY 10004, USA (212) 344-3491                                                     https://www.thebattery.org/ New York\n                Central Park 40.782555 -73.965583                              New York, NY, USA (212) 310-6600                                                 https://www.centralparknyc.org/ New York\n             Tenement Museum 40.718818 -73.990088        103 Orchard St, New York, NY 10002, USA (877) 975-3786                                                       https://www.tenement.org/ New York\n         MUSEUM OF ICE CREAM 40.723855 -73.997917          558 Broadway, New York, NY 10012, USA        Unknown                                               https://www.museumoficecream.com/ New York\n       Radio City Music Hall 40.759976 -73.979977          1260 6th Ave, New York, NY 10020, USA (212) 465-6000                                       https://www.msg.com/radio-city-music-hall New York\nPier 46 at Hudson River Park 40.734189 -74.011265 Hudson River Greenway, New York, NY 10014, USA (212) 627-2020                                                     http://hudsonriverpark.org/ New York\n        Tiffany Street Clock 40.741981 -73.989378           200 5th Ave, New York, NY 10010, USA        Unknown                                                                         Unknown New York'}, {'Description': 'Restaurants in New York', 'Content': "                              Name  Average Cost                                             Cuisines  Aggregate Rating     City\n            Seasons 52 Fresh Grill            30                   Seafood, Indian, Desserts, Italian               4.4 New York\n                    Gurgaon Hights            46                    Cafe, American, Indian, Fast Food               2.5 New York\n                             G Dot            75                                   Cafe, Mexican, BBQ               2.4 New York\n                           Rambhog            95                     Tea, Seafood, Mexican, Fast Food               3.3 New York\n                  Green Chick Chop            26                           Tea, French, Cafe, Seafood               3.3 New York\n          Lord of the Drinks Forum            71                   Cafe, Bakery, BBQ, Chinese, Indian               4.2 New York\n                        Goosebumps            94                               Chinese, Pizza, Bakery               3.2 New York\nAryan's Rajasthani Pyaz Ki Kachori            17                         Cafe, Pizza, Indian, Seafood               3.1 New York\n                   QD's Restaurant            93                           Tea, Desserts, Indian, BBQ               4.1 New York\n               Golooji's Chat Waat            53                                           Pizza, BBQ               3.3 New York\n              Sir John Bakery Cafe            78                              Pizza, Bakery, Desserts               3.4 New York\n                     Shree Rathnam            91            Tea, Bakery, Fast Food, American, Seafood               3.4 New York\n                    Domino's Pizza            86                           Tea, French, Pizza, Indian               3.3 New York\n                    Sugary Affairs            55               Desserts, Tea, Fast Food, Cafe, Indian               3.0 New York\n                        Sugar Rush            89                            Tea, Chinese, Pizza, Cafe               0.0 New York\n                            Amchur            67                                Tea, Bakery, American               2.9 New York\n                Kamal Chat Bhandar            36                                 Chinese, Bakery, BBQ               0.0 New York\n                          736 A.D.            99 Desserts, Bakery, Fast Food, American, Mediterranean               4.1 New York\n          Garam Masala Food Corner            40                              Pizza, Bakery, Desserts               3.3 New York\n                  Green Restaurant            74                          Tea, Cafe, Bakery, Desserts               0.0 New York\n                       Hungry Ullu            94                                          Tea, Bakery               3.3 New York\n                          The Best            79                                   Tea, Chinese, Cafe               3.4 New York\n                          Baltazar            46                      Tea, Fast Food, Bakery, Seafood               4.3 New York"}, {'Description': 'Accommodations in New York', 'Content': '                                              NAME  price       room type                                  house_rules  minimum nights  maximum occupancy  review rate number     city\nVersatile private room in Harlem/Hamilton Heights!  398.0    Private room           No pets & No visitors & No parties             4.0                  1                 5.0 New York\nBeautiful and big 1BR sublet close by Central Park  983.0    Private room            No parties & No children under 10             5.0                  2                 5.0 New York\n    A Contemporary Homelike Stay in the Best of BK  228.0 Entire home/apt No pets & No visitors & No children under 10             2.0                  2                 2.0 New York\n       Charming Bright Room in Bed Stuy Brownstone 1064.0    Private room           No visitors & No smoking & No pets            30.0                  2                 3.0 New York\n       Spacious Bedroom in Prime Brooklyn Location  782.0    Private room                         No parties & No pets             3.0                  1                 4.0 New York\n         Cool Downtown Apartment in Great Location  997.0 Entire home/apt                                      No pets             4.0                  7                 4.0 New York\n              Modern Brooklyn oasis (PRIVATE ROOM)  403.0    Private room                         No children under 10             1.0                  1                 5.0 New York\n       Magical rowhouse and garden in Williamsburg  189.0 Entire home/apt                                   No parties             4.0                  3                 1.0 New York\n                          Large Bed-Stuy Apartment  132.0 Entire home/apt                                  No visitors             6.0                  2                 4.0 New York\nIN MINT CONDITION-1BR&TERRACE-E 44TH/UNITED NATION  297.0 Entire home/apt                                      No pets            30.0                  2                 4.0 New York\n   Spacious Private Access Near Trains M - L and J  800.0    Private room                                      No pets             2.0                  1                 4.0 New York\n Sunny + Spacious Master Bedroom with Outdoor Deck  109.0    Private room                                      No pets             3.0                  1                 5.0 New York\n ✈ NYC/Travelers. New Private Access Room Bed Full 1158.0    Private room                                      No pets             2.0                  1                 5.0 New York'}, {'Description': 'Flight from Milwaukee to New York on 2022-03-24', 'Content': 'Flight Number  Price DepTime ArrTime  ActualElapsedTime FlightDate OriginCityName DestCityName  Distance\n     F3643145    226   18:36   21:58 2 hours 22 minutes 2022-03-24      Milwaukee     New York     738.0\n     F3647823    353   05:55   09:17 2 hours 22 minutes 2022-03-24      Milwaukee     New York     738.0\n     F3649645    180   10:50   14:22 2 hours 32 minutes 2022-03-24      Milwaukee     New York     738.0'}, {'Description': 'Self-driving from Milwaukee to New York', 'Content': 'self-driving, from Milwaukee to New York, duration: 13 hours 29 mins, distance: 1,417 km, cost: 70'}, {'Description': 'Taxi from Milwaukee to New York', 'Content': 'taxi, from Milwaukee to New York, duration: 13 hours 29 mins, distance: 1,417 km, cost: 1417'}, {'Description': 'Flight from New York to Milwaukee on 2022-03-26', 'Content': 'Flight Number  Price DepTime ArrTime  ActualElapsedTime FlightDate OriginCityName DestCityName  Distance\n     F3644990    218   15:20   16:27  2 hours 7 minutes 2022-03-26       New York    Milwaukee     738.0\n     F3649624    245   08:21   09:36 2 hours 15 minutes 2022-03-26       New York    Milwaukee     738.0'}, {'Description': 'Self-driving from New York to Milwaukee', 'Content': 'self-driving, from New York to Milwaukee, duration: 13 hours 28 mins, distance: 1,417 km, cost: 70'}, {'Description': 'Taxi from New York to Milwaukee', 'Content': 'taxi, from New York to Milwaukee, duration: 13 hours 28 mins, distance: 1,417 km, cost: 1417'}]
+Query: Please create a 3-day travel plan for two people, starting from Milwaukee and heading to New York. We are planning to visit from March 24th to March 26th, 2022. We have a budget of $1,900 and prefer to have non-shared rooms for our accommodations.
+Travel Plan:
+proposed answer: To compile the final travel plan, I need to integrate transportation, dining, attractions, and accommodations while adhering to the budget and accommodation preferences. The provided data includes flights, restaurants, attractions, and accommodations in New York. The budget constraint requires careful selection of transportation and accommodations. The selected accommodation, 'Versatile private room in Harlem/Hamilton Heights!', costs $398 per night, amounting to $796 for two nights, which fits the budget when combined with flight costs for two people. The plan should ensure a variety of dining and attraction experiences. However, the lack of specific location data for accommodations relative to attractions limits the optimization of the plan.
+
+Answer:Travel Plan:
+
+Day 1:
+Current City: from Milwaukee to New York
+Transportation: Flight Number: F3649645, from Milwaukee to New York, Departure Time: 10:50, Arrival Time: 14:22
+Breakfast: Aryan's Rajasthani Pyaz Ki Kachori, New York
+Attraction: Top of The Rock, New York
+Lunch: Baltazar, New York
+Dinner: Seasons 52 Fresh Grill, New York
+Accommodation: Versatile private room in Harlem/Hamilton Heights!, New York
+
+Day 2:
+Current City: New York
+Transportation: -
+Breakfast: Green Chick Chop, New York
+Attraction: Statue of Liberty, New York; Empire State Building, New York
+Lunch: Sugary Affairs, New York
+Dinner: Lord of the Drinks Forum, New York
+Accommodation: Versatile private room in Harlem/Hamilton Heights!, New York
+
+Day 3:
+Current City: from New York to Milwaukee
+Transportation: Flight Number: F3644990, from New York to Milwaukee, Departure Time: 15:20, Arrival Time: 16:27
+Breakfast: Baltazar, New York
+Attraction: Central Park, New York
+Lunch: Aryan's Rajasthani Pyaz Ki Kachori, New York
+Dinner: Green Chick Chop, New York
+Accommodation: -
+
+[TOO_HARD]
+Suggestion: Provide specific location data for accommodations relative to attractions to optimize the travel plan further.
+Extracted answer: 
+[
+    {
+        "days": 1,
+        "current_city": "from Milwaukee to New York",
+        "transportation": "Flight Number: F3649645, from Milwaukee to New York, Departure Time: 10:50, Arrival Time: 14:22",
+        "breakfast": "Aryan's Rajasthani Pyaz Ki Kachori, New York",
+        "attraction": "Top of The Rock, New York;",
+        "lunch": "Baltazar, New York",
+        "dinner": "Seasons 52 Fresh Grill, New York",
+        "accommodation": "Versatile private room in Harlem/Hamilton Heights!, New York"
+    },
+    {
+        "days": 2,
+        "current_city": "New York",
+        "transportation": "-",
+        "breakfast": "Green Chick Chop, New York",
+        "attraction": "Statue of Liberty, New York; Empire State Building, New York;",
+        "lunch": "Sugary Affairs, New York",
+        "dinner": "Lord of the Drinks Forum, New York",
+        "accommodation": "Versatile private room in Harlem/Hamilton Heights!, New York"
+    },
+    {
+        "days": 3,
+        "current_city": "from New York to Milwaukee",
+        "transportation": "Flight Number: F3644990, from New York to Milwaukee, Departure Time: 15:20, Arrival Time: 16:27",
+        "breakfast": "Baltazar, New York",
+        "attraction": "Central Park, New York;",
+        "lunch": "Aryan's Rajasthani Pyaz Ki Kachori, New York",
+        "dinner": "Green Chick Chop, New York",
+        "accommodation": "-"
+    }
+]
+
+Correct answer: 
+Question: You are a proficient planner. Based on the provided information and query, please give me a detailed plan, including specifics such as flight numbers (e.g., F0123456), restaurant names, and accommodation names. Note that all the information in your plan should be derived from the provided data. You must adhere to the format given in the example. Additionally, all details should align with commonsense. The symbol '-' indicates that information is unnecessary. For example, in the provided sample, you do not need to plan after returning to the departure city. When you travel to two cities in one day, you should note it in the 'Current City' section as in the example (i.e., from A to B).
+
+***** Example *****
+Query: Could you create a travel plan for 7 people from Ithaca to Charlotte spanning 3 days, from March 8th to March 14th, 2022, with a budget of $30,200?
+Travel Plan:
+Day 1:
+Current City: from Ithaca to Charlotte
+Transportation: Flight Number: F3633413, from Ithaca to Charlotte, Departure Time: 05:38, Arrival Time: 07:46
+Breakfast: Nagaland's Kitchen, Charlotte
+Attraction: The Charlotte Museum of History, Charlotte
+Lunch: Cafe Maple Street, Charlotte
+Dinner: Bombay Vada Pav, Charlotte
+Accommodation: Affordable Spacious Refurbished Room in Bushwick!, Charlotte
+
+Day 2:
+Current City: Charlotte
+Transportation: -
+Breakfast: Olive Tree Cafe, Charlotte
+Attraction: The Mint Museum, Charlotte;Romare Bearden Park, Charlotte.
+Lunch: Birbal Ji Dhaba, Charlotte
+Dinner: Pind Balluchi, Charlotte
+Accommodation: Affordable Spacious Refurbished Room in Bushwick!, Charlotte
+
+Day 3:
+Current City: from Charlotte to Ithaca
+Transportation: Flight Number: F3786167, from Charlotte to Ithaca, Departure Time: 21:42, Arrival Time: 23:26
+Breakfast: Subway, Charlotte
+Attraction: Books Monument, Charlotte.
+Lunch: Olive Tree Cafe, Charlotte
+Dinner: Kylin Skybar, Charlotte
+Accommodation: -
+
+***** Example Ends *****
+
+Given information: [{'Description': 'Attractions in New York', 'Content': '                        Name  Latitude  Longitude                                        Address          Phone                                                                         Website     City\n             Top of The Rock 40.759350 -73.979409  30 Rockefeller Plaza, New York, NY 10112, USA (212) 698-2000 https://www.rockefellercenter.com/attractions/top-of-the-rock-observation-deck/ New York\n       One World Observatory 40.713006 -74.013173           117 West St, New York, NY 10007, USA (844) 696-1776                                                https://oneworldobservatory.com/ New York\n       SUMMIT One Vanderbilt 40.752764 -73.978746          45 E 42nd St, New York, NY 10017, USA        Unknown                                                        http://www.summitov.com/ New York\n          Rockefeller Center 40.758740 -73.978674  45 Rockefeller Plaza, New York, NY 10111, USA (212) 588-8601                                              https://www.rockefellercenter.com/ New York\n           Statue of Liberty 40.689249 -74.044500                        New York, NY 10004, USA (212) 363-3200                                              https://www.nps.gov/stli/index.htm New York\n               The High Line 40.747993 -74.004765                        New York, NY 10011, USA (212) 500-6035                                                    https://www.thehighline.org/ New York\n       Empire State Building 40.748441 -73.985664         20 W 34th St., New York, NY 10001, USA (212) 736-3100                                                         https://www.esbnyc.com/ New York\n             Brooklyn Bridge 40.706086 -73.996864                        New York, NY 10038, USA        Unknown          https://www.nyc.gov/html/dot/html/infrastructure/brooklyn-bridge.shtml New York\n      9/11 Memorial & Museum 40.711578 -74.013336      180 Greenwich St, New York, NY 10007, USA (212) 312-8800                                                    https://www.911memorial.org/ New York\n           Flatiron Building 40.741061 -73.989699           175 5th Ave, New York, NY 10010, USA        Unknown                                                                         Unknown New York\n                Times Square 40.757975 -73.985543                       Manhattan, NY 10036, USA        Unknown                                                 https://www.timessquarenyc.org/ New York\n                      RiseNY 40.757621 -73.985176         160 W 45th St, New York, NY 10036, USA (718) 701-4998                                                              https://riseny.co/ New York\n         The Channel Gardens 40.758501 -73.978087                        New York, NY 10020, USA        Unknown              https://www.rockefellercenter.com/attractions/the-channel-gardens/ New York\n                 The Battery 40.702931 -74.015360     Battery Park City, New York, NY 10004, USA (212) 344-3491                                                     https://www.thebattery.org/ New York\n                Central Park 40.782555 -73.965583                              New York, NY, USA (212) 310-6600                                                 https://www.centralparknyc.org/ New York\n             Tenement Museum 40.718818 -73.990088        103 Orchard St, New York, NY 10002, USA (877) 975-3786                                                       https://www.tenement.org/ New York\n         MUSEUM OF ICE CREAM 40.723855 -73.997917          558 Broadway, New York, NY 10012, USA        Unknown                                               https://www.museumoficecream.com/ New York\n       Radio City Music Hall 40.759976 -73.979977          1260 6th Ave, New York, NY 10020, USA (212) 465-6000                                       https://www.msg.com/radio-city-music-hall New York\nPier 46 at Hudson River Park 40.734189 -74.011265 Hudson River Greenway, New York, NY 10014, USA (212) 627-2020                                                     http://hudsonriverpark.org/ New York\n        Tiffany Street Clock 40.741981 -73.989378           200 5th Ave, New York, NY 10010, USA        Unknown                                                                         Unknown New York'}, {'Description': 'Restaurants in New York', 'Content': "                              Name  Average Cost                                             Cuisines  Aggregate Rating     City\n            Seasons 52 Fresh Grill            30                   Seafood, Indian, Desserts, Italian               4.4 New York\n                    Gurgaon Hights            46                    Cafe, American, Indian, Fast Food               2.5 New York\n                             G Dot            75                                   Cafe, Mexican, BBQ               2.4 New York\n                           Rambhog            95                     Tea, Seafood, Mexican, Fast Food               3.3 New York\n                  Green Chick Chop            26                           Tea, French, Cafe, Seafood               3.3 New York\n          Lord of the Drinks Forum            71                   Cafe, Bakery, BBQ, Chinese, Indian               4.2 New York\n                        Goosebumps            94                               Chinese, Pizza, Bakery               3.2 New York\nAryan's Rajasthani Pyaz Ki Kachori            17                         Cafe, Pizza, Indian, Seafood               3.1 New York\n                   QD's Restaurant            93                           Tea, Desserts, Indian, BBQ               4.1 New York\n               Golooji's Chat Waat            53                                           Pizza, BBQ               3.3 New York\n              Sir John Bakery Cafe            78                              Pizza, Bakery, Desserts               3.4 New York\n                     Shree Rathnam            91            Tea, Bakery, Fast Food, American, Seafood               3.4 New York\n                    Domino's Pizza            86                           Tea, French, Pizza, Indian               3.3 New York\n                    Sugary Affairs            55               Desserts, Tea, Fast Food, Cafe, Indian               3.0 New York\n                        Sugar Rush            89                            Tea, Chinese, Pizza, Cafe               0.0 New York\n                            Amchur            67                                Tea, Bakery, American               2.9 New York\n                Kamal Chat Bhandar            36                                 Chinese, Bakery, BBQ               0.0 New York\n                          736 A.D.            99 Desserts, Bakery, Fast Food, American, Mediterranean               4.1 New York\n          Garam Masala Food Corner            40                              Pizza, Bakery, Desserts               3.3 New York\n                  Green Restaurant            74                          Tea, Cafe, Bakery, Desserts               0.0 New York\n                       Hungry Ullu            94                                          Tea, Bakery               3.3 New York\n                          The Best            79                                   Tea, Chinese, Cafe               3.4 New York\n                          Baltazar            46                      Tea, Fast Food, Bakery, Seafood               4.3 New York"}, {'Description': 'Accommodations in New York', 'Content': '                                              NAME  price       room type                                  house_rules  minimum nights  maximum occupancy  review rate number     city\nVersatile private room in Harlem/Hamilton Heights!  398.0    Private room           No pets & No visitors & No parties             4.0                  1                 5.0 New York\nBeautiful and big 1BR sublet close by Central Park  983.0    Private room            No parties & No children under 10             5.0                  2                 5.0 New York\n    A Contemporary Homelike Stay in the Best of BK  228.0 Entire home/apt No pets & No visitors & No children under 10             2.0                  2                 2.0 New York\n       Charming Bright Room in Bed Stuy Brownstone 1064.0    Private room           No visitors & No smoking & No pets            30.0                  2                 3.0 New York\n       Spacious Bedroom in Prime Brooklyn Location  782.0    Private room                         No parties & No pets             3.0                  1                 4.0 New York\n         Cool Downtown Apartment in Great Location  997.0 Entire home/apt                                      No pets             4.0                  7                 4.0 New York\n              Modern Brooklyn oasis (PRIVATE ROOM)  403.0    Private room                         No children under 10             1.0                  1                 5.0 New York\n       Magical rowhouse and garden in Williamsburg  189.0 Entire home/apt                                   No parties             4.0                  3                 1.0 New York\n                          Large Bed-Stuy Apartment  132.0 Entire home/apt                                  No visitors             6.0                  2                 4.0 New York\nIN MINT CONDITION-1BR&TERRACE-E 44TH/UNITED NATION  297.0 Entire home/apt                                      No pets            30.0                  2                 4.0 New York\n   Spacious Private Access Near Trains M - L and J  800.0    Private room                                      No pets             2.0                  1                 4.0 New York\n Sunny + Spacious Master Bedroom with Outdoor Deck  109.0    Private room                                      No pets             3.0                  1                 5.0 New York\n ✈ NYC/Travelers. New Private Access Room Bed Full 1158.0    Private room                                      No pets             2.0                  1                 5.0 New York'}, {'Description': 'Flight from Milwaukee to New York on 2022-03-24', 'Content': 'Flight Number  Price DepTime ArrTime  ActualElapsedTime FlightDate OriginCityName DestCityName  Distance\n     F3643145    226   18:36   21:58 2 hours 22 minutes 2022-03-24      Milwaukee     New York     738.0\n     F3647823    353   05:55   09:17 2 hours 22 minutes 2022-03-24      Milwaukee     New York     738.0\n     F3649645    180   10:50   14:22 2 hours 32 minutes 2022-03-24      Milwaukee     New York     738.0'}, {'Description': 'Self-driving from Milwaukee to New York', 'Content': 'self-driving, from Milwaukee to New York, duration: 13 hours 29 mins, distance: 1,417 km, cost: 70'}, {'Description': 'Taxi from Milwaukee to New York', 'Content': 'taxi, from Milwaukee to New York, duration: 13 hours 29 mins, distance: 1,417 km, cost: 1417'}, {'Description': 'Flight from New York to Milwaukee on 2022-03-26', 'Content': 'Flight Number  Price DepTime ArrTime  ActualElapsedTime FlightDate OriginCityName DestCityName  Distance\n     F3644990    218   15:20   16:27  2 hours 7 minutes 2022-03-26       New York    Milwaukee     738.0\n     F3649624    245   08:21   09:36 2 hours 15 minutes 2022-03-26       New York    Milwaukee     738.0'}, {'Description': 'Self-driving from New York to Milwaukee', 'Content': 'self-driving, from New York to Milwaukee, duration: 13 hours 28 mins, distance: 1,417 km, cost: 70'}, {'Description': 'Taxi from New York to Milwaukee', 'Content': 'taxi, from New York to Milwaukee, duration: 13 hours 28 mins, distance: 1,417 km, cost: 1417'}]
+Query: Please create a 3-day travel plan for two people, starting from Milwaukee and heading to New York. We are planning to visit from March 24th to March 26th, 2022. We have a budget of $1,900 and prefer to have non-shared rooms for our accommodations.
+Travel Plan:
+proposed answer: The task is to compile a 3-day travel plan for two people traveling from Milwaukee to New York and back, considering transportation, dining, attractions, and accommodations within a budget of $1,900. The plan must include non-shared accommodations. The provided data includes flight options, attractions, restaurants, and accommodations in New York. The challenge is to ensure all selections fit within the budget and meet the preference for non-shared rooms. The total cost of transportation, dining, and accommodation must be calculated to stay within budget, and any additional fees for flights or accommodations should be verified. The plan should also ensure proximity of accommodations to attractions, which is difficult due to lack of specific location data for accommodations.
+
+Answer:Travel Plan:
+
+Day 1:
+Current City: from Milwaukee to New York
+Transportation: Flight Number: F3649645, from Milwaukee to New York, Departure Time: 10:50, Arrival Time: 14:22
+Breakfast: Aryan's Rajasthani Pyaz Ki Kachori, New York
+Attraction: Central Park, New York
+Lunch: Seasons 52 Fresh Grill, New York
+Dinner: Baltazar, New York
+Accommodation: Magical rowhouse and garden in Williamsburg, New York
+
+Day 2:
+Current City: New York
+Transportation: -
+Breakfast: Green Chick Chop, New York
+Attraction: Statue of Liberty, New York; Empire State Building, New York
+Lunch: Sugary Affairs, New York
+Dinner: Lord of the Drinks Forum, New York
+Accommodation: Magical rowhouse and garden in Williamsburg, New York
+
+Day 3:
+Current City: from New York to Milwaukee
+Transportation: Flight Number: F3644990, from New York to Milwaukee, Departure Time: 15:20, Arrival Time: 16:27
+Breakfast: Gurgaon Hights, New York
+Attraction: Times Square, New York
+Lunch: Amchur, New York
+Dinner: QD's Restaurant, New York
+Accommodation: -
+
+[TOO_HARD]
+Suggestion: Provide specific location data for accommodations to better align them with attractions and ensure proximity, and verify if any additional fees apply for flights or accommodations.
+Extracted answer: 
+[
+    {
+        "days": 1,
+        "current_city": "from Milwaukee to New York",
+        "transportation": "Flight Number: F3649645, from Milwaukee to New York, Departure Time: 10:50, Arrival Time: 14:22",
+        "breakfast": "Aryan's Rajasthani Pyaz Ki Kachori, New York",
+        "attraction": "Central Park, New York;",
+        "lunch": "Seasons 52 Fresh Grill, New York",
+        "dinner": "Baltazar, New York",
+        "accommodation": "Magical rowhouse and garden in Williamsburg, New York"
+    },
+    {
+        "days": 2,
+        "current_city": "New York",
+        "transportation": "-",
+        "breakfast": "Green Chick Chop, New York",
+        "attraction": "Statue of Liberty, New York; Empire State Building, New York;",
+        "lunch": "Sugary Affairs, New York",
+        "dinner": "Lord of the Drinks Forum, New York",
+        "accommodation": "Magical rowhouse and garden in Williamsburg, New York"
+    },
+    {
+        "days": 3,
+        "current_city": "from New York to Milwaukee",
+        "transportation": "Flight Number: F3644990, from New York to Milwaukee, Departure Time: 15:20, Arrival Time: 16:27",
+        "breakfast": "Gurgaon Hights, New York",
+        "attraction": "Times Square, New York;",
+        "lunch": "Amchur, New York",
+        "dinner": "QD's Restaurant, New York",
+        "accommodation": "-"
+    }
+]
+
+Correct answer: 
+Question: You are a proficient planner. Based on the provided information and query, please give me a detailed plan, including specifics such as flight numbers (e.g., F0123456), restaurant names, and accommodation names. Note that all the information in your plan should be derived from the provided data. You must adhere to the format given in the example. Additionally, all details should align with commonsense. The symbol '-' indicates that information is unnecessary. For example, in the provided sample, you do not need to plan after returning to the departure city. When you travel to two cities in one day, you should note it in the 'Current City' section as in the example (i.e., from A to B).
+
+***** Example *****
+Query: Could you create a travel plan for 7 people from Ithaca to Charlotte spanning 3 days, from March 8th to March 14th, 2022, with a budget of $30,200?
+Travel Plan:
+Day 1:
+Current City: from Ithaca to Charlotte
+Transportation: Flight Number: F3633413, from Ithaca to Charlotte, Departure Time: 05:38, Arrival Time: 07:46
+Breakfast: Nagaland's Kitchen, Charlotte
+Attraction: The Charlotte Museum of History, Charlotte
+Lunch: Cafe Maple Street, Charlotte
+Dinner: Bombay Vada Pav, Charlotte
+Accommodation: Affordable Spacious Refurbished Room in Bushwick!, Charlotte
+
+Day 2:
+Current City: Charlotte
+Transportation: -
+Breakfast: Olive Tree Cafe, Charlotte
+Attraction: The Mint Museum, Charlotte;Romare Bearden Park, Charlotte.
+Lunch: Birbal Ji Dhaba, Charlotte
+Dinner: Pind Balluchi, Charlotte
+Accommodation: Affordable Spacious Refurbished Room in Bushwick!, Charlotte
+
+Day 3:
+Current City: from Charlotte to Ithaca
+Transportation: Flight Number: F3786167, from Charlotte to Ithaca, Departure Time: 21:42, Arrival Time: 23:26
+Breakfast: Subway, Charlotte
+Attraction: Books Monument, Charlotte.
+Lunch: Olive Tree Cafe, Charlotte
+Dinner: Kylin Skybar, Charlotte
+Accommodation: -
+
+***** Example Ends *****
+
+Given information: [{'Description': 'Attractions in New York', 'Content': '                        Name  Latitude  Longitude                                        Address          Phone                                                                         Website     City\n             Top of The Rock 40.759350 -73.979409  30 Rockefeller Plaza, New York, NY 10112, USA (212) 698-2000 https://www.rockefellercenter.com/attractions/top-of-the-rock-observation-deck/ New York\n       One World Observatory 40.713006 -74.013173           117 West St, New York, NY 10007, USA (844) 696-1776                                                https://oneworldobservatory.com/ New York\n       SUMMIT One Vanderbilt 40.752764 -73.978746          45 E 42nd St, New York, NY 10017, USA        Unknown                                                        http://www.summitov.com/ New York\n          Rockefeller Center 40.758740 -73.978674  45 Rockefeller Plaza, New York, NY 10111, USA (212) 588-8601                                              https://www.rockefellercenter.com/ New York\n           Statue of Liberty 40.689249 -74.044500                        New York, NY 10004, USA (212) 363-3200                                              https://www.nps.gov/stli/index.htm New York\n               The High Line 40.747993 -74.004765                        New York, NY 10011, USA (212) 500-6035                                                    https://www.thehighline.org/ New York\n       Empire State Building 40.748441 -73.985664         20 W 34th St., New York, NY 10001, USA (212) 736-3100                                                         https://www.esbnyc.com/ New York\n             Brooklyn Bridge 40.706086 -73.996864                        New York, NY 10038, USA        Unknown          https://www.nyc.gov/html/dot/html/infrastructure/brooklyn-bridge.shtml New York\n      9/11 Memorial & Museum 40.711578 -74.013336      180 Greenwich St, New York, NY 10007, USA (212) 312-8800                                                    https://www.911memorial.org/ New York\n           Flatiron Building 40.741061 -73.989699           175 5th Ave, New York, NY 10010, USA        Unknown                                                                         Unknown New York\n                Times Square 40.757975 -73.985543                       Manhattan, NY 10036, USA        Unknown                                                 https://www.timessquarenyc.org/ New York\n                      RiseNY 40.757621 -73.985176         160 W 45th St, New York, NY 10036, USA (718) 701-4998                                                              https://riseny.co/ New York\n         The Channel Gardens 40.758501 -73.978087                        New York, NY 10020, USA        Unknown              https://www.rockefellercenter.com/attractions/the-channel-gardens/ New York\n                 The Battery 40.702931 -74.015360     Battery Park City, New York, NY 10004, USA (212) 344-3491                                                     https://www.thebattery.org/ New York\n                Central Park 40.782555 -73.965583                              New York, NY, USA (212) 310-6600                                                 https://www.centralparknyc.org/ New York\n             Tenement Museum 40.718818 -73.990088        103 Orchard St, New York, NY 10002, USA (877) 975-3786                                                       https://www.tenement.org/ New York\n         MUSEUM OF ICE CREAM 40.723855 -73.997917          558 Broadway, New York, NY 10012, USA        Unknown                                               https://www.museumoficecream.com/ New York\n       Radio City Music Hall 40.759976 -73.979977          1260 6th Ave, New York, NY 10020, USA (212) 465-6000                                       https://www.msg.com/radio-city-music-hall New York\nPier 46 at Hudson River Park 40.734189 -74.011265 Hudson River Greenway, New York, NY 10014, USA (212) 627-2020                                                     http://hudsonriverpark.org/ New York\n        Tiffany Street Clock 40.741981 -73.989378           200 5th Ave, New York, NY 10010, USA        Unknown                                                                         Unknown New York'}, {'Description': 'Restaurants in New York', 'Content': "                              Name  Average Cost                                             Cuisines  Aggregate Rating     City\n            Seasons 52 Fresh Grill            30                   Seafood, Indian, Desserts, Italian               4.4 New York\n                    Gurgaon Hights            46                    Cafe, American, Indian, Fast Food               2.5 New York\n                             G Dot            75                                   Cafe, Mexican, BBQ               2.4 New York\n                           Rambhog            95                     Tea, Seafood, Mexican, Fast Food               3.3 New York\n                  Green Chick Chop            26                           Tea, French, Cafe, Seafood               3.3 New York\n          Lord of the Drinks Forum            71                   Cafe, Bakery, BBQ, Chinese, Indian               4.2 New York\n                        Goosebumps            94                               Chinese, Pizza, Bakery               3.2 New York\nAryan's Rajasthani Pyaz Ki Kachori            17                         Cafe, Pizza, Indian, Seafood               3.1 New York\n                   QD's Restaurant            93                           Tea, Desserts, Indian, BBQ               4.1 New York\n               Golooji's Chat Waat            53                                           Pizza, BBQ               3.3 New York\n              Sir John Bakery Cafe            78                              Pizza, Bakery, Desserts               3.4 New York\n                     Shree Rathnam            91            Tea, Bakery, Fast Food, American, Seafood               3.4 New York\n                    Domino's Pizza            86                           Tea, French, Pizza, Indian               3.3 New York\n                    Sugary Affairs            55               Desserts, Tea, Fast Food, Cafe, Indian               3.0 New York\n                        Sugar Rush            89                            Tea, Chinese, Pizza, Cafe               0.0 New York\n                            Amchur            67                                Tea, Bakery, American               2.9 New York\n                Kamal Chat Bhandar            36                                 Chinese, Bakery, BBQ               0.0 New York\n                          736 A.D.            99 Desserts, Bakery, Fast Food, American, Mediterranean               4.1 New York\n          Garam Masala Food Corner            40                              Pizza, Bakery, Desserts               3.3 New York\n                  Green Restaurant            74                          Tea, Cafe, Bakery, Desserts               0.0 New York\n                       Hungry Ullu            94                                          Tea, Bakery               3.3 New York\n                          The Best            79                                   Tea, Chinese, Cafe               3.4 New York\n                          Baltazar            46                      Tea, Fast Food, Bakery, Seafood               4.3 New York"}, {'Description': 'Accommodations in New York', 'Content': '                                              NAME  price       room type                                  house_rules  minimum nights  maximum occupancy  review rate number     city\nVersatile private room in Harlem/Hamilton Heights!  398.0    Private room           No pets & No visitors & No parties             4.0                  1                 5.0 New York\nBeautiful and big 1BR sublet close by Central Park  983.0    Private room            No parties & No children under 10             5.0                  2                 5.0 New York\n    A Contemporary Homelike Stay in the Best of BK  228.0 Entire home/apt No pets & No visitors & No children under 10             2.0                  2                 2.0 New York\n       Charming Bright Room in Bed Stuy Brownstone 1064.0    Private room           No visitors & No smoking & No pets            30.0                  2                 3.0 New York\n       Spacious Bedroom in Prime Brooklyn Location  782.0    Private room                         No parties & No pets             3.0                  1                 4.0 New York\n         Cool Downtown Apartment in Great Location  997.0 Entire home/apt                                      No pets             4.0                  7                 4.0 New York\n              Modern Brooklyn oasis (PRIVATE ROOM)  403.0    Private room                         No children under 10             1.0                  1                 5.0 New York\n       Magical rowhouse and garden in Williamsburg  189.0 Entire home/apt                                   No parties             4.0                  3                 1.0 New York\n                          Large Bed-Stuy Apartment  132.0 Entire home/apt                                  No visitors             6.0                  2                 4.0 New York\nIN MINT CONDITION-1BR&TERRACE-E 44TH/UNITED NATION  297.0 Entire home/apt                                      No pets            30.0                  2                 4.0 New York\n   Spacious Private Access Near Trains M - L and J  800.0    Private room                                      No pets             2.0                  1                 4.0 New York\n Sunny + Spacious Master Bedroom with Outdoor Deck  109.0    Private room                                      No pets             3.0                  1                 5.0 New York\n ✈ NYC/Travelers. New Private Access Room Bed Full 1158.0    Private room                                      No pets             2.0                  1                 5.0 New York'}, {'Description': 'Flight from Milwaukee to New York on 2022-03-24', 'Content': 'Flight Number  Price DepTime ArrTime  ActualElapsedTime FlightDate OriginCityName DestCityName  Distance\n     F3643145    226   18:36   21:58 2 hours 22 minutes 2022-03-24      Milwaukee     New York     738.0\n     F3647823    353   05:55   09:17 2 hours 22 minutes 2022-03-24      Milwaukee     New York     738.0\n     F3649645    180   10:50   14:22 2 hours 32 minutes 2022-03-24      Milwaukee     New York     738.0'}, {'Description': 'Self-driving from Milwaukee to New York', 'Content': 'self-driving, from Milwaukee to New York, duration: 13 hours 29 mins, distance: 1,417 km, cost: 70'}, {'Description': 'Taxi from Milwaukee to New York', 'Content': 'taxi, from Milwaukee to New York, duration: 13 hours 29 mins, distance: 1,417 km, cost: 1417'}, {'Description': 'Flight from New York to Milwaukee on 2022-03-26', 'Content': 'Flight Number  Price DepTime ArrTime  ActualElapsedTime FlightDate OriginCityName DestCityName  Distance\n     F3644990    218   15:20   16:27  2 hours 7 minutes 2022-03-26       New York    Milwaukee     738.0\n     F3649624    245   08:21   09:36 2 hours 15 minutes 2022-03-26       New York    Milwaukee     738.0'}, {'Description': 'Self-driving from New York to Milwaukee', 'Content': 'self-driving, from New York to Milwaukee, duration: 13 hours 28 mins, distance: 1,417 km, cost: 70'}, {'Description': 'Taxi from New York to Milwaukee', 'Content': 'taxi, from New York to Milwaukee, duration: 13 hours 28 mins, distance: 1,417 km, cost: 1417'}]
+Query: Please create a 3-day travel plan for two people, starting from Milwaukee and heading to New York. We are planning to visit from March 24th to March 26th, 2022. We have a budget of $1,900 and prefer to have non-shared rooms for our accommodations.
+Travel Plan:
+proposed answer: The task is to compile a travel plan considering the given data, budget, and preferences. The flight is chosen for time efficiency, and the accommodation is selected based on the preference for non-shared rooms. The budget constraint of $1,900 for two people over three days needs to be considered. However, the accommodation data lacks specific location details, making it difficult to ensure proximity to attractions. This limitation affects the ability to optimize the travel plan fully.
+
+Answer:Travel Plan:
+
+Day 1:
+Current City: from Milwaukee to New York
+Transportation: Flight Number: F3649645, from Milwaukee to New York, Departure Time: 10:50, Arrival Time: 14:22
+Breakfast: Aryan's Rajasthani Pyaz Ki Kachori, New York
+Attraction: Top of The Rock, New York
+Lunch: Seasons 52 Fresh Grill, New York
+Dinner: Baltazar, New York
+Accommodation: Versatile private room in Harlem/Hamilton Heights!, New York
+
+Day 2:
+Current City: New York
+Transportation: -
+Breakfast: Green Chick Chop, New York
+Attraction: Statue of Liberty, New York; Empire State Building, New York
+Lunch: Lord of the Drinks Forum, New York
+Dinner: QD's Restaurant, New York
+Accommodation: Versatile private room in Harlem/Hamilton Heights!, New York
+
+Day 3:
+Current City: from New York to Milwaukee
+Transportation: Flight Number: F3644990, from New York to Milwaukee, Departure Time: 15:20, Arrival Time: 16:27
+Breakfast: Sugary Affairs, New York
+Attraction: Times Square, New York
+Lunch: Gurgaon Hights, New York
+Dinner: -
+Accommodation: -
+
+[TOO_HARD]
+Suggestion: Provide specific location data for accommodations to ensure proximity to attractions.
+Extracted answer: 
+[
+    {
+        "days": 1,
+        "current_city": "from Milwaukee to New York",
+        "transportation": "Flight Number: F3649645, from Milwaukee to New York, Departure Time: 10:50, Arrival Time: 14:22",
+        "breakfast": "Aryan's Rajasthani Pyaz Ki Kachori, New York",
+        "attraction": "Top of The Rock, New York;",
+        "lunch": "Seasons 52 Fresh Grill, New York",
+        "dinner": "Baltazar, New York",
+        "accommodation": "Versatile private room in Harlem/Hamilton Heights!, New York"
+    },
+    {
+        "days": 2,
+        "current_city": "New York",
+        "transportation": "-",
+        "breakfast": "Green Chick Chop, New York",
+        "attraction": "Statue of Liberty, New York; Empire State Building, New York;",
+        "lunch": "Lord of the Drinks Forum, New York",
+        "dinner": "QD's Restaurant, New York",
+        "accommodation": "Versatile private room in Harlem/Hamilton Heights!, New York"
+    },
+    {
+        "days": 3,
+        "current_city": "from New York to Milwaukee",
+        "transportation": "Flight Number: F3644990, from New York to Milwaukee, Departure Time: 15:20, Arrival Time: 16:27",
+        "breakfast": "Sugary Affairs, New York",
+        "attraction": "Times Square, New York;",
+        "lunch": "Gurgaon Hights, New York",
+        "dinner": "-",
+        "accommodation": "-"
+    }
+]
+
+Correct answer: 

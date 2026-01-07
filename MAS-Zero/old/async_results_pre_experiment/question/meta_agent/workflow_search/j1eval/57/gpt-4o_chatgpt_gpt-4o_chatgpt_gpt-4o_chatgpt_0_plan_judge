@@ -1,0 +1,64 @@
+Question: 你是一名严谨、公正的审判长，你的任务是：根据原告和被告的陈述以及一些额外的信息，生成相应的说理内容，给出最终判决。请你始终保持中立、专业、公正的审判风格，不得偏袒任何一方。请用中文输出你的内容。
+你可以获得到的信息：{"category": "婚姻家庭", "specific_characters": {"plaintiff": {"name": "甘某梨", "address": "云南省普洱市澜沧拉祜族自治县", "representative": null, "gender": "女", "ethnicity": "拉祜族", "birth_date": "20xx年xx月xx日"}, "defendant": {"name": "李某英", "address": "云南省普洱市澜沧拉祜族自治县", "representative": null, "gender": "女", "ethnicity": "彝族", "birth_date": "1983年4月16日"}}, "plaintiff_claim": ["判令被告支付2018年10月至2023年6月的孩子抚养费28000元（500元／月×56个月）", "判令被告按照离婚协议规定，支付原告抚养费，直至18岁止", "本案诉讼费由被告承担"], "plaintiff_case_details": "原告的父、母因感情不和于2018年10月协议离婚，离婚后原告由父亲抚养，被告每月承担原告抚养费500元。父母离婚已经五年，五年来，被告未支付原告的抚养费。原告多次催要，被告以各种借口一直未支付。", "defendant_defence": "1.不同意支付28000元抚养费。被告与甘某七于2018年10月8日办理离婚手续，协议离婚时口头说过被告在自己能力范围内支付抚养费。离婚后被告看望孩子时受到甘某七阻挠，被告支付抚养费时，甘某七表示不需要支付，之后被告陆续将抚养费转给甘某七的姐姐代为转交。离婚后被告主动联系甘某七家人支付抚养费，其中转给甘某七姐姐王静如2500元，转给甘某七大哥甘小方2450元，转给甘某七姐姐甘小三1280元。被告没有履行能力，无法一次性支付原告主张的高额抚养费。2.被告愿意自2024年10月起每月支付孩子抚养费500元，直至孩子年满十八周岁。支付方式为转给甘某七的哥哥甘小方，由甘小方转交甘某七。3.如甘某七无力抚养孩子，可以将孩子抚养权变更给被告，被告自行承担抚养费。", "evidence": {"plaintiff_evidence": {"evidence_1": {"evidence": "《离婚证》", "dispute": "无争议"}, "evidence_2": {"evidence": "《离婚协议》", "dispute": "无争议"}, "evidence_3": {"evidence": "《常住人口登记卡》", "dispute": "无争议"}, "evidence_4": null, "evidence_5": null, "evidence_6": null, "evidence_7": null, "evidence_8": null, "evidence_9": null, "evidence_10": null}, "defendant_evidence": {"evidence_1": {"evidence": "转账截屏", "dispute": "证明抚养费已经支付部分", "name": null}, "evidence_2": null, "evidence_3": null, "evidence_4": null, "evidence_5": null, "evidence_6": null, "evidence_7": null, "evidence_8": null, "evidence_9": null}}, "other_statement": {"plaintiff": {"plaintiff_1": ""}, "defendant": {"defendant_1": ""}}}
+
+proposed answer: The judgment has been reviewed multiple times and consistently deemed fair and reasonable based on the evidence and claims from both parties. The feedback confirms that the judgment aligns with the obligations set forth in the divorce agreement and correctly calculates the unpaid child support. Therefore, no further refinement is necessary.
+
+Answer:法院判决如下：
+1. 被告李某英应支付原告甘某梨未支付的抚养费差额21770元（28000元 - 6230元）。
+2. 被告李某英自2024年10月起，每月支付抚养费500元，直至孩子年满十八周岁。
+3. 本案诉讼费由被告李某英承担。
+Extracted answer: 法院判决如下：
+Correct answer: ['被告李某英支付原告甘某梨截止2023年6月欠付的抚养费21770元，于本判决生效之日起三十日内履行', '被告李某英自2023年7月1日起每月支付原告甘某梨抚养费500元，直至原告甘某梨年满十八周岁为止', '驳回原告甘某梨的其他诉讼请求', '案件受理费100元，减半收取计50元，由被告李某英负担']
+Question: 你是一名严谨、公正的审判长，你的任务是：根据原告和被告的陈述以及一些额外的信息，生成相应的说理内容，给出最终判决。请你始终保持中立、专业、公正的审判风格，不得偏袒任何一方。请用中文输出你的内容。
+你可以获得到的信息：{"category": "婚姻家庭", "specific_characters": {"plaintiff": {"name": "甘某梨", "address": "云南省普洱市澜沧拉祜族自治县", "representative": null, "gender": "女", "ethnicity": "拉祜族", "birth_date": "20xx年xx月xx日"}, "defendant": {"name": "李某英", "address": "云南省普洱市澜沧拉祜族自治县", "representative": null, "gender": "女", "ethnicity": "彝族", "birth_date": "1983年4月16日"}}, "plaintiff_claim": ["判令被告支付2018年10月至2023年6月的孩子抚养费28000元（500元／月×56个月）", "判令被告按照离婚协议规定，支付原告抚养费，直至18岁止", "本案诉讼费由被告承担"], "plaintiff_case_details": "原告的父、母因感情不和于2018年10月协议离婚，离婚后原告由父亲抚养，被告每月承担原告抚养费500元。父母离婚已经五年，五年来，被告未支付原告的抚养费。原告多次催要，被告以各种借口一直未支付。", "defendant_defence": "1.不同意支付28000元抚养费。被告与甘某七于2018年10月8日办理离婚手续，协议离婚时口头说过被告在自己能力范围内支付抚养费。离婚后被告看望孩子时受到甘某七阻挠，被告支付抚养费时，甘某七表示不需要支付，之后被告陆续将抚养费转给甘某七的姐姐代为转交。离婚后被告主动联系甘某七家人支付抚养费，其中转给甘某七姐姐王静如2500元，转给甘某七大哥甘小方2450元，转给甘某七姐姐甘小三1280元。被告没有履行能力，无法一次性支付原告主张的高额抚养费。2.被告愿意自2024年10月起每月支付孩子抚养费500元，直至孩子年满十八周岁。支付方式为转给甘某七的哥哥甘小方，由甘小方转交甘某七。3.如甘某七无力抚养孩子，可以将孩子抚养权变更给被告，被告自行承担抚养费。", "evidence": {"plaintiff_evidence": {"evidence_1": {"evidence": "《离婚证》", "dispute": "无争议"}, "evidence_2": {"evidence": "《离婚协议》", "dispute": "无争议"}, "evidence_3": {"evidence": "《常住人口登记卡》", "dispute": "无争议"}, "evidence_4": null, "evidence_5": null, "evidence_6": null, "evidence_7": null, "evidence_8": null, "evidence_9": null, "evidence_10": null}, "defendant_evidence": {"evidence_1": {"evidence": "转账截屏", "dispute": "证明抚养费已经支付部分", "name": null}, "evidence_2": null, "evidence_3": null, "evidence_4": null, "evidence_5": null, "evidence_6": null, "evidence_7": null, "evidence_8": null, "evidence_9": null}}, "other_statement": {"plaintiff": {"plaintiff_1": ""}, "defendant": {"defendant_1": ""}}}
+
+proposed answer: The feedback suggests adding a timeline for the verification process and specifying consequences for non-compliance. This will ensure that the judgment is not only fair but also enforceable and timely. The court should specify a deadline for verifying the payments and outline the steps to be taken if the defendant fails to meet the payment obligations.
+
+Answer:法院判决如下：
+1. 被告李某英应支付原告甘某梨未支付的抚养费差额，具体金额需在核实被告提供的转账证据后确定。法院将立即联系原告的亲属以确认被告的部分支付情况，并要求被告提供详细的转账记录以便核实。此核实过程应在判决生效后30天内完成。
+2. 被告李某英自2024年10月起，每月支付抚养费500元，直至孩子年满十八周岁。
+3. 如原告甘某梨无力抚养孩子，可变更抚养权给被告李某英，由被告自行承担抚养费。
+4. 本案诉讼费由被告李某英承担。
+5. 法院将确保离婚协议中关于抚养费义务的条款明确并得到遵守，并将在必要时进行监督以确保双方履行协议。如被告未能按时支付抚养费，法院将采取进一步的法律措施以确保支付义务的履行。
+Extracted answer: 法院判决如下：
+Correct answer: ['被告李某英支付原告甘某梨截止2023年6月欠付的抚养费21770元，于本判决生效之日起三十日内履行', '被告李某英自2023年7月1日起每月支付原告甘某梨抚养费500元，直至原告甘某梨年满十八周岁为止', '驳回原告甘某梨的其他诉讼请求', '案件受理费100元，减半收取计50元，由被告李某英负担']
+Question: 你是一名严谨、公正的审判长，你的任务是：根据原告和被告的陈述以及一些额外的信息，生成相应的说理内容，给出最终判决。请你始终保持中立、专业、公正的审判风格，不得偏袒任何一方。请用中文输出你的内容。
+你可以获得到的信息：{"category": "婚姻家庭", "specific_characters": {"plaintiff": {"name": "甘某梨", "address": "云南省普洱市澜沧拉祜族自治县", "representative": null, "gender": "女", "ethnicity": "拉祜族", "birth_date": "20xx年xx月xx日"}, "defendant": {"name": "李某英", "address": "云南省普洱市澜沧拉祜族自治县", "representative": null, "gender": "女", "ethnicity": "彝族", "birth_date": "1983年4月16日"}}, "plaintiff_claim": ["判令被告支付2018年10月至2023年6月的孩子抚养费28000元（500元／月×56个月）", "判令被告按照离婚协议规定，支付原告抚养费，直至18岁止", "本案诉讼费由被告承担"], "plaintiff_case_details": "原告的父、母因感情不和于2018年10月协议离婚，离婚后原告由父亲抚养，被告每月承担原告抚养费500元。父母离婚已经五年，五年来，被告未支付原告的抚养费。原告多次催要，被告以各种借口一直未支付。", "defendant_defence": "1.不同意支付28000元抚养费。被告与甘某七于2018年10月8日办理离婚手续，协议离婚时口头说过被告在自己能力范围内支付抚养费。离婚后被告看望孩子时受到甘某七阻挠，被告支付抚养费时，甘某七表示不需要支付，之后被告陆续将抚养费转给甘某七的姐姐代为转交。离婚后被告主动联系甘某七家人支付抚养费，其中转给甘某七姐姐王静如2500元，转给甘某七大哥甘小方2450元，转给甘某七姐姐甘小三1280元。被告没有履行能力，无法一次性支付原告主张的高额抚养费。2.被告愿意自2024年10月起每月支付孩子抚养费500元，直至孩子年满十八周岁。支付方式为转给甘某七的哥哥甘小方，由甘小方转交甘某七。3.如甘某七无力抚养孩子，可以将孩子抚养权变更给被告，被告自行承担抚养费。", "evidence": {"plaintiff_evidence": {"evidence_1": {"evidence": "《离婚证》", "dispute": "无争议"}, "evidence_2": {"evidence": "《离婚协议》", "dispute": "无争议"}, "evidence_3": {"evidence": "《常住人口登记卡》", "dispute": "无争议"}, "evidence_4": null, "evidence_5": null, "evidence_6": null, "evidence_7": null, "evidence_8": null, "evidence_9": null, "evidence_10": null}, "defendant_evidence": {"evidence_1": {"evidence": "转账截屏", "dispute": "证明抚养费已经支付部分", "name": null}, "evidence_2": null, "evidence_3": null, "evidence_4": null, "evidence_5": null, "evidence_6": null, "evidence_7": null, "evidence_8": null, "evidence_9": null}}, "other_statement": {"plaintiff": {"plaintiff_1": ""}, "defendant": {"defendant_1": ""}}}
+
+proposed answer: The judgment needs to be refined to include a detailed verification process for the defendant's claimed payments. This involves specifying steps such as contacting the individuals who allegedly received the payments and reviewing bank statements. Additionally, the judgment should outline actions to be taken if the payments cannot be verified, such as requiring the defendant to pay the full amount claimed by the plaintiff. This ensures fairness and accuracy in the judgment.
+
+Answer:法院判决如下：
+1. 被告需支付原告2018年10月至2023年6月期间的抚养费28000元，扣除被告声称已支付的6230元，剩余金额为21770元。此金额需在核实被告提供的转账证据和原告亲属的确认后最终确定。法院将安排进一步调查，包括联系声称收到款项的个人并审核银行对账单，以确认这些支付是否属实。如果支付无法核实，被告需支付原告全额28000元。
+2. 被告需自2024年10月起每月支付500元抚养费，直至孩子年满十八周岁。
+3. 本案诉讼费由被告承担。
+Extracted answer: 法院判决如下：
+Correct answer: ['被告李某英支付原告甘某梨截止2023年6月欠付的抚养费21770元，于本判决生效之日起三十日内履行', '被告李某英自2023年7月1日起每月支付原告甘某梨抚养费500元，直至原告甘某梨年满十八周岁为止', '驳回原告甘某梨的其他诉讼请求', '案件受理费100元，减半收取计50元，由被告李某英负担']
+Question: 你是一名严谨、公正的审判长，你的任务是：根据原告和被告的陈述以及一些额外的信息，生成相应的说理内容，给出最终判决。请你始终保持中立、专业、公正的审判风格，不得偏袒任何一方。请用中文输出你的内容。
+你可以获得到的信息：{"category": "婚姻家庭", "specific_characters": {"plaintiff": {"name": "甘某梨", "address": "云南省普洱市澜沧拉祜族自治县", "representative": null, "gender": "女", "ethnicity": "拉祜族", "birth_date": "20xx年xx月xx日"}, "defendant": {"name": "李某英", "address": "云南省普洱市澜沧拉祜族自治县", "representative": null, "gender": "女", "ethnicity": "彝族", "birth_date": "1983年4月16日"}}, "plaintiff_claim": ["判令被告支付2018年10月至2023年6月的孩子抚养费28000元（500元／月×56个月）", "判令被告按照离婚协议规定，支付原告抚养费，直至18岁止", "本案诉讼费由被告承担"], "plaintiff_case_details": "原告的父、母因感情不和于2018年10月协议离婚，离婚后原告由父亲抚养，被告每月承担原告抚养费500元。父母离婚已经五年，五年来，被告未支付原告的抚养费。原告多次催要，被告以各种借口一直未支付。", "defendant_defence": "1.不同意支付28000元抚养费。被告与甘某七于2018年10月8日办理离婚手续，协议离婚时口头说过被告在自己能力范围内支付抚养费。离婚后被告看望孩子时受到甘某七阻挠，被告支付抚养费时，甘某七表示不需要支付，之后被告陆续将抚养费转给甘某七的姐姐代为转交。离婚后被告主动联系甘某七家人支付抚养费，其中转给甘某七姐姐王静如2500元，转给甘某七大哥甘小方2450元，转给甘某七姐姐甘小三1280元。被告没有履行能力，无法一次性支付原告主张的高额抚养费。2.被告愿意自2024年10月起每月支付孩子抚养费500元，直至孩子年满十八周岁。支付方式为转给甘某七的哥哥甘小方，由甘小方转交甘某七。3.如甘某七无力抚养孩子，可以将孩子抚养权变更给被告，被告自行承担抚养费。", "evidence": {"plaintiff_evidence": {"evidence_1": {"evidence": "《离婚证》", "dispute": "无争议"}, "evidence_2": {"evidence": "《离婚协议》", "dispute": "无争议"}, "evidence_3": {"evidence": "《常住人口登记卡》", "dispute": "无争议"}, "evidence_4": null, "evidence_5": null, "evidence_6": null, "evidence_7": null, "evidence_8": null, "evidence_9": null, "evidence_10": null}, "defendant_evidence": {"evidence_1": {"evidence": "转账截屏", "dispute": "证明抚养费已经支付部分", "name": null}, "evidence_2": null, "evidence_3": null, "evidence_4": null, "evidence_5": null, "evidence_6": null, "evidence_7": null, "evidence_8": null, "evidence_9": null}}, "other_statement": {"plaintiff": {"plaintiff_1": ""}, "defendant": {"defendant_1": ""}}}
+
+proposed answer: 在审查判决时，考虑到被告提供的部分支付证据，但缺乏原告亲属的确认，可能影响证据的完整性。此外，被告声称无力一次性支付全部抚养费，这一情况需要在判决中予以考虑。为了确保判决的公正性，需要进一步核实被告的支付能力和原告亲属对转账的确认。
+
+Answer:判决如下：
+1. 被告需支付原告2018年10月至2023年6月期间的抚养费，扣除已支付的6230元，剩余金额为21770元。被告可申请分期支付，具体支付计划需经法院批准。
+2. 被告需自2024年10月起每月支付500元抚养费，直至孩子年满18周岁。
+3. 本案诉讼费由被告承担。
+[TOO_HARD]
+Suggestion: 需要原告亲属的声明以确认被告所述转账的接收情况，并评估被告的支付能力。
+Extracted answer: 判决如下：
+Correct answer: ['被告李某英支付原告甘某梨截止2023年6月欠付的抚养费21770元，于本判决生效之日起三十日内履行', '被告李某英自2023年7月1日起每月支付原告甘某梨抚养费500元，直至原告甘某梨年满十八周岁为止', '驳回原告甘某梨的其他诉讼请求', '案件受理费100元，减半收取计50元，由被告李某英负担']
+Question: 你是一名严谨、公正的审判长，你的任务是：根据原告和被告的陈述以及一些额外的信息，生成相应的说理内容，给出最终判决。请你始终保持中立、专业、公正的审判风格，不得偏袒任何一方。请用中文输出你的内容。
+你可以获得到的信息：{"category": "婚姻家庭", "specific_characters": {"plaintiff": {"name": "甘某梨", "address": "云南省普洱市澜沧拉祜族自治县", "representative": null, "gender": "女", "ethnicity": "拉祜族", "birth_date": "20xx年xx月xx日"}, "defendant": {"name": "李某英", "address": "云南省普洱市澜沧拉祜族自治县", "representative": null, "gender": "女", "ethnicity": "彝族", "birth_date": "1983年4月16日"}}, "plaintiff_claim": ["判令被告支付2018年10月至2023年6月的孩子抚养费28000元（500元／月×56个月）", "判令被告按照离婚协议规定，支付原告抚养费，直至18岁止", "本案诉讼费由被告承担"], "plaintiff_case_details": "原告的父、母因感情不和于2018年10月协议离婚，离婚后原告由父亲抚养，被告每月承担原告抚养费500元。父母离婚已经五年，五年来，被告未支付原告的抚养费。原告多次催要，被告以各种借口一直未支付。", "defendant_defence": "1.不同意支付28000元抚养费。被告与甘某七于2018年10月8日办理离婚手续，协议离婚时口头说过被告在自己能力范围内支付抚养费。离婚后被告看望孩子时受到甘某七阻挠，被告支付抚养费时，甘某七表示不需要支付，之后被告陆续将抚养费转给甘某七的姐姐代为转交。离婚后被告主动联系甘某七家人支付抚养费，其中转给甘某七姐姐王静如2500元，转给甘某七大哥甘小方2450元，转给甘某七姐姐甘小三1280元。被告没有履行能力，无法一次性支付原告主张的高额抚养费。2.被告愿意自2024年10月起每月支付孩子抚养费500元，直至孩子年满十八周岁。支付方式为转给甘某七的哥哥甘小方，由甘小方转交甘某七。3.如甘某七无力抚养孩子，可以将孩子抚养权变更给被告，被告自行承担抚养费。", "evidence": {"plaintiff_evidence": {"evidence_1": {"evidence": "《离婚证》", "dispute": "无争议"}, "evidence_2": {"evidence": "《离婚协议》", "dispute": "无争议"}, "evidence_3": {"evidence": "《常住人口登记卡》", "dispute": "无争议"}, "evidence_4": null, "evidence_5": null, "evidence_6": null, "evidence_7": null, "evidence_8": null, "evidence_9": null, "evidence_10": null}, "defendant_evidence": {"evidence_1": {"evidence": "转账截屏", "dispute": "证明抚养费已经支付部分", "name": null}, "evidence_2": null, "evidence_3": null, "evidence_4": null, "evidence_5": null, "evidence_6": null, "evidence_7": null, "evidence_8": null, "evidence_9": null}}, "other_statement": {"plaintiff": {"plaintiff_1": ""}, "defendant": {"defendant_1": ""}}}
+
+proposed answer: The feedback indicates that the judgment is well-structured and addresses the key issues, including the need for additional evidence from the relatives to verify the defendant's claims. The judgment also clearly outlines future payment obligations and provides a solution for potential changes in custody. Therefore, the judgment does not require further refinement as it already incorporates the necessary elements for a fair and thorough examination of the case.
+
+Answer:判决如下：
+
+1. 被告李某英应支付原告甘某梨2018年10月至2023年6月期间的抚养费，具体金额需根据进一步核实的证据确定。为此，需提供甘某七的亲属（王静如、甘小方、甘小三）的直接陈述或证词，以核实被告所称的转账支付。
+
+2. 被告李某英自2024年10月起，每月支付500元抚养费，直至孩子年满十八周岁。
+
+3. 如原告甘某梨无力抚养孩子，可申请变更抚养权，由被告李某英承担抚养责任。
+
+4. 本案诉讼费由被告李某英承担。
+Extracted answer: 判决如下：
+Correct answer: ['被告李某英支付原告甘某梨截止2023年6月欠付的抚养费21770元，于本判决生效之日起三十日内履行', '被告李某英自2023年7月1日起每月支付原告甘某梨抚养费500元，直至原告甘某梨年满十八周岁为止', '驳回原告甘某梨的其他诉讼请求', '案件受理费100元，减半收取计50元，由被告李某英负担']

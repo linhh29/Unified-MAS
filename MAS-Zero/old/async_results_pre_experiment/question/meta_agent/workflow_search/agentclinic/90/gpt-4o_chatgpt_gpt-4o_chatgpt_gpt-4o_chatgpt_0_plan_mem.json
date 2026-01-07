@@ -1,0 +1,17 @@
+[
+    {
+        "Diagnosis: Post-tympanoplasty residual inflammation or irritation, possibly exacerbated by stress and poor sleep quality. Treatment Plan: 1) Pain management with analgesics as needed. 2) Monitor for signs of infection or worsening symptoms. 3) Consider an MRI of the brainstem and cerebellopontine angle to rule out underlying causes if symptoms persist. 4) Advise on stress management techniques and sleep hygiene improvements to reduce stress-related symptoms.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Diagnosis: Post-tympanoplasty residual inflammation or nerve irritation, possibly exacerbated by stress and poor sleep quality. Treatment Plan: 1) Pain management with analgesics as needed. 2) Follow-up with an ENT specialist to monitor for local issues or complications. 3) Consider an MRI of the brainstem and cerebellopontine angle if symptoms persist to rule out neurological causes. 4) Implement stress management techniques and improve sleep hygiene to address stress-related symptoms.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Diagnosis: Post-tympanoplasty residual mechanical issues, possibly involving Eustachian tube dysfunction or scar tissue formation, with stress and poor sleep quality as exacerbating factors. Treatment Plan: 1) Follow-up with an ENT specialist to evaluate for mechanical issues and assess for potential complications. 2) Pain management with analgesics as needed. 3) Monitor for signs of infection or worsening symptoms. 4) Implement stress management techniques and improve sleep hygiene to support overall well-being. 5) Consider an MRI of the brainstem and cerebellopontine angle if symptoms persist despite addressing mechanical issues. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Final Diagnosis: The patient is likely experiencing post-tympanoplasty complications, potentially involving inflammation, scar tissue formation, or nerve irritation. Stress and poor sleep quality may exacerbate these symptoms.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Final Diagnosis: The patient is experiencing post-tympanoplasty complications, likely involving residual inflammation, possible middle ear effusion, scar tissue formation, or nerve irritation, with stress and poor sleep quality exacerbating these symptoms. Treatment Plan: 1) Pain management with analgesics as needed. 2) Follow-up with an ENT specialist to assess for middle ear effusion, scar tissue, or other mechanical issues. 3) Tympanometry to evaluate middle ear function and Eustachian tube dysfunction. 4) Monitor for signs of infection or worsening symptoms. 5) Consider an MRI of the brainstem and cerebellopontine angle if symptoms persist to rule out neurological causes. 6) Implement stress management techniques and improve sleep hygiene to reduce exacerbating factors. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

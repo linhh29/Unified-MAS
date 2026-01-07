@@ -1,0 +1,17 @@
+[
+    {
+        "The final diagnosis is validated as: 1. Myocardial contusion 2. Rib contusion": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Myocardial contusion is the likely diagnosis, but rib contusion is incorrect. Consider other soft tissue injuries or cardiac injury without structural damage.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis should consider myocardial contusion as well as other potential cardiac injuries or conditions, such as stress-induced cardiomyopathy, given the elevated troponins and pulmonary capillary wedge pressure. A broader differential diagnosis is warranted.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis should focus on myocardial contusion due to the trauma, given the elevated troponins and pulmonary capillary wedge pressure, with less emphasis on stress-induced cardiomyopathy. A broader differential diagnosis is prudent, but the primary consideration should be trauma-related cardiac injury.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis should focus on myocardial contusion due to the trauma, given the elevated troponins and pulmonary capillary wedge pressure, but it is important to consider other potential cardiac conditions such as stress-induced cardiomyopathy. Further investigation is warranted to rule out other causes of elevated troponins. A broader differential diagnosis is prudent, but the primary consideration should be trauma-related cardiac injury.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

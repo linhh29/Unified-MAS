@@ -46,8 +46,8 @@ def sum_score(file_path: str) -> float:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--file", type=str, default='/data/qin/lhh/Unified-MAS/MAS-Zero/async_results/question/meta_agent/workflow_search/j1eval/gpt-4o_chatgpt_gpt-4o_chatgpt_oracle.results_cost.txt', help="Path to the results_cost.txt file")
-    parser.add_argument("--score-file", type=str, default='/data/qin/lhh/Unified-MAS/MAS-Zero/async_results/question/meta_agent/workflow_search/j1eval/gpt-4o_chatgpt_gpt-4o_chatgpt_self.results_5', help="Path to the results file containing SCORE values")
+    parser.add_argument("--file", type=str, default='/data/qin/lhh/Unified-MAS/MAS-Zero/async_results_unified_gemini-3-flash-preview/question/meta_agent/workflow_search/travelplanner/gemini-3-flash-preview_gemini-3-flash-preview_oracle.results_cost.txt', help="Path to the results_cost.txt file")
+    parser.add_argument("--score-file", type=str, default='/data/qin/lhh/Unified-MAS/MAS-Zero/async_results_unified_gemini-3-flash-preview/question/meta_agent/workflow_search/travelplanner/gemini-3-flash-preview_gemini-3-flash-preview_self.results_5', help="Path to the results file containing SCORE values")
     args = parser.parse_args()
 
     total = sum_costs(args.file)

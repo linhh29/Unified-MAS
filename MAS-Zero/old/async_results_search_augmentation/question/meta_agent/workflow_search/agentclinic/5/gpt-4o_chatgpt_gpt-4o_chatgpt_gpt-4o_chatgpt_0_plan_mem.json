@@ -1,0 +1,17 @@
+[
+    {
+        "Final Diagnosis: Schizophrenia": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Delusional disorder": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "1. Schizoaffective disorder 2. Mood disorder with psychotic features ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The vignette does not provide sufficient information to refine the diagnosis without considering schizophrenia or related disorders. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Schizophreniform disorder": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

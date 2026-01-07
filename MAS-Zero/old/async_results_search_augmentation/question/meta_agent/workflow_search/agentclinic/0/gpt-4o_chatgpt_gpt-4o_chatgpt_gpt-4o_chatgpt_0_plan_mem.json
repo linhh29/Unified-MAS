@@ -1,0 +1,17 @@
+[
+    {
+        "The final diagnosis is malignant melanoma, confirmed by the skin biopsy report.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "The final diagnosis should be reconsidered as the task indicates the initial conclusion of malignant melanoma is incorrect. Further investigation into the biopsy interpretation or consideration of other clinical factors is necessary. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Malignant melanoma": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Malignant melanoma remains the final diagnosis based on the clinical data and biopsy results. ": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    },
+    {
+        "Malignant melanoma is the most likely diagnosis based on the biopsy findings and clinical presentation. Alternative diagnoses are less likely.": "95% Bootstrap Confidence Interval: (0.0%, 0.0%), Median: 0.0%"
+    }
+]

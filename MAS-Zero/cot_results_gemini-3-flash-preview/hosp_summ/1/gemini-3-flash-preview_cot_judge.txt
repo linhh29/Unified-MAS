@@ -1,0 +1,260 @@
+Question: 
+Patient Records: Input:
+age: 31. gender: M.  
+Name:  ___                Unit No:   ___
+ 
+Admission Date:  ___              Discharge Date:   ___
+ 
+Date of Birth:  ___             Sex:   M
+ 
+Service: SURGERY
+ 
+Allergies: 
+No Known Allergies / Adverse Drug Reactions
+ 
+Attending: ___.
+ 
+Chief Complaint:
+Chronic ulcerative colitis, medically refractory.
+
+  
+
+ 
+Major Surgical or Invasive Procedure:
+Abdominal colectomy, ileostomy.
+
+ 
+History of Present Illness:
+___ with medically-refractory ulcerative colitis, who presented 
+this admission for total abdominal colectomy with ileoanal pouch 
+or end ileostomy.
+ 
+Past Medical History:
+PMH: h/o C. Diff colitis ___, Ulcerative Colitis ___
+
+PSH: appendectomy ___, Right hand/finger debridement
+ 
+Social History:
+___
+Family History:
+Mother and Brother with IBS. No FH of colon CA, celiac or IBD.  
+ 
+Physical Exam:
+98.5  97.7  61  138/72  15  100RA
+
+GEN: NAD, A&Ox3
+CV: RRR
+PULM: CTAB
+ABD: soft, appropriate ___ ttp, non-distended
+EXT: WWP
+Neuro: grossly intact
+Incision: c/d/i, no evidence of infection
+Ostomy: healthy-appearing stoma, soft green stool and gas 
+ 
+Pertinent Results:
+___ 05:02AM BLOOD WBC-16.8*# RBC-4.25* Hgb-12.7* Hct-39.7* 
+MCV-93 MCH-29.9 MCHC-32.1 RDW-13.6 Plt ___
+___ 05:02AM BLOOD Glucose-95 UreaN-9 Creat-1.1 Na-135 K-4.1 
+Cl-102 HCO3-27 AnGap-10
+___ 05:03AM BLOOD Calcium-8.0* Phos-2.7 Mg-1.8
+
+___ Pathology 
+DIAGNOSIS:  
+1. Abdominal colon, colectomy (A-L): 
+Chronic active colitis. Unremarkable ileum. 
+2. Sigmoid colon, colectomy (M-X): 
+Chronic active colitis.  
+3. Omentum, resection (Y-AA): 
+Unremarkable omentum. 
+Note: Mucosal granulomas are present focally related to injured 
+crypts. This finding is not specific and may be related to crypt 
+rupture in any inflammatory condition, including ulcerative 
+colitis. No fissures or transmural inflammation are seen. 
+
+ 
+Brief Hospital Course:
+Patient was brought to the pre-operative area, evaluated by 
+anesthesia, and taken to the OR on ___ and underwent a 
+total abdominal colectomy and end ileostomy as the small bowel 
+was unable to be brought down for J-pouch (please refer to 
+operative note for complete detail). Patient tolerated to the 
+procedure well and was brought to the PACU for a short recovery 
+before being brought to the floor.  
+
+Neuro: Post operatively the patient received an epidural with 
+good effect and adequate pain control of operative sight but had 
+reports of shoulder pain and was started on IV tylenol.  Patient 
+continued to report pain and was started on toradol on POD 1 for 
+a 3 day coarse with good effect.  On POD1 patient reported some 
+right leg motor weakness when attempting to ambulate and 
+epidural was turned down by the Acute Pain Service with 
+improvement of function, with full restoration after epidural 
+was discontinued.  On POD 2 when tolerating oral intake, the 
+patient was transitioned to PO oxycodone and tylenol with good 
+effect.
+
+CV: The patient remained stable from a cardiovascular 
+standpoint; vital signs were routinely monitored.  Patient 
+reported shoulder pain post-operatively that radiated into his 
+chest and an EKG was obtained which was sinus rhythm without 
+evidence of ischemia, with a few PVCs.  Electrolytes were 
+normal.  Pain was noted to be sharp in character and unrelated 
+to exertion.
+
+Pulmonary: The patient remained stable from a pulmonary 
+standpoint; vital signs were routinely monitored. Good pulmonary 
+toilet, early ambulation and incentive spirometry were 
+encouraged throughout hospitalization.
+
+GI/GU/FEN: Post-operatively, the patient was made NPO with IV 
+fluids. Diet was advanced to sips on POD1, and to full liquids 
+on POD2, which was well tolerated.  Patient began to have stool 
+and gas in ostomy and diet was advanced to POD2 to a regular 
+diet.  Ostomy continued to put out gas and stool throughout this 
+admission but was not putting out large volumes.  Patient was 
+kept until POD 5 to continue ostomy teaching and to monitor 
+ostomy output.  Patient's intake and output were closely 
+monitored, and IV fluid was adjusted when necessary.  
+Electrolytes were routinely followed, and repleted when 
+necessary.  Patient retained a foley with his epidural, and 
+foley was discontinued on POD2 after epidural was pulled and 
+patient voided without incident.
+
+ID: The patient's white blood count and fever curves were 
+closely watched for signs of infection, of which there were 
+none.  The incision remained clean, dry, and intact throughout 
+this admission. 
+
+Endocrine: The patient's blood sugar was monitored throughout 
+his stay; insulin dosing was adjusted accordingly.
+
+Hematology: The patient's complete blood count was examined 
+routinely; no transfusions were required.
+
+Prophylaxis: The patient received subcutaneous heparin and 
+venodyne boots were used during this stay; was encouraged to get 
+up and ambulate as early as possible.
+
+At the time of discharge, the patient was doing well, afebrile 
+with stable vital signs.  The patient was tolerating a regular 
+diet, ambulating, voiding well, and pain was well controlled.  
+The patient received discharge teaching and ___ 
+instructions with understanding verbalized and agreement with 
+the discharge plan.  Patient was set up with a visiting nurse 
+and stated ___ continue to follow up with the ostomy team 
+for his continued care. 
+ 
+Medications on Admission:
+MVI, probiotics
+ 
+Discharge Medications:
+1. acetaminophen 500 mg Tablet Sig: Two (2) Tablet PO Q6H (every 
+6 hours).
+Disp:*30 Tablet(s)* Refills:*2*
+2. oxycodone 5 mg Tablet Sig: ___ Tablets PO every ___ hours as 
+needed for pain.
+Disp:*40 Tablet(s)* Refills:*0*
+
+ 
+Discharge Disposition:
+Home With Service
+ 
+Facility:
+___
+ 
+Discharge Diagnosis:
+Chronic ulcerative colitis, medically refractory.
+
+ 
+Discharge Condition:
+Mental Status: Clear and coherent.
+Level of Consciousness: Alert and interactive.
+Activity Status: Ambulatory - Independent.
+
+ 
+Discharge Instructions:
+___ were admitted to the inpatient general surgery unit. ___ 
+have adequate pain control and have a tolerated a regular diet 
+and may go home to continue your recovery.  
+
+Please continue to monitor your ileostomy output. The most 
+common complication from a new ileostomy placement is 
+dehydration. The output from the stoma is stool from the small 
+intestine and the water content is very high. The stool is no 
+longer passing through the large intestine which is where the 
+water from the stool is reabsorbed into the body and the stool 
+becomes formed. ___ must measure your ileostomy output for the 
+next few weeks. The output from the stoma should not be more 
+than 1200 cc or less than 500 cc. If ___ find that your output 
+has become too much or too little, please call the office for 
+advice. The office nurse can recommend medications to increase 
+or slow the ileostomy output. Keep yourself well hydrated, if 
+___ notice your ileostomy output increasing, take in more 
+electrolyte drink such as gatoraide. Please monitor yourself for 
+signs and symptoms of dehydration including: dizziness 
+(especially upon standing), weakness, dry mouth, headache, or 
+fatigue. If ___ notice these symptoms please call the office or 
+return to the emergency room for evaluation if these symptoms 
+are severe. ___ may eat a modified regular diet with your new 
+ileostomy.  
+
+Please monitor the appearance of the ostomy and stoma and care 
+for it as instructed by the wound/ostomy nurses. ___ stoma 
+(intestine that protrudes outside of your abdomen) should be 
+beefy red or pink, it may ooze small amounts of blood at times 
+when touched and this should subside with time. The skin around 
+the ostomy site should be kept clean and intact. Monitor the 
+skin around the stoma for buldging or signs of infection listed 
+above. Please care for the ostomy as ___ have been instructed by 
+the wound/ostomy nurses. ___ will be able to make an appointment 
+with the ostomy nurse in the clinic. A visiting nurse ___ who 
+will help ___ monitor your ostomy until ___ are comfortable 
+caring for it on your own. ___ have a long vertical incision on 
+your abdomen that is closed with staples. This incision can be 
+left open to air or covered with a dry sterile gauze dressing if 
+the staples become irritated from clothing. The staples will 
+stay in place until your first post-operative visit at which 
+time they can be removed in the clinic, most likely by the 
+office nurse. Please monitor the incision for signs and symptoms 
+of infection including: increasing redness at the incision, 
+opening of the incision, increased pain at the incision line, 
+draining of white/green/yellow/foul smelling drainage, or if ___ 
+develop a fever. 
+
+Please call the office if ___ develop these symptoms or go to 
+the emergency room if the symptoms are severe.  ___ may shower, 
+let the warm water run over the incision line and pat the area 
+dry with a towel, do not rub. 
+
+No heavy lifting for at least 6 weeks after surgery unless 
+instructed otherwise by your surgeon.  
+
+___ will be prescribed a small amount of the pain medication. 
+___ may take Tylenol as recommended for pain. Please do not take 
+more than 4000 mg of Tylenol daily. Do not drink alcohol while 
+taking narcotic pain medication or Tylenol. Please do not drive 
+a car while taking narcotic pain medication. 
+
+Thank ___ for allowing us to participate in your care. Our hope 
+is that ___ will have a quick return to your life and usual 
+activities. Best wishes.
+ 
+Followup Instructions:
+___
+ 
+
+Output:
+
+Summarize the key diagnostic information and significant results based on the patients’ multiple health (long) records during hospitalization.
+At the end, provide your final answer in a new line starting with 'Answer:' followed by a summary.
+proposed answer: **Diagnostic Information:**
+The patient is a 31-year-old male with medically refractory chronic ulcerative colitis. He underwent a total abdominal colectomy and end ileostomy after an attempted ileoanal pouch (J-pouch) was unsuccessful due to insufficient small bowel length. Histopathology of the resected abdominal and sigmoid colon confirmed chronic active colitis with focal mucosal granulomas (consistent with crypt rupture) and an unremarkable ileum and omentum.
+
+**Significant Results:**
+*   **Laboratory Findings:** Postoperative labs showed leukocytosis (WBC 16.8 K/uL), mild anemia (Hgb 12.7 g/dL, Hct 39.7%), and slightly low calcium (8.0 mg/dL). Electrolytes and renal function were otherwise stable (Creatinine 1.1, Na 135, K 4.1).
+*   **Imaging/Tests:** An EKG performed for postoperative chest and shoulder pain showed sinus rhythm with rare premature ventricular contractions (PVCs) and no evidence of ischemia.
+*   **Clinical Events:** The patient experienced temporary right leg motor weakness associated with epidural anesthesia, which fully resolved after the epidural was discontinued. The stoma was noted to be healthy and functional (producing gas and soft green stool) prior to discharge.
+
+Answer: A 31-year-old male with medically refractory chronic ulcerative colitis underwent a total abdominal colectomy and end ileostomy. Pathology confirmed chronic active colitis. Despite a postoperative course involving temporary epidural-related leg weakness and non-ischemic chest pain, the patient was discharged in stable condition, tolerating a regular diet with a functioning ostomy.
+Extracted answer: A 31-year-old male with medically refractory chronic ulcerative colitis underwent a total abdominal colectomy and end ileostomy. Pathology confirmed chronic active colitis. Despite a postoperative course involving temporary epidural-related leg weakness and non-ischemic chest pain, the patient was discharged in stable condition, tolerating a regular diet with a functioning ostomy.
+Correct answer: The patient is a 31-year-old male who was admitted for a total abdominal colectomy with ileoanal pouch or end ileostomy due to chronic ulcerative colitis, which was medically refractory. The patient has a history of C. Diff colitis, ulcerative colitis, appendectomy, and right hand/finger debridement. He has no known allergies or adverse drug reactions. The patient underwent the procedure well and was discharged with good pain control. At discharge, the patient was tolerating a regular diet, ambulating, voiding well, and pain was well controlled. The patient was prescribed acetaminophen and oxycodone for pain management. He was also instructed to monitor his ileostomy output and to seek medical attention if he experiences dehydration symptoms.
