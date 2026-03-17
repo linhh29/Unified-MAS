@@ -1,4 +1,4 @@
-# 🚀 Unified_MAS
+# 🚀 Unified-MAS
 
 <div align="center">
 
