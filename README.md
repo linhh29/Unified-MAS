@@ -13,7 +13,7 @@
 
 ## 📄 Paper (arXiv)
 
-> 🔗 **Link placeholder:** `[Coming Soon]`
+> 🔗 **Link placeholder:** `[Coming Soon] (xx)`
 
 
 ---
