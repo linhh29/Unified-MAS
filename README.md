@@ -13,10 +13,14 @@
 
 ## 📄 Paper (arXiv)
 
-> 🔗 **Link placeholder:** `[Coming Soon](xx)`
->
-> Replace `xx` with your final arXiv URL, for example:  
-> `https://arxiv.org/abs/xxxx.xxxxx`
+> 🔗 **Link placeholder:** `[Coming Soon]`
+
+
+---
+
+<p align="center">
+  <img src="assets/background_preview.png"/ width="1200">
+</p>
 
 ---
 
@@ -45,6 +49,12 @@
 - `run.sh`: batch runner example
 - `debug.py`: one-sample debug entry for pipeline tracing
 - `intermediate_result/`: all generated artifacts (search, optimize, rounds)
+
+---
+
+<p align="center">
+  <img src="assets/method_preview.png"/ width="1200">
+</p>
 
 ---
 
