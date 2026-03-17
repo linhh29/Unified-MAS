@@ -2,7 +2,7 @@
 
 <div align="center">
 
-### 🧠 Search-Driven Pipeline for Node Generation and Optimization
+### 🧠 Domain-specific Node Generation and Optimization
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![LLM](https://img.shields.io/badge/LLM-OpenAI%20Compatible-10A37F?logo=openai&logoColor=white)
