@@ -13,7 +13,7 @@
 
 ## 📄 Paper (arXiv)
 
-> 🔗 **Link placeholder:** `[Coming Soon] (xx)`
+> 🔗 [**Link**](https://arxiv.org/abs/2603.21475)
 
 
 ---
