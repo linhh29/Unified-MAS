@@ -11,6 +11,16 @@
 
 </div>
 
+## Table of Contents
+
+- [1. Overview](#1-overview)
+- [2. Setup](#2-setup)
+- [3. Demo Inference (Custom Question)](#3-demo-inference-custom-question)
+- [4. Full Pipeline (Paper Benchmarks)](#4-full-pipeline-paper-benchmarks)
+- [5. Tips](#5-tips)
+
+---
+
 ## 1. Overview
 
 ### Paper (arXiv)
@@ -243,5 +253,14 @@ python debug.py \
 <div align="center">
 
 ### 🌟 If you find this project helpful, please consider giving us a star and citing our paper — we'd really appreciate it!
+
+```bibtex
+@article{lin2026unified,
+  title={Unified-MAS: Universally Generating Domain-Specific Nodes for Empowering Automatic Multi-Agent Systems},
+  author={Lin, Hehai and Yan, Yu and Wang, Zixuan and Xu, Bo and Wang, Sudong and Huang, Weiquan and Zhao, Ruochen and Li, Minzhi and Qin, Chengwei},
+  journal={arXiv preprint arXiv:2603.21475},
+  year={2026}
+}
+```
 
 </div>
