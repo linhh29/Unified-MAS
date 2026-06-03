@@ -1,4 +1,7 @@
-# 🚀 Unified-MAS
+# 🚀 Unified-MAS: Universally Generating Domain-Specific Nodes for Empowering Automatic Multi-Agent Systems.
+
+
+<div align="center">
 
 ### 🧠 Domain-specific Node Generation and Optimization
 
@@ -8,6 +11,8 @@
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![LLM](https://img.shields.io/badge/LLM-OpenAI%20Compatible-10A37F?logo=openai&logoColor=white)
 ![Pipeline](https://img.shields.io/badge/Mode-Search%20%2B%20Optimize-8A2BE2)
+
+</div>
 
 ---
 
