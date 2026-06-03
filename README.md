@@ -1,15 +1,22 @@
 # 🚀 Unified-MAS
 
-<div align="center">
-
 ### 🧠 Domain-specific Node Generation and Optimization
+
+[![Paper](https://img.shields.io/badge/Paper-arXiv-b31b1b?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2603.21475)
+[![Code](https://img.shields.io/badge/Code-GitHub-181717?logo=github&logoColor=white)](https://github.com/linhh29/Unified-MAS)
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![LLM](https://img.shields.io/badge/LLM-OpenAI%20Compatible-10A37F?logo=openai&logoColor=white)
 ![Pipeline](https://img.shields.io/badge/Mode-Search%20%2B%20Optimize-8A2BE2)
 
+---
 
-</div>
+## 🥳 News
+
+- **[2026-03-26]** We release our **paper** on arXiv: [Unified-MAS: Universally Generating Domain-Specific Nodes for Empowering Automatic Multi-Agent Systems.](https://arxiv.org/abs/2603.21475)
+- **[2026-06-03]** We release the **code** and **demo inference** entry. Try your custom question with `bash run_demo_inference.sh`.
+
+---
 
 ## Table of Contents
 
@@ -22,12 +29,6 @@
 ---
 
 ## 1. Overview
-
-### Paper (arXiv)
-
-> 🔗 [**Link**](https://arxiv.org/abs/2603.21475)
-
----
 
 <p align="center">
   <img src="assets/background_preview.png"/ width="1200">
@@ -249,9 +250,6 @@ python debug.py \
 
 ---
 
-
-<div align="center">
-
 ### 🌟 If you find this project helpful, please consider giving us a star and citing our paper — we'd really appreciate it!
 
 ```bibtex
@@ -262,5 +260,3 @@ python debug.py \
   year={2026}
 }
 ```
-
-</div>
