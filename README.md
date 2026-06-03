@@ -11,10 +11,11 @@
 
 </div>
 
-## 📄 Paper (arXiv)
+## 1. Overview
+
+### Paper (arXiv)
 
 > 🔗 [**Link**](https://arxiv.org/abs/2603.21475)
-
 
 ---
 
@@ -24,9 +25,9 @@
 
 ---
 
-## ✨ What This Project Does
+### What This Project Does
 
-`Unified_MAS` provides a two-stage workflow:
+`Unified-MAS` provides a two-stage workflow:
 
 1. 🔎 **Search Stage** (`run_search.py`)  
    - Infer task intent from dataset samples  
@@ -40,15 +41,22 @@
    - Debug/fix failing nodes  
    - Iteratively optimize weakest nodes across epochs
 
+For a **quick try on your own question** (search only, no optimize), use **`demo_inference.py`** — see [Section 3](#3-demo-inference-custom-question).  
+To reproduce the **full search + optimize pipeline** on paper benchmarks, see [Section 4](#4-full-pipeline-paper-benchmarks).
+
 ---
 
-## 🗂️ Key Files
+### Key Files
 
-- `run_search.py`: build search strategy and generate nodes
-- `run_optimize.py`: run/optimize generated nodes with epoch loop
-- `run.sh`: batch runner example
-- `debug.py`: one-sample debug entry for pipeline tracing
-- `intermediate_result/`: all generated artifacts (search, optimize, rounds)
+| File | Description |
+|------|-------------|
+| `demo_inference.py` | Search-only demo: custom question → generated nodes |
+| `run_demo_inference.sh` | Shell launcher for demo inference (question + model) |
+| `run_search.py` | Full search stage on a benchmark dataset |
+| `run_optimize.py` | Execute and optimize generated nodes |
+| `run.sh` | Batch runner (search + optimize for all datasets) |
+| `debug.py` | One-sample debug entry for pipeline tracing |
+| `intermediate_result/` | All generated artifacts (search, optimize, rounds) |
 
 ---
 
@@ -58,27 +66,20 @@
 
 ---
 
-## 🧰 Environment Setup
+## 2. Setup
 
-### 1) Create and activate virtual environment
+### Environment
 
 ```bash
 conda create -n unified_mas python=3.10 -y
 conda activate unified_mas
 python -m pip install --upgrade pip
-```
-
-### 2) Install dependencies
-
-```bash
 pip install openai requests beautifulsoup4 tqdm scholarly torch transformers
 ```
 
 > 💡 If you already use a managed environment/conda, install the same packages there.
 
----
-
-## 🔐 Required Environment Variables
+### Required Environment Variables
 
 Set API credentials before running:
 
@@ -91,15 +92,75 @@ export GITHUB_TOKEN="xx"
 
 ---
 
-## ▶️ Quick Start
+## 3. Demo Inference (Custom Question)
 
-### Option A: Run all datasets with one script
+Use this when you want to try Unified-MAS on **your own task** without a benchmark dataset or the optimize stage.
+
+Only two inputs are required: **question** and **model name**. Other hyperparameters are defined at the top of `demo_inference.py` (`TEMPERATURE`, `MAX_SEARCH_RESULTS`, etc.).
+
+**Option A — shell script (recommended)**
+
+```bash
+bash run_demo_inference.sh \
+  "Design a multi-agent pipeline to analyze legal contracts and extract key obligations." \
+  gemini-3-pro-preview
+```
+
+**Option B — Python directly**
+
+```bash
+python demo_inference.py \
+  --question "Design a multi-agent pipeline to analyze legal contracts and extract key obligations." \
+  --model gemini-3-pro-preview
+```
+
+**What it does**
+
+1. Extracts task keywords from your question  
+2. Runs multi-strategy web search (Google, Scholar, GitHub)  
+3. Analyzes retrieved content  
+4. Generates pipeline nodes → `intermediate_result/demo/custom/search/generated_nodes.json`
+
+**Output layout**
+
+```text
+intermediate_result/demo/custom/search/
+├── custom_question.txt
+├── task_keywords.txt
+├── search_queries.txt
+├── multi_turn_search_log.jsonl
+├── fetched_contents.json
+├── strategy_analysis.json
+└── generated_nodes.json
+```
+
+---
+
+## 4. Full Pipeline (Paper Benchmarks)
+
+This section covers the **search + optimize** workflow used in the paper on benchmark datasets.
+
+### Supported Dataset Names
+
+Use one of:
+
+- `j1eval`
+- `travelplanner`
+- `healthbench`
+- `deepfund`
+- `aime`
+
+Prepare the corresponding validation JSONL files (e.g. `xx/j1eval_validate.jsonl`) and pass them to `run_search.py` / `run_optimize.py`.
+
+### Run all datasets with one script
 
 ```bash
 bash run.sh
 ```
 
-### Option B: Run step-by-step manually
+This runs search and optimize sequentially for all paper datasets configured in `run.sh`.
+
+### Full pipeline — step by step
 
 #### Step 1 — Search + Node Generation
 
@@ -132,21 +193,7 @@ python run_optimize.py \
   --max_workers 50
 ```
 
----
-
-## 🧪 Supported Dataset Names
-
-Use one of:
-
-- `j1eval`
-- `travelplanner`
-- `healthbench`
-- `deepfund`
-- `aime`
-
----
-
-## 📦 Output Structure
+### Output structure
 
 Generated outputs are written under:
 
@@ -166,7 +213,9 @@ intermediate_result/<dataset>/
 
 ---
 
-## 🩺 Debug One Sample Quickly
+## 5. Tips
+
+### Debug One Sample Quickly
 
 Use `debug.py` to run a first-sample dry run and print node I/O:
 
@@ -179,11 +228,13 @@ python debug.py \
 
 ---
 
-## 🧠 Practical Tips
+### Practical Tips
 
 - `--max_concurrent` and `--max_workers` can heavily impact speed and API pressure.
 - First run can be expensive; start with fewer samples and fewer epochs.
-- To do a quick validation, use `--samples_per_epoch` in `run_optimize.py`.
+- For demo inference, use a focused `--question`; tune search behavior by editing constants in `demo_inference.py`.
+- Cached files under `intermediate_result/` are reused by default; set `FORCE_RERUN = True` in `demo_inference.py` to refresh.
+- To do a quick validation on benchmarks, use `--samples_per_epoch` in `run_optimize.py`.
 - Optimization supports resume mode via saved `rounds/` checkpoints.
 
 ---
@@ -191,7 +242,6 @@ python debug.py \
 
 <div align="center">
 
-### 🌟 If this helps your workflow, keep iterating with small datasets first.
+### 🌟 If you find this project helpful, please consider giving us a star and citing our paper — we'd really appreciate it!
 
 </div>
-
