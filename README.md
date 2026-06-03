@@ -14,7 +14,7 @@
 ## 🥳 News
 
 - **[2026-06-03]** We add **demo inference** entry. Try your custom question with `bash run_demo_inference.sh`.
-- **[2026-03-26]** We release **code** and **paper** on arXiv: [Unified-MAS: Universally Generating Domain-Specific Nodes for Empowering Automatic Multi-Agent Systems.](https://arxiv.org/abs/2603.21475)
+- **[2026-03-26]** We release **code** and **paper**: [Unified-MAS: Universally Generating Domain-Specific Nodes for Empowering Automatic Multi-Agent Systems.](https://arxiv.org/abs/2603.21475)
 
 
 ---
