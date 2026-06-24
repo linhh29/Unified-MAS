@@ -8,7 +8,7 @@
 [![Paper](https://img.shields.io/badge/Paper-arXiv-b31b1b?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2603.21475)
 [![Code](https://img.shields.io/badge/Code-GitHub-181717?logo=github&logoColor=white)](https://github.com/linhh29/Unified-MAS)
 [![Blog](https://img.shields.io/badge/Blog-Project%20Page-0078D4?logo=readthedocs&logoColor=white)](https://linhh29.github.io/blog/Unified-MAS/index.html)
-[![Demo](https://img.shields.io/badge/Demo-Pipeline%20Explorer-512BD4?logo=rocket&logoColor=white)](https://capacity-classification-tender-preventing.trycloudflare.com/)
+[![Demo](https://img.shields.io/badge/Demo-Pipeline%20Explorer-512BD4?logo=rocket&logoColor=white)](https://unified-mas-demo.hehailin.life/)
 
 </div>
 
