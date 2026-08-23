@@ -1,4 +1,4 @@
-# 🚀 EMNLP 2026 Unified-MAS: Universally Generating Domain-Specific Nodes for Empowering Automatic Multi-Agent Systems.
+# 🚀 Unified-MAS: Universally Generating Domain-Specific Nodes for Empowering Automatic Multi-Agent Systems.
 
 
 <div align="center">
@@ -16,6 +16,7 @@
 
 ## 🥳 News
 
+- **[2026-08]** Unified-MAS gets accepted by EMNLP 2026 Main.
 - **[2026-06-03]** We add **demo inference** entry. Try your custom question with `bash run_demo_inference.sh`.
 - **[2026-03-26]** We release **code** and **paper**: [Unified-MAS: Universally Generating Domain-Specific Nodes for Empowering Automatic Multi-Agent Systems.](https://arxiv.org/abs/2603.21475)
 
